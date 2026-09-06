@@ -1,12 +1,11 @@
-# OmniPro 220 — a technical product expert
+# OmniPro 220 — a technical expert for one welder
 
-A multimodal agent that answers deep questions about the Vulcan OmniPro 220 welder,
-built on the Claude Agent SDK. It cites the page, shows the figure, computes duty
-cycle deterministically, and refuses when the manuals don't cover something.
+Ask questions about the Vulcan OmniPro 220 and get answers that cite the page, show the
+figure, and refuse when the manual doesn't cover it. Built on the Claude Agent SDK.
 
-**You can also show it your weld.** Photograph the bead, and it matches yours against
-the manual's own diagnosis grid and tells you what to change — or tells you the weld is
-fine. That is multimodal *input*, which the brief did not ask for.
+**You can also show it your weld.** Take a photo of your bead and it compares yours
+against the manual's own diagnosis chart, tells you what to change — or tells you the
+weld is fine.
 
 ```bash
 git clone https://github.com/shiva-shivanibokka/prox-challenge
@@ -16,493 +15,484 @@ npm install
 npm run dev                   # http://localhost:3000
 ```
 
-No PDF parsing at startup, no index to build, no second API key, no vector database.
-The knowledge index is committed to the repo.
+Nothing is extracted at startup. No index to build, no second API key, no database.
 
-**Hosted demo:** https://omnipro-220-expert.vercel.app — bring your own Anthropic key
-(see below). Or just clone it; the setup above is genuinely two minutes.
-
----
-
-## The hosted demo is bring-your-own-key
-
-The deployment carries **no API key of its own**. A public URL wired to a personal key
-is a public URL spending someone's money, so the browser supplies a key instead:
-
-- Paste a key once per tab. It is held **in memory only** — no `localStorage`, no
-  `sessionStorage`, no cookie — so a refresh loses it. That is the right trade for
-  someone else's credential on a page they did not write.
-- It is sent only to this app's own `/api/chat` route, over HTTPS, as a header. It is
-  used for that one call and discarded: never logged, never written to disk, never
-  echoed back in a response. `/api/health` returns a boolean and nothing else.
-- Format is checked client- and server-side before anything is attempted.
-- Every question is capped at `MAX_BUDGET_USD` (default $0.50) so a runaway loop cannot
-  drain a key. Normal questions cost $0.02–0.06.
-
-**Running locally, none of this appears.** With `ANTHROPIC_API_KEY` in `.env` the server
-uses it directly and there is no prompt. The key gate only shows up when a deployment
-has no key of its own, which is exactly the hosted case.
-
-If you would rather not paste a key into someone else's page — a reasonable instinct —
-clone the repo and run it locally. The hosted URL exists to remove friction, not to
-replace that.
+**Live demo:** https://omnipro-220-expert.vercel.app — it asks for your own Anthropic
+key, because a public URL wired to my key would spend my money. The key is held in
+memory for that browser tab only: no cookie, no localStorage, no server storage. A
+refresh loses it. The interactive panel on the landing page works without any key.
 
 ---
 
-## The actual problem
+## The problem, in one paragraph
 
-The three PDFs in `files/` are not a text corpus with some pictures in it. Before
-writing anything I profiled them:
+Prox said they'd test three questions: duty cycle, porosity, polarity. **None of those
+answers exist as sentences in the manual.** A duty cycle is a grid of numbers. Polarity
+is a picture — on page 20 it's an *icon*, a drawing of a clamp under a minus sign, with
+no words at all. Porosity is a photo you compare your weld against.
 
-| File | Pages | Text layer | What's really there |
+So the obvious approach — chop the manual into text chunks, search the text, feed the
+best chunks to a model — quietly fails on exactly the questions being graded. It
+wouldn't error. It would give a confident, plausible, wrong answer. On a machine running
+mains voltage and compressed gas, that's the worst possible failure.
+
+Everything below follows from that.
+
+---
+
+## What I found before writing any code
+
+I profiled the files first. This changed the whole design.
+
+| File | Pages | Text? | What's really in it |
 |---|---|---|---|
-| `owner-manual.pdf` | 48 | Clean | Prose and tables fine. **Figures are vector art** — `get_images()` returns 0 on most figure pages, while `get_drawings()` returns thousands of primitives (p.47 has 26,144) |
-| `quick-start-guide.pdf` | 2 | ~570 chars total | Effectively pure diagram — and the only source that covers cable setup for all four processes |
-| `selection-chart.pdf` | 1 | **Zero characters** | The welding process selection chart. Invisible to every text pipeline |
-| `product-inside.webp` | — | It's a photograph | The Settings Chart printed inside the welder door. The owner's manual points readers to it **five times**, and it ships as a product shot in the repo root, not in `files/` |
+| `owner-manual.pdf` | 48 | Yes, clean | Prose and tables fine. But **the figures are vector drawings, not images** |
+| `quick-start-guide.pdf` | 2 | ~570 characters | Basically all diagram — and the only place all four processes' cable setups appear |
+| `selection-chart.pdf` | 1 | **Zero characters** | The "how to choose a process" chart. Completely invisible to text tools |
+| `product-inside.webp` | — | It's a photo | The Settings Chart inside the welder door. The manual points readers to it **five times** — and it isn't even in `files/` |
 
-Three consequences drove the whole design:
+Three things follow:
 
-**Figure extraction must render page regions, not extract embedded images.** A
-pipeline built on `get_images()` or `pdfimages` silently returns almost nothing here.
-That is the trap in this challenge.
+**1. You can't extract the figures the normal way.** They're drawn as thousands of tiny
+vector lines, not stored as pictures. Ask a PDF library for the embedded images on
+page 47 and you get **zero**. Ask for the drawings and you get **26,144**. Any pipeline
+built the usual way returns almost nothing here — and fails silently.
 
-**The most important single image has no text at all.** The selection chart is a
-six-question decision matrix that answers "which process should I use" — the exact
-question a first-time owner asks — and a text-only pipeline cannot see it.
+**2. The most important chart has no text at all.** The process selection chart answers
+"which welding process should I use", which is the first thing a new owner asks. A
+text-only system cannot see it.
 
-**Polarity lives in pictures.** On p.20 the polarity setting is an *icon* on an LCD
-screenshot: a ground-clamp glyph under `−`, a torch glyph under `+`. The extracted
-text says nothing about which socket.
+**3. Polarity lives in pictures.** Which cable goes in which socket is shown as icons on
+an LCD screenshot.
 
 ---
 
-## How the knowledge index is built
+## How the knowledge gets built
 
-`ingest/` runs offline. You never run it; its output is committed under `public/kb/`.
-This is what makes setup two minutes and what stops anyone paying to rebuild it.
+Everything in `ingest/` runs **once, on my machine, offline**. You never run it. The
+results are committed to the repo. That's why setup takes two minutes and why nobody
+pays to rebuild it.
 
-### 1. `extract.py` — text, figures, page images
+### Step 1 — `extract.py`: pull out text, figures and page images
 
-Figures are found by rasterising every vector primitive and raster rect into a coarse
-occupancy grid, dilating, and taking connected components. Those regions are then
-rendered at 200 DPI and cropped. Along the way:
+Since figures are vector art, they're found by drawing every vector shape onto a coarse
+grid, joining up the blobs that touch, and screenshotting those regions of the page at
+high resolution.
 
-- **Page chrome is detected by repetition.** The section tabs down the page edge shift
-  and re-highlight per page, so their bounding boxes never repeat exactly and a
-  naive frequency filter misses them. Their *x-band* is rock steady, so that is what
-  gets detected — columns inked on ≥70% of pages are chrome, not content. Guarded to
-  only run on documents with enough pages: on a 1-page PDF every column trivially
-  looks like chrome, which silently dropped the entire selection chart on the first
-  run.
-- **Labels are absorbed, paragraphs are not.** A crop without its callouts ("Power
-  Switch", "Left Knob") is useless, but a neighbouring paragraph must not drag the
-  crop across the page — so growth is capped at 1.6× the region's area.
-- **Repeated boilerplate is stripped from the text.** The same ten lines of header and
-  footer on 48 pages is pure noise in the model's context.
+A few details that mattered:
 
-The door Settings Chart is handled alongside the PDFs, with hand-specified region
-boxes. For one fixed 1200×1200 photograph a detector would be more code, more failure
-modes and no more accurate.
+- **Page furniture gets removed by spotting repetition.** The section tabs down the edge
+  of every page shift and re-highlight, so their exact position never repeats — but their
+  *column* does. Columns that are inked on nearly every page are chrome, not content.
+  This needed a guard: on a one-page PDF, every column trivially looks like chrome, which
+  silently deleted the entire selection chart the first time I ran it.
+- **Labels come along, paragraphs don't.** A crop without its callouts ("Power Switch",
+  "Left Knob") is useless, but a nearby paragraph mustn't drag the crop across the page.
+  So a region can grow by at most 1.6× while collecting labels.
+- **Repeated headers and footers are stripped** — the same ten lines on 48 pages is pure
+  noise in the model's context.
 
-Result: 52 pages, 134 figures (122 kept, 12 ruled decorative), 13 MB of WebP,
-22k tokens of text.
+Result: **52 pages, 134 figures, 13 MB of images, about 22,000 tokens of text.**
 
-### 2. `caption.py` — one vision pass per figure
+### Step 2 — `caption.py`: describe every figure once
 
-Each figure gets a caption written specifically to answer *"is this the image that
-settles the user's question?"* — a title, a kind, a summary, transcribed visible text,
-and a list of plain-language questions it answers. Whole-page and complex figures go
-to Opus 5; the rest to Haiku 4.5. Cached per figure, so a re-run costs nothing.
+Each figure gets a written description from a vision model — what it shows, what text is
+visible in it, and **the plain-language questions it answers**. Cached per figure, so
+re-running costs nothing. The selection chart came back as **54 transcribed rows** of its
+decision matrix: content that exists nowhere in any text layer is now searchable data.
 
-The selection chart came back as **54 transcribed rows** of its decision matrix.
-Content that exists nowhere in any text layer is now first-class searchable data.
+**One thing went wrong here, and fixing it shaped the architecture.** The cheap model
+captioned the Stick polarity screen backwards — it read the ground-clamp icon as the
+electrode holder, the exact opposite of what the pixels show. Getting polarity wrong on a
+240V machine is the worst mistake this system could make.
 
-**A safety escalation rule exists because the cheap model got polarity backwards.**
-Haiku captioned the Stick LCD screen as "negative connects to the electrode holder,
-positive to the workpiece clamp" — the exact inverse of what the pixels show. Any
-cheap caption mentioning polarity, sockets or terminals is now automatically re-run on
-the strong model. A wrong socket on a 240V machine is the worst error this system can
-make, so it does not ride on the cheap model.
+Two changes came out of that:
 
-That incident also fixed the architecture: **captions choose the picture, tables state
-the fact.** The agent is instructed never to source a polarity claim from a caption.
+- Any cheap caption that mentions polarity, sockets or terminals is **automatically
+  redone on the stronger model**.
+- More importantly: **captions choose which picture to show. Tables state the facts.**
+  The agent is told never to source a polarity claim from a caption.
 
-The door chart made the same point twice. Captioning a photograph at marginal
-resolution misreads digits — the vision pass returned Stick 120V as *40% at 65A* where
-both the pixels and page 7 say **80A**. So photo-derived captions are now cross-checked
-against the PDFs at ingest; numbers no document confirms are flagged, `get_figure`
-warns the model not to quote them, and the verifier strips them from its evidence
-entirely. `npm run check` holds that line.
+The door Settings Chart proved the same point again. It's a photograph, and the vision
+pass misread a digit — reporting Stick at 40% at **65A** where both the pixels and page 7
+say **80A**. So numbers in photo-derived captions are now cross-checked against the PDFs
+at ingest time, flagged if no document confirms them, and stripped out of the verifier's
+evidence entirely.
 
-### 3. `tables.py` — five structured tables, verified
+### Step 3 — `tables.py`: five tables, checked against the source
 
-Text extraction is not enough for the specification table. On page 7 the columns
-interleave in reading order:
+Text extraction isn't enough for the specification table. On page 7 the columns
+interleave when you read them in order:
 
 ```
 Power Input / 120 VAC 60Hz / 240 VAC 60Hz / … / 40% @ 100 A / 100% @ 75 A
   / 25% @ 200 A / 100% @ 115 A
 ```
 
-Which duty cycle belongs to which input voltage is genuinely ambiguous in the text
-layer — and this is precisely the question being graded. A model reading the *rendered*
-page recovers the column structure.
+Which duty cycle belongs to which voltage is genuinely ambiguous in the text — and that's
+precisely the question being graded. A model *looking at the rendered page* recovers the
+columns.
 
-Extraction can be wrong, so it is gated: **every numeric literal in an extracted table
-must appear in the source page's own text**, or the build reports it as unverified.
-All five tables pass clean apart from two flagged numbers in the setup procedure.
+But extraction can be wrong, so it's checked: **every number in an extracted table must
+literally appear in that page's own text**, or the build reports it. Five tables — specs,
+polarity, troubleshooting, process selection, setup procedures — all clean except two
+flagged numbers in the setup steps, which are surfaced rather than hidden.
 
-The polarity table was rebuilt once. The first pass cited p.43, which only restates
-the MIG/flux rule in passing; the authoritative sources are p.13 (DCEN flux-cored),
-p.14 (DCEP solid core), p.27 (stick) and quick-start p.2 — the only page covering all
-four processes. Citations matter here: the promise is that you can walk to the machine
-and check.
+The polarity table got rebuilt once. The first attempt cited page 43, which only mentions
+the rule in passing. The real sources are pages 13, 14 and 27 plus quick-start page 2 —
+the only page covering all four processes. Citations matter here: the promise is that you
+can walk to the machine and check.
 
 ---
 
-## Why there is no vector store
+## Why there's no vector database
 
 This is the decision I most expect to be asked about.
 
-The whole corpus is **51 pages ≈ 22k tokens of text**. The figure catalogue is another
-11k. That fits in a prompt-cached system prompt for about **$0.16 per conversation**,
-so I deleted the retrieval layer entirely:
+The whole corpus is **51 pages — about 22,000 tokens**. The figure list is another
+11,000. That fits inside a prompt-cached system prompt for roughly **16 cents per
+conversation**. So I removed the search step completely:
 
-- **All manual text sits in the cached prefix**, every page tagged `[manual page 23]`.
-  Cross-referencing p.43's porosity row against p.13's polarity diagram stops being a
-  recall problem. Top-k retrieval is where cross-referenced questions go to die.
-- **A catalogue of every figure sits in the prefix too** — id, page, title, and the
-  questions each figure answers. The model doesn't *search* for a figure; it reads a
-  complete list and asks for one by id. **Recall is 1.0 by construction**, not 0.8.
-- **Only the images themselves are fetched by tool**, because 128 images cannot live
-  in context.
+- **The full manual text sits in the cached prompt**, every page tagged with its number.
+  Cross-referencing page 43's porosity row against page 13's polarity diagram stops being
+  a search problem. Top-k search is where cross-referenced questions go to die.
+- **A list of every figure sits there too** — its ID, page, title, and the questions it
+  answers. The model doesn't *search* for a figure; it reads a complete list and asks for
+  one by name. **It can't miss one, because nothing was filtered out.**
+- **Only the images themselves are fetched by tool**, because 134 pictures can't live in
+  a prompt.
 
 Two supporting reasons:
 
-**Embeddings would need a second vendor.** Anthropic has no embedding endpoint;
-Voyage or OpenAI would break the "single API key in `.env`" requirement.
+**Embeddings would need a second vendor.** Anthropic has no embedding API, so I'd need
+Voyage or OpenAI — which breaks the "single API key in `.env`" requirement.
 
-**CLIP was already ruled out by measurement.** In prior work on a multimodal RAG
-system I benchmarked CLIP cross-modal retrieval against a much simpler OCR-caption
-baseline and CLIP lost badly — recall@5 of 0.43 against 0.80. Caption-text retrieval
-beats joint-embedding retrieval on document figures. This design takes that one step
-further: at this corpus size you can skip ranking altogether.
+**I'd already measured that the fancy option loses.** In earlier work I benchmarked CLIP
+image-text search against a plain caption-text baseline on document figures. CLIP lost
+badly: 0.43 recall@5 against 0.80. Caption text beats joint embeddings on this kind of
+content. This design takes that one step further — at this size you can skip ranking
+altogether.
 
-**The catalogue encoding was tuned.** Full captions as JSON cost 25k tokens. Encoding
-one line per figure carrying only the title and the questions it answers costs 11k
-with no loss of selection signal — the *answers* are what the model matches a user's
-wording against; the *summary* is payload and rides along with the image when the
-figure is fetched.
+**One tuning detail:** storing full captions cost 25,000 tokens. Storing one line per
+figure — just the title and the questions it answers — costs 11,000, with no loss. The
+*questions* are what the model matches against; the description is payload, and it rides
+along with the image when the figure is actually fetched.
 
-**When I'd change this:** past roughly 150 pages, or a multi-product corpus, the prefix
-stops being cheap and BM25 over the same catalogue goes back in. The index is already
-shaped for it — that's a ~30-line change, not a rewrite. Building a vector database
-for 51 pages would be the wrong instinct to bring to a small team.
+**When I'd change this:** past roughly 150 pages, or with several products, the prompt
+stops being cheap and keyword search goes back in over the same list. That's about thirty
+lines, and the index is already shaped for it. Building a vector database for 51 pages
+would be the wrong instinct to bring to a small team.
 
 ---
 
 ## The agent
 
-Six tools over the Agent SDK's in-process MCP transport (`createSdkMcpServer`). The
-built-in Claude Code tools are disabled by name — no Bash, no filesystem, no web. The
-agent's entire world is the committed index.
+Seven tools, served in-process through the Agent SDK. All the built-in Claude Code tools
+are switched off by name — no shell, no filesystem, no web. The agent's whole world is
+the committed index.
 
-| Tool | Returns |
+| Tool | What it does |
 |---|---|
-| `get_figure` | the actual image bytes plus caption and page |
-| `get_page` | a whole page image plus its text |
-| `get_table` | verified structured data |
-| `compute_duty_cycle` | deterministic lookup; allowed to say "not specified" |
-| `show_component` | renders one of six table-driven React components |
-| `view_photo` | opens a photograph the user attached (bound per request) |
-| `render_diagram` | renders model-authored SVG |
+| `get_figure` | returns the actual image, plus its caption and page |
+| `get_page` | returns a whole page image and its text |
+| `get_table` | returns verified structured data |
+| `compute_duty_cycle` | works it out in code; allowed to say "not specified" |
+| `show_component` | renders one of six interactive panels |
+| `render_diagram` | renders a diagram the model draws itself |
+| `view_photo` | opens a photo the user attached |
 
-### Deterministic where correctness matters, generative where it doesn't
+### Fixed where it must be right, free where it doesn't matter
 
-`show_component` and `render_diagram` are two halves of the same job, split
-deliberately. The six components — duty cycle calculator, polarity diagram,
-troubleshooting flowchart, process selector, settings configurator, guided setup
-walkthrough — read the **verified tables**, not
-anything the model produced. The agent picks which one to show and seeds its starting
-values; it never supplies content. So what a user pokes at cannot drift from the
-manual.
+`show_component` and `render_diagram` are two halves of one job, split deliberately.
 
-I am not letting a model free-draw which cable goes in which socket on a 240V machine.
-`render_diagram` exists for the long tail where being approximately right is fine.
+The six components — duty cycle calculator, polarity diagram, fault checklist, process
+picker, machine setup, guided walkthrough — read the **verified tables**. The agent picks
+which one to show and sets its starting values, but never supplies the content. So what
+you click on can't drift away from the manual.
+
+I'm not letting a language model free-draw which cable goes in which socket on a 240-volt
+machine. `render_diagram` exists for the long tail where being roughly right is fine.
+
+### Duty cycle is never estimated
+
+The manual gives exactly **two** rated points per process per voltage — for MIG on 240V,
+25% at 200A and 100% at 115A. No curve. Duty cycle isn't proportional to current, so
+anything between those points is genuinely unknown.
+
+So the tool returns the rated figure when your question lands on one, "100% continuous"
+at or below the continuous rating, and an explicit **"the manual does not specify"** with
+the two surrounding points otherwise. It never interpolates. Making up a duty cycle for a
+welder is how somebody cooks the machine.
 
 ### The settings configurator refuses on purpose
 
-Prox's brief asks for "a settings configurator that takes process + material +
-thickness and outputs recommended wire speed and voltage." I checked whether the
-manual supports that: **`in/min` appears zero times in its text.** The OmniPro 220 is
-*synergic* — you give it wire diameter and material thickness and the machine derives
-speed and voltage itself, which is why no table exists.
+Prox asked for "a settings configurator that takes process + material + thickness and
+outputs recommended wire speed and voltage." I checked whether the manual supports that:
+**"in/min" appears zero times in its text.** This welder is *synergic* — you give it wire
+diameter and material thickness and it works out the speed and voltage itself. That's why
+no table exists.
 
-So the configurator answers everything the documents *do* determine — whether the
-process suits that material and thickness, polarity and sockets, gas, permitted wire
-sizes, the current range — and then says plainly that the machine works out the last
-two numbers, and how to read its recommendation off the LCD. Fabricating a wire-speed
-table would have satisfied the brief's wording and been wrong.
+So the configurator gives everything the documents *do* determine — whether that process
+suits the material and thickness, polarity and sockets, gas, allowed wire sizes, the
+current range — and then says plainly that the machine derives the last two numbers, and
+how to read its recommendation off the screen.
+
+Inventing a wire-speed table would have satisfied the wording of the brief and been
+wrong.
 
 ### Show it your weld
 
 The brief asks for multimodal *responses* — agent to user. This runs the other way too.
 
-Someone in a garage does not know the word "porosity". That is precisely why they
-could not find it in the manual. So they photograph the bead instead. The agent opens
-the photo, pulls the manual's own weld-diagnosis grid from page 35, holds the two side
-by side, and names which of the six reference beads theirs matches — then gives that
-bead's printed correction with its citation.
+Someone in a garage doesn't know the word "porosity". That's exactly why they couldn't
+find it in the manual. So they photograph the bead instead. The agent opens the photo,
+fetches the manual's own diagnosis chart from page 35, holds the two side by side, and
+says which of the six reference beads yours matches — then gives that bead's printed fix
+with its page number.
 
-Three details that took work:
+Three things this needed:
 
-**Images reach the model through a tool, not the prompt.** Streaming-input image blocks
-did not arrive — the agent kept replying that no photo was attached — while images
-returned from a tool result do, which `get_figure` proves several times a session. So
-the upload binds to a per-request `view_photo` tool. That turned out to be the better
-shape: looking at the photo becomes a visible step in the transcript rather than
-something that silently happened in the prompt.
+**Photos reach the model through a tool, not the prompt.** Sending images in the prompt
+didn't work — the agent kept replying that no photo was attached — but images returned
+from a *tool result* do arrive, which `get_figure` proves several times a session. So the
+upload binds to a `view_photo` tool created for that request. That turned out better
+anyway: looking at the photo becomes a visible step you can see in the transcript.
 
-**"This weld is good" is a first-class answer.** A diagnostic tool that finds a fault in
-every image is not diagnosing, it is flattering the question. The eval asks neutrally —
-*"how does it look?"*, *"is this weld any good?"* — never *"what's wrong with it?"*,
-which presupposes a fault. An early version of the prompt over-corrected and started
-calling everything good, so the criteria now rule the six faults out one at a time and
-*good* is what remains, never the default when the picture is hard to read.
+**"Your weld is fine" is a real answer.** A tool that finds a fault in every photo isn't
+diagnosing, it's telling you what you want to hear. So the questions in the test set are
+neutral — *"how does it look?"*, *"is this weld any good?"* — never *"what's wrong with
+it?"*, which assumes a fault. An early version over-corrected and started calling
+everything good, so the criteria now rule the six faults out one at a time, and *good* is
+what's left over.
 
-**It has to decline.** Shown the welder itself or its control panel, it must say that is
-not a weld rather than find a defect in it. Both negative cases pass.
-
-### Duty cycle never interpolates
-
-The manual publishes exactly two rated points per process per voltage — for MIG on
-240V, 25% @ 200A and 100% @ 115A. It does not publish a curve, and duty cycle is not
-linear in current. So `compute_duty_cycle` returns the rated point when the question
-lands on one, "100% continuous" at or below the continuous rating, and an explicit
-*"the manual does not specify"* with the bracketing points otherwise. Inventing a duty
-cycle for a welder is how someone cooks the machine.
+**It has to be able to say "that isn't a weld".** Shown the machine itself or its control
+panel, it must decline rather than find a defect. Both those cases pass.
 
 ---
 
-## Verification: two levels, no model call
+## It checks its own answers
 
-Telling a model not to invent numbers is not a control. After every answer, a
-deterministic pass (~1ms, no API call) extracts every quantity carrying a unit — amps,
-volts, percentages, wire speeds, gauges, minutes — and checks it:
+Telling a model not to invent numbers isn't a control. So after every answer a
+**deterministic check** runs — no model involved, about a millisecond — which pulls out
+every quantity (amps, volts, percentages, wire speeds, gauges, minutes) and verifies it.
 
-- **fabricated** — appears nowhere in any of the three documents nor in any tool result
-  from this turn. The dangerous one.
-- **miscited** — real, but not on the page the answer pointed at. Harmless to act on,
-  still shown, because the whole promise is that you can verify at the machine.
+Two levels, because the two failures aren't equally serious:
 
-The UI shows the verdict under every answer. This is the cheap, dependency-free
-descendant of an NLI faithfulness gate: it can't judge entailment, but it catches the
-failure that actually matters on a welder.
+- **Fabricated** — the number appears nowhere in any of the documents. This is the
+  dangerous one.
+- **Miscited** — the number is real, but not on the page the answer pointed at. Harmless
+  to act on, still shown, because the whole promise is that you can check at the machine.
 
-**It caught a real one during development.** The agent sourced a 1/2" contact-tip-to-work
-distance to p.37 when the manual prints it on p.35 — a genuine citation slip I would
-not have found by reading the answer, which looked perfect.
+Evidence is also ranked. A page's text or a verified table is ground truth. A figure
+caption is model-written prose about a picture — good enough to confirm a number exists
+somewhere, never good enough to certify it. That distinction exists because the door
+chart caption misread 80A as 65A, and treating captions as evidence would have let the
+wrong number through wearing a green tick.
+
+**It caught a real mistake in development.** The agent sourced a 1/2" contact-tip
+distance to page 37 when the manual prints it on page 35. The answer looked perfect. I
+would not have found that by reading it.
+
+`npm run check` tests this offline, with no API calls at all.
 
 ---
 
-## Evals
+## Testing
 
 ```bash
-npm run dev
-npm run eval            # or: npm run eval -- duty-cycle polarity-flux
+npm run dev            # in one terminal
+npm run check          # the verifier, offline, free
+npm run eval           # 8 text questions
+npm run eval:welds     # 14 weld photos
 ```
 
-Five cases, each asserting what a correct answer must contain — content, tools called,
-a visual where one is required, the page cited, and no fabricated quantities.
+### Text questions — 8/8, about $0.50 a run
 
-| Case | Tests |
+| Case | What it tests |
 |---|---|
-| `duty-cycle` | the headline number, computed not guessed |
-| `porosity` | diagnosis from the troubleshooting matrix, with the weld photo |
+| `duty-cycle` | the headline number, computed rather than guessed |
+| `porosity` | diagnosis from the fault table, with the weld photo |
 | `polarity-flux` | a picture, not a paragraph |
 | `refusal-generator` | refusing cleanly on something never covered |
 | `cross-reference` | 120V duty cycle *and* flux-cored polarity in one answer |
-| `settings-configurator` | a setup answer that refuses to invent the two numbers the manual omits |
-| `wiring-schematic` | surfacing an image-only page on request |
-| `ambiguity` | asking for the missing fact instead of guessing it |
+| `settings-configurator` | a setup answer that won't invent the missing numbers |
+| `wiring-schematic` | surfacing an image-only page |
+| `ambiguity` | asking for the missing fact instead of guessing |
 
-**8/8 pass, ~$0.50 per full run.**
+Two are worth reading in full.
 
-```bash
-npm run check        # the verifier, offline, no API calls
-npm run eval         # the eight text cases above
-npm run eval:welds   # weld photo diagnosis, fourteen cases
-```
+**The refusal.** Asked *"can I run this off a portable generator, what size?"* — the word
+"generator" appears **zero times** in all three documents. It says so, declines to name a
+wattage, then hands over the actual current-draw table from page 7 so you can size one
+yourself, noting explicitly that's current draw and not a generator rating.
 
-### The weld photo eval
+**The ambiguity.** Asked *"what's my duty cycle at 150 amps?"* it works out you must be on
+240V (150A is beyond every 120V range), says it still needs the process, and explains
+that 150A isn't one of the published points and duty cycle doesn't scale linearly — so it
+won't interpolate one.
 
-Fourteen cases in three groups, because ground truth matters more than volume:
+### Weld photos — 13/14, about $0.82 a run
 
-- **six reference beads** from page 35, cropped away from their captions so a diagnosis
-  has to come from the picture rather than from reading the answer printed underneath.
-  Ground truth is exact. **6/7** including both phrasings of the good weld — the one
-  miss is `volts-low`, a smooth even bead whose only fault is being *too narrow*, and
-  cropping removed the neighbouring panels that gave scale. In real use the plate is in
-  frame, which restores it. The miss also moves between runs — `volts-low` and
-  `travel-fast` sit closest to the boundary and it drops one or the other. I did not
-  tune further to force 7/7; that would be overfitting to six line drawings, and the
-  real photographs score 5/5.
-- **five real photographs** of welds from Wikimedia Commons, credited in
-  `evals/welds/real/CREDITS.json`. No defect ground truth exists for these, so they are
+Three groups, because ground truth matters more than volume:
+
+- **Six reference beads** from page 35, cropped away from their captions so the diagnosis
+  has to come from the picture rather than from reading the answer underneath. Ground
+  truth is exact. Usually 6/7 including both phrasings of the good weld.
+- **Five real photographs** from Wikimedia Commons, credited in
+  `evals/welds/real/CREDITS.json`. There's no defect ground truth for these, so they're
   judged on what must hold regardless: it engaged with the image, reached a verdict,
   cited the manual, invented nothing. Worth reading the rail-weld answer — *"that's a
-  piece of rusty railroad rail, and the vertical mark is a manufacturer's stamp"*.
-- **two negatives** — the welder and its control panel — which must not be diagnosed.
+  piece of rusty railroad rail, and the vertical mark is a manufacturer's stamp."*
+- **Two negatives** — the machine and its control panel — which must not be diagnosed.
 
-The real photos matter because the model recognised my crops: *"this is a diagram, not
-a photo — it looks like the manual's own porosity illustration."* Testing a system on
-its own source material is circular.
+**The one miss moves between runs.** `volts-low` and `travel-fast` are the two reference
+beads closest to the boundary, and it drops one or the other. `volts-low` is a smooth,
+even bead whose only fault is being *too narrow* — and cropping removed the neighbouring
+panels that gave scale. In real use the plate is in frame. I stopped tuning there rather
+than overfit the prompt to six line drawings; the real photographs score 5/5.
 
-The ambiguity case is worth reading. Asked *"what's my duty cycle at 150 amps?"* the
-agent asks which process and which input voltage, points out that 150A is outside every
-120V range so they are probably on 240V, and then explains that 150A is not one of the
-two published points and duty cycle does not scale linearly — so it will not
-interpolate one.
-
-The refusal case is the one I'd point at. "Can I run this off a portable generator?" —
-the word *generator* appears zero times across all three documents. The agent says so,
-declines to name a wattage, then hands over the actual current-draw table from p.7 so
-you can size one yourself, explicitly noting *"that's current draw, not a generator
-wattage rating."* Useful and honest at the same time.
+The real photos matter for a second reason: the model recognised my crops — *"this is a
+diagram, not a photo, it looks like the manual's own porosity illustration."* Testing a
+system on its own source material is circular.
 
 ---
 
 ## What it costs
 
-Measured, not estimated.
+Measured, not guessed.
 
-- **Cached prefix:** ~37k tokens of index, plus ~20–27k of fixed Agent SDK harness
-  prompt. That harness overhead is unavoidable — `tools: []` does not remove it — and
-  is worth knowing about before you design around the SDK.
-- **Per question:** $0.02–0.06 warm, ~$0.18 on a cold cache.
-- **Full eval run:** ~$0.36.
-- **Building the entire index, once:** ~$2.50.
+- **Cached prompt:** about 37,000 tokens of index, plus 20–27,000 of fixed Agent SDK
+  overhead. That overhead is unavoidable — `tools: []` does not remove it — and is worth
+  knowing before you design around the SDK.
+- **Per question:** $0.02–0.06 warm, about $0.19 on a cold cache.
+- **Full test run:** ~$0.50 text, ~$0.82 photos.
+- **Building the entire index, once:** about $3.
 
-Defaults to `claude-sonnet-5`. Set `MODEL=claude-opus-5` in `.env` for more headroom.
-On the hosted demo the cost lands on whoever supplied the key, which is the point.
-Sonnet is the default deliberately: the architecture removes the work that would need
-a bigger model. Recall is handled by the prefix, arithmetic by a tool, figure choice by
-an exhaustive catalogue, facts by verified tables. What's left is instruction-following
-and tone. Reaching for Opus here would be paying a model to compensate for an index I
-didn't build properly.
+Defaults to `claude-sonnet-5`; set `MODEL=claude-opus-5` in `.env` for more headroom.
+
+Sonnet is the default deliberately. The architecture removes the work that would need a
+bigger model: recall comes from the prompt, arithmetic from a tool, figure choice from a
+complete list, facts from verified tables. What's left is following instructions and
+tone. Reaching for Opus would be paying a model to make up for an index I didn't build
+properly.
 
 ---
 
-## Design notes worth defending
+## Other decisions worth defending
 
-**Stateless requests.** Each turn replays the transcript rather than resuming an SDK
-session. Sessions persist to the harness's home directory, which on Vercel is a
-per-instance `/tmp` the next request may not land on. Replaying is free because the
-prefix is identical and cached.
+**No chat history, no persistence.** The conversation lives in memory; refreshing clears
+it. Nothing is written to disk or to your browser. Their brief never asks for it, and
+"we stored your conversation" is a liability on a page where people paste API keys. The
+only caching involved is Anthropic's prompt cache, which is a billing mechanism on the
+request, not storage.
 
-**Runs on Vercel, verified before anything else was built.** The Agent SDK resolves a
-~219 MB per-platform native binary and spawns it as a subprocess. Next's file tracer
-never sees it — it's resolved at runtime, not imported — so `next.config.ts` pins it
-via `outputFileTracingIncludes`. I deployed a probe endpoint first to confirm the
-harness boots on Fluid Compute before committing to the platform.
+**Every request is stateless.** Each turn replays the transcript rather than resuming an
+SDK session, because sessions live in a per-instance temp directory that the next request
+may not land on. Replaying is free, because the prompt is identical and cached.
 
-**Two languages, one runtime.** Ingest is Python because nothing else handles vector
-figure geometry as well. The shipped app is TypeScript only; a reviewer never runs
-Python. The index is a versioned build artifact, like a compiled asset.
+**Deployability was verified before anything else was built.** The Agent SDK resolves a
+~219 MB native binary per platform and runs it as a subprocess. Next.js doesn't see it,
+so `next.config.ts` includes it explicitly. I deployed a probe endpoint first to confirm
+it boots on Vercel before committing to the platform.
 
-**A markdown subset, not a markdown library.** ~40 lines covering paragraphs, lists,
-headings, bold, code and pipe tables. It also lets every `[p.14]` become a button that
-opens that page image — citations are controls here, not footnotes.
+**Two languages, one runtime.** Ingest is Python because nothing else handles
+vector-figure geometry as well. The shipped app is TypeScript only — a reviewer never
+runs Python. The index is a build artifact, like a compiled asset.
+
+**A small markdown renderer instead of a library.** About 40 lines covering paragraphs,
+lists, headings, bold, code and tables. Writing it by hand is what lets every `[p.14]`
+become a button that opens that page.
+
+---
 
 ## Does it work on other manuals?
 
-Not as a runtime upload, and that is deliberate. The brief asks for an expert on one
-machine, and the whole reason setup takes two minutes is that nothing is extracted at
-request time.
+Not as an upload, and that's deliberate — nothing is extracted at request time, which is
+why setup takes two minutes.
 
-But the pipeline is not welder-specific. `extract.py` finds figures by clustering
-vector ink — no Vulcan-specific rules. `caption.py` and `tables.py` are prompted with
-the document, not the product. Pointing them at another manual is three commands:
+But the pipeline isn't welder-specific. `extract.py` finds figures by clustering vector
+ink with no product-specific rules; `caption.py` and `tables.py` are prompted with the
+document, not the product. Pointing them at another manual is three commands:
 
 ```bash
 python ingest/extract.py && python ingest/caption.py --go && python ingest/tables.py --go
 ```
 
-What *is* hand-tuned is small and visible: the four table definitions in `tables.py`,
-and the region boxes for the door photograph. Everything else generalises.
+What's hand-tuned is small and visible: the five table definitions, and the crop regions
+for the door photograph.
 
-Productionising multi-product would mean running that pipeline as a background job on
-upload and keying the index by product — minutes and about $2.50 of vision calls per
-manual, not something to do inside a request. The architecture already assumes that
+Doing this for many products means running that pipeline as a background job on upload
+and keying the index by product — minutes and a couple of dollars of vision calls per
+manual, not something to do inside a web request. The architecture already assumes that
 split; it just runs the job on my machine instead of a queue.
 
-## Interface
+---
 
-Two visual registers that never mix. Answers are *paper*: serif, narrow measure, on a
-galvanized-grey ground, like the manual in your other hand. Machine-derived data —
-duty cycle readouts, polarity sockets — renders as *panel*: white-on-near-black boxed
-values, the way the machine's own LCD shows them. Colour is never decoration: orange
-means electrically hot, amber unverified, green checked.
+## The interface
 
-Beyond that:
+Two visual registers that never mix. Answers are **paper** — you read them. Machine data
+is **panel** — near-black with white readouts, the way the welder's own LCD shows it.
+Colour is never decoration: **ember means electrically live**, amber means unverified,
+green means checked.
 
 - **Artifact frames.** Every figure, instrument and generated diagram sits in a titled
-  panel carrying its source page, with enlarge and — for model-drawn SVG — a code
-  toggle, so you can see what it actually emitted.
-- **A sources rail** collects every page and figure an answer touched, so the retrieval
-  work is visible rather than hidden behind chips.
-- **The landing page runs a live instrument** before you have entered any key. The
-  components are driven by committed JSON, so the polarity diagram works with the API
-  untouched.
-- **An index browser** (`Index` in the top bar) shows all 122 kept figures with their
-  captions. Knowledge-extraction quality is a claim; this makes it inspectable.
-- **Voice in and out.** Ask out loud with the mic — the composer lights up and shows a
-  live meter while it listens. **Hands-free** sits next to the composer, not buried in a
-  toolbar, and reads answers back: best installed voice rather than the platform
-  default, spoken sentence by sentence so the pauses land, and rewritten for the ear
-  first ("[p.35]" becomes "page 35", "DCEN" becomes "D C E N").
-- **Guided setup**, one step at a time, from the verified setup table — the manual's
-  order and wording, each step carrying its page. With hands-free on it **reads the
-  step you are standing on** and re-reads when you advance, which is the whole point:
-  gloves on, both hands on the machine, nobody is looking at the screen.
-- **Drag, paste or browse a photo** straight into the composer.
-- **Live tool status**: which tool is running, on what, right now.
-- **Print styles.** Answers are meant to be carried to the machine.
-- **No history, no storage.** The conversation lives in React state; a refresh clears
-  it, the wordmark starts a fresh one. Nothing is written to disk or to the browser.
-  The only cache in play is Anthropic's prompt cache, which is a cost optimisation on
-  the request, not a store of anything.
-- Keyboard: `Enter` sends, `⌘K` focuses, `Esc` closes. Citations are buttons that open
-  the page image.
+  panel with its source page, an enlarge control, and — for diagrams the model drew — a
+  toggle to see the actual code it produced.
+- **The landing page runs a live instrument** before you enter any key, because the
+  components run on committed data.
+- **An index browser** shows all 122 kept figures with their captions. Extraction quality
+  is a claim; this makes it something you can check.
+- **Voice both ways.** The composer lights up with a live meter while listening.
+  Hands-free reads answers back — best installed voice, spoken sentence by sentence so
+  the pauses land, rewritten for the ear ("[p.35]" becomes "page 35"). In the guided
+  setup it reads **the step you're standing on** and re-reads when you advance, which is
+  the whole point: gloves on, both hands on the machine.
+- **Photos** by drag, paste or browse.
+- **Live tool status** — which tool is running, on what, right now.
+- **Print styles**, because answers get carried to the machine.
+- Keyboard: `Enter` sends, `⌘K` focuses, `Esc` closes. Citations are buttons.
+
+---
 
 ## Repo map
 
 ```
-ingest/          offline, dev-only. You never run these.
+files/           the three PDFs, as provided
+product*.webp    the product photos, as provided
+ingest/          offline, run once by me. You never run these.
   extract.py       text, figure regions, page renders
   caption.py       one vision caption per figure, cached
-  tables.py        four structured tables + numeric verification
+  tables.py        five structured tables + number checking
 public/kb/       the committed index (JSON + WebP), served by CDN
 lib/
-  kb.ts            loads the index, builds the cached system prompt
-  tools.ts         the six agent tools
-  duty.ts          deterministic duty cycle, shared with the browser
-  verify.ts        post-answer grounding check
+  kb.ts            loads the index, builds the cached prompt
+  tools.ts         the seven agent tools
+  duty.ts          duty cycle logic, shared with the browser
+  verify.ts        the post-answer check
 app/
-  api/chat/route.ts   the agent, streaming SSE
-  components/         chat UI and the four interactive components
-evals/run.mjs    five cases with assertions
+  api/chat/route.ts   the agent, streaming
+  api/health/route.ts whether this deployment has its own key
+  components/         the chat UI and the six interactive panels
+evals/
+  run.mjs          8 text cases
+  welds.mjs        14 photo cases
+  verify.test.mjs  the verifier, offline
+  welds/           test images + Wikimedia credits
 ```
 
-## Limits
+---
 
-- Conversation history is text-only; figures from earlier turns aren't re-sent as
-  images on later turns.
-- The verifier checks quantities, not claims. "Use argon" would pass unexamined.
+## Known limits
+
+- Conversation history is text-only; figures from earlier turns aren't re-sent as images.
+- The verifier checks numbers, not claims. "Use argon" would pass unexamined.
 - Figure crops on two dense pages still include the section-tab margin.
-- Voice is input only, and Chrome-family only; the button hides itself elsewhere.
-- The settings configurator stops where the manual stops — it will not output a wire
-  speed, because no document contains one.
-- One eval case reproducibly warns about a miscitation rather than failing. That is
-  the intended behaviour, not a green test bought by lowering the bar.
+- One weld case out of fourteen fails per run, and which one varies.
+- Voice quality depends on the voices installed on your machine — noticeably better on
+  macOS than Windows.
+- Two numbers in the setup table are flagged unverified. They're surfaced, not hidden.
+
+---
+
+Built by **Shivani Bokka**. Answers come from the Vulcan OmniPro 220 manuals — verify at
+the machine.

@@ -28,7 +28,7 @@ const BASE = process.env.EVAL_BASE ?? 'http://localhost:3111'
 const HERE = path.dirname(fileURLToPath(import.meta.url))
 const WELDS = path.join(HERE, 'welds')
 const REAL = path.join(WELDS, 'real')
-const PUBLIC = path.join(HERE, '..', 'public')
+const ROOT = path.join(HERE, '..')
 
 const manifest = JSON.parse(readFileSync(path.join(WELDS, 'manifest.json'), 'utf8'))
 const credits = existsSync(path.join(REAL, 'CREDITS.json'))
@@ -93,7 +93,7 @@ const CASES = [
   {
     group: 'negative',
     id: 'negative-machine',
-    file: path.join(PUBLIC, 'product.webp'),
+    file: path.join(ROOT, 'product.webp'),
     ask: 'Here is my weld. How does it look?',
     truth: 'the welder itself, not a weld',
     refuse: true,
@@ -101,7 +101,7 @@ const CASES = [
   {
     group: 'negative',
     id: 'negative-panel',
-    file: path.join(PUBLIC, 'kb', 'figures', 'manual-p20-f3.webp'),
+    file: path.join(ROOT, 'public', 'kb', 'figures', 'manual-p20-f3.webp'),
     ask: 'Is this weld any good?',
     truth: 'the control panel, not a weld',
     refuse: true,

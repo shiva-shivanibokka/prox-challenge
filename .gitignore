@@ -8,3 +8,8 @@ next-env.d.ts
 __pycache__/
 .venv/
 .tmp/
+
+# Eval transcripts are run output: they change every run, can be partial when you
+# filter to one case, and go stale. Results are quoted in the README instead.
+evals/results.json
+evals/welds-results.json
