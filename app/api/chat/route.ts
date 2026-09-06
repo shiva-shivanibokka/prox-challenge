@@ -9,15 +9,23 @@
  */
 import { createSdkMcpServer, query } from '@anthropic-ai/claude-agent-sdk'
 import { SYSTEM_PROMPT, cite, figure } from '@/lib/kb'
-import { TOOLS } from '@/lib/tools'
+import { TOOLS, viewPhoto } from '@/lib/tools'
 import { verify } from '@/lib/verify'
 
 export const maxDuration = 300
 
 type Msg = { role: 'user' | 'assistant'; content: string }
+type Upload = { mediaType: string; data: string }  // base64, no data: prefix
+
+const IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp', 'image/gif'])
+const MAX_IMAGE_BYTES = 5_000_000
 
 export async function POST(req: Request) {
-  const { messages } = (await req.json()) as { messages: Msg[] }
+  const { messages, images = [] } = (await req.json()) as { messages: Msg[]; images?: Upload[] }
+
+  const photos = images
+    .filter((i) => IMAGE_TYPES.has(i.mediaType) && i.data.length * 0.75 < MAX_IMAGE_BYTES)
+    .slice(0, 4)
 
   // Bring-your-own-key. The hosted demo carries no key of its own, so the browser
   // sends one per request. It is used for this call and discarded: never logged,
@@ -39,9 +47,18 @@ export async function POST(req: Request) {
     )
   }
 
-  const prompt = messages
+  const transcript = messages
     .map((m) => (m.role === 'user' ? `User: ${m.content}` : `You previously answered: ${m.content}`))
     .join('\n\n')
+
+  // Photos reach the model through a per-request tool rather than through the prompt.
+  // See viewPhoto() in lib/tools.ts for why; the transcript just says one is waiting.
+  const tools = photos.length ? [...TOOLS, viewPhoto(photos)] : TOOLS
+  const plural = photos.length > 1 ? 's' : ''
+  const prompt = photos.length
+    ? `${transcript}\n\n[${photos.length} photo${plural} attached. Call view_photo to ` +
+      `look at ${photos.length > 1 ? 'each of them' : 'it'} before answering.]`
+    : transcript
 
   const encoder = new TextEncoder()
   const stream = new ReadableStream({
@@ -65,7 +82,7 @@ export async function POST(req: Request) {
               omnipro: createSdkMcpServer({
                 name: 'omnipro',
                 version: '1.0.0',
-                tools: TOOLS,
+                tools,
                 // Without this the harness defers MCP tools behind its ToolSearch tool,
                 // and the model -- which cannot see them -- writes show_component(...)
                 // into its prose as if it had called it. Also makes startup wait for the
@@ -83,7 +100,7 @@ export async function POST(req: Request) {
             // call comes back denied and the model apologises about permissions in the
             // answer. The agent's entire world is the committed index: no Bash, no
             // filesystem, no web.
-            allowedTools: TOOLS.map((t) => `mcp__omnipro__${t.name}`),
+            allowedTools: tools.map((t) => `mcp__omnipro__${t.name}`),
             disallowedTools: [
               'Bash', 'Read', 'Write', 'Edit', 'Glob', 'Grep', 'WebFetch', 'WebSearch',
               'Task', 'TodoWrite', 'NotebookEdit', 'ToolSearch', 'Skill', 'Workflow',

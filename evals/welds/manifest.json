@@ -1,0 +1,65 @@
+[
+ {
+  "file": "good.webp",
+  "truth": "Good Weld",
+  "keywords": [
+   "good",
+   "correct",
+   "nothing wrong",
+   "properly"
+  ],
+  "source": "manual p.35 reference bead, caption cropped away"
+ },
+ {
+  "file": "volts-low.webp",
+  "truth": "Voltage Too Low or Wire Feed Too Slow",
+  "keywords": [
+   "voltage",
+   "too low",
+   "wire feed",
+   "too slow"
+  ],
+  "source": "manual p.35 reference bead, caption cropped away"
+ },
+ {
+  "file": "volts-high.webp",
+  "truth": "Voltage Too High or Wire Feed Too Fast",
+  "keywords": [
+   "voltage",
+   "too high",
+   "spatter",
+   "porosity"
+  ],
+  "source": "manual p.35 reference bead, caption cropped away"
+ },
+ {
+  "file": "travel-fast.webp",
+  "truth": "Travel Speed Too Fast",
+  "keywords": [
+   "travel",
+   "too fast",
+   "slower"
+  ],
+  "source": "manual p.35 reference bead, caption cropped away"
+ },
+ {
+  "file": "travel-slow.webp",
+  "truth": "Travel Speed Too Slow",
+  "keywords": [
+   "travel",
+   "too slow",
+   "faster"
+  ],
+  "source": "manual p.35 reference bead, caption cropped away"
+ },
+ {
+  "file": "ctwd-polarity.webp",
+  "truth": "CTWD Too Long or Wrong Polarity",
+  "keywords": [
+   "ctwd",
+   "polarity",
+   "contact tip"
+  ],
+  "source": "manual p.35 reference bead, caption cropped away"
+ }
+]

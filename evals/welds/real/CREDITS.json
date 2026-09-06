@@ -1,0 +1,42 @@
+[
+ {
+  "file": "arc-seam.webp",
+  "what": "a real arc-welded seam",
+  "source": "File:Welded seam by arc welding 001.jpg",
+  "licence": "CC BY-SA 2.1 jp",
+  "author": "KOMATSU Ltd",
+  "page": "https://commons.wikimedia.org/wiki/File%3AWelded_seam_by_arc_welding_001.jpg"
+ },
+ {
+  "file": "tig-bead.webp",
+  "what": "a real TIG bead, close up",
+  "source": "File:TIG Weld low magnification.jpg",
+  "licence": "Public domain",
+  "author": "No machine-readable author provided. Dr. Crash~commonswiki assumed (based on cop",
+  "page": "https://commons.wikimedia.org/wiki/File%3ATIG_Weld_low_magnification.jpg"
+ },
+ {
+  "file": "welded-joint.webp",
+  "what": "a real welded joint",
+  "source": "File:Welded joint.JPG",
+  "licence": "CC BY-SA 3.0",
+  "author": "Dumontierc",
+  "page": "https://commons.wikimedia.org/wiki/File%3AWelded_joint.JPG"
+ },
+ {
+  "file": "rail-weld.webp",
+  "what": "a real rail weld",
+  "source": "File:Rail Weld 20-09-11 031.jpg",
+  "licence": "CC BY-SA 4.0",
+  "author": "Chris Light",
+  "page": "https://commons.wikimedia.org/wiki/File%3ARail_Weld_20-09-11_031.jpg"
+ },
+ {
+  "file": "bead-on-plate.webp",
+  "what": "a real bead-on-plate test",
+  "source": "File:BeadOnPlateTest.png",
+  "licence": "CC BY-SA 3.0",
+  "author": "Dumontierc",
+  "page": "https://commons.wikimedia.org/wiki/File%3ABeadOnPlateTest.png"
+ }
+]

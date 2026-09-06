@@ -126,7 +126,8 @@ export const showComponent = tool(
   'Render an interactive component in the chat, driven by the verified tables so its ' +
     'contents are always correct. duty_cycle_calculator (seed with process, ' +
     'input_volts, amps) · polarity_diagram (seed with process) · ' +
-    'troubleshooting_flowchart (seed with problem) · process_selector (no seeds) · ' +
+    'troubleshooting_flowchart (seed with problem -- use this after diagnosing a weld ' +
+    'photo) · process_selector (no seeds) · ' +
     'settings_configurator (seed with process, input_volts, thickness) for "how do I ' +
     'set this up for X material at Y thickness". ' +
     'Prefer showing one of these over describing the same thing in prose.',
@@ -156,6 +157,39 @@ export const renderDiagram = tool(
   async ({ title }) => text(`Rendered diagram "${title}" for the user.`),
   { annotations: { readOnlyHint: true }, alwaysLoad: true },
 )
+
+/**
+ * The user's own photograph, handed to the model as a tool result.
+ *
+ * Streaming-input image blocks did not reach the model through the harness -- it kept
+ * replying that no photo was attached -- but images returned from a tool do, which
+ * get_figure already proves several times a session. So the upload is bound to a
+ * per-request tool instead. That turns out to be the better shape anyway: looking at
+ * the photo becomes an explicit, visible step in the transcript rather than something
+ * that silently happened in the prompt.
+ */
+export type Photo = { mediaType: string; data: string }
+
+export function viewPhoto(photos: Photo[]) {
+  return tool(
+    'view_photo',
+    'Look at a photograph the user attached to this message. Call this first whenever ' +
+      'a photo is attached -- you cannot answer about an image you have not opened.',
+    { index: z.number().int().min(1).optional().describe('which photo, 1-based; defaults to 1') },
+    async ({ index }) => {
+      const i = (index ?? 1) - 1
+      const p = photos[i]
+      if (!p) return text(`No photo ${i + 1}. The user attached ${photos.length}.`)
+      return {
+        content: [
+          { type: 'image' as const, data: p.data, mimeType: p.mediaType },
+          { type: 'text' as const, text: `The user's photo ${i + 1} of ${photos.length}.` },
+        ],
+      }
+    },
+    { annotations: { readOnlyHint: true }, alwaysLoad: true },
+  )
+}
 
 export const TOOLS = [
   getFigure, getPage, getTable, computeDutyCycle, showComponent, renderDiagram,

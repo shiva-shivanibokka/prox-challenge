@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "eval": "node evals/run.mjs",
-    "check": "tsx evals/verify.test.mjs"
+    "check": "tsx evals/verify.test.mjs",
+    "eval:welds": "node evals/welds.mjs"
   },
   "repository": {
     "type": "git",
