@@ -54,6 +54,7 @@ writing anything I profiled them:
 | `owner-manual.pdf` | 48 | Clean | Prose and tables fine. **Figures are vector art** — `get_images()` returns 0 on most figure pages, while `get_drawings()` returns thousands of primitives (p.47 has 26,144) |
 | `quick-start-guide.pdf` | 2 | ~570 chars total | Effectively pure diagram — and the only source that covers cable setup for all four processes |
 | `selection-chart.pdf` | 1 | **Zero characters** | The welding process selection chart. Invisible to every text pipeline |
+| `product-inside.webp` | — | It's a photograph | The Settings Chart printed inside the welder door. The owner's manual points readers to it **five times**, and it ships as a product shot in the repo root, not in `files/` |
 
 Three consequences drove the whole design:
 
@@ -95,7 +96,12 @@ rendered at 200 DPI and cropped. Along the way:
 - **Repeated boilerplate is stripped from the text.** The same ten lines of header and
   footer on 48 pages is pure noise in the model's context.
 
-Result: 51 pages, 128 figures, 12 MB of WebP, 22k tokens of text.
+The door Settings Chart is handled alongside the PDFs, with hand-specified region
+boxes. For one fixed 1200×1200 photograph a detector would be more code, more failure
+modes and no more accurate.
+
+Result: 52 pages, 134 figures (122 kept, 12 ruled decorative), 13 MB of WebP,
+22k tokens of text.
 
 ### 2. `caption.py` — one vision pass per figure
 
@@ -116,6 +122,13 @@ make, so it does not ride on the cheap model.
 
 That incident also fixed the architecture: **captions choose the picture, tables state
 the fact.** The agent is instructed never to source a polarity claim from a caption.
+
+The door chart made the same point twice. Captioning a photograph at marginal
+resolution misreads digits — the vision pass returned Stick 120V as *40% at 65A* where
+both the pixels and page 7 say **80A**. So photo-derived captions are now cross-checked
+against the PDFs at ingest; numbers no document confirms are flagged, `get_figure`
+warns the model not to quote them, and the verifier strips them from its evidence
+entirely. `npm run check` holds that line.
 
 ### 3. `tables.py` — four structured tables, verified
 
@@ -196,20 +209,35 @@ agent's entire world is the committed index.
 | `get_page` | a whole page image plus its text |
 | `get_table` | verified structured data |
 | `compute_duty_cycle` | deterministic lookup; allowed to say "not specified" |
-| `show_component` | renders one of four table-driven React components |
+| `show_component` | renders one of five table-driven React components |
 | `render_diagram` | renders model-authored SVG |
 
 ### Deterministic where correctness matters, generative where it doesn't
 
 `show_component` and `render_diagram` are two halves of the same job, split
-deliberately. The four components — duty cycle calculator, polarity diagram,
-troubleshooting flowchart, process selector — read the **verified tables**, not
+deliberately. The five components — duty cycle calculator, polarity diagram,
+troubleshooting flowchart, process selector, settings configurator — read the
+**verified tables**, not
 anything the model produced. The agent picks which one to show and seeds its starting
 values; it never supplies content. So what a user pokes at cannot drift from the
 manual.
 
 I am not letting a model free-draw which cable goes in which socket on a 240V machine.
 `render_diagram` exists for the long tail where being approximately right is fine.
+
+### The settings configurator refuses on purpose
+
+Prox's brief asks for "a settings configurator that takes process + material +
+thickness and outputs recommended wire speed and voltage." I checked whether the
+manual supports that: **`in/min` appears zero times in its text.** The OmniPro 220 is
+*synergic* — you give it wire diameter and material thickness and the machine derives
+speed and voltage itself, which is why no table exists.
+
+So the configurator answers everything the documents *do* determine — whether the
+process suits that material and thickness, polarity and sockets, gas, permitted wire
+sizes, the current range — and then says plainly that the machine works out the last
+two numbers, and how to read its recommendation off the LCD. Fabricating a wire-speed
+table would have satisfied the brief's wording and been wrong.
 
 ### Duty cycle never interpolates
 
@@ -260,8 +288,18 @@ a visual where one is required, the page cited, and no fabricated quantities.
 | `polarity-flux` | a picture, not a paragraph |
 | `refusal-generator` | refusing cleanly on something never covered |
 | `cross-reference` | 120V duty cycle *and* flux-cored polarity in one answer |
+| `settings-configurator` | a setup answer that refuses to invent the two numbers the manual omits |
+| `wiring-schematic` | surfacing an image-only page on request |
+| `ambiguity` | asking for the missing fact instead of guessing it |
 
-**5/5 pass, ~$0.36 per full run.**
+**8/8 pass, ~$0.33 per full run.** `npm run check` additionally tests the verifier
+offline, with no API calls at all.
+
+The ambiguity case is worth reading. Asked *"what's my duty cycle at 150 amps?"* the
+agent asks which process and which input voltage, points out that 150A is outside every
+120V range so they are probably on 240V, and then explains that 150A is not one of the
+two published points and duty cycle does not scale linearly — so it will not
+interpolate one.
 
 The refusal case is the one I'd point at. "Can I run this off a portable generator?" —
 the word *generator* appears zero times across all three documents. The agent says so,
@@ -313,6 +351,28 @@ Python. The index is a versioned build artifact, like a compiled asset.
 headings, bold, code and pipe tables. It also lets every `[p.14]` become a button that
 opens that page image — citations are controls here, not footnotes.
 
+## Does it work on other manuals?
+
+Not as a runtime upload, and that is deliberate. The brief asks for an expert on one
+machine, and the whole reason setup takes two minutes is that nothing is extracted at
+request time.
+
+But the pipeline is not welder-specific. `extract.py` finds figures by clustering
+vector ink — no Vulcan-specific rules. `caption.py` and `tables.py` are prompted with
+the document, not the product. Pointing them at another manual is three commands:
+
+```bash
+python ingest/extract.py && python ingest/caption.py --go && python ingest/tables.py --go
+```
+
+What *is* hand-tuned is small and visible: the four table definitions in `tables.py`,
+and the region boxes for the door photograph. Everything else generalises.
+
+Productionising multi-product would mean running that pipeline as a background job on
+upload and keying the index by product — minutes and about $2.50 of vision calls per
+manual, not something to do inside a request. The architecture already assumes that
+split; it just runs the job on my machine instead of a queue.
+
 ## Interface
 
 Two visual registers that never mix. Answers are *paper*: serif, narrow measure, on a
@@ -320,6 +380,25 @@ galvanized-grey ground, like the manual in your other hand. Machine-derived data
 duty cycle readouts, polarity sockets — renders as *panel*: white-on-near-black boxed
 values, the way the machine's own LCD shows them. Colour is never decoration: orange
 means electrically hot, amber unverified, green checked.
+
+Beyond that:
+
+- **Artifact frames.** Every figure, instrument and generated diagram sits in a titled
+  panel carrying its source page, with enlarge and — for model-drawn SVG — a code
+  toggle, so you can see what it actually emitted.
+- **A sources rail** collects every page and figure an answer touched, so the retrieval
+  work is visible rather than hidden behind chips.
+- **The landing page runs a live instrument** before you have entered any key. The
+  components are driven by committed JSON, so the polarity diagram works with the API
+  untouched.
+- **An index browser** (`Index` in the top bar) shows all 122 kept figures with their
+  captions. Knowledge-extraction quality is a claim; this makes it inspectable.
+- **Voice input** where the browser supports it. Someone setting up a welder has gloves
+  on — typing is the awkward part, not the asking.
+- **Live tool status**: which tool is running, on what, right now.
+- **Print styles.** Answers are meant to be carried to the machine.
+- Keyboard: `Enter` sends, `⌘K` focuses, `Esc` closes. Citations are buttons that open
+  the page image.
 
 ## Repo map
 
@@ -346,5 +425,8 @@ evals/run.mjs    five cases with assertions
   images on later turns.
 - The verifier checks quantities, not claims. "Use argon" would pass unexamined.
 - Figure crops on two dense pages still include the section-tab margin.
+- Voice is input only, and Chrome-family only; the button hides itself elsewhere.
+- The settings configurator stops where the manual stops — it will not output a wire
+  speed, because no document contains one.
 - One eval case reproducibly warns about a miscitation rather than failing. That is
   the intended behaviour, not a green test bought by lowering the bar.

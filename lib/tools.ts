@@ -113,6 +113,7 @@ export const COMPONENTS = [
   'polarity_diagram',
   'troubleshooting_flowchart',
   'process_selector',
+  'settings_configurator',
 ] as const
 
 // The seed values are flat, named and optional rather than a freeform props object.
@@ -125,7 +126,9 @@ export const showComponent = tool(
   'Render an interactive component in the chat, driven by the verified tables so its ' +
     'contents are always correct. duty_cycle_calculator (seed with process, ' +
     'input_volts, amps) · polarity_diagram (seed with process) · ' +
-    'troubleshooting_flowchart (seed with problem) · process_selector (no seeds). ' +
+    'troubleshooting_flowchart (seed with problem) · process_selector (no seeds) · ' +
+    'settings_configurator (seed with process, input_volts, thickness) for "how do I ' +
+    'set this up for X material at Y thickness". ' +
     'Prefer showing one of these over describing the same thing in prose.',
   {
     component: z.enum(COMPONENTS),
@@ -133,6 +136,7 @@ export const showComponent = tool(
     input_volts: z.number().optional().describe('120 or 240'),
     amps: z.number().optional(),
     problem: z.string().optional().describe('symptom to preselect in the flowchart'),
+    thickness: z.string().optional().describe('material thickness, e.g. "18 gauge" or "1/4 in"'),
   },
   async ({ component }) =>
     text(`Rendered ${component} for the user. Do not repeat its contents in prose; ` +

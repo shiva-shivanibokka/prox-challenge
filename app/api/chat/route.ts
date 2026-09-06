@@ -179,6 +179,7 @@ export async function POST(req: Request) {
             const content = m.message.content
             if (Array.isArray(content)) {
               for (const block of content) {
+                if (block.type === 'tool_result') send({ type: 'tool_done' })
                 if (block.type === 'tool_result' && Array.isArray(block.content)) {
                   for (const c of block.content) {
                     if (c.type !== 'text') continue
@@ -193,7 +194,7 @@ export async function POST(req: Request) {
           if (m.type === 'result') {
             send({
               type: 'done',
-              verdict: verify(answer, trusted, corroborating),
+              verdict: verify(answer, trusted, corroborating, messages.at(-1)?.content ?? ''),
               costUsd: 'total_cost_usd' in m ? m.total_cost_usd : 0,
               usage: 'modelUsage' in m ? m.modelUsage : {},
               error: m.subtype !== 'success' ? m.subtype : undefined,

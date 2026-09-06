@@ -74,6 +74,36 @@ const CASES = [
       cites: [7],
     },
   },
+  {
+    id: 'settings-configurator',
+    tests: 'a setup answer that refuses to invent the two numbers the manual omits',
+    ask: 'I want to weld 18 gauge steel with flux-cored wire on 120V. How do I set the machine up?',
+    expect: {
+      // The component states polarity and sockets, and the prompt tells the agent not
+      // to repeat a component's contents in prose. So assert the component, not words.
+      component: 'settings_configurator',
+      // The welder is synergic: it derives wire speed and voltage itself, and the
+      // manual publishes no table. A confident IPM figure here would be invented.
+      mustNotContain: [/\d{2,3}\s*(?:in\/min|IPM)/i],
+    },
+  },
+  {
+    id: 'wiring-schematic',
+    tests: 'surfacing an image-only page on request',
+    ask: 'Show me the wiring schematic for this welder.',
+    expect: { anyTool: ['get_figure', 'get_page'], visual: true, anyCite: [45] },
+  },
+  {
+    id: 'ambiguity',
+    tests: 'asking for the one missing fact instead of guessing it',
+    ask: "What's my duty cycle at 150 amps?",
+    expect: {
+      // 150A is valid on 240V for MIG and Stick but impossible on 120V, so the
+      // answer turns on a detail the user did not give.
+      text: [/120|240/, /\?/],
+      mustNotContain: [/^\s*(?:25|30|40)\s*%/],
+    },
+  },
 ]
 
 async function run(c) {
@@ -118,6 +148,9 @@ async function run(c) {
   for (const t of x.tools ?? []) if (!tools.includes(t)) fail.push(`never called ${t}`)
   if (x.anyTool && !x.anyTool.some((t) => tools.includes(t))) fail.push(`called none of ${x.anyTool}`)
   if (x.visual && visuals.length === 0) fail.push('answered with no visual')
+  if (x.component && !visuals.includes(`component:${x.component}`)) {
+    fail.push(`did not render ${x.component}`)
+  }
   for (const p of x.cites ?? []) {
     if (!verdict?.citedPages.includes(`p.${p}`)) fail.push(`did not cite p.${p}`)
   }

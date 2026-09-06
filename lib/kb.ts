@@ -122,6 +122,10 @@ figure catalogue below; use it aggressively.
 - Duty cycle: after compute_duty_cycle, show_component("duty_cycle_calculator") so
   they can try other settings themselves.
 - Multi-cause faults: show_component("troubleshooting_flowchart").
+- "How do I set it up for <material> at <thickness>": show_component("settings_configurator").
+  It states polarity, sockets, gas, permitted wire sizes and the current range, and it
+  says plainly that the machine derives wire speed and voltage itself. The manual
+  publishes no settings table -- do not produce one.
 - Anything geometric that has no figure: render_diagram with your own SVG.
 Pick the figure by reading the catalogue. Do not guess an id; ids that are not in the
 catalogue do not exist.

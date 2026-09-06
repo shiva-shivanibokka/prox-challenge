@@ -111,8 +111,14 @@ function spellings(n: string): string[] {
  * @param answer    the assistant's final text
  * @param trusted   output of the deterministic tools: tables, duty cycle, page text
  * @param corroborating output of get_figure: captions, model-written
+ * @param question  the user's own words -- numbers they supplied are not claims
  */
-export function verify(answer: string, trusted: string[], corroborating: string[] = []): Verdict {
+export function verify(
+  answer: string,
+  trusted: string[],
+  corroborating: string[] = [],
+  question = '',
+): Verdict {
   const cited = citedPages(answer)
 
   // Narrow evidence: only the pages this answer actually pointed at, plus figure
@@ -129,6 +135,11 @@ export function verify(answer: string, trusted: string[], corroborating: string[
   )
   const wide = CORPUS + '\n' + normalise([...trusted, ...corroborating].join('\n'))
 
+  // A number the user put in the question is not a claim the agent is making. Asking
+  // "what's my duty cycle at 150 amps?" is answered by naming 150A back, and 150 is
+  // nowhere in the manual -- reporting that as fabricated would be nonsense.
+  const asked = new Set(normalise(question).match(/\d+(?:\.\d+)?/g) ?? [])
+
   const miscited: string[] = []
   const fabricated: string[] = []
   const seen = new Set<string>()
@@ -138,8 +149,9 @@ export function verify(answer: string, trusted: string[], corroborating: string[
     const whole = m[0].trim()
     if (seen.has(whole.toLowerCase())) continue
     seen.add(whole.toLowerCase())
-    checked++
     const forms = spellings(normalise(m[1]))
+    if (forms.some((f) => asked.has(f))) continue
+    checked++
     if (forms.some((f) => near.includes(f))) continue
     if (forms.some((f) => wide.includes(f))) miscited.push(whole)
     else fabricated.push(whole)

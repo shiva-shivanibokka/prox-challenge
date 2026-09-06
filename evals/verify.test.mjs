@@ -11,4 +11,7 @@ console.log('invented     ->', JSON.stringify(c.miscited), JSON.stringify(c.fabr
 if (a.miscited.length + a.fabricated.length === 0) throw new Error('FAIL: flagged number passed as verified')
 if (b.miscited.length + b.fabricated.length !== 0) throw new Error('FAIL: real number rejected')
 if (c.fabricated.length === 0) throw new Error('FAIL: invented number not caught')
+const d = verify('At 150 A you are between rated points [p.7].', [], [], 'duty cycle at 150 amps?')
+console.log('user-supplied ->', JSON.stringify(d.miscited), JSON.stringify(d.fabricated))
+if (d.fabricated.length) throw new Error('FAIL: echoing the question counted as fabrication')
 console.log('unit check OK')
