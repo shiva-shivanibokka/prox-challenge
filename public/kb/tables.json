@@ -667,5 +667,368 @@
   "sources": [
    "chart:1"
   ]
+ },
+ "setup": {
+  "sources": [
+   "manual:13",
+   "manual:14",
+   "manual:19",
+   "manual:20",
+   "manual:25",
+   "manual:26",
+   "manual:27",
+   "manual:30",
+   "manual:32"
+  ],
+  "data": {
+   "procedures": [
+    {
+     "process": "MIG",
+     "steps": [
+      {
+       "n": 1,
+       "title": "Connect gun cable to wire feed",
+       "detail": "Loosen the Knob on the Wire Feed mechanism, pass the Gun Cable Connector through the hole in the Welder front and into the socket, seat it fully, then tighten the Knob securely. If the Connector is not fully inserted the gas connection will leak and shielding gas will not reach the arc; do not overtighten the Knob.",
+       "page": 13,
+       "warning": null
+      },
+      {
+       "n": 2,
+       "title": "Connect wire feed control cable",
+       "detail": "Insert the Wire Feed Control Cable through the hole in the Welder front and connect it to the Wire Feed Control Socket inside the machine, then tighten the lock ring. The plug fits the socket in one orientation only.",
+       "page": 13,
+       "warning": null
+      },
+      {
+       "n": 3,
+       "title": "Set DCEP polarity for solid core wire",
+       "detail": "Plug the Ground Clamp Cable into the Negative (-) Socket and the Wire Feed Power Cable into the Positive (+) Socket. Twist both cables clockwise all the way to lock them in place.",
+       "page": 14,
+       "warning": null
+      },
+      {
+       "n": 4,
+       "title": "Select and secure shielding gas cylinder",
+       "detail": "Decide which shielding gas suits your work using the Settings Chart on the inside of the Welder door. With assistance, set the cylinder (not included) on a cabinet or cart near the Welder and secure it with two straps (not included) to prevent tipping.",
+       "page": 14,
+       "warning": null
+      },
+      {
+       "n": 5,
+       "title": "Purge the cylinder valve",
+       "detail": "Remove the cylinder's cap, stand to the side of the valve opening, and open the valve briefly to blow dust and dirt out. Close the cylinder valve.",
+       "page": 14,
+       "warning": null
+      },
+      {
+       "n": 6,
+       "title": "Fit regulator and gas hose",
+       "detail": "Close the Regulator valve until it is loose, thread the Regulator onto the cylinder and wrench-tighten. When using C100 gas, wrench-tighten the enclosed CGA 580/320 adapter between Regulator inlet and cylinder. Attach the Gas Hose to the Regulator outlet and the Welder's gas inlet and wrench-tighten both connections.",
+       "page": 14,
+       "warning": null
+      },
+      {
+       "n": 7,
+       "title": "Prepare and clamp the workpieces",
+       "detail": "Clean the weld surfaces to bare metal with a wire brush or angle grinder, with no rust, paint or oil left. Hold the pieces with clamps at a controlled gap, chamfering the edges of thicker workpieces for full penetration, and make practice welds on scrap of the same thickness first.",
+       "page": 19,
+       "warning": null
+      },
+      {
+       "n": 8,
+       "title": "Attach ground clamp to bare metal",
+       "detail": "Clamp the Ground Cable to bare metal on the workpiece near the weld area, or to the metal work bench holding the workpiece. When welding equipment on a vehicle, disconnect the battery from both the positive connection and the ground first.",
+       "page": 19,
+       "warning": null
+      },
+      {
+       "n": 9,
+       "title": "Connect power and switch on",
+       "detail": "With the Power Switch OFF, plug the Power Cord into a properly grounded, GFCI protected 120VAC (20 amp rated) or 240VAC receptacle that matches the plug and is protected by a delayed action-type breaker or fuses. Set the MIG Gun on a nonconductive, nonflammable surface away from grounded objects, then turn the Power Switch ON.",
+       "page": 20,
+       "warning": null
+      },
+      {
+       "n": 10,
+       "title": "Select the MIG process",
+       "detail": "Press the Home Button on the Control Panel, turn the Main Control Knob until the desired process appears on the LCD screen, then press the Main Control Knob to select it. The Back Button returns to the previous screen.",
+       "page": 20,
+       "warning": null
+      },
+      {
+       "n": 11,
+       "title": "Confirm polarity and gas screen",
+       "detail": "Plug the cables in and connect the gas as shown on the polarity and gas screen, then set the flow between 20-30 SCFH.",
+       "page": 20,
+       "warning": null
+      },
+      {
+       "n": 12,
+       "title": "Set wire size, thickness and weld values",
+       "detail": "Turn the Left Knob for wire diameter and the Right Knob for material thickness, then on the Auto Weld screen turn the Left Knob for Wire Feed Speed (Amperage) and the Right Knob for Voltage. If adjusted manually, the white mark on the line shows the recommended setting for your wire diameter and workpiece thickness.",
+       "page": 20,
+       "warning": null
+      }
+     ]
+    },
+    {
+     "process": "Flux-Cored",
+     "steps": [
+      {
+       "n": 1,
+       "title": "Connect gun cable to wire feed",
+       "detail": "Loosen the Knob on the Wire Feed mechanism, push the Gun Cable Connector through the hole in the Welder front and fully into the socket, then tighten the Knob securely without overtightening.",
+       "page": 13,
+       "warning": null
+      },
+      {
+       "n": 2,
+       "title": "Connect wire feed control cable",
+       "detail": "Run the Wire Feed Control Cable through the hole in the Welder front, plug it into the Wire Feed Control Socket inside the machine in its one correct orientation, and tighten the lock ring on the plug.",
+       "page": 13,
+       "warning": null
+      },
+      {
+       "n": 3,
+       "title": "Set DCEN polarity for gasless wire",
+       "detail": "Plug the Ground Clamp Cable into the Positive (+) Socket and the Wire Feed Power Cable into the Negative (-) Socket. Twist both cables clockwise all the way to lock in place.",
+       "page": 13,
+       "warning": null
+      },
+      {
+       "n": 4,
+       "title": "Prepare and clamp the workpieces",
+       "detail": "Clean the weld surfaces down to bare metal so no rust, paint or oil remains, and clamp the pieces with a controlled gap, chamfering thick edges for penetration. Practice on scrap of the same thickness before welding anything of value.",
+       "page": 19,
+       "warning": null
+      },
+      {
+       "n": 5,
+       "title": "Attach ground clamp to bare metal",
+       "detail": "Clamp the Ground Cable to bare metal on the workpiece near the weld, or to the metal bench the workpiece is clamped to. On vehicles, disconnect the battery from both the positive connection and the ground before welding.",
+       "page": 19,
+       "warning": null
+      },
+      {
+       "n": 6,
+       "title": "Plug in the power cord",
+       "detail": "With the Power Switch OFF, plug the Power Cord into a properly grounded, GFCI protected 120VAC (20 amp rated) or 240VAC receptacle matching the plug, on a circuit with delayed action-type breaker or fuses.",
+       "page": 20,
+       "warning": null
+      },
+      {
+       "n": 7,
+       "title": "Rest the gun and switch on",
+       "detail": "Set the MIG Gun down on a nonconductive, nonflammable surface away from any grounded objects, then turn the Power Switch ON.",
+       "page": 20,
+       "warning": null
+      },
+      {
+       "n": 8,
+       "title": "Select the process on screen",
+       "detail": "Press the Home Button, turn the Main Control Knob until the desired process appears on the LCD display, then press the Main Control Knob to select it.",
+       "page": 20,
+       "warning": null
+      },
+      {
+       "n": 9,
+       "title": "Follow the polarity screen",
+       "detail": "Plug the cables in according to the polarity screen shown for the selected process, and connect gas according to the screen if the screen calls for it.",
+       "page": 20,
+       "warning": null
+      },
+      {
+       "n": 10,
+       "title": "Set wire diameter and thickness",
+       "detail": "Turn the Left Knob to set the wire diameter and the Right Knob to set the material thickness, then press the Main Control Knob to continue.",
+       "page": 20,
+       "warning": null
+      },
+      {
+       "n": 11,
+       "title": "Set wire feed speed and voltage",
+       "detail": "On the Auto Weld screen turn the Left Knob to adjust Wire Feed Speed (Amperage) and the Right Knob to adjust Voltage. If set manually, the white mark on the line shows the recommended setting for your wire diameter and workpiece thickness.",
+       "page": 20,
+       "warning": null
+      }
+     ]
+    },
+    {
+     "process": "TIG",
+     "steps": [
+      {
+       "n": 1,
+       "title": "Assemble the TIG torch",
+       "detail": "Consult the Settings Chart on top of the Welder for the correct Tungsten Electrode size for your material, match Collet and Collet Body to that size, thread the Collet Body into the front of the Torch and the Ceramic Nozzle onto the Collet Body. Insert the Collet from the back into the Collet Body, insert the Electrode from the front, and lock it with the Back Cap so it protrudes 1/8\" to 1/4\" beyond the Ceramic Nozzle.",
+       "page": 26,
+       "warning": null
+      },
+      {
+       "n": 2,
+       "title": "Sharpen the tungsten electrode",
+       "detail": "Shut off the welder and let the Electrode and Torch cool, remove the Back Cap and pull the Electrode out the front, snapping off any contaminated end with pliers. Grind lightly on a dedicated fine grit wheel, rotating the tip and grinding parallel to the Electrode length until a blunt point about 2-1/2 times the Electrode diameter in length is formed, then reinstall it protruding 1/8\"-1/4\" beyond the Ceramic Nozzle.",
+       "page": 26,
+       "warning": "WARNING! TO PREVENT SERIOUS INJURY: Some Electrodes may have materials added to them that are hazardous to breathe. Wear a respirator and ANSI-approved Safety goggles when grinding an Electrode."
+      },
+      {
+       "n": 3,
+       "title": "Secure the argon cylinder",
+       "detail": "With assistance, place a 100% Argon cylinder (not included) onto a cabinet or cart near the Welder and secure it with two straps (not included) to prevent tipping.",
+       "page": 25,
+       "warning": null
+      },
+      {
+       "n": 4,
+       "title": "Purge valve and fit regulator",
+       "detail": "Remove the cylinder's cap, stand to the side of the valve opening and open the valve briefly to blow out dust and dirt, then close it. Close the Regulator valve until loose, thread the Regulator onto the cylinder and wrench-tighten the connection.",
+       "page": 25,
+       "warning": null
+      },
+      {
+       "n": 5,
+       "title": "Connect the shielding gas hose",
+       "detail": "Connect the Shielding Gas Hose on the TIG Torch Cable Connector to the Regulator's outlet and wrench-tighten the connection.",
+       "page": 25,
+       "warning": null
+      },
+      {
+       "n": 6,
+       "title": "Plug cord into power input socket",
+       "detail": "Plug either the 120VAC or 240VAC Power Cord into the Power Input Socket on the Welder; the plug will only fit one way.",
+       "page": 25,
+       "warning": "WARNING! TO PREVENT SERIOUS INJURY FROM ACCIDENTAL OPERATION: Do not plug cord into wall outlet at this time."
+      },
+      {
+       "n": 7,
+       "title": "Open gas and set flow",
+       "detail": "Open the gas cylinder's valve all the way, then set the Flow Gauge to the SCFH value shown on the Settings Chart inside the Welder door.",
+       "page": 30,
+       "warning": "DANGER - TO PREVENT DEATH FROM ASPHYXIATION: Do not open gas without proper ventilation. Fix gas leaks immediately. Shielding gas can displace air and cause rapid loss of consciousness and death. Shielding gas without carbon dioxide can be even more hazardous because asphyxiation can start without feeling shortness of breath."
+      },
+      {
+       "n": 8,
+       "title": "Plug welder into the outlet",
+       "detail": "With the Power Switch OFF, plug the Welder into a properly grounded, GFCI protected 120VAC (20 amp rated) outlet or 240V outlet on a circuit with delayed action-type circuit breaker or fuses.",
+       "page": 30,
+       "warning": null
+      },
+      {
+       "n": 9,
+       "title": "Rest the torch and power on",
+       "detail": "Set the TIG Torch down on a nonconductive, nonflammable surface away from any grounded objects, then turn the Power Switch ON.",
+       "page": 30,
+       "warning": "WARNING - TO PREVENT SERIOUS INJURY AND DEATH: Do not weld without Grounding Clamp. When the operator is not holding the Torch, it must be sitting on a nonconductive, nonflammable surface. Only hold TIG Rod with an electrically insulated welding glove."
+      },
+      {
+       "n": 10,
+       "title": "Select the TIG process",
+       "detail": "Press the Home Button on the Control Panel, turn the Main Control Knob until the TIG process appears on the LCD display, then press the Main Control Knob to select it. The Back Button returns to the previous screen.",
+       "page": 30,
+       "warning": null
+      },
+      {
+       "n": 11,
+       "title": "Confirm polarity and gas screen",
+       "detail": "Plug the cables in and connect the gas according to the screen shown, then set the flow between 10-25 SCFH.",
+       "page": 30,
+       "warning": null
+      },
+      {
+       "n": 12,
+       "title": "Set rod size, thickness and amperage",
+       "detail": "Turn the Left Knob for rod diameter and the Right Knob for material thickness, then on the Auto Weld screen turn the Left Knob to adjust output amperage and the Right Knob to ON to energize the TIG Torch.",
+       "page": 30,
+       "warning": "WARNING! TO PREVENT SERIOUS INJURY: Welder is now energized and Open Circuit Voltage is present."
+      }
+     ]
+    },
+    {
+     "process": "Stick",
+     "steps": [
+      {
+       "n": 1,
+       "title": "Connect the ground clamp cable",
+       "detail": "Plug the Ground Clamp Cable into the Negative Socket and twist it clockwise all the way to lock it in place.",
+       "page": 27,
+       "warning": null
+      },
+      {
+       "n": 2,
+       "title": "Connect the electrode holder cable",
+       "detail": "Plug the Electrode Holder Cable into the Positive Socket and twist it clockwise all the way to lock it in place.",
+       "page": 27,
+       "warning": null
+      },
+      {
+       "n": 3,
+       "title": "Plug cord into power input socket",
+       "detail": "Plug either the 120VAC or 240VAC Power Cord into the Power Input Socket; the plug will only fit one way.",
+       "page": 27,
+       "warning": "WARNING! TO PREVENT SERIOUS INJURY FROM ACCIDENTAL OPERATION: Do not plug cord into wall outlet at this time."
+      },
+      {
+       "n": 4,
+       "title": "Plug welder into the outlet",
+       "detail": "Turn the Power Switch to the OFF position, then plug the Welder into a properly grounded, GFCI protected 120VAC (20 amp rated) outlet or 240V outlet on a circuit with delayed action-type circuit breaker or fuses.",
+       "page": 32,
+       "warning": null
+      },
+      {
+       "n": 5,
+       "title": "Rest the electrode holder safely",
+       "detail": "Set the Electrode Holder down on a nonconductive, nonflammable surface away from any grounded objects.",
+       "page": 32,
+       "warning": "WARNING - TO PREVENT SERIOUS INJURY AND DEATH: Do not weld without Grounding Clamp. When the operator is not holding the Electrode Holder, it must be sitting on a nonconductive, nonflammable surface."
+      },
+      {
+       "n": 6,
+       "title": "Turn the power switch on",
+       "detail": "Switch the Welder's Power Switch to the ON position.",
+       "page": 32,
+       "warning": null
+      },
+      {
+       "n": 7,
+       "title": "Select the STICK process",
+       "detail": "Press the Home Button on the Control Panel, turn the Main Control Knob until the Stick process appears on the LCD display, then press the Main Control Knob to select STICK. The Back Button returns to the previous screen.",
+       "page": 32,
+       "warning": null
+      },
+      {
+       "n": 8,
+       "title": "Follow the polarity screen",
+       "detail": "Plug the cables in according to the polarity screen shown for the Stick process; the screen indicates no gas is required.",
+       "page": 32,
+       "warning": null
+      },
+      {
+       "n": 9,
+       "title": "Set the electrode type",
+       "detail": "Turn the Main Control Knob to set the electrode type on the Stick electrode screen.",
+       "page": 32,
+       "warning": null
+      },
+      {
+       "n": 10,
+       "title": "Set electrode diameter and thickness",
+       "detail": "Turn the Left Knob to set the electrode diameter and the Right Knob to set the material thickness.",
+       "page": 32,
+       "warning": null
+      },
+      {
+       "n": 11,
+       "title": "Set amperage and energize holder",
+       "detail": "On the Auto Weld screen, turn the Left Knob to adjust output amperage, then turn the Right Knob to ON to energize the Electrode Holder.",
+       "page": 32,
+       "warning": "WARNING! TO PREVENT SERIOUS INJURY: Welder is now energized and Open Circuit Voltage is present."
+      }
+     ]
+    }
+   ]
+  },
+  "unverified_numbers": [
+   "11",
+   "12"
+  ]
  }
 }

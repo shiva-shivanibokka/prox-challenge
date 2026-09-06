@@ -51,6 +51,11 @@ POLARITY_SCHEMA = """{"setups":[{"process":"MIG|Flux-Cored|TIG|Stick",
 TROUBLE_SCHEMA = """{"problems":[{"problem":string,"page":number,
 "causes":[{"cause":string,"solution":string}]}]}"""
 
+SETUP_SCHEMA = """{"procedures":[{"process":"MIG|Flux-Cored|TIG|Stick",
+"steps":[{"n":number,"title":"short imperative, max 8 words",
+"detail":"one or two sentences, plain language","page":number,
+"warning":string|null}]}]}"""
+
 SELECTION_SCHEMA = """{"processes":[{"process":string,"skill_level":string,
 "shielding_gas":string,"materials":[string],"thickness":string,
 "applications":[string],"cleanliness":string,"strengths":[string]}]}"""
@@ -77,6 +82,18 @@ TABLES = [
 
     ("process_selection", [("chart", 1)], SELECTION_SCHEMA,
      "The six-question welding process selection chart."),
+
+    # Setup runs across different pages per process: wire feed and MIG on 13-21,
+    # TIG on 24-26 and 30, Stick on 27 and 32.
+    ("setup", [("manual", 13), ("manual", 14), ("manual", 19), ("manual", 20),
+               ("manual", 25), ("manual", 26), ("manual", 27), ("manual", 30),
+               ("manual", 32)], SETUP_SCHEMA,
+     "Ordered setup procedures, one list per process, from unpacked machine to ready "
+     "to strike an arc. Cover cable polarity, gas where it applies, consumables, and "
+     "the on-screen settings sequence. Six to twelve steps each -- merge trivia, keep "
+     "anything that is a safety instruction. Put a step's own page number on it. Use "
+     "the warning field only where the manual prints a DANGER, WARNING or CAUTION that "
+     "belongs to that step."),
 ]
 
 
@@ -153,8 +170,12 @@ def main() -> None:
             "Every number must be one that actually appears in the sources. Never "
             "round, never infer, never fill a gap from general welding knowledge."})
 
-        msg = client.messages.create(model=MODEL, max_tokens=8000,
-                                     messages=[{"role": "user", "content": content}])
+        # Four full procedures across nine pages overruns 8k and comes back as
+        # truncated, unparseable JSON. Stream so a large ceiling cannot hit the
+        # request timeout.
+        with client.messages.stream(model=MODEL, max_tokens=32000,
+                                    messages=[{"role": "user", "content": content}]) as stream:
+            msg = stream.get_final_message()
         spend += msg.usage.input_tokens / 1e6 * 5 + msg.usage.output_tokens / 1e6 * 25
         raw = "".join(b.text for b in msg.content if b.type == "text")
         body = re.search(r"\{.*\}", raw, re.S)

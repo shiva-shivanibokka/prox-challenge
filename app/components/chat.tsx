@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { COMPONENT_META, Interactive } from './interactive'
 import indexJson from '../../public/kb/index.json'
 
@@ -13,9 +13,11 @@ type Block =
 type Verdict = { citedPages: string[]; checked: number; miscited: string[]; fabricated: string[] }
 type Work = { name: string; detail: string; live: boolean }
 type Source = { url: string; title: string; page: string }
+type Shot = { mediaType: string; data: string; url: string }
 
 type Turn = {
   ask: string
+  shots: string[]
   blocks: Block[]
   work: Work[]
   sources: Source[]
@@ -27,12 +29,13 @@ type Turn = {
 const SEEDS = [
   { tag: 'Spec', q: "What's the duty cycle for MIG welding at 200A on 240V?" },
   { tag: 'Diagnose', q: 'My flux-cored welds have porosity. What should I check?' },
-  { tag: 'Set up', q: 'How do I set polarity for flux-cored? Which socket does the ground clamp go in?' },
+  { tag: 'Set up', q: 'Walk me through setting this up for flux-cored from scratch.' },
   { tag: 'Cross-ref', q: "I'm running flux-cored on 120V at 100A. How long can I weld before resting, and where does the ground clamp go?" },
   { tag: 'Refuse', q: 'Can I run this welder off a portable generator? What size do I need?' },
 ]
 
 const CATALOGUE = indexJson as { id: string; t: string; k: string }[]
+const ACCEPT = 'image/jpeg,image/png,image/webp,image/gif'
 
 /* ----------------------------------------------------------- text rendering */
 
@@ -71,7 +74,7 @@ function inline(s: string, onCite: (doc: string, page: number) => void, key: str
 }
 
 /**
- * A deliberately small markdown subset -- paragraphs, bullets, numbered lists, h3,
+ * A deliberately small markdown subset — paragraphs, bullets, numbered lists, h3,
  * bold, inline code and pipe tables. The agent is told to write plainly, so a full
  * markdown pipeline would cost more bundle than it earns, and writing it by hand is
  * what lets every [p.14] become a button.
@@ -139,16 +142,11 @@ function Prose({ text, onCite }: { text: string; onCite: (d: string, p: number) 
   return <>{nodes}</>
 }
 
-/* -------------------------------------------------------------- artifact */
-
-function Artifact({
-  name, source, dark, actions, children,
-}: {
-  name: string; source: string; dark?: boolean
-  actions?: React.ReactNode; children: React.ReactNode
+function Artifact({ name, source, actions, children }: {
+  name: string; source: string; actions?: React.ReactNode; children: React.ReactNode
 }) {
   return (
-    <section className={`artifact${dark ? ' dark' : ''}`}>
+    <section className="artifact">
       <div className="art-hd">
         <span className="dot" aria-hidden />
         <span className="name">{name}</span>
@@ -165,60 +163,78 @@ function Artifact({
 export default function Chat() {
   const [turns, setTurns] = useState<Turn[]>([])
   const [draft, setDraft] = useState('')
+  const [shots, setShots] = useState<Shot[]>([])
   const [busy, setBusy] = useState(false)
   const [spend, setSpend] = useState(0)
   const [zoom, setZoom] = useState<{ url: string; alt: string } | null>(null)
   const [browsing, setBrowsing] = useState(false)
   const [filter, setFilter] = useState('')
   const [listening, setListening] = useState(false)
-  const [voiceOk, setVoiceOk] = useState(false)
+  const [voiceIn, setVoiceIn] = useState(false)
+  const [voiceOut, setVoiceOut] = useState(false)
+  const [handsFree, setHandsFree] = useState(false)
   const [needsKey, setNeedsKey] = useState(false)
+  const [keyOpen, setKeyOpen] = useState(false)
   const [apiKey, setApiKey] = useState('')
   const [keyError, setKeyError] = useState('')
   const endRef = useRef<HTMLDivElement>(null)
   const boxRef = useRef<HTMLTextAreaElement>(null)
+  const fileRef = useRef<HTMLInputElement>(null)
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const recog = useRef<any>(null)
 
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' }) }, [turns])
 
   useEffect(() => {
-    // The key lives in React state and nowhere else -- not sessionStorage, not
+    // The key lives in React state and nowhere else — not sessionStorage, not
     // localStorage, not a cookie. A refresh loses it, which is the correct trade for
     // someone else's credential on a page they did not write.
     fetch('/api/health').then((r) => r.json())
       .then((h) => setNeedsKey(!h.serverKey)).catch(() => {})
 
-    // Voice input. Someone setting up a welder has gloves on and a helmet up; typing
-    // is the awkward part, not the asking. Chrome-family only, so it is additive:
-    // the button simply does not appear where the API is missing.
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const W = window as any
     const SR = W.SpeechRecognition ?? W.webkitSpeechRecognition
     if (SR) {
-      setVoiceOk(true)
+      setVoiceIn(true)
       const r = new SR()
       r.continuous = false
       r.interimResults = true
       r.lang = 'en-US'
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      r.onresult = (e: any) => {
-        const t = Array.from(e.results).map((x: any) => x[0].transcript).join('')
-        setDraft(t)
-      }
+      r.onresult = (e: any) => setDraft(Array.from(e.results).map((x: any) => x[0].transcript).join(''))
       r.onend = () => setListening(false)
       r.onerror = () => setListening(false)
       recog.current = r
     }
+    setVoiceOut('speechSynthesis' in window)
   }, [])
 
   useEffect(() => {
     const key = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') { setZoom(null); setBrowsing(false) }
+      if (e.key === 'Escape') { setZoom(null); setBrowsing(false); window.speechSynthesis?.cancel() }
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); boxRef.current?.focus() }
     }
     window.addEventListener('keydown', key)
     return () => window.removeEventListener('keydown', key)
+  }, [])
+
+  /**
+   * Read an answer aloud. Citations, markdown marks and tool names are stripped first
+   * — "open square bracket p dot thirty five" helps nobody with a helmet down.
+   */
+  const speak = useCallback((raw: string) => {
+    if (!('speechSynthesis' in window)) return
+    const clean = raw
+      .replace(/\[[^\]]*p\.?\s*\d+[^\]]*\]/gi, '')
+      .replace(/[*_`#|]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+    if (!clean) return
+    window.speechSynthesis.cancel()
+    const u = new SpeechSynthesisUtterance(clean.slice(0, 4000))
+    u.rate = 1.02
+    window.speechSynthesis.speak(u)
   }, [])
 
   const openPage = (doc: string, page: number) =>
@@ -230,40 +246,83 @@ export default function Chat() {
     else { try { recog.current.start(); setListening(true) } catch { setListening(false) } }
   }
 
+  const addFiles = useCallback((files: FileList | File[]) => {
+    for (const f of Array.from(files).slice(0, 4)) {
+      if (!ACCEPT.includes(f.type)) continue
+      const reader = new FileReader()
+      reader.onload = () => {
+        const url = String(reader.result)
+        setShots((s) => [...s, { mediaType: f.type, data: url.split(',')[1] ?? '', url }].slice(0, 4))
+      }
+      reader.readAsDataURL(f)
+    }
+  }, [])
+
+  useEffect(() => {
+    const onPaste = (e: ClipboardEvent) => {
+      const files = Array.from(e.clipboardData?.files ?? [])
+      if (files.length) { e.preventDefault(); addFiles(files) }
+    }
+    const stop = (e: DragEvent) => { e.preventDefault() }
+    const onDrop = (e: DragEvent) => {
+      e.preventDefault()
+      if (e.dataTransfer?.files.length) addFiles(e.dataTransfer.files)
+    }
+    window.addEventListener('paste', onPaste)
+    window.addEventListener('dragover', stop)
+    window.addEventListener('drop', onDrop)
+    return () => {
+      window.removeEventListener('paste', onPaste)
+      window.removeEventListener('dragover', stop)
+      window.removeEventListener('drop', onDrop)
+    }
+  }, [addFiles])
+
   const shown = useMemo(
-    () => CATALOGUE.filter((f) =>
-      !filter || (f.t + ' ' + f.id).toLowerCase().includes(filter.toLowerCase())),
+    () => CATALOGUE.filter((f) => !filter || (f.t + ' ' + f.id).toLowerCase().includes(filter.toLowerCase())),
     [filter],
   )
 
   async function ask(question: string) {
-    if (!question.trim() || busy) return
+    const attached = shots
+    if ((!question.trim() && !attached.length) || busy) return
     setBusy(true)
     setDraft('')
+    setShots([])
+    window.speechSynthesis?.cancel()
 
     const history = turns.flatMap((t) => [
       { role: 'user' as const, content: t.ask },
       { role: 'assistant' as const, content: t.blocks.filter((b) => b.kind === 'text').map((b) => (b as { text: string }).text).join('\n') },
     ])
     const idx = turns.length
-    setTurns((t) => [...t, { ask: question, blocks: [], work: [], sources: [], streaming: true }])
+    setTurns((t) => [...t, {
+      ask: question || 'What do you make of this?',
+      shots: attached.map((s) => s.url),
+      blocks: [], work: [], sources: [], streaming: true,
+    }])
     const patch = (fn: (t: Turn) => Turn) => setTurns((all) => all.map((t, i) => (i === idx ? fn(t) : t)))
 
     // A tool call between two text runs is a paragraph boundary. Without this the
-    // streamed deltas concatenate and you get "...[p.13].Twist both cables".
+    // streamed deltas concatenate and you get "…[p.13].Twist both cables".
     let breakText = false
     const seen = new Set<string>()
+    let spoken = ''
 
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', ...(apiKey ? { 'x-anthropic-key': apiKey } : {}) },
-        body: JSON.stringify({ messages: [...history, { role: 'user', content: question }] }),
+        body: JSON.stringify({
+          messages: [...history, { role: 'user', content: question || 'What do you make of this photo?' }],
+          images: attached.map((s) => ({ mediaType: s.mediaType, data: s.data })),
+        }),
       })
       if (!res.ok || !res.body) {
         const j = await res.json().catch(() => ({ error: `HTTP ${res.status}` }))
         if (j.needsKey) {
-          setNeedsKey(true); setKeyError(j.error ?? ''); setTurns((all) => all.slice(0, idx)); return
+          setNeedsKey(true); setKeyOpen(true); setKeyError(j.error ?? '')
+          setTurns((all) => all.slice(0, idx)); setShots(attached); return
         }
         patch((t) => ({ ...t, error: j.error ?? 'Request failed', streaming: false }))
         return
@@ -283,6 +342,7 @@ export default function Chat() {
           const e = JSON.parse(part.slice(6))
 
           if (e.type === 'text') {
+            spoken += e.delta
             const fresh = breakText
             breakText = false
             patch((t) => {
@@ -297,17 +357,16 @@ export default function Chat() {
             })
           } else if (e.type === 'tool') {
             breakText = true
+            const d = e.input
             const detail =
-              e.name === 'get_figure' ? String(e.input.id ?? '')
-              : e.name === 'get_page' ? `${e.input.doc} p.${e.input.page}`
-              : e.name === 'get_table' ? String(e.input.name ?? '')
-              : e.name === 'compute_duty_cycle' ? `${e.input.process} ${e.input.input_volts}V ${e.input.amps}A`
-              : e.name === 'show_component' ? String(e.input.component ?? '')
-              : String(e.input.title ?? '')
-            patch((t) => ({
-              ...t,
-              work: [...t.work.map((w) => ({ ...w, live: false })), { name: e.name, detail, live: true }],
-            }))
+              e.name === 'get_figure' ? String(d.id ?? '')
+              : e.name === 'get_page' ? `${d.doc} p.${d.page}`
+              : e.name === 'get_table' ? String(d.name ?? '')
+              : e.name === 'view_photo' ? 'your photo'
+              : e.name === 'compute_duty_cycle' ? `${d.process} ${d.input_volts}V ${d.amps}A`
+              : e.name === 'show_component' ? String(d.component ?? '')
+              : String(d.title ?? '')
+            patch((t) => ({ ...t, work: [...t.work.map((w) => ({ ...w, live: false })), { name: e.name, detail, live: true }] }))
           } else if (e.type === 'tool_done') {
             patch((t) => ({ ...t, work: t.work.map((w) => ({ ...w, live: false })) }))
           } else if (e.type === 'figure') {
@@ -324,6 +383,7 @@ export default function Chat() {
           } else if (e.type === 'done') {
             setSpend((s) => s + (e.costUsd ?? 0))
             patch((t) => ({ ...t, verdict: e.verdict, error: e.error, streaming: false, work: t.work.map((w) => ({ ...w, live: false })) }))
+            if (handsFree) speak(spoken)
           } else if (e.type === 'error') {
             patch((t) => ({ ...t, error: e.message, streaming: false }))
           }
@@ -337,84 +397,84 @@ export default function Chat() {
     }
   }
 
-  const allSources = turns.flatMap((t) => t.sources)
+  const keySet = Boolean(apiKey) && !keyError
+  const showGate = needsKey && (!keySet || keyOpen)
 
   return (
     <>
       <div className="rail">
-        <span className="mark" aria-hidden />
-        <b>OmniPro 220</b>
-        <span className="sub">Vulcan · item 57812</span>
+        <span className="wordmark"><span className="glyph" aria-hidden>⚡</span>OmniPro&nbsp;220</span>
+        <span className="tag">Know your machine</span>
         <span className="spacer" />
         <span className="meter">session <b>${spend.toFixed(3)}</b></span>
-        <button className="railbtn" aria-pressed={browsing} onClick={() => setBrowsing((v) => !v)}>
-          Index
-        </button>
-        {apiKey && !needsKey && (
-          <button className="railbtn" title="Forget the key held in this tab"
-            onClick={() => {
-              setApiKey(''); setNeedsKey(true)
-            }}>
-            your key · clear
+        {voiceOut && (
+          <button className="railbtn" aria-pressed={handsFree}
+            title="Read answers aloud — for when your helmet is down"
+            onClick={() => { const n = !handsFree; setHandsFree(n); if (!n) window.speechSynthesis.cancel() }}>
+            Hands-free
           </button>
         )}
+        <button className="railbtn" aria-pressed={browsing} onClick={() => setBrowsing((v) => !v)}>Index</button>
       </div>
 
-      <div className="layout">
-        <main className="col">
-          {turns.length === 0 && (
-            <div className="hero">
-              <div className="herotop">
-                <div>
-                  <h1>Ask the machine anything.</h1>
-                  <p className="lede">
-                    Every answer cites the page it came from, shows the figure, and has its
-                    numbers checked against the manual before you see it.
-                  </p>
-                  <div className="badges">
-                    <span className="badge"><b>52</b> pages read</span>
-                    <span className="badge"><b>122</b> figures extracted</span>
-                    <span className="badge"><b>4</b> tables verified</span>
-                    <span className="badge">3 PDFs + the door chart</span>
-                  </div>
+      <main className="wrap">
+        {turns.length === 0 && (
+          <div className="hero">
+            <div className="herotop">
+              <div>
+                <h1 className="bigtitle">Point at the problem. Get the answer.</h1>
+                <p className="subtitle">Everything in the manual. None of the reading.</p>
+                <div className="badges">
+                  <span className="badge"><b>52</b> pages read</span>
+                  <span className="badge"><b>122</b> figures extracted</span>
+                  <span className="badge"><b>5</b> tables verified</span>
+                  <span className="badge">photograph your weld</span>
                 </div>
-                <img src="/product.webp" alt="Vulcan OmniPro 220 multiprocess welder" />
               </div>
+              <img src="/product.webp" alt="Vulcan OmniPro 220 multiprocess welder" />
+            </div>
 
-              <p className="demo-note">
-                A live instrument, running on the extracted data — no API key needed. Change
-                the process and watch the sockets move.
-              </p>
-              <Artifact name="Cable polarity" source="p.13, p.14, p.27, QSG p.2" dark>
-                <div className="art-bd"><Interactive component="polarity_diagram" props={{ process: 'Flux-Cored' }} /></div>
-              </Artifact>
+            <p className="demo-note">
+              A live instrument running on the extracted data — no key needed. Change the
+              process and watch the ground clamp move.
+            </p>
+            <Artifact name="Cable polarity" source="p.13 · p.14 · p.27 · QSG p.2">
+              <div className="art-bd"><Interactive component="polarity_diagram" props={{ process: 'Flux-Cored' }} /></div>
+            </Artifact>
 
-              <div className="seeds">
-                {SEEDS.map((s) => (
-                  <button key={s.q} className="seed" onClick={() => ask(s.q)}>
-                    <span className="tag">{s.tag}</span>
-                    <span>{s.q}</span>
-                  </button>
+            <div className="seeds">
+              {SEEDS.map((s) => (
+                <button key={s.q} className="seed" onClick={() => ask(s.q)}>
+                  <span className="tag">{s.tag}</span><span>{s.q}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {turns.map((t, i) => (
+          <article className="turn" key={i}>
+            <div className="ask">{t.ask}</div>
+            {t.shots.length > 0 && (
+              <div className="askthumbs">
+                {t.shots.map((u, j) => (
+                  <img key={j} src={u} alt="" onClick={() => setZoom({ url: u, alt: 'your photo' })} />
                 ))}
               </div>
-            </div>
-          )}
+            )}
 
-          {turns.map((t, i) => (
-            <article className="turn" key={i}>
-              <div className="ask">{t.ask}</div>
+            {t.work.length > 0 && (
+              <div className="working">
+                {t.work.map((w, j) => (
+                  <span className={`step-chip${w.live ? ' live' : ''}`} key={j}>
+                    {w.live && <span className="spin" aria-hidden />}
+                    {w.name.replace(/_/g, ' ')} <b>{w.detail}</b>
+                  </span>
+                ))}
+              </div>
+            )}
 
-              {t.work.length > 0 && (
-                <div className="working">
-                  {t.work.map((w, j) => (
-                    <span className={`step-chip${w.live ? ' live' : ''}`} key={j}>
-                      {w.live && <span className="spin" aria-hidden />}
-                      {w.name.replace(/_/g, ' ')} <b>{w.detail}</b>
-                    </span>
-                  ))}
-                </div>
-              )}
-
+            <div className="answer">
               {t.blocks.map((b, j) => {
                 if (b.kind === 'text') {
                   return (
@@ -437,7 +497,7 @@ export default function Chat() {
                 if (b.kind === 'component') {
                   const meta = COMPONENT_META[b.component] ?? { name: b.component, source: '' }
                   return (
-                    <Artifact key={j} name={meta.name} source={meta.source} dark>
+                    <Artifact key={j} name={meta.name} source={meta.source}>
                       <div className="art-bd"><Interactive component={b.component} props={b.props} /></div>
                     </Artifact>
                   )
@@ -445,100 +505,106 @@ export default function Chat() {
                 return <GeneratedDiagram key={j} title={b.title} svg={b.svg} />
               })}
 
+              {t.streaming && t.blocks.length === 0 && <span className="caret" />}
               {t.error && <div className="err">{t.error}</div>}
+
+              {t.sources.length > 0 && (
+                <div className="srcstrip">
+                  <span className="lbl">SOURCES</span>
+                  {t.sources.map((s, j) => (
+                    <button key={j} onClick={() => setZoom({ url: s.url, alt: s.title })}>
+                      <img src={s.url} alt="" />{s.page}
+                    </button>
+                  ))}
+                </div>
+              )}
               {t.verdict && <VerdictLine v={t.verdict} />}
-            </article>
-          ))}
-          <div ref={endRef} />
-        </main>
-
-        <aside className="aside">
-          <h2>Sources in this answer</h2>
-          {allSources.length === 0 ? (
-            <p className="empty">
-              Figures and pages the agent opens will collect here, so you can see exactly
-              what an answer was built from.
-            </p>
-          ) : (
-            <div className="srcs">
-              {allSources.map((s, i) => (
-                <button className="src" key={i} onClick={() => setZoom({ url: s.url, alt: s.title })}>
-                  <img src={s.url} alt="" />
-                  <span className="t"><b>{s.title}</b><span>{s.page}</span></span>
-                </button>
-              ))}
             </div>
-          )}
-
-          <h2>Knowledge index</h2>
-          <div className="stat">
-            <div><span>Pages</span><b>52</b></div>
-            <div><span>Figures kept</span><b>122</b></div>
-            <div><span>Ruled decorative</span><b>12</b></div>
-            <div><span>Verified tables</span><b>4</b></div>
-          </div>
-          <button className="browse" onClick={() => setBrowsing(true)}>Browse everything extracted</button>
-        </aside>
-      </div>
+          </article>
+        ))}
+        <div ref={endRef} />
+      </main>
 
       <div className="dock">
-        <div className="dock-in">
-          {needsKey && (
-            <form className="keygate" onSubmit={(e) => {
-              e.preventDefault()
-              const k = apiKey.trim()
-              if (!/^sk-ant-/.test(k)) { setKeyError('Anthropic keys start with sk-ant-.'); return }
-              setKeyError(''); setNeedsKey(false)
-            }}>
-              <p>
-                <b>This demo runs on your own Anthropic key.</b> It is held in memory for this
-                tab only — never written to storage of any kind — sent to this app&rsquo;s own
-                API route to call Anthropic, and gone the moment you refresh or close the tab.
-                <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noreferrer">Get a key</a>
-              </p>
-              <div className="keyrow">
-                <input type="password" autoComplete="off" spellCheck={false} placeholder="sk-ant-..."
-                  value={apiKey} onChange={(e) => { setApiKey(e.target.value); setKeyError('') }} />
-                <button type="submit">Use this key</button>
-              </div>
-              {keyError && <p className="keyerr">{keyError}</p>}
-              <p className="keynote">
-                Rather not paste a key? Clone the repo and run it locally with the key in
-                <code>.env</code> — the README has a two-minute setup. The instrument above
-                works either way.
-              </p>
-            </form>
-          )}
-
-          <form className="compose" onSubmit={(e) => { e.preventDefault(); ask(draft) }}>
-            {voiceOk && (
-              <button type="button" className="mic" aria-pressed={listening} onClick={toggleMic}
-                title={listening ? 'Stop listening' : 'Ask out loud'} aria-label="Ask out loud">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
-                  <rect x="9" y="2" width="6" height="12" rx="3" /><path d="M5 11a7 7 0 0 0 14 0M12 18v4" />
-                </svg>
-              </button>
-            )}
-            <textarea ref={boxRef} rows={1} value={draft}
-              placeholder={listening ? 'Listening…' : 'Ask about setup, settings, a bad weld, a fault…'}
-              onChange={(e) => setDraft(e.target.value)}
-              onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); ask(draft) } }} />
-            <button type="submit" className="send" disabled={busy || !draft.trim()}>
-              {busy ? 'Working' : 'Ask'}
-            </button>
+        {showGate && (
+          <form className="keygate" onSubmit={(e) => {
+            e.preventDefault()
+            const k = apiKey.trim()
+            if (!/^sk-ant-/.test(k)) { setKeyError('Anthropic keys start with sk-ant-.'); return }
+            setKeyError(''); setKeyOpen(false)
+          }}>
+            <p>
+              <b>This runs on your own Anthropic key.</b> Held in memory for this tab only —
+              never written to storage of any kind, gone the moment you refresh.
+              <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noreferrer">Get a key</a>
+            </p>
+            <input type="password" autoComplete="off" spellCheck={false} placeholder="sk-ant-..."
+              value={apiKey} onChange={(e) => { setApiKey(e.target.value); setKeyError('') }} />
+            <button type="submit" className="use">Use this key</button>
+            {keyError && <p className="keyerr keynote">{keyError}</p>}
+            <p className="keynote">
+              Rather not paste a key? Clone the repo and run it locally with the key in
+              <code>.env</code>. The instrument above works either way.
+            </p>
           </form>
-          <p className="hint">
-            Enter to send · ⌘K to focus{voiceOk ? ' · microphone for hands-free' : ''}
-            {turns.length > 0 ? ' · ⌘P prints the answer' : ''}
-          </p>
-        </div>
+        )}
+        {needsKey && keySet && !keyOpen && (
+          <div className="keygate mini">
+            <span className="dotok" aria-hidden />
+            <span>Key active for this tab</span>
+            <span style={{ flex: 1 }} />
+            <button className="ghost" onClick={() => setKeyOpen(true)}>Change</button>
+          </div>
+        )}
+
+        {shots.length > 0 && (
+          <div className="pending">
+            {shots.map((s, i) => (
+              <figure key={i}>
+                <img src={s.url} alt="" />
+                <button aria-label="Remove photo" onClick={() => setShots((v) => v.filter((_, j) => j !== i))}>✕</button>
+              </figure>
+            ))}
+          </div>
+        )}
+
+        <form className="compose" onSubmit={(e) => { e.preventDefault(); ask(draft) }}>
+          <input ref={fileRef} type="file" accept={ACCEPT} multiple hidden
+            onChange={(e) => { if (e.target.files) addFiles(e.target.files); e.target.value = '' }} />
+          <button type="button" className="iconbtn" onClick={() => fileRef.current?.click()}
+            title="Photograph your weld — drag, paste or browse" aria-label="Attach a photo">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+              <path d="M3 8.5A1.5 1.5 0 0 1 4.5 7h2L8 5h8l1.5 2h2A1.5 1.5 0 0 1 21 8.5v9A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z" />
+              <circle cx="12" cy="12.5" r="3.4" />
+            </svg>
+          </button>
+          {voiceIn && (
+            <button type="button" className="iconbtn" aria-pressed={listening} onClick={toggleMic}
+              title={listening ? 'Stop listening' : 'Ask out loud'} aria-label="Ask out loud">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden>
+                <rect x="9" y="2" width="6" height="12" rx="3" /><path d="M5 11a7 7 0 0 0 14 0M12 18v4" />
+              </svg>
+            </button>
+          )}
+          <textarea ref={boxRef} rows={1} value={draft}
+            placeholder={listening ? 'Listening…' : 'Ask about setup, settings, a bad weld — or drop in a photo'}
+            onChange={(e) => setDraft(e.target.value)}
+            onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); ask(draft) } }} />
+          <button type="submit" className="send" disabled={busy || (!draft.trim() && !shots.length)}>
+            {busy ? 'Working' : 'Ask'}
+          </button>
+        </form>
+        <p className="hint">
+          Enter to send · ⌘K to focus · drag or paste a photo of your weld
+          {voiceIn ? ' · mic for hands-free' : ''}
+        </p>
       </div>
 
       {browsing && (
         <div className="overlay" role="dialog" aria-label="Knowledge index">
           <div className="ov-hd">
             <b>Everything extracted</b>
-            <span style={{ color: '#9aa2ab' }}>{shown.length} figures</span>
+            <span style={{ color: 'var(--text-3)' }}>{shown.length} figures</span>
             <input placeholder="Filter by name or page…" value={filter}
               onChange={(e) => setFilter(e.target.value)} autoFocus />
             <button className="close" onClick={() => setBrowsing(false)}>Close · Esc</button>
@@ -549,7 +615,7 @@ export default function Chat() {
                 <button className="card" key={f.id}
                   onClick={() => setZoom({ url: `/kb/figures/${f.id}.webp`, alt: f.t })}>
                   <img src={`/kb/figures/${f.id}.webp`} alt="" loading="lazy" />
-                  <span className="meta"><b>{f.t}</b>{f.k} · {f.id}</span>
+                  <span className="meta"><b>{f.t}</b><span>{f.k} · {f.id}</span></span>
                 </button>
               ))}
             </div>
@@ -574,7 +640,7 @@ function VerdictLine({ v }: { v: Verdict }) {
   const off = v.miscited.length > 0
   return (
     <div className={`verdict${bad ? ' bad' : off ? ' warn' : ''}`}>
-      <span className="sig">{bad ? 'FAIL' : off ? 'CHECK' : 'OK'}</span>
+      <span className="sig">{bad ? 'FAIL' : off ? 'CHECK' : 'VERIFIED'}</span>
       {bad ? (
         <>
           <span>not found anywhere in the manuals:</span>
@@ -588,7 +654,7 @@ function VerdictLine({ v }: { v: Verdict }) {
       ) : (
         <span>
           {v.checked} value{v.checked === 1 ? '' : 's'} checked against{' '}
-          {v.citedPages.join(', ') || 'the cited pages'}
+          {v.citedPages.join(', ') || 'the cited pages'} — nothing invented
         </span>
       )}
     </div>
@@ -597,8 +663,8 @@ function VerdictLine({ v }: { v: Verdict }) {
 
 /**
  * Model-authored SVG. The tool schema admits only inline SVG, and the string is
- * stripped of script and event handlers before it reaches the DOM. The code toggle
- * is there because a reviewer should be able to see what the model actually drew.
+ * stripped of script and event handlers before it reaches the DOM. The code toggle is
+ * there because a reviewer should be able to see what the model actually drew.
  */
 function GeneratedDiagram({ title, svg }: { title: string; svg: string }) {
   const [code, setCode] = useState(false)
@@ -611,7 +677,7 @@ function GeneratedDiagram({ title, svg }: { title: string; svg: string }) {
       actions={<button className="act" onClick={() => setCode((c) => !c)}>{code ? 'Diagram' : 'Code'}</button>}>
       {code
         ? <pre>{clean}</pre>
-        : <div style={{ padding: 14, background: '#fff' }} dangerouslySetInnerHTML={{ __html: clean }} />}
+        : <div style={{ padding: 16, background: '#fff' }} dangerouslySetInnerHTML={{ __html: clean }} />}
     </Artifact>
   )
 }

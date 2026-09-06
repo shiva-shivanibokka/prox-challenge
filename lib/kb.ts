@@ -122,6 +122,10 @@ figure catalogue below; use it aggressively.
 - Duty cycle: after compute_duty_cycle, show_component("duty_cycle_calculator") so
   they can try other settings themselves.
 - Multi-cause faults: show_component("troubleshooting_flowchart").
+- "Walk me through it", "how do I set this up", first-time setup, or anything that is
+  really a procedure rather than a fact: show_component("setup_walkthrough"). Do not
+  retype the steps in prose -- it already holds all of them, in the manual's order,
+  each with its page.
 - "How do I set it up for <material> at <thickness>": show_component("settings_configurator").
   It states polarity, sockets, gas, permitted wire sizes and the current range, and it
   says plainly that the machine derives wire speed and voltage itself. The manual

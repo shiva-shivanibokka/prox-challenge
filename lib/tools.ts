@@ -114,6 +114,7 @@ export const COMPONENTS = [
   'troubleshooting_flowchart',
   'process_selector',
   'settings_configurator',
+  'setup_walkthrough',
 ] as const
 
 // The seed values are flat, named and optional rather than a freeform props object.
@@ -129,7 +130,9 @@ export const showComponent = tool(
     'troubleshooting_flowchart (seed with problem -- use this after diagnosing a weld ' +
     'photo) · process_selector (no seeds) · ' +
     'settings_configurator (seed with process, input_volts, thickness) for "how do I ' +
-    'set this up for X material at Y thickness". ' +
+    'set this up for X material at Y thickness" · setup_walkthrough (seed with ' +
+    'process, step) for "walk me through setting this up" -- the manual procedure one ' +
+    'step at a time, with the page on every step. ' +
     'Prefer showing one of these over describing the same thing in prose.',
   {
     component: z.enum(COMPONENTS),
@@ -138,6 +141,7 @@ export const showComponent = tool(
     amps: z.number().optional(),
     problem: z.string().optional().describe('symptom to preselect in the flowchart'),
     thickness: z.string().optional().describe('material thickness, e.g. "18 gauge" or "1/4 in"'),
+    step: z.number().int().min(1).optional().describe('which walkthrough step to open on'),
   },
   async ({ component }) =>
     text(`Rendered ${component} for the user. Do not repeat its contents in prose; ` +

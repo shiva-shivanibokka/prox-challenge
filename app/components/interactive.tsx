@@ -56,7 +56,14 @@ function Clock({ percent, size = 108 }: { percent: number; size?: number }) {
   )
 }
 
-/** The two dinse sockets on the front of the machine, with the live one marked. */
+/**
+ * The two dinse sockets on the front of the machine, with the live one marked.
+ *
+ * Keyed on the process so switching remounts the SVG and replays the cable draw-in.
+ * That motion is the whole point: between MIG and flux-cored the ground clamp is the
+ * one thing that moves, and watching it move is more memorable than reading it.
+ * Suppressed under prefers-reduced-motion by the global rule.
+ */
 function SocketPair({ groundOn, hotLead }: { groundOn: '+' | '-'; hotLead: string }) {
   const cells: { sign: '+' | '-'; lead: string; live: boolean }[] = [
     { sign: '-', lead: groundOn === '-' ? 'Ground clamp' : hotLead, live: groundOn === '+' },
@@ -65,17 +72,19 @@ function SocketPair({ groundOn, hotLead }: { groundOn: '+' | '-'; hotLead: strin
   return (
     <div className="sockets">
       {cells.map((k) => (
-        <div className="sock" key={k.sign}>
+        <div className="sock" key={`${k.sign}-${hotLead}-${groundOn}`}>
           <svg width="100%" height="96" viewBox="0 0 150 96" role="img"
             aria-label={`${k.sign === '+' ? 'Positive' : 'Negative'} socket: ${k.lead}`}>
-            <circle cx="75" cy="42" r="26" fill="#14161a" stroke={k.live ? '#e8541f' : '#5a626b'} strokeWidth="3" />
-            <circle cx="75" cy="42" r="13" fill="#000" stroke={k.live ? '#e8541f' : '#5a626b'} strokeWidth="2" />
+            <circle className={k.live ? 'ring live' : 'ring'} cx="75" cy="42" r="26" fill="#0a0f16"
+              stroke={k.live ? 'var(--hot)' : '#5a626b'} strokeWidth="3" />
+            <circle cx="75" cy="42" r="13" fill="#04070c" stroke={k.live ? 'var(--hot)' : '#5a626b'} strokeWidth="2" />
             <text x="75" y="49" textAnchor="middle" fontSize="22" fontWeight="700"
-              fill={k.live ? '#e8541f' : '#9aa2ab'} fontFamily="system-ui, sans-serif">
+              fill={k.live ? 'var(--hot)' : '#9aa2ab'} fontFamily="var(--font-mono), monospace">
               {k.sign}
             </text>
-            <path d={k.sign === '-' ? 'M 75 68 C 75 84, 30 80, 24 92' : 'M 75 68 C 75 84, 120 80, 126 92'}
-              fill="none" stroke={k.live ? '#e8541f' : '#5a626b'} strokeWidth="5" strokeLinecap="round" />
+            <path className="cable"
+              d={k.sign === '-' ? 'M 75 68 C 75 84, 30 80, 24 92' : 'M 75 68 C 75 84, 120 80, 126 92'}
+              fill="none" stroke={k.live ? 'var(--hot)' : '#5a626b'} strokeWidth="5" strokeLinecap="round" />
           </svg>
           <div className="lead">{k.lead}</div>
           <div className="role">{k.live ? 'live side' : 'to the workpiece'}</div>
@@ -423,6 +432,71 @@ function SettingsConfigurator(p: Props) {
   )
 }
 
+/* ------------------------------------------------------ guided setup walkthrough */
+
+/**
+ * The manual's setup procedure, one step at a time, with your place kept.
+ *
+ * Reading a twelve-step procedure off a page while holding a torch is the problem
+ * this product exists to remove. Steps come from the verified setup table, so the
+ * order and the wording are the manual's, not the model's, and every step carries
+ * the page it came from.
+ */
+function SetupWalkthrough(p: Props) {
+  const procs: any[] = T.setup?.data?.procedures ?? []
+  const wanted = str(p, 'process', 'MIG').toLowerCase()
+  const [proc, setProc] = useState(
+    procs.find((x) => x.process.toLowerCase() === wanted)?.process ?? procs[0]?.process ?? '',
+  )
+  const [at, setAt] = useState(Math.max(0, num(p, 'step', 1) - 1))
+  const cur = procs.find((x) => x.process === proc)
+  if (!cur) return null
+
+  const steps = cur.steps
+  const i = Math.min(at, steps.length - 1)
+  const step = steps[i]
+  const done = i >= steps.length - 1
+
+  return (
+    <>
+      <div className="ctl">
+        <div>
+          <label htmlFor="wt-p">Process</label>
+          <select id="wt-p" value={proc} onChange={(e) => { setProc(e.target.value); setAt(0) }}>
+            {procs.map((x) => <option key={x.process}>{x.process}</option>)}
+          </select>
+        </div>
+        <div style={{ marginLeft: 'auto', textAlign: 'right' }}>
+          <label>Progress</label>
+          <div className="wt-count">{i + 1} / {steps.length}</div>
+        </div>
+      </div>
+
+      <div className="wt-track" role="progressbar" aria-valuenow={i + 1} aria-valuemin={1} aria-valuemax={steps.length}>
+        {steps.map((_: unknown, n: number) => (
+          <button key={n} className={`wt-pip${n === i ? ' at' : n < i ? ' past' : ''}`}
+            aria-label={`Step ${n + 1}`} onClick={() => setAt(n)} />
+        ))}
+      </div>
+
+      <div className="wt-step">
+        <div className="wt-n">Step {step.n ?? i + 1}</div>
+        <h4>{step.title}</h4>
+        <p>{step.detail}</p>
+        {step.warning && <p className="wt-warn">{step.warning}</p>}
+        <div className="wt-page">Manual p.{step.page}</div>
+      </div>
+
+      <div className="wt-nav">
+        <button disabled={i === 0} onClick={() => setAt(i - 1)}>Back</button>
+        <button className="primary" disabled={done} onClick={() => setAt(i + 1)}>
+          {done ? 'Ready to weld' : 'Done — next step'}
+        </button>
+      </div>
+    </>
+  )
+}
+
 /* ------------------------------------------------------------------ registry */
 
 export const COMPONENT_META: Record<string, { name: string; source: string }> = {
@@ -440,6 +514,7 @@ export function Interactive({ component, props }: { component: string; props: Pr
     case 'troubleshooting_flowchart': return <TroubleshootingFlowchart {...props} />
     case 'process_selector': return <ProcessSelector />
     case 'settings_configurator': return <SettingsConfigurator {...props} />
+    case 'setup_walkthrough': return <SetupWalkthrough {...props} />
     default: return null
   }
 }

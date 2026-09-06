@@ -4,6 +4,10 @@ A multimodal agent that answers deep questions about the Vulcan OmniPro 220 weld
 built on the Claude Agent SDK. It cites the page, shows the figure, computes duty
 cycle deterministically, and refuses when the manuals don't cover something.
 
+**You can also show it your weld.** Photograph the bead, and it matches yours against
+the manual's own diagnosis grid and tells you what to change — or tells you the weld is
+fine. That is multimodal *input*, which the brief did not ask for.
+
 ```bash
 git clone https://github.com/shiva-shivanibokka/prox-challenge
 cd prox-challenge
@@ -131,7 +135,7 @@ against the PDFs at ingest; numbers no document confirms are flagged, `get_figur
 warns the model not to quote them, and the verifier strips them from its evidence
 entirely. `npm run check` holds that line.
 
-### 3. `tables.py` — four structured tables, verified
+### 3. `tables.py` — five structured tables, verified
 
 Text extraction is not enough for the specification table. On page 7 the columns
 interleave in reading order:
@@ -147,7 +151,7 @@ page recovers the column structure.
 
 Extraction can be wrong, so it is gated: **every numeric literal in an extracted table
 must appear in the source page's own text**, or the build reports it as unverified.
-All four tables pass clean.
+All five tables pass clean apart from two flagged numbers in the setup procedure.
 
 The polarity table was rebuilt once. The first pass cited p.43, which only restates
 the MIG/flux rule in passing; the authoritative sources are p.13 (DCEN flux-cored),
@@ -210,15 +214,16 @@ agent's entire world is the committed index.
 | `get_page` | a whole page image plus its text |
 | `get_table` | verified structured data |
 | `compute_duty_cycle` | deterministic lookup; allowed to say "not specified" |
-| `show_component` | renders one of five table-driven React components |
+| `show_component` | renders one of six table-driven React components |
+| `view_photo` | opens a photograph the user attached (bound per request) |
 | `render_diagram` | renders model-authored SVG |
 
 ### Deterministic where correctness matters, generative where it doesn't
 
 `show_component` and `render_diagram` are two halves of the same job, split
-deliberately. The five components — duty cycle calculator, polarity diagram,
-troubleshooting flowchart, process selector, settings configurator — read the
-**verified tables**, not
+deliberately. The six components — duty cycle calculator, polarity diagram,
+troubleshooting flowchart, process selector, settings configurator, guided setup
+walkthrough — read the **verified tables**, not
 anything the model produced. The agent picks which one to show and seeds its starting
 values; it never supplies content. So what a user pokes at cannot drift from the
 manual.
@@ -239,6 +244,35 @@ process suits that material and thickness, polarity and sockets, gas, permitted 
 sizes, the current range — and then says plainly that the machine works out the last
 two numbers, and how to read its recommendation off the LCD. Fabricating a wire-speed
 table would have satisfied the brief's wording and been wrong.
+
+### Show it your weld
+
+The brief asks for multimodal *responses* — agent to user. This runs the other way too.
+
+Someone in a garage does not know the word "porosity". That is precisely why they
+could not find it in the manual. So they photograph the bead instead. The agent opens
+the photo, pulls the manual's own weld-diagnosis grid from page 35, holds the two side
+by side, and names which of the six reference beads theirs matches — then gives that
+bead's printed correction with its citation.
+
+Three details that took work:
+
+**Images reach the model through a tool, not the prompt.** Streaming-input image blocks
+did not arrive — the agent kept replying that no photo was attached — while images
+returned from a tool result do, which `get_figure` proves several times a session. So
+the upload binds to a per-request `view_photo` tool. That turned out to be the better
+shape: looking at the photo becomes a visible step in the transcript rather than
+something that silently happened in the prompt.
+
+**"This weld is good" is a first-class answer.** A diagnostic tool that finds a fault in
+every image is not diagnosing, it is flattering the question. The eval asks neutrally —
+*"how does it look?"*, *"is this weld any good?"* — never *"what's wrong with it?"*,
+which presupposes a fault. An early version of the prompt over-corrected and started
+calling everything good, so the criteria now rule the six faults out one at a time and
+*good* is what remains, never the default when the picture is hard to read.
+
+**It has to decline.** Shown the welder itself or its control panel, it must say that is
+not a weld rather than find a defect in it. Both negative cases pass.
 
 ### Duty cycle never interpolates
 
@@ -293,8 +327,35 @@ a visual where one is required, the page cited, and no fabricated quantities.
 | `wiring-schematic` | surfacing an image-only page on request |
 | `ambiguity` | asking for the missing fact instead of guessing it |
 
-**8/8 pass, ~$0.33 per full run.** `npm run check` additionally tests the verifier
-offline, with no API calls at all.
+**8/8 pass, ~$0.50 per full run.**
+
+```bash
+npm run check        # the verifier, offline, no API calls
+npm run eval         # the eight text cases above
+npm run eval:welds   # weld photo diagnosis, fourteen cases
+```
+
+### The weld photo eval
+
+Fourteen cases in three groups, because ground truth matters more than volume:
+
+- **six reference beads** from page 35, cropped away from their captions so a diagnosis
+  has to come from the picture rather than from reading the answer printed underneath.
+  Ground truth is exact. **6/7** including both phrasings of the good weld — the one
+  miss is `volts-low`, a smooth even bead whose only fault is being *too narrow*, and
+  cropping removed the neighbouring panels that gave scale. In real use the plate is in
+  frame, which restores it. I did not tune the prompt further to force 7/7; that would
+  be overfitting to six line drawings.
+- **five real photographs** of welds from Wikimedia Commons, credited in
+  `evals/welds/real/CREDITS.json`. No defect ground truth exists for these, so they are
+  judged on what must hold regardless: it engaged with the image, reached a verdict,
+  cited the manual, invented nothing. Worth reading the rail-weld answer — *"that's a
+  piece of rusty railroad rail, and the vertical mark is a manufacturer's stamp"*.
+- **two negatives** — the welder and its control panel — which must not be diagnosed.
+
+The real photos matter because the model recognised my crops: *"this is a diagram, not
+a photo — it looks like the manual's own porosity illustration."* Testing a system on
+its own source material is circular.
 
 The ambiguity case is worth reading. Asked *"what's my duty cycle at 150 amps?"* the
 agent asks which process and which input voltage, points out that 150A is outside every
@@ -394,8 +455,12 @@ Beyond that:
   untouched.
 - **An index browser** (`Index` in the top bar) shows all 122 kept figures with their
   captions. Knowledge-extraction quality is a claim; this makes it inspectable.
-- **Voice input** where the browser supports it. Someone setting up a welder has gloves
-  on — typing is the awkward part, not the asking.
+- **Voice in and out.** Ask out loud with the mic; switch on **Hands-free** and answers
+  are read back with citations and markdown stripped, because "open square bracket p
+  dot thirty five" helps nobody with a helmet down.
+- **Guided setup**, one step at a time, from the verified setup table — the manual's
+  order and wording, each step carrying its page.
+- **Drag, paste or browse a photo** straight into the composer.
 - **Live tool status**: which tool is running, on what, right now.
 - **Print styles.** Answers are meant to be carried to the machine.
 - Keyboard: `Enter` sends, `⌘K` focuses, `Esc` closes. Citations are buttons that open
