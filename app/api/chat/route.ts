@@ -50,7 +50,9 @@ export async function POST(req: Request) {
         controller.enqueue(encoder.encode(`data: ${JSON.stringify(event)}\n\n`))
 
       let answer = ''
-      const toolOutput: string[] = []
+      const trusted: string[] = []        // tables, duty cycle, page text
+      const corroborating: string[] = []  // figure captions: model-written
+      let lastTool = ''
       const shown = new Set<string>()  // a component rendered twice is a UI bug, not an answer
 
       try {
@@ -133,6 +135,7 @@ export async function POST(req: Request) {
               if (block.type !== 'tool_use') continue
               const name = block.name.replace('mcp__omnipro__', '')
               const input = block.input as Record<string, unknown>
+              lastTool = name
               send({ type: 'tool', name, input })
 
               // Tool calls that exist to put something on screen are mirrored to the
@@ -171,14 +174,16 @@ export async function POST(req: Request) {
           }
 
           if (m.type === 'user') {
-            // Tool results come back as a synthetic user turn. Capture their text as
-            // evidence for the grounding check.
+            // Tool results come back as a synthetic user turn. File their text by trust
+            // tier for the grounding check.
             const content = m.message.content
             if (Array.isArray(content)) {
               for (const block of content) {
                 if (block.type === 'tool_result' && Array.isArray(block.content)) {
                   for (const c of block.content) {
-                    if (c.type === 'text') toolOutput.push(c.text)
+                    if (c.type !== 'text') continue
+                    if (lastTool === 'get_figure') corroborating.push(c.text)
+                    else trusted.push(c.text)
                   }
                 }
               }
@@ -188,7 +193,7 @@ export async function POST(req: Request) {
           if (m.type === 'result') {
             send({
               type: 'done',
-              verdict: verify(answer, toolOutput),
+              verdict: verify(answer, trusted, corroborating),
               costUsd: 'total_cost_usd' in m ? m.total_cost_usd : 0,
               usage: 'modelUsage' in m ? m.modelUsage : {},
               error: m.subtype !== 'success' ? m.subtype : undefined,

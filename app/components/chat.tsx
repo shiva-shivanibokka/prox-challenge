@@ -194,6 +194,10 @@ export default function Chat() {
     const patch = (fn: (t: Turn) => Turn) =>
       setTurns((all) => all.map((t, i) => (i === idx ? fn(t) : t)))
 
+    // A tool call between two text runs is a paragraph boundary. Without this the
+    // streamed deltas concatenate and you get "...[p.13].Twist both cables".
+    let breakText = false
+
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
@@ -229,14 +233,20 @@ export default function Chat() {
           const e = JSON.parse(part.slice(6))
 
           if (e.type === 'text') {
+            const fresh = breakText
+            breakText = false
             patch((t) => {
               const blocks = [...t.blocks]
               const tail = blocks[blocks.length - 1]
-              if (tail?.kind === 'text') blocks[blocks.length - 1] = { kind: 'text', text: tail.text + e.delta }
-              else blocks.push({ kind: 'text', text: e.delta })
+              if (!fresh && tail?.kind === 'text') {
+                blocks[blocks.length - 1] = { kind: 'text', text: tail.text + e.delta }
+              } else {
+                blocks.push({ kind: 'text', text: e.delta.replace(/^\s+/, '') })
+              }
               return { ...t, blocks }
             })
           } else if (e.type === 'tool') {
+            breakText = true
             const detail =
               e.name === 'get_figure' ? String(e.input.id ?? '')
               : e.name === 'get_page' ? `${e.input.doc} p.${e.input.page}`

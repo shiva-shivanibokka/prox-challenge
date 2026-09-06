@@ -1662,5 +1662,83 @@
   ],
   "area_frac": 1.0,
   "labels": ""
+ },
+ {
+  "id": "door-p01-f1",
+  "doc": "door",
+  "page": 1,
+  "bbox": [
+   305,
+   60,
+   905,
+   500
+  ],
+  "area_frac": 1.0,
+  "labels": "panel"
+ },
+ {
+  "id": "door-p01-f2",
+  "doc": "door",
+  "page": 1,
+  "bbox": [
+   630,
+   75,
+   900,
+   230
+  ],
+  "area_frac": 1.0,
+  "labels": "duty"
+ },
+ {
+  "id": "door-p01-f3",
+  "doc": "door",
+  "page": 1,
+  "bbox": [
+   325,
+   225,
+   530,
+   475
+  ],
+  "area_frac": 1.0,
+  "labels": "mig"
+ },
+ {
+  "id": "door-p01-f4",
+  "doc": "door",
+  "page": 1,
+  "bbox": [
+   515,
+   230,
+   715,
+   475
+  ],
+  "area_frac": 1.0,
+  "labels": "tig"
+ },
+ {
+  "id": "door-p01-f5",
+  "doc": "door",
+  "page": 1,
+  "bbox": [
+   700,
+   225,
+   900,
+   475
+  ],
+  "area_frac": 1.0,
+  "labels": "stick"
+ },
+ {
+  "id": "door-p01-f6",
+  "doc": "door",
+  "page": 1,
+  "bbox": [
+   280,
+   590,
+   780,
+   960
+  ],
+  "area_frac": 1.0,
+  "labels": "wire"
  }
 ]

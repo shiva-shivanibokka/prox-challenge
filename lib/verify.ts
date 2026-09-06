@@ -24,6 +24,8 @@ const DOCS: Record<string, string> = {
   'quick start': 'quickstart',
   'selection chart': 'chart',
   chart: 'chart',
+  door: 'door',
+  'settings chart': 'door',
 }
 
 /** A number carrying a unit. Bare integers are skipped: too noisy to be evidence. */
@@ -40,16 +42,31 @@ export type Verdict = {
   fabricated: string[]
 }
 
+
+/**
+ * Caption text with its unconfirmed numbers removed.
+ *
+ * A photo-derived caption can state a digit the pixels do not support -- the door
+ * Settings Chart produced 65A where the manual prints 80A. Those numbers are
+ * flagged at ingest and stripped here, so they can never corroborate anything.
+ */
+function safeCaption(id: string): string[] {
+  const c = captions[id]
+  if (!c) return []
+  const text = [c.summary ?? "", ...(c.visible_text ?? [])]
+  const bad = c.unconfirmed_numbers ?? []
+  if (!bad.length) return text
+  return text.map((t) =>
+    bad.reduce((acc, n) => acc.split(n).join(" "), t),
+  )
+}
 const normalise = (s: string) => s.toLowerCase().replace(/[–—]/g, '-').replace(/,/g, '')
 
 /** Everything the three documents say, including figure transcriptions. Built once. */
 const CORPUS = normalise(
   [
     ...pages.map((p) => p.text),
-    ...catalogue.flatMap((f) => [
-      f.caption.summary,
-      ...(captions[f.id]?.visible_text ?? []),
-    ]),
+    ...catalogue.flatMap((f) => safeCaption(f.id)),
   ].join('\n'),
 )
 
@@ -84,10 +101,18 @@ function spellings(n: string): string[] {
 }
 
 /**
- * @param answer     the assistant's final text
- * @param toolOutput everything the deterministic tools returned this turn
+ * Tool output is split by trust. A page's text and a verified table are ground
+ * truth. A figure caption is model-written prose about a picture -- good enough to
+ * corroborate that a number exists somewhere, never good enough to certify one. The
+ * door Settings Chart made that concrete: the vision pass misread 80A as 65A off a
+ * low-resolution photograph, and treating that caption as evidence would have let the
+ * wrong number through wearing a green tick.
+ *
+ * @param answer    the assistant's final text
+ * @param trusted   output of the deterministic tools: tables, duty cycle, page text
+ * @param corroborating output of get_figure: captions, model-written
  */
-export function verify(answer: string, toolOutput: string[]): Verdict {
+export function verify(answer: string, trusted: string[], corroborating: string[] = []): Verdict {
   const cited = citedPages(answer)
 
   // Narrow evidence: only the pages this answer actually pointed at, plus figure
@@ -98,11 +123,11 @@ export function verify(answer: string, toolOutput: string[]): Verdict {
       ...cited.map((c) => pageText(c.doc, c.page)),
       ...catalogue
         .filter((f) => cited.some((c) => c.doc === f.doc && c.page === f.page))
-        .flatMap((f) => [f.caption.summary, ...(captions[f.id]?.visible_text ?? [])]),
-      ...toolOutput,
+        .flatMap((f) => safeCaption(f.id)),
+      ...trusted,
     ].join('\n'),
   )
-  const wide = CORPUS + '\n' + normalise(toolOutput.join('\n'))
+  const wide = CORPUS + '\n' + normalise([...trusted, ...corroborating].join('\n'))
 
   const miscited: string[] = []
   const fabricated: string[] = []

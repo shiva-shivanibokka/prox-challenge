@@ -66,7 +66,9 @@ const CASES = [
     tests: 'two sections combined: the 120V duty cycle and the flux-cored polarity',
     ask: "I'm running flux-cored on 120V at 100A. How long can I weld before resting, and which socket does my ground clamp go in?",
     expect: {
-      text: [/40\s*%/, /4\s*min/i, /6\s*min/i, /positive/i],
+      // 4 min welding / 6 min resting is the 40% fact stated the way a user asked
+      // for it. Requiring the literal "40%" tested phrasing, not correctness.
+      text: [/4\s*min/i, /6\s*min/i, /positive/i],
       tools: ['compute_duty_cycle', 'get_table'],
       visual: true,
       cites: [7],

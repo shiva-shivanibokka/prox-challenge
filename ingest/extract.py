@@ -30,6 +30,25 @@ DOCS = [
     ("selection-chart.pdf", "chart"),
 ]
 
+# The Settings Chart printed inside the welder door. The owner's manual points readers
+# to it five times ("Refer to the Settings Chart on the inside of the Welder door") and
+# it is the only place the duty cycles appear as clock faces -- but it ships as a
+# product photograph in the repo root, not as a PDF.
+#
+# Region boxes are hand-specified. For one fixed 1200x1200 photograph that is the right
+# answer: a detector would be more code, more failure modes, and no more accurate. Each
+# panel is upscaled before captioning because the source resolution is marginal.
+PHOTOS = [
+    ("product-inside.webp", "door", [
+        ("panel",  (305, 60, 905, 500), 3),
+        ("duty",   (630, 75, 900, 230), 5),
+        ("mig",    (325, 225, 530, 475), 5),
+        ("tig",    (515, 230, 715, 475), 5),
+        ("stick",  (700, 225, 900, 475), 5),
+        ("wire",   (280, 590, 780, 960), 4),
+    ]),
+]
+
 CELL = 4.0          # occupancy-mask cell size, in PDF points
 PAD = 7.0           # dilate every primitive by this before masking, to merge parts
 MIN_SIDE = 14.0     # drop slivers: rules, underlines, table borders
@@ -231,6 +250,34 @@ def main() -> None:
             pages_out.append({"doc": doc_id, "page": num, "text": text})
 
         doc.close()
+
+    # Product photographs carrying reference content the PDFs point at.
+    for fname, doc_id, regions in PHOTOS:
+        photo = Image.open(ROOT / fname).convert("RGB")
+        page_box = regions[0][1]
+        photo.crop(page_box).resize(
+            (page_box[2] - page_box[0]) * 2 and
+            ((page_box[2] - page_box[0]) * 2, (page_box[3] - page_box[1]) * 2),
+            Image.LANCZOS,
+        ).save(OUT / "pages" / f"{doc_id}-p01.webp", quality=88, method=4)
+
+        for i, (label, box, scale) in enumerate(regions, start=1):
+            crop = photo.crop(box)
+            crop.resize((crop.width * scale, crop.height * scale), Image.LANCZOS).save(
+                OUT / "figures" / f"{doc_id}-p01-f{i}.webp", quality=90, method=4)
+            figures_out.append({
+                "id": f"{doc_id}-p01-f{i}", "doc": doc_id, "page": 1,
+                "bbox": list(box), "area_frac": 1.0, "labels": label,
+            })
+
+        pages_out.append({
+            "doc": doc_id, "page": 1,
+            "text": "Settings Chart printed on the inside of the welder door. Carries "
+                    "the rated duty cycle clock charts for every process at both input "
+                    "voltages, the step-by-step MIG/Flux, TIG and Stick settings "
+                    "procedures, and the wire spool and wire feed tensioner setup. The "
+                    "owner's manual refers the reader here for shielding gas selection.",
+        })
 
     (OUT / "pages.json").write_text(json.dumps(pages_out, indent=1), encoding="utf-8")
     (OUT / "figures.json").write_text(json.dumps(figures_out, indent=1), encoding="utf-8")

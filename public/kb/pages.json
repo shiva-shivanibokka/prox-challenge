@@ -253,5 +253,10 @@
   "doc": "chart",
   "page": 1,
   "text": ""
+ },
+ {
+  "doc": "door",
+  "page": 1,
+  "text": "Settings Chart printed on the inside of the welder door. Carries the rated duty cycle clock charts for every process at both input voltages, the step-by-step MIG/Flux, TIG and Stick settings procedures, and the wire spool and wire feed tensioner setup. The owner's manual refers the reader here for shielding gas selection."
  }
 ]

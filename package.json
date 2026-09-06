@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "eval": "node evals/run.mjs"
+    "eval": "node evals/run.mjs",
+    "check": "tsx evals/verify.test.mjs"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@types/node": "^26.4.1",
     "@types/react": "^19.2.18",
+    "tsx": "^4.23.13",
     "typescript": "^7.0.2"
   },
   "private": true

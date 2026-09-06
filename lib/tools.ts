@@ -58,7 +58,7 @@ export const getPage = tool(
   'Return a whole page as an image plus its text. Use when someone wants to see the ' +
     'page itself, or when a figure crop lacks surrounding context.',
   {
-    doc: z.enum(['manual', 'quickstart', 'chart']),
+    doc: z.enum(['manual', 'quickstart', 'chart', 'door']),
     page: z.number().int().positive(),
   },
   async ({ doc, page }) => {

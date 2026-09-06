@@ -132,6 +132,21 @@ def caption_one(client: anthropic.Anthropic, fig: dict, page_text: str) -> dict:
     return out
 
 
+def cross_check(cap: dict, corpus: str) -> list[str]:
+    """Numbers a caption states that the PDFs never state.
+
+    The door Settings Chart is a photograph at marginal resolution, and the vision
+    pass misread digits from it -- reporting Stick 120V as 40% at 65A where both the
+    pixels and page 7 say 80A. A caption is model-written; a page is ground truth.
+    Anything a caption asserts numerically that no document confirms is marked, so
+    the agent is told not to quote it and the answer verifier will not accept it.
+    """
+    seen = set(re.findall(r"\d+(?:\.\d+)?", re.sub(r"[^\d.]", " ", corpus)))
+    said = set(re.findall(r"\d+(?:\.\d+)?", json.dumps(
+        [cap.get("summary", ""), *cap.get("visible_text", [])])))
+    return sorted(n for n in said - seen if len(n) > 1)
+
+
 def main() -> None:
     figs = json.loads((KB / "figures.json").read_text(encoding="utf-8"))
     pages = {(p["doc"], p["page"]): p["text"]
@@ -161,9 +176,17 @@ def main() -> None:
 
     client = anthropic.Anthropic(api_key=api_key())
 
+    # Everything the PDFs actually say, as the yardstick for photo-derived captions.
+    pdf_corpus = "
+".join(t for (d, _), t in pages.items() if d != "door")
+
     def run(f: dict) -> None:
         try:
             cap = caption_one(client, f, pages[(f["doc"], f["page"])])
+            if f["doc"] == "door":
+                bad = cross_check(cap, pdf_corpus)
+                if bad:
+                    cap["unconfirmed_numbers"] = bad
         except Exception as e:  # one bad figure must not lose the whole batch
             cap = {"error": str(e)[:200]}
         with _lock:

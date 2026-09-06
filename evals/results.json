@@ -1,33 +1,32 @@
 {
  "model": "claude-sonnet-5",
- "total": 0.055921399999999996,
+ "total": 0.051634900000000004,
  "results": [
   {
-   "id": "porosity",
-   "tests": "diagnosis from the troubleshooting matrix, with the weld photo",
-   "ask": "My flux-cored welds have porosity. What should I check?",
-   "text": "For flux-cored (gasless, DCEN) porosity, check these — from the wire weld porosity causes list [p.37]:\n\n**1. Polarity** — this is the most common culprit for flux-cored. It must be set to DCEN: Wire Feed Power Cable in the Negative (–) socket, Ground Clamp Cable in the Positive (+) socket [p.13, p.37]. If someone left it wired for MIG (DCEP), that alone will cause porosity.\n\n**2. Dirty workpiece or wire** — clean the workpiece down to bare metal, and make sure the wire is free of oil, rust, or coatings [p.37].\n\n**3. Inconsistent travel speed** — keep a steady, even pace along the joint [p.37].\n\n**4. CTWD (contact tip to work distance) too long** — keep it short; the manual specifies keeping it at 1/2\" or less generally for these wire processes [p.36, p.37].\n\nNote: the shielding-gas causes on that same list (flow too low/high, wrong gas) don't apply to you — flux-cored is gasless [p.18].If you want to double check your cable setup against the diagram itself, the DCEN flux-cored polarity page is [p.13].",
+   "id": "cross-reference",
+   "tests": "two sections combined: the 120V duty cycle and the flux-cored polarity",
+   "ask": "I'm running flux-cored on 120V at 100A. How long can I weld before resting, and which socket does my ground clamp go in?",
+   "text": "**Duty cycle:** At 100 A on 120 V, you get **4 minutes welding, then 6 minutes rest**, repeating every 10-minute period. This is rated 40% duty cycle [p.7, p.19].\n\n**Ground clamp:** For flux-cored (DCEN, gasless), the ground clamp goes in the **Positive (+) socket**, and the Wire Feed Power Cable goes in the Negative (–) socket [p.13]. That's reversed from solid-wire MIG, so double check before you strike an arc.If you push past that 4-minute mark, the machine will thermally shut down and show a warning screen on the LCD until it cools [p.23] — better to back off a bit early than trip it mid-bead.",
    "tools": [
+    "compute_duty_cycle",
     "get_table",
-    "get_figure",
     "show_component"
    ],
    "visuals": [
-    "figure:manual-p37-f1",
-    "component:troubleshooting_flowchart"
+    "component:polarity_diagram"
    ],
    "verdict": {
     "citedPages": [
-     "p.37",
+     "p.7",
+     "p.19",
      "p.13",
-     "p.36",
-     "p.18"
+     "p.23"
     ],
-    "checked": 1,
+    "checked": 5,
     "miscited": [],
     "fabricated": []
    },
-   "cost": 0.055921399999999996,
+   "cost": 0.051634900000000004,
    "fail": [],
    "warn": []
   }

@@ -23,6 +23,8 @@ export type Caption = {
   answers?: string[]
   model?: string
   error?: string
+  /** Numbers a photo-derived caption states that no PDF confirms. */
+  unconfirmed_numbers?: string[]
 }
 export type Figure = { id: string; doc: string; page: number }
 
@@ -34,6 +36,7 @@ const DOC_NAMES: Record<string, string> = {
   manual: "Owner's Manual",
   quickstart: 'Quick Start Guide',
   chart: 'Welding Process Selection Chart',
+  door: 'Settings Chart inside the welder door',
 }
 
 export const pageText = (doc: string, page: number) =>
