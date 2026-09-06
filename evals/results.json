@@ -1,15 +1,13 @@
 {
  "model": "claude-sonnet-5",
- "total": 0.0532555,
+ "total": 0.2624349,
  "results": [
   {
-   "id": "ambiguity",
-   "tests": "asking for the one missing fact instead of guessing it",
-   "ask": "What's my duty cycle at 150 amps?",
-   "text": "150A is above what any process can do on 120V input, so you're on 240V — but I need to know which process (MIG, TIG, or Stick) since each has its own duty cycle table.\n\nWhich one are you running?None of the three processes publish a duty cycle at exactly 150A on 240V — the manual only rates specific points, and duty cycle doesn't scale linearly with current, so it can't be interpolated [p.7]:\n\n- **MIG (240V):** rated at 100% @ 115A and 25% @ 200A [p.7]\n- **TIG (240V):** rated at 100% @ 105A and 30% @ 175A [p.7]\n- **Stick (240V):** rated at 100% @ 100A and 25% @ 175A [p.7]\n\n150A falls in the gap between the two rated points for all three, so the manual gives no number there. To stay safe, work to the lower \"100% continuous\" figure for whichever process you're using.Tell me which process you're actually running and I can confirm the nearest rated point for it.",
+   "id": "duty-cycle",
+   "tests": "the headline number, computed not guessed",
+   "ask": "What's the duty cycle for MIG welding at 200A on 240V?",
+   "text": "25% duty cycle at 200A on 240V — that's 2.5 minutes of welding followed by 7.5 minutes resting, out of every 10-minute period [p.7, p.19].For reference, 100% continuous duty on 240V MIG is 115A [p.7] — drop your amperage if you need to run longer without resting.",
    "tools": [
-    "compute_duty_cycle",
-    "compute_duty_cycle",
     "compute_duty_cycle",
     "show_component"
    ],
@@ -18,15 +16,49 @@
    ],
    "verdict": {
     "citedPages": [
-     "p.7"
+     "p.7",
+     "p.19"
     ],
-    "checked": 10,
+    "checked": 5,
     "miscited": [],
     "fabricated": []
    },
-   "cost": 0.0532555,
+   "cost": 0.19032580000000002,
    "fail": [],
    "warn": []
+  },
+  {
+   "id": "porosity",
+   "tests": "diagnosis from the troubleshooting matrix, with the weld photo",
+   "ask": "My flux-cored welds have porosity. What should I check?",
+   "text": "Since flux-cored is self-shielded (no gas), you can rule out the gas-related causes and focus on these [p.43]:\n\n**1. Polarity — check this first.** Flux-cored self-shielded wire runs **DCEN**: ground clamp to the **positive (+)** socket, wire feed power cable to the **negative (–)** socket [p.13, p.43]. If it's backed up on DCEP (like MIG), porosity is a common symptom.\n\n**2. Dirty workpiece or wire.** Clean the joint down to bare metal, and make sure the flux-cored wire itself is free of rust, oil, or residue [p.43].\n\n**3. CTWD too long.** Keep contact-tip-to-work distance at 1/2\" or less [p.43, p.37].\n\n**4. Inconsistent travel speed** — keep it steady [p.37].\n\nNote: the manual's porosity entry also lists shielding-gas causes (empty bottle, wrong flow), but those apply to gas-shielded MIG, not gasless flux-cored — you can skip those.The porosity photo above [p.37] is what you're comparing your bead against — scattered pinholes in the bead, worse near the crater at the end. If yours matches, polarity is the fastest thing to rule out since it's a one-minute check at the front panel.",
+   "tools": [
+    "get_table",
+    "get_table",
+    "get_figure",
+    "show_component"
+   ],
+   "visuals": [
+    "figure:manual-p37-f1",
+    "component:troubleshooting_flowchart"
+   ],
+   "verdict": {
+    "citedPages": [
+     "p.43",
+     "p.13",
+     "p.37"
+    ],
+    "checked": 1,
+    "miscited": [
+     "1/2\""
+    ],
+    "fabricated": []
+   },
+   "cost": 0.0721091,
+   "fail": [],
+   "warn": [
+    "miscited: 1/2\""
+   ]
   }
  ]
 }

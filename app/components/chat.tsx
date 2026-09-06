@@ -35,6 +35,28 @@ const SEEDS = [
 ]
 
 const CATALOGUE = indexJson as { id: string; t: string; k: string }[]
+
+/**
+ * Follow-ups, picked from what the answer actually did rather than generated.
+ * A model call to suggest three questions would cost more than the answer it follows,
+ * and the useful next question after a duty cycle answer is always roughly the same
+ * one. Keyed on the tools and components the turn used.
+ */
+function followUps(t: Turn): string[] {
+  const used = new Set(t.work.map((w) => `${w.name}:${w.detail}`))
+  const has = (frag: string) => [...used].some((u) => u.includes(frag))
+  const out: string[] = []
+
+  if (has('duty_cycle')) out.push('What happens if I go past the duty cycle?', 'What about on 120V?')
+  if (has('polarity')) out.push('What shielding gas do I need for this?', 'What changes if I switch to MIG?')
+  if (has('view_photo')) out.push('How do I fix that?', 'Show me what a good weld looks like')
+  if (has('troubleshooting')) out.push('Walk me through checking the wire feed', 'Show me the weld diagnosis chart')
+  if (has('setup_walkthrough')) out.push('What settings should I start with?', 'How do I check the wire tension?')
+  if (has('process_selection')) out.push('What thickness can this handle?', 'Do I need shielding gas?')
+  if (!out.length) out.push('Show me that page', 'What else should I check?', 'Walk me through the setup')
+
+  return [...new Set(out)].slice(0, 3)
+}
 const ACCEPT = 'image/jpeg,image/png,image/webp,image/gif'
 
 /* ----------------------------------------------------------- text rendering */
@@ -483,8 +505,16 @@ export default function Chat() {
               </div>
             )}
 
+            <div className="seeds">
+              {SEEDS.map((s) => (
+                <button key={s.q} className="seed" onClick={() => ask(s.q)}>
+                  <span className="tag">{s.tag}</span><span>{s.q}</span>
+                </button>
+              ))}
+            </div>
+
             <p className="demo-note">
-              <b>Try it before you type anything.</b> The panel below is a live instrument
+              <b>Or try an instrument first.</b> The panel below is a live instrument
               running on the extracted manual data — no key needed. Change the process and
               watch the ground clamp move to the other socket.
             </p>
@@ -515,13 +545,7 @@ export default function Chat() {
               </form>
             )}
 
-            <div className="seeds">
-              {SEEDS.map((s) => (
-                <button key={s.q} className="seed" onClick={() => ask(s.q)}>
-                  <span className="tag">{s.tag}</span><span>{s.q}</span>
-                </button>
-              ))}
-            </div>
+
           </div>
         )}
 
@@ -600,6 +624,15 @@ export default function Chat() {
               )}
               {t.verdict && <VerdictLine v={t.verdict} />}
             </div>
+
+            {!t.streaming && !t.error && i === turns.length - 1 && (
+              <div className="followups">
+                <span className="lbl">NEXT</span>
+                {followUps(t).map((q) => (
+                  <button key={q} onClick={() => ask(q)} disabled={busy}>{q}</button>
+                ))}
+              </div>
+            )}
           </article>
         ))}
         <div ref={endRef} />
@@ -695,6 +728,14 @@ export default function Chat() {
             <button className="close" onClick={() => setBrowsing(false)}>Close · Esc</button>
           </div>
           <div className="ov-bd">
+            {shown.length === 0 && (
+              <p className="ov-empty">
+                Nothing matches &ldquo;{filter}&rdquo;. Try a page number like{' '}
+                <button onClick={() => setFilter('p35')}>p35</button>, a kind like{' '}
+                <button onClick={() => setFilter('schematic')}>schematic</button>, or a part like{' '}
+                <button onClick={() => setFilter('spool')}>spool</button>.
+              </p>
+            )}
             <div className="grid">
               {shown.map((f) => (
                 <button className="card" key={f.id}

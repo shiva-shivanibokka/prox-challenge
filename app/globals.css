@@ -132,7 +132,7 @@ button { cursor: pointer; }
 }
 .demo-note b { color: var(--white); font-weight: 600; }
 
-.seeds { display: grid; gap: 8px; margin-bottom: 8px; }
+.seeds { display: grid; gap: 8px; margin-bottom: 30px; }
 .seed {
   display: flex; gap: 14px; align-items: baseline; text-align: left; width: 100%;
   background: rgba(103, 232, 249, 0.05); border: 1px solid var(--line);
@@ -372,6 +372,26 @@ button { cursor: pointer; }
 .verdict.bad { background: rgba(255, 106, 26, 0.1); border-color: rgba(255, 106, 26, 0.38); color: #ffc4a1; }
 .verdict.bad .sig { color: var(--hot); }
 .verdict .flag { font-family: var(--font-mono), monospace; background: rgba(0, 0, 0, 0.35); border: 1px solid currentColor; padding: 1px 7px; }
+
+/* Where to go next, so a reviewer is never staring at an empty composer. */
+.followups { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 14px; }
+.followups .lbl {
+  font-family: var(--font-mono), monospace; font-size: 11px; letter-spacing: 0.06em;
+  color: var(--text-3);
+}
+.followups button {
+  background: rgba(103, 232, 249, 0.06); border: 1px solid var(--line);
+  color: var(--text-2); padding: 7px 13px; font-size: 13.5px;
+}
+.followups button:hover:not(:disabled) { border-color: var(--hot); color: var(--white); background: rgba(255, 106, 26, 0.1); }
+.followups button:disabled { opacity: 0.4; cursor: default; }
+
+.ov-empty { max-width: 60ch; margin: 40px auto; text-align: center; color: var(--text-2); font-size: 15px; line-height: 1.8; }
+.ov-empty button {
+  background: rgba(103, 232, 249, 0.08); border: 1px solid var(--line);
+  color: var(--cyan); padding: 2px 9px; font-family: var(--font-mono), monospace; font-size: 13px;
+}
+.ov-empty button:hover { border-color: var(--hot); color: var(--white); }
 
 /* sources strip, under the answer rather than in a rail of its own */
 .srcstrip { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 16px; font-size: 12px; }
