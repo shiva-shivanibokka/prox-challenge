@@ -430,6 +430,51 @@ figcaption .pg {
 .dock button:hover:not(:disabled) { background: var(--hot); }
 .dock button:disabled { background: var(--ink-3); }
 
+.keygate {
+  max-width: var(--wide);
+  margin: 0 auto 10px;
+  background: var(--panel);
+  color: #cfd5db;
+  padding: 14px 16px;
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+.keygate p { margin: 0 0 10px; max-width: 78ch; }
+.keygate b { color: #fff; font-weight: 600; }
+.keygate a { color: var(--hot); margin-left: 6px; }
+.keygate code { background: #000; padding: 1px 5px; }
+.keyrow { display: flex; gap: 0; }
+.keyrow input {
+  flex: 1;
+  background: #000;
+  border: 1px solid var(--panel-2);
+  color: #fff;
+  padding: 9px 11px;
+  font-size: 14px;
+}
+.keyrow button {
+  border: 0;
+  background: var(--hot);
+  color: #fff;
+  font-weight: 600;
+  padding: 0 18px;
+  font-size: 14px;
+}
+.keyerr { color: var(--caution); margin: 8px 0 0 !important; }
+.keynote { color: #7f878f; margin: 10px 0 0 !important; font-size: 12.5px; }
+
+.keychip {
+  background: none;
+  border: 1px solid #343a41;
+  color: #9aa2ab;
+  font-family: var(--font-ui), system-ui, sans-serif;
+  font-size: 12px;
+  padding: 3px 9px;
+  margin-left: 12px;
+}
+.keychip:hover { border-color: var(--hot); color: #fff; }
+
 .err {
   max-width: var(--measure);
   border-left: 3px solid var(--hot);

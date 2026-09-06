@@ -15,6 +15,33 @@ npm run dev                   # http://localhost:3000
 No PDF parsing at startup, no index to build, no second API key, no vector database.
 The knowledge index is committed to the repo.
 
+**Hosted demo:** https://omnipro-220-expert.vercel.app — bring your own Anthropic key
+(see below). Or just clone it; the setup above is genuinely two minutes.
+
+---
+
+## The hosted demo is bring-your-own-key
+
+The deployment carries **no API key of its own**. A public URL wired to a personal key
+is a public URL spending someone's money, so the browser supplies a key instead:
+
+- Paste a key once per tab. It is held in `sessionStorage` — not `localStorage` — so it
+  disappears when you close the tab.
+- It is sent only to this app's own `/api/chat` route, over HTTPS, as a header. It is
+  used for that one call and discarded: never logged, never written to disk, never
+  echoed back in a response. `/api/health` returns a boolean and nothing else.
+- Format is checked client- and server-side before anything is attempted.
+- Every question is capped at `MAX_BUDGET_USD` (default $0.50) so a runaway loop cannot
+  drain a key. Normal questions cost $0.02–0.06.
+
+**Running locally, none of this appears.** With `ANTHROPIC_API_KEY` in `.env` the server
+uses it directly and there is no prompt. The key gate only shows up when a deployment
+has no key of its own, which is exactly the hosted case.
+
+If you would rather not paste a key into someone else's page — a reasonable instinct —
+clone the repo and run it locally. The hosted URL exists to remove friction, not to
+replace that.
+
 ---
 
 ## The actual problem
@@ -256,6 +283,7 @@ Measured, not estimated.
 - **Building the entire index, once:** ~$2.50.
 
 Defaults to `claude-sonnet-5`. Set `MODEL=claude-opus-5` in `.env` for more headroom.
+On the hosted demo the cost lands on whoever supplied the key, which is the point.
 Sonnet is the default deliberately: the architecture removes the work that would need
 a bigger model. Recall is handled by the prefix, arithmetic by a tool, figure choice by
 an exhaustive catalogue, facts by verified tables. What's left is instruction-following

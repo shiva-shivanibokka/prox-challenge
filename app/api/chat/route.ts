@@ -18,8 +18,25 @@ type Msg = { role: 'user' | 'assistant'; content: string }
 
 export async function POST(req: Request) {
   const { messages } = (await req.json()) as { messages: Msg[] }
-  if (!process.env.ANTHROPIC_API_KEY) {
-    return Response.json({ error: 'ANTHROPIC_API_KEY is not set. Add it to .env.' }, { status: 500 })
+
+  // Bring-your-own-key. The hosted demo carries no key of its own, so the browser
+  // sends one per request. It is used for this call and discarded: never logged,
+  // never written to disk, never returned in a response. Locally, .env supplies it
+  // and the header is unnecessary.
+  const supplied = req.headers.get('x-anthropic-key')?.trim()
+  const apiKey = supplied && /^sk-ant-[A-Za-z0-9_-]{20,}$/.test(supplied)
+    ? supplied
+    : process.env.ANTHROPIC_API_KEY
+  if (!apiKey) {
+    return Response.json(
+      {
+        needsKey: true,
+        error: supplied
+          ? "That doesn't look like an Anthropic API key. They start with sk-ant-."
+          : 'This demo runs on your own Anthropic key. Add one to start.',
+      },
+      { status: 401 },
+    )
   }
 
   const prompt = messages
@@ -85,6 +102,7 @@ export async function POST(req: Request) {
             // harness wants a writable home.
             env: {
               ...process.env,
+              ANTHROPIC_API_KEY: apiKey,
               ENABLE_TOOL_SEARCH: '0',
               ...(process.env.VERCEL ? { HOME: '/tmp', CLAUDE_CONFIG_DIR: '/tmp/.claude' } : {}),
             } as Record<string, string>,

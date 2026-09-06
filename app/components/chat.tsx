@@ -146,11 +146,26 @@ export default function Chat() {
   const [busy, setBusy] = useState(false)
   const [spend, setSpend] = useState(0)
   const [zoom, setZoom] = useState<{ url: string; alt: string } | null>(null)
+  // Bring-your-own-key. sessionStorage, not localStorage: the key dies with the tab,
+  // and it is never sent anywhere except this app's own /api/chat.
+  const [needsKey, setNeedsKey] = useState(false)
+  const [apiKey, setApiKey] = useState('')
+  const [keyError, setKeyError] = useState('')
   const endRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
   }, [turns])
+
+  useEffect(() => {
+    let saved = ''
+    try { saved = sessionStorage.getItem('anthropic-key') ?? '' } catch {}
+    if (saved) setApiKey(saved)
+    fetch('/api/health')
+      .then((r) => r.json())
+      .then((h) => setNeedsKey(!h.serverKey && !saved))
+      .catch(() => {})
+  }, [])
 
   useEffect(() => {
     const esc = (e: KeyboardEvent) => e.key === 'Escape' && setZoom(null)
@@ -182,11 +197,20 @@ export default function Chat() {
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...(apiKey ? { 'x-anthropic-key': apiKey } : {}),
+        },
         body: JSON.stringify({ messages: [...history, { role: 'user', content: question }] }),
       })
       if (!res.ok || !res.body) {
         const j = await res.json().catch(() => ({ error: `HTTP ${res.status}` }))
+        if (j.needsKey) {
+          setNeedsKey(true)
+          setKeyError(j.error ?? '')
+          setTurns((all) => all.slice(0, idx))
+          return
+        }
         patch((t) => ({ ...t, error: j.error ?? 'Request failed', streaming: false }))
         return
       }
@@ -252,6 +276,19 @@ export default function Chat() {
         <span className="meter">
           this session <b>${spend.toFixed(3)}</b>
         </span>
+        {apiKey && !needsKey && (
+          <button
+            className="keychip"
+            title="Forget the key held in this tab"
+            onClick={() => {
+              try { sessionStorage.removeItem('anthropic-key') } catch {}
+              setApiKey('')
+              setNeedsKey(true)
+            }}
+          >
+            your key · clear
+          </button>
+        )}
       </div>
 
       <main className="wrap">
@@ -374,6 +411,47 @@ export default function Chat() {
       </main>
 
       <div className="dock">
+        {needsKey && (
+          <form
+            className="keygate"
+            onSubmit={(e) => {
+              e.preventDefault()
+              const k = apiKey.trim()
+              if (!/^sk-ant-/.test(k)) {
+                setKeyError('Anthropic keys start with sk-ant-.')
+                return
+              }
+              try { sessionStorage.setItem('anthropic-key', k) } catch {}
+              setKeyError('')
+              setNeedsKey(false)
+            }}
+          >
+            <p>
+              <b>This demo runs on your own Anthropic key.</b> It is kept in this browser
+              tab only, sent to this app&rsquo;s own API route to call Anthropic, and
+              discarded when you close the tab. Nothing is stored on the server.
+              <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noreferrer">
+                Get a key
+              </a>
+            </p>
+            <div className="keyrow">
+              <input
+                type="password"
+                autoComplete="off"
+                spellCheck={false}
+                placeholder="sk-ant-..."
+                value={apiKey}
+                onChange={(e) => { setApiKey(e.target.value); setKeyError('') }}
+              />
+              <button type="submit">Use this key</button>
+            </div>
+            {keyError && <p className="keyerr">{keyError}</p>}
+            <p className="keynote">
+              Prefer not to paste a key? Clone the repo and run it locally with the key
+              in <code>.env</code> — the README has a two-minute setup.
+            </p>
+          </form>
+        )}
         <form
           onSubmit={(e) => { e.preventDefault(); ask(draft) }}
         >
