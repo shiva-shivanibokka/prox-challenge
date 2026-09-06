@@ -41,6 +41,14 @@ PRICES = {  # USD per 1M tokens, (input, output)
 }
 MAX_EDGE = 1568  # the API downscales past this anyway; sending more just costs money
 
+# Escalation rule. A cheap caption that turned out to describe polarity is re-done on
+# the strong model, because these figures encode which cable goes in which socket as
+# an *icon* -- a minus sign above a clamp glyph -- and the cheap model inverted one of
+# them (p32-f6: it read the clamp as the electrode holder). Getting polarity backwards
+# on a 240V machine is the worst error this system can make, so it does not ride on
+# the cheap model. Facts still come from tables.json; captions only choose the picture.
+SAFETY_TERMS = ("polarit", "dcep", "dcen", "positive", "negative", "socket", "terminal")
+
 PROMPT = """You are cataloguing figures from the Vulcan OmniPro 220 welder manual so \
 that a support agent can decide, from your description alone, whether this exact image \
 answers a user's question.
@@ -130,12 +138,19 @@ def main() -> None:
              for p in json.loads((KB / "pages.json").read_text(encoding="utf-8"))}
     done = json.loads(CAPTIONS.read_text(encoding="utf-8")) if CAPTIONS.exists() else {}
     todo = [f for f in figs if f["id"] not in done or "error" in done[f["id"]]]
+    escalate = [f for f in figs if f["id"] in done
+                and done[f["id"]].get("model") == CHEAP
+                and any(t in json.dumps(done[f["id"]]).lower() for t in SAFETY_TERMS)]
+    for f in escalate:
+        f["area_frac"] = 1.0  # force the strong model on the re-run
+    todo += escalate
 
     strong = [f for f in todo if f["area_frac"] >= HARD_AREA or f["doc"] != "manual"]
     # ~1.3k image tokens + ~1.1k page-text tokens in, ~450 out, measured on this corpus.
     est = (len(strong) * (2400 / 1e6 * 5.0 + 450 / 1e6 * 25.0)
            + (len(todo) - len(strong)) * (2400 / 1e6 * 1.0 + 450 / 1e6 * 5.0))
     print(f"cached  {len(done)}")
+    print(f"escalated {len(escalate)}  (cheap captions touching polarity/socket wording)")
     print(f"to do   {len(todo)}  ({len(strong)} on {STRONG}, {len(todo) - len(strong)} on {CHEAP})")
     print(f"est.    ${est:.2f}")
     if "--go" not in sys.argv:
