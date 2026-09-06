@@ -1,0 +1,1666 @@
+[
+ {
+  "id": "manual-p01-f1",
+  "doc": "manual",
+  "page": 1,
+  "bbox": [
+   0.0,
+   0.0,
+   595.3,
+   840.0
+  ],
+  "area_frac": 0.998,
+  "labels": "OMNIPRO 220 MULTIPROCESS WELDING SYSTEM Visit our website at: https://www.harborfreight.com email our technical support at: productsupport@harborfreight.com \u00ae 57812 Owner\u2019s Manual & Safety Instructions Save This Manual Keep this manual for the safety warnings and precautions, assembly, operating, inspection, maintenance and cleaning procedures. Write the product\u2019s Date Code in the back of the manual (or month and year of purchase if product has no number). Keep this manual and the receipt in a safe and dry place for future reference. 25e When unpacking, make sure that the product is intact and"
+ },
+ {
+  "id": "manual-p02-f1",
+  "doc": "manual",
+  "page": 2,
+  "bbox": [
+   0.0,
+   28.0,
+   568.0,
+   796.0
+  ],
+  "area_frac": 0.87,
+  "labels": "Safety Welding Tips TIG / Stick CONTROLS Wire MAINTENANCE Table of Contents Safety.........................................................................2 Specifications.............................................................7 Controls......................................................................8 MIG\u200a/\u200aFlux-Cored Wire Welding..................................10 TIG\u200a/\u200aStick Welding.....................................................24 Welding Tips..............................................................34 Maintenance........................................................."
+ },
+ {
+  "id": "manual-p03-f1",
+  "doc": "manual",
+  "page": 3,
+  "bbox": [
+   419.4,
+   24.0,
+   595.3,
+   796.0
+  ],
+  "area_frac": 0.271,
+  "labels": "Safety Welding Tips MAINTENANCE TIG / Stick CONTROLS Wire exhaust at arc, or gases from breathing engineering controls respirator. if it wearing in Environmental Services quality situation. (PEL\u2019s) and Governmental for for fumes and gases. covering to protect aprons, cape, sleeves, designed and cutting procedures. jacket or long sleeves radiation burns. or in confined ear plugs or out of ears."
+ },
+ {
+  "id": "manual-p06-f1",
+  "doc": "manual",
+  "page": 6,
+  "bbox": [
+   0.0,
+   28.0,
+   186.2,
+   796.0
+  ],
+  "area_frac": 0.285,
+  "labels": "Safety Welding Tips TIG / Stick CONTROLS Wire MAINTENANCE Symbology Wire VAC A OCV KVA Grounding TO PREVENT FROM INCORRECT Check with a properly grounded. have it repaired by a service installed by a qualified 1. The green wire inside the the grounding system in wire in the cord must be to the Welder\u2019s grounding never be attached to an Never leave the grounding or modify either Power Extension Cords Do not use an extension Replacement 1. Use only one of the this welder or an identical 2. Do not install a thinner cord on this welder."
+ },
+ {
+  "id": "manual-p06-f2",
+  "doc": "manual",
+  "page": 6,
+  "bbox": [
+   60.0,
+   428.0,
+   144.0,
+   644.0
+  ],
+  "area_frac": 0.036,
+  "labels": ""
+ },
+ {
+  "id": "manual-p06-f3",
+  "doc": "manual",
+  "page": 6,
+  "bbox": [
+   336.0,
+   496.0,
+   396.0,
+   792.0
+  ],
+  "area_frac": 0.035,
+  "labels": ""
+ },
+ {
+  "id": "manual-p07-f1",
+  "doc": "manual",
+  "page": 7,
+  "bbox": [
+   36.0,
+   28.0,
+   595.3,
+   796.0
+  ],
+  "area_frac": 0.857,
+  "labels": "Safety Welding Tips MAINTENANCE TIG / Stick CONTROLS Wire Specifications MIG Power Input 120\u200aVAC / 60\u200aHz 240\u200aVAC / 60\u200aHz Current Input at Output 20.8\u200aA at 100\u200aA 25.5\u200aA at 200\u200aA Welding Current Range 30\u200a\u2013140\u200aA 30\u200a\u2013220\u200aA Rated Duty Cycles 40% @ 100\u200aA 100% @ 75\u200aA 25% @ 200\u200aA 100% @ 115\u200aA Maximum OCV 86\u200aVDC Weldable Materials Mild Steel, Stainless Steel Aluminum (with optional Spool Gun) Welding Wire Capacity Solid Core: 0.025\"\u2009/\u20090.030\"\u2009/\u20090.035\" Flux Cored: 0.030\"\u2009/\u20090.035\"\u2009/\u20090.045\" Wire Speed 50\u200a\u2013\u200a500 IPM Wire Spool Capacity Up to 12 lb spool TIG Power Input 120\u200aVAC / 60\u200aHz 240\u200aVAC / 60\u200aHz Current"
+ },
+ {
+  "id": "manual-p08-f1",
+  "doc": "manual",
+  "page": 8,
+  "bbox": [
+   0.0,
+   28.0,
+   516.0,
+   796.0
+  ],
+  "area_frac": 0.791,
+  "labels": "Safety Welding Tips TIG / Stick CONTROLS Wire MAINTENANCE Controls Front Panel Controls \u00ae Wire Feed Power Cable Power Switch Left Knob Control Knob Home Button Spool Gun Gas Outlet MIG Gun\u200a/ Spool Gun Cable Socket Negative Socket Note: When using an optional Spool Gun (sold separately), connect the Spool Gun gas hose to the Spool Gun Gas Outlet."
+ },
+ {
+  "id": "manual-p09-f1",
+  "doc": "manual",
+  "page": 9,
+  "bbox": [
+   72.7,
+   75.8,
+   520.8,
+   407.2
+  ],
+  "area_frac": 0.296,
+  "labels": "Feed Switch Idler Arm Wire Feed Mechanism Knob Feed Wire Inlet Liner Feed Roller Knob Wire Feed Foot Pedal"
+ },
+ {
+  "id": "manual-p09-f2",
+  "doc": "manual",
+  "page": 9,
+  "bbox": [
+   96.0,
+   332.0,
+   184.0,
+   392.0
+  ],
+  "area_frac": 0.011,
+  "labels": ""
+ },
+ {
+  "id": "manual-p10-f1",
+  "doc": "manual",
+  "page": 10,
+  "bbox": [
+   0.0,
+   28.0,
+   179.2,
+   796.0
+  ],
+  "area_frac": 0.275,
+  "labels": "Safety Welding Tips TIG / Stick CONTROLS Wire MAINTENANCE 1. Turn the Power Switch the Welder before 2. Pull up on the Door Latch, then open the Door. 3. 1-2 Pound Wire Spool Remove the Wingnut and replacing a Spool, remove and all remaining wire 4. Place the new Wire Spool and against the Spool To prevent wire feed Spool so that it will 5. Replace the Spacer over Spool Spindle and secure in place with the Wingnut. Notice: If Wire Spool can loose. This will cause the unspool which can cause MIG\u200a/\u200aFlux-Cored Wire Read the ENTIRE including all text TO Note: Remove the protective Wire Spool"
+ },
+ {
+  "id": "manual-p10-f2",
+  "doc": "manual",
+  "page": 10,
+  "bbox": [
+   174.0,
+   83.9,
+   560.0,
+   324.0
+  ],
+  "area_frac": 0.185,
+  "labels": "and unplug Power Switch subheadings therein before set up or use of this product. PREVENT SERIOUS INJURY FROM ACCIDENTAL OPERATION: the Power Switch off and unplug the Welder before setup. and cardboard from the Welder before setup. Setup"
+ },
+ {
+  "id": "manual-p10-f3",
+  "doc": "manual",
+  "page": 10,
+  "bbox": [
+   328.0,
+   352.0,
+   556.0,
+   524.0
+  ],
+  "area_frac": 0.078,
+  "labels": ""
+ },
+ {
+  "id": "manual-p10-f4",
+  "doc": "manual",
+  "page": 10,
+  "bbox": [
+   292.0,
+   568.0,
+   535.3,
+   736.1
+  ],
+  "area_frac": 0.082,
+  "labels": "Wingnut 1-2 lb Wire Spool Spool Brake Spacer Spool Spindle 1-2 lb Spool Loading"
+ },
+ {
+  "id": "manual-p11-f1",
+  "doc": "manual",
+  "page": 11,
+  "bbox": [
+   410.0,
+   28.0,
+   595.3,
+   800.0
+  ],
+  "area_frac": 0.285,
+  "labels": "Safety Welding Tips MAINTENANCE TIG / Stick CONTROLS Wire Welder Wall Spool Brake Pad Loading Wingnut 10-12 lb Wire Spool Spacer Spool Spindle Spool Knob Idler Arm"
+ },
+ {
+  "id": "manual-p11-f2",
+  "doc": "manual",
+  "page": 11,
+  "bbox": [
+   280.0,
+   40.0,
+   537.9,
+   330.7
+  ],
+  "area_frac": 0.15,
+  "labels": "Wall Spool Brake Pad 10-12 lb Spool Adapter 10-12 lb Spool Loading Wingnut 10-12 Wire Spacer Spool Spool Knob"
+ },
+ {
+  "id": "manual-p11-f3",
+  "doc": "manual",
+  "page": 11,
+  "bbox": [
+   320.0,
+   368.0,
+   548.0,
+   552.0
+  ],
+  "area_frac": 0.084,
+  "labels": ""
+ },
+ {
+  "id": "manual-p11-f4",
+  "doc": "manual",
+  "page": 11,
+  "bbox": [
+   288.0,
+   610.0,
+   416.0,
+   732.0
+  ],
+  "area_frac": 0.031,
+  "labels": "Feed Tensioner"
+ },
+ {
+  "id": "manual-p12-f1",
+  "doc": "manual",
+  "page": 12,
+  "bbox": [
+   318.3,
+   99.0,
+   556.0,
+   364.3
+  ],
+  "area_frac": 0.126,
+  "labels": "Roller Knob Feed Roller A B 0.030\u2009/\u20090.035 groove 0.025 groove Solid Core V-Groove"
+ },
+ {
+  "id": "manual-p12-f2",
+  "doc": "manual",
+  "page": 12,
+  "bbox": [
+   333.0,
+   275.0,
+   408.0,
+   489.2
+  ],
+  "area_frac": 0.032,
+  "labels": "0.030\u2009/\u20090.035 groove 0.025 groove V-Groove 0.045 groove 0.030\u2009/\u20090.035 groove Flux-Cored"
+ },
+ {
+  "id": "manual-p12-f3",
+  "doc": "manual",
+  "page": 12,
+  "bbox": [
+   328.0,
+   399.4,
+   556.0,
+   668.0
+  ],
+  "area_frac": 0.122,
+  "labels": "C D 0.045 groove 0.030\u2009/\u20090.035 groove Flux-Cored Knurled Groove"
+ },
+ {
+  "id": "manual-p13-f1",
+  "doc": "manual",
+  "page": 13,
+  "bbox": [
+   211.3,
+   4.0,
+   595.3,
+   800.0
+  ],
+  "area_frac": 0.61,
+  "labels": "Safety Welding Tips MAINTENANCE TIG / Stick CONTROLS Wire Feed. gas through it the the Cable fits into only. (+) Gun Cable Connector Incorrect\u200a\u2013\u200aConnector not fully inserted Incorrect\u200a\u2013\u200aConnector not fully inserted Wire Feed Mechanism Knob Correct\u200a\u2013\u200aConnector fully inserted Correct\u200a\u2013\u200aConnector fully inserted Wire Feed Control Cable Ground Clamp Cable in Positive Socket Wire Feed Power Cable in Negative Socket DCEN Flux-Cored (Gasless) Polarity Setup"
+ },
+ {
+  "id": "manual-p14-f1",
+  "doc": "manual",
+  "page": 14,
+  "bbox": [
+   211.7,
+   0.0,
+   595.3,
+   284.0
+  ],
+  "area_frac": 0.217,
+  "labels": "Positive Wire welding: Negative (\u2013) Cable Ground Clamp Cable in Negative Socket DCEP Solid Core (Gas Shielded) Polarity Setup Wire Feed Power Cable in Positive Socket"
+ },
+ {
+  "id": "manual-p14-f2",
+  "doc": "manual",
+  "page": 14,
+  "bbox": [
+   264.4,
+   292.0,
+   532.0,
+   708.0
+  ],
+  "area_frac": 0.222,
+  "labels": "its Reset Power Input Gas Inlet IP21S S 1 f1 f2 Date: 57812 25d Conforms to ANSI/IEC Std. 60974-1 264149 Vulcan OMNIPRO 220 30A/15.5V to 220A/25V X 25% 60% 100% U0\u200a=\u200a86V I2 200A 130A 115A U2 24V 20.5V 19.75V 1~50/60Hz U1 = 240V I1max = 25.5A 23.7A 15.6A I1eff = 12.8A 11.9A 8.5A 10A/20.4V to 175A/27V X 25% 60% 100% U0\u200a=\u200a86V I2 175A 115A 100A U2 27V 24.6V 24V 10A/10.4V to 175A/17V X 30% 60% 100% U0\u200a=\u200a86V I2 175A 125A 105A U2 17V 15V 14.2V 30A/15.5V to 140A/21V X 40% 60% 100% U0\u200a=\u200a86V I2 100A 85A 75A U2 19V 18.25V 17.75V 1~50/60Hz U1 = 120V I1max = 20.8A 19.5A 20.6A I1eff = 13.1A 12.3A 13A 10A/20"
+ },
+ {
+  "id": "manual-p15-f1",
+  "doc": "manual",
+  "page": 15,
+  "bbox": [
+   28.0,
+   28.0,
+   595.3,
+   800.0
+  ],
+  "area_frac": 0.874,
+  "labels": "Safety Welding Tips MAINTENANCE TIG / Stick CONTROLS Wire IMPORTANT Securely hold onto the end of the welding wire and keep tension on it during the following steps. If this is not done, the welding wire will unravel and unspool which can cause tangling and feeding problems. 18. Cut off all bent and crimped wire. The cut end must have no burrs or sharp edges; cut again if needed. 19. Keep tension on the wire and guide at least 12 inches of wire into the Wire Inlet Liner and Feed Guide. 20. Make sure the welding wire is resting in the groove of the Feed Roller, then push the wire Idler Arm down"
+ },
+ {
+  "id": "manual-p15-f2",
+  "doc": "manual",
+  "page": 15,
+  "bbox": [
+   284.0,
+   354.3,
+   408.0,
+   476.0
+  ],
+  "area_frac": 0.03,
+  "labels": "Idler Arm"
+ },
+ {
+  "id": "manual-p15-f3",
+  "doc": "manual",
+  "page": 15,
+  "bbox": [
+   328.4,
+   512.0,
+   516.0,
+   728.0
+  ],
+  "area_frac": 0.081,
+  "labels": "Nozzle Contact Tip MIG Gun"
+ },
+ {
+  "id": "manual-p15-f4",
+  "doc": "manual",
+  "page": 15,
+  "bbox": [
+   32.0,
+   680.0,
+   292.0,
+   780.0
+  ],
+  "area_frac": 0.052,
+  "labels": "IMPORTANT Stainless steel wire is less flexible than other welding wire. Therefore, it is more difficult to feed through the liner and gun. It is especially important to keep the gun cable straight while feeding stainless steel wire."
+ },
+ {
+  "id": "manual-p16-f1",
+  "doc": "manual",
+  "page": 16,
+  "bbox": [
+   0.0,
+   28.0,
+   568.0,
+   796.0
+  ],
+  "area_frac": 0.87,
+  "labels": "Safety Welding Tips TIG / Stick CONTROLS Wire MAINTENANCE DANGER PARTS MAY BE AT WELDING VOLTAGE TO PREVENT ELECTRIC SHOCK AND DEATH: 1. Keep hands away from Wire Feed mechanism. 2. Close door before plugging in, unless using Cold Wire Feed to feed wire through to gun. 3. Do not touch Trigger while feeding wire through to gun. 24. Plug either 120\u200aVAC or 240\u200aVAC Power Cord into Power Input Socket. Note: Plug will only fit one way. 25. Do not touch the Gun\u2019s Trigger. Plug the Power Cord into a properly grounded, GFCI protected 120\u200aVAC (20 amp rated) or 240\u200aVAC receptacle that matches the plug an"
+ },
+ {
+  "id": "manual-p16-f2",
+  "doc": "manual",
+  "page": 16,
+  "bbox": [
+   296.0,
+   184.0,
+   556.0,
+   536.0
+  ],
+  "area_frac": 0.183,
+  "labels": "Reset Power Input Gas Inlet IP21S S 1 f1 f2 Date: 57812 25d Conforms to ANSI/IEC Std. 60974-1 264149 Vulcan OMNIPRO 220 30A/15.5V to 220A/25V X 25% 60% 100% U0\u200a=\u200a86V I2 200A 130A 115A U2 24V 20.5V 19.75V 1~50/60Hz U1 = 240V I1max = 25.5A 23.7A 15.6A I1eff = 12.8A 11.9A 8.5A 10A/20.4V to 175A/27V X 25% 60% 100% U0\u200a=\u200a86V I2 175A 115A 100A U2 27V 24.6V 24V 10A/10.4V to 175A/17V X 30% 60% 100% U0\u200a=\u200a86V I2 175A 125A 105A U2 17V 15V 14.2V 30A/15.5V to 140A/21V X 40% 60% 100% U0\u200a=\u200a86V I2 100A 85A 75A U2 19V 18.25V 17.75V 1~50/60Hz U1 = 120V I1max = 20.8A 19.5A 20.6A I1eff = 13.1A 12.3A 13A 10A/20.4V "
+ },
+ {
+  "id": "manual-p16-f3",
+  "doc": "manual",
+  "page": 16,
+  "bbox": [
+   220.0,
+   583.8,
+   412.0,
+   768.0
+  ],
+  "area_frac": 0.071,
+  "labels": "Feed Switch"
+ },
+ {
+  "id": "manual-p16-f4",
+  "doc": "manual",
+  "page": 16,
+  "bbox": [
+   400.0,
+   604.0,
+   560.0,
+   816.5
+  ],
+  "area_frac": 0.068,
+  "labels": "Item 57812 MIG Gun Welding Wire 2\""
+ },
+ {
+  "id": "manual-p17-f1",
+  "doc": "manual",
+  "page": 17,
+  "bbox": [
+   207.9,
+   28.0,
+   595.3,
+   800.0
+  ],
+  "area_frac": 0.597,
+  "labels": "Safety Welding Tips MAINTENANCE TIG / Stick CONTROLS Wire and hold of wood will stop arc. unplug Tensioner bends the with into Incrementally increase tension until wire bends. 2\u20133\" Nozzle Contact Tip MIG Gun separately), plug Ground Clamp Cable into Negative (\u2013) Socket. Plug (+) Socket. Twist cables clockwise all the way to lock in place. front page 14 Spool Gun Spool Gun Spool Gun Gas Outlet Gas Outlet Spool Gun Cable Connector Gas Hose Wire Feed Wire Feed Control Control Cable Cable Ground Clamp Cable in Negative Socket Wire Feed Power Cable in Positive Socket"
+ },
+ {
+  "id": "manual-p17-f2",
+  "doc": "manual",
+  "page": 17,
+  "bbox": [
+   272.0,
+   76.0,
+   396.0,
+   196.0
+  ],
+  "area_frac": 0.03,
+  "labels": ""
+ },
+ {
+  "id": "manual-p17-f3",
+  "doc": "manual",
+  "page": 17,
+  "bbox": [
+   313.5,
+   236.0,
+   491.5,
+   376.0
+  ],
+  "area_frac": 0.05,
+  "labels": "Nozzle Contact Tip MIG"
+ },
+ {
+  "id": "manual-p18-f1",
+  "doc": "manual",
+  "page": 18,
+  "bbox": [
+   0.0,
+   28.0,
+   193.0,
+   796.0
+  ],
+  "area_frac": 0.296,
+  "labels": "Safety Welding Tips TIG / Stick CONTROLS Wire MAINTENANCE Basic Wire Welding Read the ENTIRE including all text TO PREVENT SERIOUS Protective gear must be (or welding mask), ear resistant work clothes Light from the arc can cause Do not breathe arc fumes. Flux-cored wire welding is and stainless steel without MIG welding uses solid wire and is used to weld mild steel MIG welding can also be workpieces than flux-cored Aluminum welding can be optional Spool Gun (sold aluminum wire and shielding Good welding takes a degree Practice a few sample welds welding your first project. periods are recomm"
+ },
+ {
+  "id": "manual-p18-f2",
+  "doc": "manual",
+  "page": 18,
+  "bbox": [
+   148.2,
+   196.0,
+   560.0,
+   636.0
+  ],
+  "area_frac": 0.362,
+  "labels": "used to weld mild steel shielding gas. and shielding gas, and stainless steel. to weld thinner welding can. performed with an separately) using gas. of skill and experience. on scrap before Additional practice whenever you weld: of material material connection pieces of scrap to practice anything of value. SERIOUS INJURY, BURNS: tip clear of grounded whenever unit is plugged on. Power Switch ="
+ },
+ {
+  "id": "manual-p18-f3",
+  "doc": "manual",
+  "page": 18,
+  "bbox": [
+   428.0,
+   496.0,
+   564.0,
+   636.0
+  ],
+  "area_frac": 0.038,
+  "labels": ""
+ },
+ {
+  "id": "manual-p18-f4",
+  "doc": "manual",
+  "page": 18,
+  "bbox": [
+   212.0,
+   668.0,
+   392.0,
+   756.0
+  ],
+  "area_frac": 0.032,
+  "labels": "Practice your welding technique on scrap pieces before welding anything of value."
+ },
+ {
+  "id": "manual-p19-f1",
+  "doc": "manual",
+  "page": 19,
+  "bbox": [
+   230.7,
+   28.0,
+   595.3,
+   800.0
+  ],
+  "area_frac": 0.562,
+  "labels": "Safety Welding Tips MAINTENANCE TIG / Stick CONTROLS Wire the anything 2. Use clamps (not included) to hold the workpieces in position so that you can concentrate on proper welding technique. The distance (if any) between the two workpieces must be controlled properly to allow the weld to hold both sides securely while allowing the weld to penetrate fully into the joint. The edges of thicker workpieces may need to be chamfered (or beveled) to allow proper weld penetration. Notice: When welding equipment on a vehicle, disconnect the vehicle battery power from both the positive connection and th"
+ },
+ {
+  "id": "manual-p19-f2",
+  "doc": "manual",
+  "page": 19,
+  "bbox": [
+   320.0,
+   56.0,
+   528.0,
+   364.0
+  ],
+  "area_frac": 0.128,
+  "labels": "Rated Duty Cycle 100% Continuous Use at 115\u200aA 240\u200aVAC 25% Use at 200\u200aA For 10 Continuous Minutes 2-1/2 Minutes Welding 7-1/2 Minutes Resting Rated Duty Cycle 100% Continuous Use at 75\u200aA 120\u200aVAC 40% Use at 100\u200aA For 10 Continuous Minutes 4 Minutes Welding 6 Minutes Resting"
+ },
+ {
+  "id": "manual-p19-f3",
+  "doc": "manual",
+  "page": 19,
+  "bbox": [
+   60.0,
+   400.0,
+   264.0,
+   492.0
+  ],
+  "area_frac": 0.037,
+  "labels": "clamps workpieces Chamfer thick workpieces. Clean surfaces to bare metal."
+ },
+ {
+  "id": "manual-p20-f1",
+  "doc": "manual",
+  "page": 20,
+  "bbox": [
+   163.5,
+   0.0,
+   564.0,
+   184.0
+  ],
+  "area_frac": 0.147,
+  "labels": "OFF position, a properly 120\u200aVAC (20 amp that matches equipped with breaker or fuses. nonconductive, nonflammable objects. Power Switch"
+ },
+ {
+  "id": "manual-p20-f2",
+  "doc": "manual",
+  "page": 20,
+  "bbox": [
+   56.0,
+   236.0,
+   284.0,
+   388.0
+  ],
+  "area_frac": 0.069,
+  "labels": "\u00ae"
+ },
+ {
+  "id": "manual-p20-f3",
+  "doc": "manual",
+  "page": 20,
+  "bbox": [
+   336.0,
+   292.0,
+   532.0,
+   408.0
+  ],
+  "area_frac": 0.045,
+  "labels": ".025\" 24Ga"
+ },
+ {
+  "id": "manual-p20-f4",
+  "doc": "manual",
+  "page": 20,
+  "bbox": [
+   320.1,
+   476.0,
+   536.0,
+   600.0
+  ],
+  "area_frac": 0.053,
+  "labels": "121 13.8 0.0 0 .030\" 0.0 25 5 24Ga Run-In WFS Inductance Spot Timer Type"
+ },
+ {
+  "id": "manual-p20-f5",
+  "doc": "manual",
+  "page": 20,
+  "bbox": [
+   72.0,
+   616.0,
+   268.0,
+   736.0
+  ],
+  "area_frac": 0.047,
+  "labels": ""
+ },
+ {
+  "id": "manual-p21-f1",
+  "doc": "manual",
+  "page": 21,
+  "bbox": [
+   332.0,
+   28.0,
+   508.0,
+   508.0
+  ],
+  "area_frac": 0.169,
+  "labels": ""
+ },
+ {
+  "id": "manual-p21-f2",
+  "doc": "manual",
+  "page": 21,
+  "bbox": [
+   352.0,
+   540.0,
+   476.0,
+   652.0
+  ],
+  "area_frac": 0.028,
+  "labels": ""
+ },
+ {
+  "id": "manual-p21-f3",
+  "doc": "manual",
+  "page": 21,
+  "bbox": [
+   346.3,
+   664.0,
+   472.0,
+   824.0
+  ],
+  "area_frac": 0.04,
+  "labels": "1-800-444-3353."
+ },
+ {
+  "id": "manual-p22-f1",
+  "doc": "manual",
+  "page": 22,
+  "bbox": [
+   276.0,
+   83.3,
+   556.0,
+   180.0
+  ],
+  "area_frac": 0.054,
+  "labels": "stringer bead weave bead"
+ },
+ {
+  "id": "manual-p22-f2",
+  "doc": "manual",
+  "page": 22,
+  "bbox": [
+   440.0,
+   236.0,
+   564.0,
+   380.1
+  ],
+  "area_frac": 0.036,
+  "labels": "joint. 90\u00b0 butt weld joint"
+ },
+ {
+  "id": "manual-p22-f3",
+  "doc": "manual",
+  "page": 22,
+  "bbox": [
+   292.0,
+   272.0,
+   440.0,
+   380.1
+  ],
+  "area_frac": 0.032,
+  "labels": "45\u00b0 fillet weld joint"
+ },
+ {
+  "id": "manual-p22-f4",
+  "doc": "manual",
+  "page": 22,
+  "bbox": [
+   288.0,
+   442.7,
+   564.0,
+   588.7
+  ],
+  "area_frac": 0.08,
+  "labels": "Weld Direction Drag Angle Drag Angle 0-15\u00b0 0-15\u00b0 Weld Direction Push Angle Push Angle 0-15\u00b0 0-15\u00b0 Solid Wire with Shielding Gas Flux-Cored Wire without Gas"
+ },
+ {
+  "id": "manual-p22-f5",
+  "doc": "manual",
+  "page": 22,
+  "bbox": [
+   360.0,
+   596.0,
+   488.0,
+   764.0
+  ],
+  "area_frac": 0.043,
+  "labels": "CTWD (up to 1/2\")"
+ },
+ {
+  "id": "manual-p23-f1",
+  "doc": "manual",
+  "page": 23,
+  "bbox": [
+   149.0,
+   0.0,
+   595.3,
+   841.9
+  ],
+  "area_frac": 0.75,
+  "labels": "Page 23 For technical questions, please call 1-800-444-3353. Safety Welding Tips MAINTENANCE TIG / Stick CONTROLS Wire a LCD automatically automatically off. Gun concrete clamp. the internal use longer rest wear. on a piece stop, and then compare the diagrams Welding Tips section After making any continue to weld the DUTY CYCLE on page 19. do not touch. set the MIG electrically then workpiece Gun. wire, removing gas gun, releasing Idler and rotating Be sure is being respooled a tendency to the wire feeder. valve and Gas Hose from gas cylinder. \u00ae Power Switch LCD Display Warning Screen 120\u200aVAC "
+ },
+ {
+  "id": "manual-p23-f2",
+  "doc": "manual",
+  "page": 23,
+  "bbox": [
+   292.0,
+   220.0,
+   540.0,
+   284.0
+  ],
+  "area_frac": 0.032,
+  "labels": "After practice welding for a few seconds, STOP and examine your weld using the guidelines starting on the next page."
+ },
+ {
+  "id": "manual-p24-f1",
+  "doc": "manual",
+  "page": 24,
+  "bbox": [
+   0.0,
+   28.0,
+   179.7,
+   796.0
+  ],
+  "area_frac": 0.275,
+  "labels": "Safety Welding Tips TIG / Stick CONTROLS Wire MAINTENANCE TIG\u200a/\u200aStick Welding Read the ENTIRE including all text TO Note: Remove the protective surface that can bear its TIG Setup Connect Cables TIG (sold Foot (sold Shielding Gas Hose 1. Plug Ground Clamp Cable Twist clockwise all the 2. Plug TIG Torch Cable separately) into Negative clockwise all the way to"
+ },
+ {
+  "id": "manual-p24-f2",
+  "doc": "manual",
+  "page": 24,
+  "bbox": [
+   64.0,
+   220.0,
+   540.0,
+   628.0
+  ],
+  "area_frac": 0.388,
+  "labels": "Ground Clamp Cable in Positive Socket Ground Clamp TIG Torch TIG Torch Cable in Cable in Negative Negative Socket Socket TIG Torch (sold separately) Foot Pedal Socket (inside Welder) Foot Pedal (sold separately) Foot Pedal Cable Shielding Gas Hose"
+ },
+ {
+  "id": "manual-p25-f1",
+  "doc": "manual",
+  "page": 25,
+  "bbox": [
+   171.3,
+   52.0,
+   520.0,
+   492.0
+  ],
+  "area_frac": 0.306,
+  "labels": "Argon cylinder or cart near the in place with prevent tipping. Stand to the open the dirt from the valve. and close its Regulator connection. on TIG Regulator\u2019s connection. 4 3 1 Briefly open to then 2"
+ },
+ {
+  "id": "manual-p25-f2",
+  "doc": "manual",
+  "page": 25,
+  "bbox": [
+   328.0,
+   540.0,
+   512.0,
+   772.0
+  ],
+  "area_frac": 0.085,
+  "labels": "Reset Power Input Gas Inlet IP21S S 1 f1 f2 Date: 57812 25d Conforms to ANSI/IEC Std. 60974-1 264149 Vulcan OMNIPRO 220 30A/15.5V to 220A/25V X 25% 60% 100% U0\u200a=\u200a86V I2 200A 130A 115A U2 24V 20.5V 19.75V 1~50/60Hz U1 = 240V I1max = 25.5A 23.7A 15.6A I1eff = 12.8A 11.9A 8.5A 10A/20.4V to 175A/27V X 25% 60% 100% U0\u200a=\u200a86V I2 175A 115A 100A U2 27V 24.6V 24V 10A/10.4V to 175A/17V X 30% 60% 100% U0\u200a=\u200a86V I2 175A 125A 105A U2 17V 15V 14.2V 30A/15.5V to 140A/21V X 40% 60% 100% U0\u200a=\u200a86V I2 100A 85A 75A U2 19V 18.25V 17.75V 1~50/60Hz U1 = 120V I1max = 20.8A 19.5A 20.6A I1eff = 13.1A 12.3A 13A 10A/20.4V "
+ },
+ {
+  "id": "manual-p26-f1",
+  "doc": "manual",
+  "page": 26,
+  "bbox": [
+   446.2,
+   68.0,
+   595.3,
+   264.0
+  ],
+  "area_frac": 0.058,
+  "labels": "with tip the Ceramic Back Cap. Grinding Wheel Electrode"
+ },
+ {
+  "id": "manual-p26-f2",
+  "doc": "manual",
+  "page": 26,
+  "bbox": [
+   332.3,
+   340.0,
+   544.0,
+   540.0
+  ],
+  "area_frac": 0.084,
+  "labels": "Collet Body Ceramic Nozzle Collet Back Cap Insert tungsten Electrode here."
+ },
+ {
+  "id": "manual-p27-f1",
+  "doc": "manual",
+  "page": 27,
+  "bbox": [
+   92.0,
+   84.0,
+   492.0,
+   417.7
+  ],
+  "area_frac": 0.266,
+  "labels": "Electrode Holder Cable in Positive Socket Ground Clamp Cable in Negative Socket Ground Clamp Electrode Holder"
+ },
+ {
+  "id": "manual-p27-f2",
+  "doc": "manual",
+  "page": 27,
+  "bbox": [
+   328.0,
+   532.0,
+   512.0,
+   764.0
+  ],
+  "area_frac": 0.085,
+  "labels": "Reset Power Input Gas Inlet IP21S S 1 f1 f2 Date: 57812 25d Conforms to ANSI/IEC Std. 60974-1 264149 Vulcan OMNIPRO 220 30A/15.5V to 220A/25V X 25% 60% 100% U0\u200a=\u200a86V I2 200A 130A 115A U2 24V 20.5V 19.75V 1~50/60Hz U1 = 240V I1max = 25.5A 23.7A 15.6A I1eff = 12.8A 11.9A 8.5A 10A/20.4V to 175A/27V X 25% 60% 100% U0\u200a=\u200a86V I2 175A 115A 100A U2 27V 24.6V 24V 10A/10.4V to 175A/17V X 30% 60% 100% U0\u200a=\u200a86V I2 175A 125A 105A U2 17V 15V 14.2V 30A/15.5V to 140A/21V X 40% 60% 100% U0\u200a=\u200a86V I2 100A 85A 75A U2 19V 18.25V 17.75V 1~50/60Hz U1 = 120V I1max = 20.8A 19.5A 20.6A I1eff = 13.1A 12.3A 13A 10A/20.4V "
+ },
+ {
+  "id": "manual-p28-f1",
+  "doc": "manual",
+  "page": 28,
+  "bbox": [
+   0.0,
+   28.0,
+   184.4,
+   796.0
+  ],
+  "area_frac": 0.283,
+  "labels": "Safety Welding Tips TIG / Stick CONTROLS Wire MAINTENANCE Basic TIG\u200a/\u200aStick Read the ENTIRE manual including TO PREVENT SERIOUS Protective gear must be (or welding mask), ear resistant work clothes Light from the arc can cause Do not breathe arc fumes. \u2022 DC TIG Welding is mild steel and stainless a TIG Rod and \u2022 AC TIG Welding is using a TIG Rod and \u2022 Stick Welding is used steel and stainless Stick Electrode without Good welding takes a degree Practice a few sample welds welding your first project. periods are recommended \u2022 a different thickness \u2022 a different type of \u2022 a different type of \u2022 us"
+ },
+ {
+  "id": "manual-p28-f2",
+  "doc": "manual",
+  "page": 28,
+  "bbox": [
+   272.0,
+   188.0,
+   560.0,
+   588.0
+  ],
+  "area_frac": 0.23,
+  "labels": "Power On ="
+ },
+ {
+  "id": "manual-p28-f3",
+  "doc": "manual",
+  "page": 28,
+  "bbox": [
+   436.0,
+   468.0,
+   564.0,
+   588.0
+  ],
+  "area_frac": 0.031,
+  "labels": ""
+ },
+ {
+  "id": "manual-p28-f4",
+  "doc": "manual",
+  "page": 28,
+  "bbox": [
+   212.0,
+   628.0,
+   392.0,
+   716.0
+  ],
+  "area_frac": 0.032,
+  "labels": "Practice your welding technique on scrap pieces before welding anything of value."
+ },
+ {
+  "id": "manual-p29-f1",
+  "doc": "manual",
+  "page": 29,
+  "bbox": [
+   230.7,
+   28.0,
+   595.3,
+   796.0
+  ],
+  "area_frac": 0.559,
+  "labels": "SaFety Welding tipS Maintenance tig / Stick cOntROlS WiRe for more Cycle a This Welder has an internal thermal protection system to help prevent this sort of over-stress. When the Welder overheats, it automatically shuts down and a warning screen appears in the LCD Display window. The Welder automatically returns to service after cooling off. Should this occur, rest the Tig Torch or Electrode Holder on an electrically non-conductive, heat-proof surface, such as a concrete slab, well clear of the ground clamp. allow the Welder to cool with the power Switch on, so that the internal Fan will help"
+ },
+ {
+  "id": "manual-p29-f2",
+  "doc": "manual",
+  "page": 29,
+  "bbox": [
+   36.0,
+   228.0,
+   288.0,
+   356.0
+  ],
+  "area_frac": 0.064,
+  "labels": "240\u200aVAC 30% Use at 175\u200aA For 10 continuous Minutes 100% Continuous Use at 105\u200aA 3 Minutes Minutes Welding Welding 7 Minutes Minutes Resting Resting 120\u200aVAC 40% Use at 125\u200aA For 10 continuous Minutes 100% Continuous Use at 90\u200aA 4 Minutes Minutes Welding Welding 6 Minutes Minutes Resting Resting tig Rated duty cycles"
+ },
+ {
+  "id": "manual-p29-f3",
+  "doc": "manual",
+  "page": 29,
+  "bbox": [
+   60.0,
+   396.0,
+   264.0,
+   488.0
+  ],
+  "area_frac": 0.037,
+  "labels": "clamps workpieces chamfer thick workpieces. clean surfaces to bare metal."
+ },
+ {
+  "id": "manual-p30-f1",
+  "doc": "manual",
+  "page": 30,
+  "bbox": [
+   0.0,
+   28.0,
+   178.6,
+   796.0
+  ],
+  "area_frac": 0.274,
+  "labels": "Safety Welding Tips TIG / Stick CONTROLS Wire MAINTENANCE TIG Welding TO PREVENT SERIOUS Do not weld without When the operator is not Only hold TIG Rod with an TO PREVENT DEATH FROM Do not open gas without air and cause rapid loss of even more hazardous NOTICE: TIG welding is a requiring experience and skill successful results. Training this manual is required to TIG 1. Open gas cylinder\u2019s valve 2. Set Flow Gauge to SCFH Settings Chart on the 3. Turn the Power Switch plug the Welder into a protected, 120\u200aVAC (20 240\u200aV outlet. The circuit delayed action-type circuit 4. Set TIG Torch down on non"
+ },
+ {
+  "id": "manual-p30-f2",
+  "doc": "manual",
+  "page": 30,
+  "bbox": [
+   336.0,
+   292.0,
+   532.0,
+   408.0
+  ],
+  "area_frac": 0.045,
+  "labels": ""
+ },
+ {
+  "id": "manual-p30-f3",
+  "doc": "manual",
+  "page": 30,
+  "bbox": [
+   335.1,
+   453.0,
+   532.0,
+   584.0
+  ],
+  "area_frac": 0.051,
+  "labels": "\u2022 Turn Right Knob to set material thickness."
+ },
+ {
+  "id": "manual-p30-f4",
+  "doc": "manual",
+  "page": 30,
+  "bbox": [
+   56.0,
+   564.0,
+   284.0,
+   712.0
+  ],
+  "area_frac": 0.067,
+  "labels": "\u00ae TIG"
+ },
+ {
+  "id": "manual-p30-f5",
+  "doc": "manual",
+  "page": 30,
+  "bbox": [
+   320.1,
+   680.0,
+   536.0,
+   796.0
+  ],
+  "area_frac": 0.05,
+  "labels": "Type"
+ },
+ {
+  "id": "manual-p31-f1",
+  "doc": "manual",
+  "page": 31,
+  "bbox": [
+   64.0,
+   204.0,
+   260.0,
+   436.0
+  ],
+  "area_frac": 0.091,
+  "labels": ""
+ },
+ {
+  "id": "manual-p31-f2",
+  "doc": "manual",
+  "page": 31,
+  "bbox": [
+   60.0,
+   600.0,
+   264.0,
+   708.0
+  ],
+  "area_frac": 0.044,
+  "labels": "After practice welding on scrap, stop, and check your progress. Perform Strike Test according to Strike Test on page 34. After making any necessary adjustments, continue to weld while carefully following the DUTY CYCLE guidelines as explained on page 29."
+ },
+ {
+  "id": "manual-p32-f1",
+  "doc": "manual",
+  "page": 32,
+  "bbox": [
+   0.0,
+   28.0,
+   178.6,
+   796.0
+  ],
+  "area_frac": 0.274,
+  "labels": "Safety Welding Tips TIG / Stick CONTROLS Wire MAINTENANCE Stick Welding TO PREVENT SERIOUS Do not weld without When the operator is not sitting on a nonconductive, 1. Turn the Power Switch plug the Welder into a protected, 120\u200aVAC (20 240\u200aV outlet. The circuit delayed action-type circuit 2. Set Electrode Holder nonconductive, away from any grounded 3. Turn the Power Switch 4. Press Home Button on 5. Turn Main Control Knob appears on LCD display 6. Press Main Control Knob Note: Press Main Control Press Back Button to return Left Knob 7. Adjust settings for the a. Polarity Setting: \u2022 Plug cables"
+ },
+ {
+  "id": "manual-p32-f2",
+  "doc": "manual",
+  "page": 32,
+  "bbox": [
+   335.1,
+   156.7,
+   532.0,
+   288.0
+  ],
+  "area_frac": 0.052,
+  "labels": "\u2022 Turn Main Control Knob to set electrode"
+ },
+ {
+  "id": "manual-p32-f3",
+  "doc": "manual",
+  "page": 32,
+  "bbox": [
+   336.0,
+   344.0,
+   532.0,
+   460.0
+  ],
+  "area_frac": 0.045,
+  "labels": ""
+ },
+ {
+  "id": "manual-p32-f4",
+  "doc": "manual",
+  "page": 32,
+  "bbox": [
+   56.0,
+   376.0,
+   284.0,
+   524.0
+  ],
+  "area_frac": 0.067,
+  "labels": "Stick"
+ },
+ {
+  "id": "manual-p32-f5",
+  "doc": "manual",
+  "page": 32,
+  "bbox": [
+   307.1,
+   562.2,
+   560.3,
+   693.4
+  ],
+  "area_frac": 0.066,
+  "labels": "Open Circuit Voltage is present. Hot Start Arc Force Electrode Diameter Material Thickness Process Electrode Type"
+ },
+ {
+  "id": "manual-p32-f6",
+  "doc": "manual",
+  "page": 32,
+  "bbox": [
+   72.0,
+   628.0,
+   268.0,
+   744.0
+  ],
+  "area_frac": 0.045,
+  "labels": ""
+ },
+ {
+  "id": "manual-p33-f1",
+  "doc": "manual",
+  "page": 33,
+  "bbox": [
+   324.0,
+   148.0,
+   528.0,
+   256.0
+  ],
+  "area_frac": 0.044,
+  "labels": "After practice welding on scrap, stop, and check your progress. Perform Strike Test according to Strike Test on page 34. After making any necessary adjustments, continue to weld while carefully following the DUTY CYCLE guidelines as explained on page 29."
+ },
+ {
+  "id": "manual-p33-f2",
+  "doc": "manual",
+  "page": 33,
+  "bbox": [
+   64.0,
+   248.0,
+   260.0,
+   696.0
+  ],
+  "area_frac": 0.175,
+  "labels": ""
+ },
+ {
+  "id": "manual-p34-f1",
+  "doc": "manual",
+  "page": 34,
+  "bbox": [
+   0.0,
+   28.0,
+   183.6,
+   796.0
+  ],
+  "area_frac": 0.281,
+  "labels": "Safety Welding Tips TIG / Stick CONTROLS Wire MAINTENANCE Welding Tips A good way to test welding removed. Then, better welding NOTICE: TIG welding is a results. Training beyond the Strike Test A test weld on a PIECE tested by using the WEAR ANSI-APPROVED DURING THIS CAUTION! This test WILL performed on. This test is technique and is not 1. After two scraps have weld has cooled, clamp 2. Stay clear from underneath the opposite scrap with preferably a dead-blow 3. A GOOD WELD will on top. A POOR WELD will be weld, as shown on bottom. Cleaning the Weld TO PREVENT Continue to safety goggles when "
+ },
+ {
+  "id": "manual-p34-f2",
+  "doc": "manual",
+  "page": 34,
+  "bbox": [
+   204.0,
+   128.0,
+   404.0,
+   200.0
+  ],
+  "area_frac": 0.029,
+  "labels": "After practice welding a couple of welding beads, STOP and examine your weld using the following guidelines."
+ },
+ {
+  "id": "manual-p34-f3",
+  "doc": "manual",
+  "page": 34,
+  "bbox": [
+   300.0,
+   228.0,
+   568.0,
+   364.0
+  ],
+  "area_frac": 0.073,
+  "labels": "clamp SCRAP workpiece GOOD WELD bends and is not brittle dead-blow hammer"
+ },
+ {
+  "id": "manual-p34-f4",
+  "doc": "manual",
+  "page": 34,
+  "bbox": [
+   300.0,
+   360.0,
+   568.0,
+   496.0
+  ],
+  "area_frac": 0.073,
+  "labels": "clamp SCRAP workpiece POOR WELD snaps or cracks dead-blow hammer"
+ },
+ {
+  "id": "manual-p34-f5",
+  "doc": "manual",
+  "page": 34,
+  "bbox": [
+   312.0,
+   544.0,
+   541.3,
+   704.0
+  ],
+  "area_frac": 0.073,
+  "labels": "Chipping Hammer Wire Brush"
+ },
+ {
+  "id": "manual-p35-f1",
+  "doc": "manual",
+  "page": 35,
+  "bbox": [
+   28.0,
+   28.0,
+   595.3,
+   796.0
+  ],
+  "area_frac": 0.869,
+  "labels": "Safety Welding Tips MAINTENANCE TIG / Stick CONTROLS Wire Wire Weld Diagnosis\u200a\u2013\u200aWorkpiece Heat Control / Weld Penetration EXCESS PENETRATION OR BURN-THROUGH PROPER PENETRATION INADEQUATE PENETRATION Not hot enough Too hot Ideal heat How to increase workpiece heat and increase penetration: (to weld THICKER workpieces properly) How to reduce workpiece heat and limit penetration: (to weld THINNER workpieces properly) a. Increase weld current b. Decrease travel speed c. Use faster wire feed d. Use shorter CTWD e. Decrease weld current f. Increase travel speed g. Use slower wire feed h. Use longer "
+ },
+ {
+  "id": "manual-p35-f2",
+  "doc": "manual",
+  "page": 35,
+  "bbox": [
+   36.0,
+   66.3,
+   204.0,
+   199.5
+  ],
+  "area_frac": 0.045,
+  "labels": "INADEQUATE PENETRATION Not hot enough How to increase"
+ },
+ {
+  "id": "manual-p35-f3",
+  "doc": "manual",
+  "page": 35,
+  "bbox": [
+   208.0,
+   66.3,
+   376.0,
+   152.0
+  ],
+  "area_frac": 0.029,
+  "labels": "PROPER PENETRATION"
+ },
+ {
+  "id": "manual-p35-f4",
+  "doc": "manual",
+  "page": 35,
+  "bbox": [
+   379.1,
+   84.0,
+   548.0,
+   199.5
+  ],
+  "area_frac": 0.039,
+  "labels": "Too hot reduce workpiece heat"
+ },
+ {
+  "id": "manual-p36-f1",
+  "doc": "manual",
+  "page": 36,
+  "bbox": [
+   56.0,
+   109.8,
+   560.0,
+   247.6
+  ],
+  "area_frac": 0.139,
+  "labels": "underneath, or falls through entirely, making a hole. POSSIBLE CAUSES AND SOLUTIONS POSSIBLE CAUSES AND SOLUTIONS PROFILE VIEWS"
+ },
+ {
+  "id": "manual-p36-f2",
+  "doc": "manual",
+  "page": 36,
+  "bbox": [
+   84.0,
+   376.0,
+   252.0,
+   452.0
+  ],
+  "area_frac": 0.025,
+  "labels": ""
+ },
+ {
+  "id": "manual-p36-f3",
+  "doc": "manual",
+  "page": 36,
+  "bbox": [
+   45.0,
+   464.7,
+   528.0,
+   675.7
+  ],
+  "area_frac": 0.203,
+  "labels": "between weld and workpiece. See areas POSSIBLE CAUSES AND SOLUTIONS 1. Incorrect welding technique: Place stringer bead at correct place in joint. Adjust workpiece position or weld angle to proper welding to bottom of piece. Pause briefly at sides during weave bead. Keep arc on leading edge of weld puddle. Hold MIG Gun at proper angles. 2. Insufficient weld heat: Increase current. PROFILE VIEW Improper clamping: Clamp workpieces securely. Make tack welds to hold workpieces. 2. Excessive heat: Weld a small portion and allow to cool before proceeding. Increase travel speed. Reduce wire feed spee"
+ },
+ {
+  "id": "manual-p37-f1",
+  "doc": "manual",
+  "page": 37,
+  "bbox": [
+   69.9,
+   58.5,
+   243.1,
+   153.7
+  ],
+  "area_frac": 0.033,
+  "labels": "Small cavities or holes in the bead. POSSIBLE CAUSES AND"
+ },
+ {
+  "id": "manual-p37-f2",
+  "doc": "manual",
+  "page": 37,
+  "bbox": [
+   338.2,
+   70.5,
+   500.0,
+   166.5
+  ],
+  "area_frac": 0.031,
+  "labels": "that is grainy and large is a POSSIBLE CAUSES AND"
+ },
+ {
+  "id": "manual-p37-f3",
+  "doc": "manual",
+  "page": 37,
+  "bbox": [
+   67.9,
+   504.0,
+   228.0,
+   606.3
+  ],
+  "area_frac": 0.033,
+  "labels": "POSSIBLE CAUSES AND"
+ },
+ {
+  "id": "manual-p37-f4",
+  "doc": "manual",
+  "page": 37,
+  "bbox": [
+   268.0,
+   523.2,
+   492.0,
+   619.1
+  ],
+  "area_frac": 0.043,
+  "labels": "leaving a hole in the weld. POSSIBLE CAUSES AND TOP VIEW"
+ },
+ {
+  "id": "manual-p38-f1",
+  "doc": "manual",
+  "page": 38,
+  "bbox": [
+   0.0,
+   28.0,
+   564.0,
+   796.0
+  ],
+  "area_frac": 0.864,
+  "labels": "Safety Welding Tips TIG / Stick CONTROLS Wire MAINTENANCE Stick Weld Diagnosis\u200a\u2013\u200aWorkpiece Heat Control / Weld Penetration EXCESS PENETRATION OR BURN-THROUGH PROPER PENETRATION INADEQUATE PENETRATION Not hot enough Too hot Ideal heat How to increase workpiece heat and increase penetration: (to weld THICKER workpieces properly) a. Increase current. b. Weld more slowly. How to reduce workpiece heat and limit penetration: (to weld THINNER workpieces properly) c. Decrease current. d. Weld more quickly. Example Stick Weld Diagrams CLEAN WELDS FIRST! Stick welds will have a coat of slag over them un"
+ },
+ {
+  "id": "manual-p38-f2",
+  "doc": "manual",
+  "page": 38,
+  "bbox": [
+   216.0,
+   66.3,
+   384.0,
+   152.0
+  ],
+  "area_frac": 0.029,
+  "labels": "PROPER PENETRATION"
+ },
+ {
+  "id": "manual-p38-f3",
+  "doc": "manual",
+  "page": 38,
+  "bbox": [
+   388.0,
+   84.0,
+   556.0,
+   200.0
+  ],
+  "area_frac": 0.039,
+  "labels": "Too hot"
+ },
+ {
+  "id": "manual-p38-f4",
+  "doc": "manual",
+  "page": 38,
+  "bbox": [
+   260.0,
+   565.7,
+   580.0,
+   700.0
+  ],
+  "area_frac": 0.086,
+  "labels": "distance distance"
+ },
+ {
+  "id": "manual-p39-f1",
+  "doc": "manual",
+  "page": 39,
+  "bbox": [
+   99.6,
+   472.0,
+   268.0,
+   565.5
+  ],
+  "area_frac": 0.031,
+  "labels": "welding technique:"
+ },
+ {
+  "id": "manual-p39-f2",
+  "doc": "manual",
+  "page": 39,
+  "bbox": [
+   100.0,
+   684.0,
+   268.0,
+   760.0
+  ],
+  "area_frac": 0.025,
+  "labels": ""
+ },
+ {
+  "id": "manual-p40-f1",
+  "doc": "manual",
+  "page": 40,
+  "bbox": [
+   63.1,
+   4.0,
+   426.5,
+   138.4
+  ],
+  "area_frac": 0.097,
+  "labels": "Weld\u200a\u2013\u200aCoat of Slag Over Weld TOP VIEW PARTIALLY CHIPPED AWAY TO SHOW WELD Slag is a necessary part the weld from impurities. Chipping Hammer and"
+ },
+ {
+  "id": "manual-p40-f2",
+  "doc": "manual",
+  "page": 40,
+  "bbox": [
+   0.0,
+   28.0,
+   284.6,
+   796.0
+  ],
+  "area_frac": 0.436,
+  "labels": "Safety Welding Tips TIG / Stick CONTROLS Wire MAINTENANCE Stick Weld\u200a\u2013\u200aCoat of Slag Over TOP VIEW PARTIALLY CHIPPED AWAY TO SHOW WELD Stick Weld\u200a\u2013\u200aPorosity \u2014 Small cavities POSSIBLE CAUSES AND SOLUTIONS TOP VIEW Stick Weld\u200a\u2013\u200aCrooked/Wavy POSSIBLE CAUSES AND SOLUTIONS TOP VIEW Stick Weld\u200a\u2013\u200aExcessive Spatter POSSIBLE CAUSES AND SOLUTIONS TOP VIEW Stick Weld\u200a\u2013\u200aBurn-Through \u2014 POSSIBLE CAUSES AND SOLUTIONS TOP VIEW"
+ },
+ {
+  "id": "manual-p40-f3",
+  "doc": "manual",
+  "page": 40,
+  "bbox": [
+   116.0,
+   200.0,
+   272.0,
+   280.0
+  ],
+  "area_frac": 0.025,
+  "labels": ""
+ },
+ {
+  "id": "manual-p40-f4",
+  "doc": "manual",
+  "page": 40,
+  "bbox": [
+   116.0,
+   336.0,
+   272.0,
+   428.0
+  ],
+  "area_frac": 0.029,
+  "labels": ""
+ },
+ {
+  "id": "manual-p40-f5",
+  "doc": "manual",
+  "page": 40,
+  "bbox": [
+   116.0,
+   469.7,
+   272.0,
+   564.0
+  ],
+  "area_frac": 0.029,
+  "labels": "CAUSES AND SOLUTIONS"
+ },
+ {
+  "id": "manual-p41-f1",
+  "doc": "manual",
+  "page": 41,
+  "bbox": [
+   317.1,
+   28.0,
+   595.3,
+   796.0
+  ],
+  "area_frac": 0.426,
+  "labels": "Safety Welding Tips MAINTENANCE TIG / Stick CONTROLS Wire electrically non-conductive surface, and allow service. PERIODICALLY, have a qualified technician remove the Rear Panel use compressed air to blow all dust from the interior. AFTER EVERY USE, store in clean and dry location. optimal MIG\u200a/\u200aFlux-Cored wire weld quality, clean and inspect the MIG Contact Tip and Nozzle before each use, as explained below. and Cleaning Examine the shape of the hole at the end of Contact Tip. It should be an even circle; it should not be oblong or have any bulges in it. any problems are noted, replace the Co"
+ },
+ {
+  "id": "manual-p41-f2",
+  "doc": "manual",
+  "page": 41,
+  "bbox": [
+   28.0,
+   64.0,
+   162.7,
+   160.0
+  ],
+  "area_frac": 0.026,
+  "labels": "TO PREVENT Unplug the all parts of"
+ },
+ {
+  "id": "manual-p41-f3",
+  "doc": "manual",
+  "page": 41,
+  "bbox": [
+   84.0,
+   624.0,
+   196.0,
+   764.0
+  ],
+  "area_frac": 0.031,
+  "labels": ""
+ },
+ {
+  "id": "manual-p41-f4",
+  "doc": "manual",
+  "page": 41,
+  "bbox": [
+   376.0,
+   640.0,
+   496.0,
+   764.0
+  ],
+  "area_frac": 0.03,
+  "labels": ""
+ },
+ {
+  "id": "manual-p45-f1",
+  "doc": "manual",
+  "page": 45,
+  "bbox": [
+   48.0,
+   79.2,
+   280.0,
+   500.0
+  ],
+  "area_frac": 0.195,
+  "labels": "IGBT PFC 5 6 4 1 OUT- 4 3 2 1 T1 T60*30*28 1 2 3 4 CN1 Hall OUT+"
+ },
+ {
+  "id": "manual-p45-f2",
+  "doc": "manual",
+  "page": 45,
+  "bbox": [
+   332.0,
+   196.0,
+   444.0,
+   504.0
+  ],
+  "area_frac": 0.069,
+  "labels": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 29 30 31 32 33 34 28 CN7 3 2 1 5 4 3 2 1 5 4 3 2 1 5 4 1 2 3 4 CN5 1 2 3 4 MCU BOARD LCD SCREEN"
+ },
+ {
+  "id": "manual-p45-f3",
+  "doc": "manual",
+  "page": 45,
+  "bbox": [
+   300.0,
+   498.2,
+   532.0,
+   788.0
+  ],
+  "area_frac": 0.134,
+  "labels": "1 2 3 4 5 6 7 CN8 1 2 3 4 5 6 7 CN1 1 2 3 4 5 6 CN2 1 2 CN3 AVIATION PLUG 1 2 3 CN7 WIRE FEEDER M 1 2 3 4 5 CN4 SOLENOID VALVE 1 2 3 4 CN3 1 2 CN6 3 4 FAST WIRE FEED SWITCH REMOTE BOARD AVIATION PLUG SOLENOID VALVE"
+ },
+ {
+  "id": "manual-p45-f4",
+  "doc": "manual",
+  "page": 45,
+  "bbox": [
+   104.0,
+   548.0,
+   272.0,
+   675.4
+  ],
+  "area_frac": 0.043,
+  "labels": "3 4 -T 24V J 2 1 1/4 1/4 1/4 1/4 v"
+ },
+ {
+  "id": "manual-p45-f5",
+  "doc": "manual",
+  "page": 45,
+  "bbox": [
+   98.9,
+   692.0,
+   196.0,
+   766.7
+  ],
+  "area_frac": 0.014,
+  "labels": "AC1 AC2 G AC 120-240V/50/60HZ"
+ },
+ {
+  "id": "manual-p47-f1",
+  "doc": "manual",
+  "page": 47,
+  "bbox": [
+   32.0,
+   112.0,
+   540.0,
+   556.0
+  ],
+  "area_frac": 0.45,
+  "labels": "1 2 4 5 6 7 10 9 12 11 8 15 14 16 17 18 20 21 22 25 23 24 26 27 28 29 33 34 35 41 42 43 44 45 40 37 38 39 46 47 50 49 52 60 59 58 54 53 57 56 55 48 51 13 61 32 36 19 30 31 3"
+ },
+ {
+  "id": "manual-p48-f1",
+  "doc": "manual",
+  "page": 48,
+  "bbox": [
+   28.0,
+   652.0,
+   568.0,
+   841.9
+  ],
+  "area_frac": 0.205,
+  "labels": "\u00ae 26677 Agoura Road \u2022 Calabasas, CA 91302 \u2022 1-800-444-3353"
+ },
+ {
+  "id": "quickstart-p01-f1",
+  "doc": "quickstart",
+  "page": 1,
+  "bbox": [
+   0.0,
+   0.0,
+   419.5,
+   595.3
+  ],
+  "area_frac": 1.0,
+  "labels": "BASIC WELDING INSTRUCTIONS AND WELDING TIPS ARE IN MANUAL. 2\u2033 Contact Tip Nozzle HOLD GUN CLEAR WARNING To prevent serious injury, read manual warnings and instructions before use. WARNING To prevent fire and serious injury, keep torch and wire clear of grounded objects while welder plugged in. Welder Wingnut 2 lb Wire Spool Brake Pad Spacer Spindle 2 lb Spool Loading Adapter and knob required for 10-12 lb spool 2\u2033-3\u2033 wood block clockwise welding wire feed guides Wire Spool Feed Mechanism \u00ae"
+ },
+ {
+  "id": "quickstart-p02-f1",
+  "doc": "quickstart",
+  "page": 2,
+  "bbox": [
+   0.0,
+   0.0,
+   419.5,
+   595.3
+  ],
+  "area_frac": 1.0,
+  "labels": "BASIC WELDING INSTRUCTIONS AND WELDING TIPS ARE IN MANUAL. \u00ae"
+ },
+ {
+  "id": "chart-p01-f1",
+  "doc": "chart",
+  "page": 1,
+  "bbox": [
+   0.0,
+   0.0,
+   1200.0,
+   1200.0
+  ],
+  "area_frac": 1.0,
+  "labels": ""
+ }
+]

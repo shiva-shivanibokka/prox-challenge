@@ -1,0 +1,4599 @@
+{
+ "manual-p03-f1": {
+  "title": "Safety section index with hazard symbols",
+  "kind": "decorative",
+  "summary": "A page navigation sidebar showing section categories (SAFETY, CONTROLS, WIRE, TIG/STICK, WELDING TIPS, MAINTENANCE) with associated hazard warning symbols (respiratory protection, biohazard, struck-by). This is page furniture organizing the manual's layout rather than instructional content.",
+  "visible_text": [
+   "SAFETY",
+   "CONTROLS",
+   "WIRE",
+   "TIG / STICK",
+   "WELDING TIPS",
+   "MAINTENANCE"
+  ],
+  "shows": [
+   "page section dividers",
+   "respiratory hazard symbol",
+   "biohazard warning symbol",
+   "struck-by hazard symbol",
+   "manual navigation structure"
+  ],
+  "answers": [],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p06-f3": {
+  "title": "Safety Hazard Symbols and Pictograms",
+  "kind": "diagram",
+  "summary": "A collection of six warning symbols depicting the major hazards associated with welding equipment: electric shock, inhalation/fume hazard, fire hazard, arc ray hazard, pacemaker interference, and a prohibition symbol. These symbols alert users to the safety precautions required when operating the Vulcan OmniPro 220 welder.",
+  "visible_text": [],
+  "shows": [
+   "electric shock hazard symbol",
+   "inhalation hazard symbol",
+   "fire hazard symbol",
+   "arc ray hazard symbol",
+   "pacemaker hazard symbol",
+   "prohibition symbol",
+   "safety pictograms",
+   "warning icons"
+  ],
+  "answers": [
+   "What are the main safety hazards of welding with this equipment?",
+   "What warning symbols should I be aware of before using this welder?",
+   "What do the hazard symbols in the manual represent?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p06-f2": {
+  "title": "Symbology legend",
+  "kind": "diagram",
+  "summary": "A visual reference guide showing seven symbols used in the Vulcan OmniPro 220 welder manual, with labels identifying wire feed speed, workpiece ground cable, torch cable, overheat shutdown indicator, cooling fan, housing ground point, and a grounding symbol. This figure helps users recognize and interpret these symbols throughout the manual's documentation.",
+  "visible_text": [
+   "Wire Feed (Speed)",
+   "Workpiece Ground Cable",
+   "Torch Cable",
+   "Overheat Shutdown Indicator",
+   "Cooling Fan",
+   "Housing Ground Point"
+  ],
+  "shows": [
+   "symbol reference",
+   "wire feed indicator",
+   "ground cable symbol",
+   "torch cable symbol",
+   "overheat protection",
+   "cooling fan",
+   "grounding point",
+   "electrical safety symbols"
+  ],
+  "answers": [
+   "What do the symbols in this manual represent?",
+   "How is wire feed speed indicated?",
+   "Which symbol represents the ground cable?",
+   "What does the overheat shutdown indicator look like?",
+   "How is the cooling fan shown in diagrams?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p06-f1": {
+  "title": "Safety, Grounding, and Symbology Reference",
+  "kind": "diagram",
+  "summary": "A multi-section reference page covering electrical safety warnings, proper grounding procedures to prevent electric shock, extension cord and replacement cord guidelines, and a symbology chart defining welding-related symbols and electrical abbreviations (VAC, A, OCV, KVA, etc.). This figure answers questions about safe grounding practices, cord usage restrictions, and the meaning of symbols found on welder controls and documentation.",
+  "visible_text": [
+   "SAFETY",
+   "Grounding",
+   "WARNING",
+   "TO PREVENT ELEC[TRIC SHOCK] FROM INCORRECT [GROUNDING]",
+   "Check with a qualifi[ed electrician if you are in doubt as to whether the outlet is] properly grounded.",
+   "1. The green wire inside the cord is [connected to] the grounding system in the [welder]",
+   "wire in the cord must be the [only wire connected] to the Welder's grounding sy[stem and must] never be attached to an elec[tric]",
+   "Never leave the grounding w[ire disconnected] or modify either Power Cord",
+   "CONTROLS",
+   "Extension Cords",
+   "Do not use an extension cord",
+   "Replacement Cord",
+   "1. Use only one of the suppli[ed] this welder or an identical",
+   "2. Do not install a thinner or [longer] cord on this welder.",
+   "WIRE",
+   "TIG STICK",
+   "WELDING TIPS",
+   "MAINTENANCE",
+   "Symbology",
+   "Wire F[eed]",
+   "Workp[iece]",
+   "Torch [Cable]",
+   "Overh[eat]",
+   "Cooling [Fan]",
+   "Housing [Ground Point]",
+   "VAC",
+   "A",
+   "OCV",
+   "KVA"
+  ],
+  "shows": [
+   "grounding wire color (green)",
+   "electrical safety hazard",
+   "extension cord prohibition",
+   "replacement cord specifications",
+   "welding symbology",
+   "electrical abbreviations and units",
+   "wire feed symbol",
+   "workpiece ground cable",
+   "torch cable symbol",
+   "overheat shutdown indicator",
+   "cooling fan symbol",
+   "housing ground point symbol"
+  ],
+  "answers": [
+   "What color is the grounding wire and where must it connect?",
+   "Can I use an extension cord with this welder?",
+   "What replacement cords are approved for this welder?",
+   "What do the welding symbology icons mean?",
+   "What do electrical abbreviations like VAC, A, OCV, and KVA stand for?",
+   "How should the welder be grounded to prevent electric shock?",
+   "Which wire must never be attached to an electrically live terminal?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p09-f1": {
+  "title": "Interior Controls and Wire Feed System",
+  "kind": "diagram",
+  "summary": "Top-down labeled diagram of the Vulcan OmniPro 220 welder's interior control panel and wire feed mechanism. It identifies the locations and names of all major internal components including the wire spool, feed mechanism, idler arm, feed tensioner, feed switch, and foot pedal socket, enabling users to locate and understand each control's function and position.",
+  "visible_text": [
+   "Feed Switch",
+   "Wire Feed Mechanism",
+   "Spool",
+   "Knob",
+   "Feed Tension",
+   "Idler Arm",
+   "Feed Roller Knob",
+   "Wire Inlet Liner",
+   "Wire Feed",
+   "Foot Pedal"
+  ],
+  "shows": [
+   "wire spool",
+   "wire feed mechanism",
+   "feed switch",
+   "feed tensioner",
+   "idler arm",
+   "feed roller knob",
+   "spool knob",
+   "wire inlet liner",
+   "foot pedal socket",
+   "control layout",
+   "component positioning"
+  ],
+  "answers": [
+   "Where is the wire spool located on the Vulcan OmniPro 220?",
+   "What are the interior controls on this welder?",
+   "How is the wire feed mechanism arranged?",
+   "Where do I adjust feed tension?",
+   "What is the location of the feed switch?",
+   "Where is the idler arm on this welder?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p09-f2": {
+  "title": "Interior Controls Layout",
+  "kind": "diagram",
+  "summary": "Labeled diagram of the Vulcan OmniPro 220 welder's interior control panel and wire feed mechanism, showing the physical location and arrangement of 10 key components including the wire spool, feed rollers, tensioner, and control sockets. Answers questions about where specific controls and mechanisms are positioned inside the machine.",
+  "visible_text": [
+   "Cold Wire Feed Switch",
+   "Idler Arm",
+   "Wire Feed Mechanism",
+   "Wire Spool",
+   "Spool Knob",
+   "Feed Tensioner",
+   "Wire Inlet Liner",
+   "Feed Roller Knob",
+   "Wire Feed Control Socket",
+   "Foot Pedal Socket"
+  ],
+  "shows": [
+   "wire feed assembly",
+   "spool mounting",
+   "feed roller system",
+   "tensioner adjustment",
+   "control sockets",
+   "cold wire feed switch",
+   "idler arm",
+   "internal mechanism layout"
+  ],
+  "answers": [
+   "Where is the wire spool located?",
+   "What are the interior components of the Vulcan OmniPro 220?",
+   "Where is the feed tensioner positioned?",
+   "Which socket connects the foot pedal?",
+   "Where is the wire feed control socket?",
+   "What is the layout of the wire feed mechanism?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p02-f1": {
+  "title": "Warning Symbols and Definitions table with Table of Contents",
+  "kind": "table",
+  "summary": "Page-2 layout combining the manual's Table of Contents (Safety p.2, Specifications p.7, Controls p.8, MIG/Flux-Cored Wire Welding p.10, TIG/Stick Welding p.24, Welding Tips p.34, Maintenance p.41, Parts List and Diagram p.46, Warranty p.48) with the 'Warning Symbols and Definitions' table. The table defines the safety alert triangle symbol plus the four signal words: DANGER = hazard that will result in death or serious injury; WARNING = could result in death or serious injury; CAUTION = could result in minor or moderate injury; NOTICE/CAUTION (no symbol) = practices not related to personal injury. Side tabs mark the sections: SAFETY, CONTROLS, WIRE, TIG/STICK, WELDING TIPS, MAINTENANCE.",
+  "visible_text": [
+   "Table of Contents",
+   "Safety .................................................................... 2",
+   "Specifications ......................................................... 7",
+   "Controls ................................................................. 8",
+   "MIG/Flux-Cored Wire Welding ............................... 10",
+   "TIG/Stick Welding .................................................. 24",
+   "Welding Tips .......................................................... 34",
+   "Maintenance .......................................................... 41",
+   "Parts List and Diagram .......................................... 46",
+   "Warranty ................................................................ 48",
+   "WARNING SYMBOLS AND DEFINITIONS",
+   "This is the Safety alert symbol. It is used to alert you to potential personal injury hazards. Obey all Safety messages that follow this symbol to avoid possible injury or death.",
+   "DANGER",
+   "Indicates a hazardous situation which, if not avoided, will result in death or serious injury.",
+   "WARNING",
+   "Indicates a hazardous situation which, if not avoided, could result in death or serious injury.",
+   "CAUTION",
+   "Indicates a hazardous situation which, if not avoided, could result in minor or moderate injury.",
+   "NOTICE",
+   "CAUTION",
+   "Addresses practices not related to personal injury.",
+   "IMPORTANT SAFETY INFORMATION",
+   "Read all Safety warnings and instructions.",
+   "Failure to follow the warnings and instructions may result in electric shock, fire and/or serious injury.",
+   "Save all warnings and instructions for future reference.",
+   "General Safety",
+   "PROTECT yourself and others. Read and understand this information.",
+   "SAFETY",
+   "CONTROLS",
+   "WIRE",
+   "TIG / STICK",
+   "WELDING TIPS",
+   "MAINTENANCE"
+  ],
+  "shows": [
+   "warning symbols",
+   "signal words",
+   "safety alert symbol",
+   "DANGER",
+   "WARNING",
+   "CAUTION",
+   "NOTICE",
+   "table of contents",
+   "page numbers",
+   "section tabs",
+   "general safety",
+   "ANSI Z49.1",
+   "MSDS"
+  ],
+  "answers": [
+   "what is the difference between DANGER, WARNING, CAUTION and NOTICE in this manual",
+   "what does the exclamation-point triangle symbol mean",
+   "what page is the parts list and diagram on",
+   "what page does the TIG/Stick welding section start",
+   "what page is the warranty on",
+   "where do I find the specifications and controls sections"
+  ],
+  "model": "claude-opus-5"
+ },
+ "manual-p10-f1": {
+  "title": "1-2 lb Wire Spool Installation Diagram",
+  "kind": "diagram",
+  "summary": "Labeled diagram showing how to install a 1-2 pound wire spool into the Vulcan OmniPro 220 welder. It illustrates the correct positioning of the spool on the spindle against the brake pad, with the wingnut, spacer, and door latch clearly identified. The diagram answers questions about wire spool installation procedure and component locations.",
+  "visible_text": [
+   "MIG / Flux-Cored Wire Welding",
+   "Read the ENTIRE IMPORTANT SAFETY INFORMATION section at the beginning of this manual including all text under subheadings therein before set up or use of this product.",
+   "TO PREVENT SERIOUS INJURY FROM ACCIDENTAL OPERATION: Turn the Power Switch off and unplug the Welder before setup.",
+   "Note: Remove the protective foam and cardboard from the Welder before setup.",
+   "Wire Spool Installation / Wire Setup",
+   "1. Turn the Power Switch OFF and unplug the Welder before proceeding.",
+   "2. Pull up on the Door Latch, then open the Door.",
+   "3. 1-2 Pound Wire Spool Installation: Remove the Wingnut and Spacer. If replacing a Spool, remove the old Spool and all remaining wire from the liners.",
+   "4. Place the new Wire Spool over the Spool Spindle and against the Spool Brake Pad as illustrated. To prevent wire feed problems, set the Spool so that it will unwind clockwise.",
+   "5. Replace the Spacer over the Spool Spindle and secure Spool in place with the Wingnut.",
+   "Notice: If Wire Spool can spin freely, Wingnut is too loose. This will cause the welding wire to unravel and unspool which can cause tangling and feeding problems.",
+   "1-2 lb Spool Loading",
+   "Power Switch",
+   "Door Latch",
+   "Door",
+   "Welder Wall",
+   "Wingnut",
+   "1-2 lb Wire Spool",
+   "Spool Brake Pad",
+   "Spacer",
+   "Spool Spindle"
+  ],
+  "shows": [
+   "wire spool installation",
+   "spool spindle",
+   "spool brake pad",
+   "wingnut",
+   "spacer",
+   "door latch",
+   "clockwise unwinding orientation",
+   "1-2 pound spool capacity"
+  ],
+  "answers": [
+   "How do I install a 1-2 pound wire spool?",
+   "What is the correct orientation for the wire spool?",
+   "Where does the spacer and wingnut go on the spool spindle?",
+   "How do I prevent wire feed problems during spool installation?",
+   "What components are involved in 1-2 lb wire spool loading?",
+   "How tight should the wingnut be on the wire spool?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p10-f2": {
+  "title": "Power Switch Location and Unplugging Procedure",
+  "kind": "diagram",
+  "summary": "Shows the location of the Power Switch on the Vulcan welder and depicts the power cord being unplugged from a wall outlet. This diagram illustrates the first critical safety step before setup: turning off and unplugging the welder to prevent accidental operation and serious injury.",
+  "visible_text": [
+   "Power Switch",
+   "PREVENT SERIOUS INJURY FROM ACCIDENTAL OPERATION:",
+   "Turn the Power Switch off and unplug the Welder before setup.",
+   "Remove the protective foam and cardboard from the Welder before setup.",
+   "Wire Spool Installation / Wire Setup"
+  ],
+  "shows": [
+   "Power Switch location on welder",
+   "Power cord",
+   "Wall outlet",
+   "Unplugging action",
+   "Safety procedure",
+   "Pre-setup checklist"
+  ],
+  "answers": [
+   "Where is the Power Switch located on the Vulcan welder?",
+   "What is the first step before setting up the welder?",
+   "How do I safely shut down the welder before setup?",
+   "What safety precautions must be taken before proceeding with welder setup?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p10-f3": {
+  "title": "1-2 lb Wire Spool Loading",
+  "kind": "diagram",
+  "summary": "This diagram shows the rear view of the Vulcan OmniPro 220 welder with the door open, illustrating the location and proper installation of a 1\u20132 pound wire spool. It identifies the key components (Door Latch, Door, Wingnut, Spool Spindle, Spacer, Spool Brake Pad, and Power Switch) and answers how to load a wire spool onto the welder.",
+  "visible_text": [
+   "r",
+   "h",
+   "Power Switch",
+   "Door Latch",
+   "Door",
+   "Welder Wall",
+   "Wingnut",
+   "1-2 lb Wire Spool",
+   "Spool Brake Pad",
+   "Spacer",
+   "Spool Spindle",
+   "1-2 lb Spool Loading"
+  ],
+  "shows": [
+   "wire spool installation",
+   "door open position",
+   "spool spindle",
+   "spool brake pad",
+   "wingnut",
+   "spacer",
+   "welder rear access",
+   "MIG wire setup"
+  ],
+  "answers": [
+   "How do I install a 1\u20132 pound wire spool on the Vulcan OmniPro 220?",
+   "Where is the spool spindle located?",
+   "What components secure the wire spool in place?",
+   "Which direction should the wire spool unwind?",
+   "How do I access the wire spool loading area?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p10-f4": {
+  "title": "1-2 lb Wire Spool Installation Assembly",
+  "kind": "diagram",
+  "summary": "An exploded-view diagram showing the correct assembly of a 1-2 pound wire spool onto the Vulcan OmniPro 220 welder's spool spindle, with the spool positioned against the brake pad and secured by spacer and wingnut. This diagram answers how to install a small wire spool and which components hold it in place.",
+  "visible_text": [
+   "Wingnut",
+   "Spacer",
+   "Spool Spindle",
+   "1-2 lb Wire Spool",
+   "Spool Brake Pad",
+   "1-2 lb Spool Loading"
+  ],
+  "shows": [
+   "spool spindle",
+   "wingnut",
+   "spacer",
+   "spool brake pad",
+   "wire spool orientation",
+   "assembly order",
+   "1-2 pound spool capacity"
+  ],
+  "answers": [
+   "How do I install a 1-2 pound wire spool?",
+   "What components secure the wire spool to the welder?",
+   "Which way should the spool be positioned on the spindle?",
+   "What is the role of the spacer and wingnut in spool installation?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p08-f1": {
+  "title": "Vulcan OmniPro 220 front panel controls callout diagram",
+  "kind": "diagram",
+  "summary": "Line-art front view of the Vulcan OmniPro 220 welder with leader lines labeling every front-panel control: Home Button and Control Knob and Left Knob (amperage/'A' symbol) on the left, LCD Display with Back Button and Right Knob (voltage/'V' symbol) on the right, Power Switch (I/O rocker), MIG Gun/Spool Gun Cable Socket, Spool Gun Gas Outlet, Storage Compartment, and along the bottom the Negative (\u2013) Socket, Wire Feed Power Cable receptacle between them, and Positive (+) Socket. It settles which connector on the machine is which \u2014 e.g. the negative socket is the left large Dinse-type connector marked '\u2013', the positive socket is the right one marked '+', and the small center receptacle is the wire feed power cable.",
+  "visible_text": [
+   "Controls",
+   "Front Panel Controls",
+   "VULCAN",
+   "OMNIPRO 220",
+   "HOME",
+   "BACK",
+   "A",
+   "V",
+   "I",
+   "O",
+   "\u2212",
+   "+",
+   "Home Button",
+   "Control Knob",
+   "Left Knob",
+   "Power Switch",
+   "MIG Gun / Spool Gun Cable Socket",
+   "Spool Gun Gas Outlet",
+   "Negative Socket",
+   "Wire Feed Power Cable",
+   "Back Button",
+   "LCD Display",
+   "Right Knob",
+   "Storage Compartment",
+   "Positive Socket",
+   "Note: When using an optional Spool Gun (sold separately), connect the Spool Gun gas hose to the Spool Gun Gas Outlet.",
+   "SAFETY",
+   "CONTROLS",
+   "WIRE",
+   "TIG / STICK",
+   "WELDING TIPS",
+   "MAINTENANCE"
+  ],
+  "shows": [
+   "front panel",
+   "control panel layout",
+   "Home button",
+   "Back button",
+   "Control knob",
+   "Left knob amperage",
+   "Right knob voltage",
+   "LCD display",
+   "power switch on off rocker",
+   "MIG gun cable socket",
+   "spool gun cable socket",
+   "spool gun gas outlet",
+   "negative socket",
+   "positive socket",
+   "Dinse connector",
+   "wire feed power cable receptacle",
+   "storage compartment",
+   "OmniPro 220",
+   "Vulcan welder"
+  ],
+  "answers": [
+   "where is the positive and negative socket on the OmniPro 220",
+   "which knob adjusts amperage and which adjusts voltage",
+   "where do I plug in the MIG gun or spool gun cable",
+   "where does the spool gun gas hose connect",
+   "where is the power switch located",
+   "what is the small socket between the negative and positive connectors",
+   "where is the Home button and Back button on the panel",
+   "what are the parts of the OmniPro 220 front panel called"
+  ],
+  "model": "claude-opus-5"
+ },
+ "manual-p11-f1": {
+  "title": "10-12 lb Wire Spool Installation",
+  "kind": "diagram",
+  "summary": "This diagram illustrates the proper assembly and loading of a 10-12 pound wire spool onto the Vulcan OmniPro 220 welder, showing the correct positioning of the spool adapter, brake pad, spacer, wingnut, and spool knob, with the wire configured to unwind clockwise.",
+  "visible_text": [
+   "Spool Knob",
+   "Wingnut",
+   "Spacer",
+   "10-12 lb Wire Spool",
+   "Spool Spindle",
+   "Spool Brake Pad",
+   "Welder Wall",
+   "10-12 lb Spool Loading",
+   "Idler Arm",
+   "SAFETY",
+   "CONTROLS",
+   "WIRE",
+   "TIG / STICK",
+   "WELDING TIPS",
+   "MAINTENANCE"
+  ],
+  "shows": [
+   "wire spool installation",
+   "spool adapter positioning",
+   "brake pad placement",
+   "spindle assembly",
+   "wingnut tightening",
+   "spacer placement",
+   "wire unwinding direction",
+   "idler arm",
+   "spool loading sequence"
+  ],
+  "answers": [
+   "How do I install a 10-12 pound wire spool on the Vulcan OmniPro 220?",
+   "What is the correct order of components on the spool spindle?",
+   "Which direction should the wire unwind from the spool?",
+   "Where does the spool brake pad sit relative to the spool adapter?",
+   "How tight should the wingnut be on the spool?",
+   "What role does the idler arm play in wire spool setup?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p07-f1": {
+  "title": "MIG, TIG and Stick specification tables",
+  "kind": "table",
+  "summary": "Three stacked spec tables giving the OmniPro 220's electrical and process ratings at both 120 VAC/60 Hz and 240 VAC/60 Hz. MIG: 20.8 A input at 100 A out (120 V) or 25.5 A at 200 A (240 V), 30\u2013140 A / 30\u2013220 A output range, 40% @ 100 A and 100% @ 75 A / 25% @ 200 A and 100% @ 115 A duty cycles, 86 VDC max OCV, welds mild and stainless steel plus aluminum with the optional spool gun, takes 0.025\"/0.030\"/0.035\" solid and 0.030\"/0.035\"/0.045\" flux-cored wire, 50\u2013500 IPM wire speed and up to a 12 lb spool. TIG: 20.6 A at 125 A / 15.6 A at 175 A, 10\u2013125 A / 10\u2013175 A range, 40% @ 125 A and 100% @ 90 A / 30% @ 175 A and 100% @ 105 A, mild steel, stainless and chrome moly. Stick: 19.5 A at 80 A / 23.7 A at 175 A, 10\u201380 A / 10\u2013175 A range, 40% @ 80 A and 100% @ 60 A / 25% @ 175 A and 100% @ 100 A, mild and stainless steel.",
+  "visible_text": [
+   "Specifications",
+   "MIG",
+   "Power Input | 120 VAC / 60 Hz | 240 VAC / 60 Hz",
+   "Current Input at Output | 20.8 A at 100 A | 25.5 A at 200 A",
+   "Welding Current Range | 30\u2013140 A | 30\u2013220 A",
+   "Rated Duty Cycles | 40% @ 100 A, 100% @ 75 A | 25% @ 200 A, 100% @ 115 A",
+   "Maximum OCV | 86 VDC",
+   "Weldable Materials | Mild Steel, Stainless Steel; Aluminum (with optional Spool Gun)",
+   "Welding Wire Capacity | Solid Core: 0.025\" / 0.030\" / 0.035\"; Flux Cored: 0.030\" / 0.035\" / 0.045\"",
+   "Wire Speed | 50\u2013500 IPM",
+   "Wire Spool Capacity | Up to 12 lb spool",
+   "TIG",
+   "Power Input | 120 VAC / 60 Hz | 240 VAC / 60 Hz",
+   "Current Input at Output | 20.6 A at 125 A | 15.6 A at 175 A",
+   "Welding Current Range | 10 A\u2013125 A | 10 A\u2013175 A",
+   "Rated Duty Cycles | 40% @ 125 A, 100% @ 90 A | 30% @ 175 A, 100% @ 105 A",
+   "Maximum OCV | 86 VDC",
+   "Weldable Materials | Mild Steel, Stainless Steel, Chrome Moly",
+   "Stick",
+   "Power Input | 120 VAC / 60 Hz | 240 VAC / 60 Hz",
+   "Current Input at Output | 19.5 A at 80 A | 23.7 A at 175 A",
+   "Welding Current Range | 10 A\u201380 A | 10 A\u2013175 A",
+   "Rated Duty Cycles | 40% @ 80 A, 100% @ 60 A | 25% @ 175 A, 100% @ 100 A",
+   "Maximum OCV | 86 VDC",
+   "Weldable Materials | Mild Steel, Stainless Steel",
+   "SAFETY",
+   "CONTROLS",
+   "WIRE",
+   "TIG / STICK",
+   "WELDING TIPS",
+   "MAINTENANCE"
+  ],
+  "shows": [
+   "specifications table",
+   "MIG specs",
+   "TIG specs",
+   "Stick specs",
+   "power input 120 VAC",
+   "power input 240 VAC",
+   "60 Hz",
+   "current input at output",
+   "amperage draw",
+   "welding current range",
+   "rated duty cycle",
+   "maximum OCV 86 VDC",
+   "open circuit voltage",
+   "weldable materials",
+   "mild steel",
+   "stainless steel",
+   "chrome moly",
+   "aluminum spool gun",
+   "welding wire capacity",
+   "solid core wire 0.025 0.030 0.035",
+   "flux cored wire 0.030 0.035 0.045",
+   "wire speed 50-500 IPM",
+   "wire spool capacity 12 lb"
+  ],
+  "answers": [
+   "what is the maximum welding amperage on 120 V versus 240 V",
+   "what is the duty cycle at 200 amps MIG",
+   "how many amps does the welder draw from the outlet",
+   "what wire sizes does the machine accept for solid and flux-cored wire",
+   "what size wire spool fits the welder",
+   "what is the open circuit voltage",
+   "can it weld aluminum and what is needed",
+   "what is the amperage range in TIG mode",
+   "what is the stick welding amperage range on 240 V",
+   "what materials can be welded in TIG mode",
+   "what is the wire feed speed range"
+  ],
+  "model": "claude-opus-5"
+ },
+ "manual-p11-f4": {
+  "title": "Feed Tensioner and Wire Spool Assembly",
+  "kind": "diagram",
+  "summary": "This schematic shows the location and relationship of the Feed Tensioner knob relative to the wire spool assembly on the Vulcan OmniPro 220. It illustrates that turning the Feed Tensioner counterclockwise loosens tension and allows the spring-loaded Idler Arm to move upward, which is necessary when installing or removing a 10-12 pound wire spool.",
+  "visible_text": [
+   "Feed Tensioner",
+   "lc"
+  ],
+  "shows": [
+   "Feed Tensioner knob",
+   "Idler Arm",
+   "wire spool assembly",
+   "spring-loaded mechanism",
+   "counterclockwise rotation",
+   "tension adjustment"
+  ],
+  "answers": [
+   "Where is the Feed Tensioner located on the welder?",
+   "How do you loosen the Feed Tensioner to install a wire spool?",
+   "What happens to the Idler Arm when you turn the Feed Tensioner counterclockwise?",
+   "How do you remove tension from the wire feed system?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p11-f2": {
+  "title": "10-12 lb Wire Spool Loading Assembly",
+  "kind": "diagram",
+  "summary": "An exploded-view diagram showing the correct assembly sequence and component placement for installing a 10-12 pound wire spool on the Vulcan OmniPro 220 welder. It depicts how the spool adapter, spacer, wire spool, wingnut, and spool knob are positioned relative to the spool spindle and brake pad.",
+  "visible_text": [
+   "Spool Knob",
+   "Wingnut",
+   "Spacer",
+   "10-12 lb Wire Spool",
+   "Spool Spindle",
+   "Spool Brake Pad",
+   "10-12 lb Spool Adapter",
+   "Welded Wall",
+   "10-12 lb Spool Loading"
+  ],
+  "shows": [
+   "wire spool installation",
+   "spool adapter positioning",
+   "spool brake pad",
+   "spool spindle",
+   "wingnut and spacer placement",
+   "spool knob installation",
+   "component assembly order",
+   "spool loading configuration"
+  ],
+  "answers": [
+   "How do I install a 10-12 pound wire spool?",
+   "What is the correct order to assemble the spool components?",
+   "Where does the spool adapter go relative to the brake pad?",
+   "How should the spacer and wingnut be positioned on the spindle?",
+   "What components are needed to load a 10-12 lb wire spool?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p11-f3": {
+  "title": "10-12 lb Spool Loading Diagram",
+  "kind": "diagram",
+  "summary": "Top-down schematic of the Vulcan OmniPro 220 wire spool assembly, showing the correct placement and orientation of all components including the spool adapter, wire spool, spacer, wingnut, spool knob, idler arm, and feed tensioner. It illustrates that the wire spool must unwind clockwise and shows the position of the spring-loaded idler arm when the feed tensioner is loosened.",
+  "visible_text": [
+   "Welder Wall",
+   "Spool Brake Pad",
+   "10-12 lb Spool Adapter",
+   "10-12 lb Spool Loading",
+   "Wingnut",
+   "10-12 lb Wire Spool",
+   "Spacer",
+   "Spool Spindle",
+   "Spool Knob",
+   "must unwind in this direction",
+   "Idler Arm",
+   "Feed Tensioner"
+  ],
+  "shows": [
+   "spool adapter placement",
+   "wire spool orientation",
+   "clockwise unwinding direction",
+   "spool spindle assembly",
+   "wingnut and spacer location",
+   "spool knob installation",
+   "idler arm position when tensioner is loosened",
+   "feed tensioner knob",
+   "spool brake pad"
+  ],
+  "answers": [
+   "How do I install a 10-12 pound wire spool?",
+   "Which direction should the wire spool unwind?",
+   "Where does the spool adapter go relative to the spool brake pad?",
+   "How do I align the spool adapter pin with the spool hole?",
+   "What is the correct position of the idler arm after loosening the feed tensioner?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p12-f1": {
+  "title": "Feed Roller selection and installation procedure",
+  "kind": "diagram",
+  "summary": "This diagram illustrates the four-step procedure for installing and configuring the feed roller on the Vulcan OmniPro 220 welder. It shows how to unscrew the feed roller knob, remove it to expose the feed roller, flip or replace the roller to match wire type (solid core with V-groove or flux-cored with knurled groove) and wire diameter (0.025, 0.030/0.035, or 0.045 inch), and reinstall the knob. The cross-section detail identifies groove types and wire diameter specifications.",
+  "visible_text": [
+   "Feed Roller Knob",
+   "Feed Roller",
+   "A",
+   "B",
+   "Solid Core V-Groove",
+   "0.025 groove",
+   "0.030 / 0.035 groove",
+   "Flux-Cored Knurled Groove",
+   "0.045 groove"
+  ],
+  "shows": [
+   "feed roller knob",
+   "feed roller component",
+   "installation steps A through D",
+   "solid core wire roller",
+   "flux-cored wire roller",
+   "V-groove design",
+   "knurled groove design",
+   "wire diameter specifications",
+   "removal and replacement procedure"
+  ],
+  "answers": [
+   "How do I change the feed roller on the Vulcan OmniPro 220?",
+   "Which feed roller should I use for solid core wire versus flux-cored wire?",
+   "What wire diameters can this welder accommodate (0.025, 0.030, 0.035, 0.045)?",
+   "How do I match the feed roller to my wire spool diameter?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p12-f2": {
+  "title": "Feed Roller groove configurations for wire types and sizes",
+  "kind": "diagram",
+  "summary": "This diagram shows the two-sided Feed Roller for the Vulcan OmniPro 220, with V-Groove side (for solid core wire) offering 0.030/0.035 and 0.025 groove options, and Flux-Cored (knurled groove) side offering 0.045 and 0.030/0.035 groove options. It answers which groove setting to use based on wire type and diameter.",
+  "visible_text": [
+   "V-Groove",
+   "0.030 / 0.035 groove",
+   "0.025 groove",
+   "Flux-Cored",
+   "0.045 groove",
+   "0.030 / 0.035 groove"
+  ],
+  "shows": [
+   "Feed Roller",
+   "groove configurations",
+   "solid core wire",
+   "flux-cored wire",
+   "wire diameter sizes",
+   "0.025 inch wire",
+   "0.030 inch wire",
+   "0.035 inch wire",
+   "0.045 inch wire",
+   "V-Groove",
+   "knurled groove"
+  ],
+  "answers": [
+   "Which groove should I use for 0.025 inch solid core wire?",
+   "Which groove should I use for 0.030 or 0.035 inch solid core wire?",
+   "Which groove should I use for 0.045 inch flux-cored wire?",
+   "Which side of the feed roller is for solid core vs flux-cored wire?",
+   "What are the available wire sizes for the Feed Roller?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p12-f3": {
+  "title": "Feed Roller Types and Installation Steps",
+  "kind": "diagram",
+  "summary": "Shows the two types of feed rollers for the Vulcan OmniPro 220 welder: solid-core V-groove rollers and flux-cored knurled-groove rollers, with groove measurements (0.025, 0.030/0.035, and 0.045 inches). Illustrates the four-step process (A\u2013D) for removing, flipping or replacing, and reinstalling the feed roller to match wire type and diameter.",
+  "visible_text": [
+   "0.045 groove",
+   "0.030 / 0.035 groove",
+   "Flux-Cored Knurled Groove",
+   "0.025 groove",
+   "Solid Core V-Groove",
+   "Feed Roller Knob",
+   "Feed Roller",
+   "A",
+   "B",
+   "C",
+   "D"
+  ],
+  "shows": [
+   "Feed roller knob removal",
+   "Feed roller replacement",
+   "Flux-cored wire groove specifications",
+   "Solid-core wire groove specifications",
+   "Wire diameter matching",
+   "Knurled groove design",
+   "V-groove design"
+  ],
+  "answers": [
+   "What are the two types of feed rollers in the Vulcan OmniPro 220?",
+   "What groove sizes are available for solid-core wire?",
+   "What groove sizes are available for flux-cored wire?",
+   "How do I install or replace the feed roller?",
+   "Which feed roller should I use for flux-cored wire?",
+   "How do I match the feed roller to my wire size?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p14-f1": {
+  "title": "DCEP Solid Core (Gas Shielded) Polarity Setup",
+  "kind": "diagram",
+  "summary": "This diagram depicts the correct cable connections for DCEP (Direct Current Electrode Positive) welding with solid core gas-shielded wire on the Vulcan OmniPro 220 welder. It shows that the ground clamp cable must be plugged into the negative (\u2013) socket and the wire feed power cable must be plugged into the positive (+) socket.",
+  "visible_text": [
+   "DCEP",
+   "Solid Core (Gas Shielded)",
+   "Polarity Setup",
+   "Positive Wire welding:",
+   "Negative (\u2013) Cable",
+   "Ground Clamp Cable in Negative Socket",
+   "Wire Feed Power Cable in Positive Socket"
+  ],
+  "shows": [
+   "DCEP polarity configuration",
+   "ground clamp cable placement",
+   "wire feed power cable placement",
+   "negative socket",
+   "positive socket",
+   "welder front panel",
+   "gas inlet connection"
+  ],
+  "answers": [
+   "Which socket does the ground clamp cable plug into for DCEP solid core gas-shielded welding?",
+   "Which socket does the wire feed power cable plug into for DCEP solid core gas-shielded welding?",
+   "What is the correct polarity setup for solid core gas-shielded welding on the Vulcan OmniPro 220?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p14-f2": {
+  "title": "DCEP Solid Core Gas Shielded Polarity Setup",
+  "kind": "diagram",
+  "summary": "This diagram illustrates the step-by-step setup for connecting a gas cylinder to a Vulcan OmniPro 220 welder for DCEP solid core (gas shielded) welding. It shows the progression from securing the cylinder (c), purging the valve (d), installing the regulator (e), and connecting the gas hose (f), alongside the correct polarity connections for the ground clamp cable in the negative socket and wire feed power cable in the positive socket.",
+  "visible_text": [
+   "DCEP Solid Core (Gas Shielded) Polarity Setup",
+   "Briefly open valve to clean, then close valve.",
+   "Ground Clamp Cable in Negative Socket",
+   "Wire Feed Power Cable in Positive Socket",
+   "Reset",
+   "Power Input",
+   "Gas Inlet",
+   "Vulcan OMNIPRO 220",
+   "IP21S",
+   "57812 25d",
+   "Conforms to ANSI/IEC Std. 60974-1",
+   "264149"
+  ],
+  "shows": [
+   "gas cylinder setup",
+   "cylinder valve purging",
+   "regulator installation",
+   "gas hose connection",
+   "DCEP polarity",
+   "negative socket",
+   "positive socket",
+   "ground clamp cable",
+   "wire feed power cable",
+   "welder front panel"
+  ],
+  "answers": [
+   "What is the correct polarity setup for DCEP solid core gas shielded welding on the Vulcan OmniPro 220?",
+   "Which socket does the ground clamp cable plug into?",
+   "Which socket does the wire feed power cable plug into?",
+   "How do you connect a gas cylinder to this welder?",
+   "What are the steps to attach a regulator and gas hose to the cylinder?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p15-f3": {
+  "title": "MIG Gun Assembly with Nozzle and Contact Tip",
+  "kind": "diagram",
+  "summary": "A labeled diagram showing the three main components of a MIG welding gun: the nozzle, contact tip, and the gun body itself. This figure illustrates which parts need to be removed and replaced during wire installation and maintenance procedures.",
+  "visible_text": [
+   "MIG Gun",
+   "Nozzle",
+   "Contact Tip"
+  ],
+  "shows": [
+   "MIG gun",
+   "nozzle",
+   "contact tip",
+   "welding gun assembly",
+   "component identification"
+  ],
+  "answers": [
+   "What is the nozzle on a MIG gun?",
+   "What is the contact tip on a MIG gun?",
+   "Which parts of the MIG gun need to be removed for wire installation?",
+   "How are the nozzle and contact tip positioned on the gun?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p15-f2": {
+  "title": "Wire feed mechanism assembly",
+  "kind": "diagram",
+  "summary": "Labeled top-down schematic of the wire feeder showing the relationship between the Idler Arm, Feed Roller, Feed Tensioner, Wire Inlet Liner, and Feed Guide. It illustrates the correct positioning of welding wire in the groove of the Feed Roller and the latching mechanism for the Feed Tensioner across the Idler Arm during wire threading.",
+  "visible_text": [
+   "Idler Arm",
+   "Spool",
+   "HOLD WIRE SECURELY",
+   "Feed Guide",
+   "Wire Inlet Liner",
+   "Feed Tensioner",
+   "Nozzle",
+   "Contact Tip",
+   "MIG Gun",
+   "Welding"
+  ],
+  "shows": [
+   "Idler Arm",
+   "Feed Roller",
+   "Feed Tensioner",
+   "Wire Inlet Liner",
+   "Feed Guide",
+   "wire groove",
+   "latch mechanism",
+   "wire path",
+   "spool attachment"
+  ],
+  "answers": [
+   "How do you position the welding wire in the feed mechanism?",
+   "Where does the wire rest during setup?",
+   "How do you latch the Feed Tensioner?",
+   "What is the correct sequence for threading wire through the feeder?",
+   "Where is the Idler Arm located on the wire feeder?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p15-f4": {
+  "title": "Stainless steel wire feeding caution",
+  "kind": "decorative",
+  "summary": "A warning box emphasizing that stainless steel wire requires special handling during feeding because of its reduced flexibility compared to other welding wires, and that the gun cable must be kept straight.",
+  "visible_text": [
+   "IMPORTANT",
+   "Stainless steel wire is less flexible than other welding wire. Therefore, it is more difficult to feed through the liner and gun. It is especially important to keep the gun cable straight while feeding stainless steel wire."
+  ],
+  "shows": [
+   "stainless steel wire",
+   "wire flexibility",
+   "feeding difficulty",
+   "gun cable alignment",
+   "safety caution"
+  ],
+  "answers": [
+   "Why is stainless steel wire harder to feed than other welding wire?",
+   "What special precaution should be taken when feeding stainless steel wire?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p13-f1": {
+  "title": "Gun Cable Connector insertion (incorrect vs. correct) and DCEN flux-cored polarity setup",
+  "kind": "diagram",
+  "summary": "Three line-art panels for setup steps 13\u201316: the top two compare an improperly seated Gun Cable Connector (gap at the Wire Feed mechanism socket, secured by the Knob) with a fully inserted connector, and the middle panel shows the Wire Feed Control Cable routed through the welder front. The bottom panel shows the DCEN flux-cored (gasless) polarity: the Wire Feed Power Cable plugs into the negative (\u2013) socket and the Ground Clamp Cable plugs into the positive (+) socket.",
+  "visible_text": [
+   "Wire Feed Mechanism",
+   "Knob",
+   "Gun Cable Connector",
+   "Incorrect \u2013 Connector not fully inserted",
+   "Wire Feed Control Cable",
+   "Correct \u2013 Connector fully inserted",
+   "DCEN",
+   "Flux-Cored (Gasless) Polarity Setup",
+   "Wire Feed Power Cable in Negative Socket",
+   "Ground Clamp Cable in Positive Socket",
+   "VULCAN",
+   "SAFETY",
+   "CONTROLS",
+   "WIRE",
+   "TIG / STICK",
+   "WELDING TIPS",
+   "MAINTENANCE"
+  ],
+  "shows": [
+   "gun cable connector",
+   "wire feed mechanism",
+   "locking knob",
+   "wire feed control cable",
+   "front panel sockets",
+   "DCEN",
+   "direct current electrode negative",
+   "flux-cored gasless polarity",
+   "ground clamp cable",
+   "wire feed power cable",
+   "positive socket",
+   "negative socket",
+   "MIG gun",
+   "gas leak from unseated connector",
+   "Vulcan OmniPro 220 setup"
+  ],
+  "answers": [
+   "which socket does the ground clamp cable go in for flux-cored welding",
+   "where does the wire feed power cable plug in for DCEN gasless welding",
+   "how far should the gun cable connector be inserted into the wire feed mechanism",
+   "what does a correctly vs incorrectly seated gun cable connector look like",
+   "where is the knob that locks the gun cable connector",
+   "why is my shielding gas leaking at the gun connection",
+   "where does the wire feed control cable connect on the welder front"
+  ],
+  "model": "claude-opus-5"
+ },
+ "manual-p16-f2": {
+  "title": "Power Input and Power Switch Location",
+  "kind": "diagram",
+  "summary": "This figure shows the location of the Power Input socket on the top of the Vulcan OmniPro 220 welder and the Power Switch on the external power cord plug. It illustrates where to connect the 120 VAC or 240 VAC power cord and where to toggle power on/off before operation.",
+  "visible_text": [
+   "Power Input",
+   "Power Switch",
+   "VULCAN"
+  ],
+  "shows": [
+   "power input socket location",
+   "power switch location",
+   "power cord plug",
+   "electrical connections",
+   "welder front panel",
+   "welder rear view"
+  ],
+  "answers": [
+   "Where is the Power Input socket located on the welder?",
+   "Where is the Power Switch on the Vulcan OmniPro 220?",
+   "How do I connect the power cord to this welder?",
+   "What does the power switch look like and where is it?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p16-f3": {
+  "title": "Feed Switch Location and Wire Feed Setup",
+  "kind": "diagram",
+  "summary": "Top-down schematic view of the Vulcan OmniPro 220 welder showing the location of the Cold Wire Feed Switch on the machine body, and illustrating the wire feed procedure where the operator presses and holds the switch to feed wire through approximately two inches before welding. The diagram clarifies the spatial relationship between the feed switch, gun, and main machine components during the cold wire feed initialization process.",
+  "visible_text": [
+   "Feed Switch",
+   "MIG Gun",
+   "Cold Wire Feed Switch",
+   "Power Input",
+   "Power Switch",
+   "2\"",
+   "Welding"
+  ],
+  "shows": [
+   "Cold Wire Feed Switch location",
+   "Wire feed mechanism",
+   "Gun positioning",
+   "Two-inch wire feed distance",
+   "Top-view machine layout",
+   "Power Input Socket",
+   "Control panel arrangement"
+  ],
+  "answers": [
+   "Where is the Cold Wire Feed Switch located on the Vulcan OmniPro 220?",
+   "How do you feed wire through the gun during setup?",
+   "How much wire should be fed through before welding begins?",
+   "What is the Cold Wire Feed procedure for this welder?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p16-f4": {
+  "title": "MIG Gun with Cold Wire Feed setup",
+  "kind": "diagram",
+  "summary": "Labeled diagram showing the MIG gun assembly and welding wire feed path during Cold Wire Feed operation. Illustrates the 2-inch initial wire feed distance and the relationship between the gun, wire liner, and welding wire during the wire-loading procedure described in step 26 of the manual.",
+  "visible_text": [
+   "MIG Gun",
+   "Welding Wire",
+   "2\"",
+   "Item 57812"
+  ],
+  "shows": [
+   "MIG gun trigger assembly",
+   "welding wire feed",
+   "wire liner",
+   "2-inch wire feed distance",
+   "cold wire feed mechanism",
+   "gun nozzle",
+   "contact tip area"
+  ],
+  "answers": [
+   "How does the cold wire feed work on the Vulcan OmniPro 220?",
+   "How much welding wire should feed through the gun during setup?",
+   "What is the relationship between the gun, wire liner, and welding wire?",
+   "What does the wire feed setup look like for the OmniPro 220?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p01-f1": {
+  "title": "Cover photo of the Vulcan OmniPro 220 multiprocess welder",
+  "kind": "photo",
+  "summary": "Front three-quarter product photograph of the Vulcan OmniPro 220 multiprocess welding system on the manual's cover page, showing the carry handle/roll cage, the LCD display screen reading 'MIG Steel C25' with HOME and BACK buttons, three front control knobs, the front power rocker switch, and three front-panel output connectors (two Dinse-style terminals and a center gas/torch fitting). It identifies the machine model and SKU 57812 but conveys no wiring, setting values or procedural information.",
+  "visible_text": [
+   "VULCAN",
+   "OMNIPRO 220",
+   "MULTIPROCESS WELDING SYSTEM",
+   "MIG Steel C25",
+   "OMNIPRO 220",
+   "HOME",
+   "BACK",
+   "57812",
+   "Owner's Manual & Safety Instructions",
+   "Visit our website at: https://www.harborfreight.com",
+   "Email our technical support at: productsupport@harborfreight.com"
+  ],
+  "shows": [
+   "OmniPro 220",
+   "Vulcan welder",
+   "multiprocess welder",
+   "57812",
+   "front panel",
+   "LCD display screen",
+   "MIG Steel C25 mode",
+   "HOME button",
+   "BACK button",
+   "control knobs",
+   "power switch",
+   "Dinse output connectors",
+   "gas fitting",
+   "carry handle",
+   "roll cage",
+   "cover page"
+  ],
+  "answers": [
+   "what does the Vulcan OmniPro 220 welder look like",
+   "which model and item number is this manual for",
+   "where is the power switch and display on the front of the machine",
+   "how many knobs and output connectors are on the front panel"
+  ],
+  "model": "claude-opus-5"
+ },
+ "manual-p17-f3": {
+  "title": "MIG Gun Assembly with Nozzle and Contact Tip",
+  "kind": "diagram",
+  "summary": "This labeled diagram shows the three main components of a MIG gun assembly: the nozzle, contact tip, and MIG gun body itself. It illustrates how these parts are positioned relative to one another during MIG welding setup, specifically supporting the instructions in steps 30\u201331 for installing and configuring the contact tip and nozzle.",
+  "visible_text": [
+   "Nozzle",
+   "Contact Tip",
+   "MIG"
+  ],
+  "shows": [
+   "MIG gun",
+   "nozzle",
+   "contact tip",
+   "wire feed direction",
+   "component assembly",
+   "welding torch anatomy"
+  ],
+  "answers": [
+   "What does a MIG gun assembly look like?",
+   "Where is the contact tip positioned on the MIG gun?",
+   "How are the nozzle and contact tip arranged on the gun?",
+   "What are the main external components of a MIG welding gun?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p17-f2": {
+  "title": "Wire feed tensioner adjustment diagram",
+  "kind": "diagram",
+  "summary": "Depicts the proper method for checking and adjusting wire drive tension on the Vulcan OmniPro 220 welder by feeding wire against wood 2\u20133 inches away and incrementally tightening the tensioner clockwise until the wire bends rather than stops.",
+  "visible_text": [
+   "in",
+   "Incrementally increase tension until wire bends",
+   "2\u20133\"",
+   "Nozzle",
+   "Contact Tip",
+   "MIG Gun"
+  ],
+  "shows": [
+   "wire feed tensioner",
+   "feed mechanism",
+   "nozzle",
+   "contact tip",
+   "MIG gun",
+   "wire deflection test",
+   "tension adjustment procedure",
+   "clockwise rotation arrow"
+  ],
+  "answers": [
+   "How do I check the wire drive tension on the OmniPro 220?",
+   "How far should the wood be from the wire when testing tension?",
+   "What happens if the wire stops feeding instead of bending?",
+   "In which direction do I turn the feed tensioner to tighten it?",
+   "Where is the feed tensioner located on this welder?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p15-f1": {
+  "title": "Wire loading steps 18\u201323: feeding wire into inlet liner, latching feed tensioner, and removing MIG gun nozzle/contact tip",
+  "kind": "diagram",
+  "summary": "Three line-art diagrams accompanying steps 18\u201323 of wire installation: (1) a hand holding the welding wire coming off the wire spool and guiding at least 12 in. of it into the Wire Inlet Liner and Feed Guide while keeping tension; (2) the drive assembly before and after pushing the Idler Arm down and swinging the Feed Tensioner up to latch across the arm tip, with the note that tension should be set 3\u20135 for solid wire and 2\u20133 for flux-cored wire (excess force crushes flux-cored wire); (3) the MIG gun with the Nozzle pulled off and the Contact Tip unscrewed counterclockwise, with the gun cable to be laid out straight and the cover left open.",
+  "visible_text": [
+   "IMPORTANT",
+   "Securely hold onto the end of the welding wire and keep tension on it during the following steps.",
+   "If this is not done, the welding wire will unravel and unspool which can cause tangling and feeding problems.",
+   "18. Cut off all bent and crimped wire. The cut end must have no burrs or sharp edges; cut again if needed.",
+   "19. Keep tension on the wire and guide at least 12 inches of wire into the Wire Inlet Liner and Feed Guide.",
+   "20. Make sure the welding wire is resting in the groove of the Feed Roller, then push the wire Idler Arm down, and swing the Feed Tensioner up to latch it across the tip of the arm. After the wire is held by the Tensioner, you may release it.",
+   "Note: The tension should be 3\u20135 for solid wire and 2\u20133 for flux-cored wire. Too much force on flux-cored wire will crush it and may cause feeding issues.",
+   "21. Pull the Nozzle to remove it.",
+   "22. Unscrew the Contact Tip counterclockwise and remove.",
+   "23. Lay the MIG Gun Cable out in a straight line so that the welding wire moves through it easily. Leave the cover open, so that the feed mechanism can be observed.",
+   "IMPORTANT",
+   "Stainless steel wire is less flexible than other welding wire. Therefore, it is more difficult to feed through the liner and gun. It is especially important to keep the gun cable straight while feeding stainless steel wire.",
+   "Welding Wire",
+   "HOLD WIRE SECURELY",
+   "Feed Guide",
+   "Wire Inlet Liner",
+   "Wire Spool",
+   "Idler Arm",
+   "Feed Tensioner",
+   "Nozzle",
+   "Contact Tip",
+   "MIG Gun",
+   "VULCAN",
+   "SAFETY",
+   "CONTROLS",
+   "WIRE",
+   "TIG / STICK",
+   "WELDING TIPS",
+   "MAINTENANCE"
+  ],
+  "shows": [
+   "welding wire spool",
+   "wire inlet liner",
+   "feed guide",
+   "feed roller groove",
+   "idler arm",
+   "feed tensioner",
+   "tension setting 3-5 solid wire",
+   "tension setting 2-3 flux-cored wire",
+   "MIG gun",
+   "nozzle removal",
+   "contact tip removal",
+   "counterclockwise unscrew",
+   "gun cable straight",
+   "stainless steel wire feeding",
+   "wire drive assembly",
+   "wire installation steps 18-23"
+  ],
+  "answers": [
+   "what tension number should I set the feed tensioner to for solid wire versus flux-cored wire",
+   "how do I latch the feed tensioner over the idler arm",
+   "how much wire should I feed into the wire inlet liner before closing the drive rolls",
+   "where does the welding wire go into the wire feeder (inlet liner and feed guide)",
+   "how do I remove the nozzle and contact tip from the MIG gun before feeding wire",
+   "which way do I turn the contact tip to remove it",
+   "why does my flux-cored wire get crushed or feed poorly",
+   "do I need to keep tension on the wire while loading the spool",
+   "why won't stainless steel wire feed through my gun"
+  ],
+  "model": "claude-opus-5"
+ },
+ "manual-p18-f2": {
+  "title": "Safety equipment and welding hazard symbols",
+  "kind": "diagram",
+  "summary": "Four safety pictograms illustrating required protective equipment and hazards for welding: heat-resistant gloves (top right), respiratory protection/NIOSH respirator (bottom left), arc flash/eye hazard (top left), and fume inhalation hazard (bottom right). These reinforce the safety requirements stated in the surrounding text.",
+  "visible_text": [],
+  "shows": [
+   "protective gloves icon",
+   "respirator icon",
+   "arc flash hazard symbol",
+   "fume/inhalation hazard symbol",
+   "warning triangles",
+   "personal protective equipment (PPE)"
+  ],
+  "answers": [
+   "What protective equipment must be worn when welding?",
+   "What are the main hazards of arc welding?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p18-f3": {
+  "title": "MIG welding torch with trigger and shielding gas connection",
+  "kind": "diagram",
+  "summary": "A labeled line drawing of a MIG welding torch showing the trigger mechanism, gas inlet connection at the top, and the welding tip at the end. It illustrates the basic anatomy of the torch used for MIG welding with solid wire and shielding gas on the Vulcan OmniPro 220.",
+  "visible_text": [
+   "MIG Gun"
+  ],
+  "shows": [
+   "MIG welding torch",
+   "trigger",
+   "gas inlet",
+   "shielding gas connection",
+   "welding tip",
+   "hand grip",
+   "cable assembly"
+  ],
+  "answers": [
+   "What does a MIG torch look like on the Vulcan OmniPro 220?",
+   "Where does the shielding gas connect on the MIG gun?",
+   "What is the basic design of the welding torch for MIG welding?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p18-f4": {
+  "title": "Practice welds on scrap before welding valuable pieces",
+  "kind": "decorative",
+  "summary": "A boxed safety reminder emphasizing that operators should practice welding technique on scrap material before working on items of value. This is decorative text reinforcement of guidance stated in the body text of the page.",
+  "visible_text": [
+   "Practice your welding technique on scrap pieces before welding anything of value."
+  ],
+  "shows": [
+   "safety reminder",
+   "best practice advice",
+   "skill development",
+   "scrap material use"
+  ],
+  "answers": [],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p18-f1": {
+  "title": "Basic Wire Welding Overview and Safety",
+  "kind": "diagram",
+  "summary": "Page 18 of the Vulcan OmniPro 220 manual presents foundational wire welding information, safety requirements, and three welding process types (flux-cored, MIG, and aluminum). It emphasizes the need for protective gear (shade 10+ face shield, gloves, respirator, fire-resistant clothing), warns against arc light and fume exposure, and stresses practicing on scrap material before welding projects of value.",
+  "visible_text": [
+   "Basic Wire Welding",
+   "Read the ENTIRE IMPORTANT SAFETY INFORMATION section at the beginning of this manual including all text under subheadings therein before welding.",
+   "WARNING: TO PREVENT SERIOUS INJURY",
+   "Protective gear must be worn when using the Welder; minimum shade number 10 full face shield (or welding mask), ear protection, welding gloves, sleeves and apron, NIOSH-approved respirator, and fire resistant work clothes without pockets should be worn when welding.",
+   "Light from the arc can cause permanent damage to the eyes and skin.",
+   "Do not breathe arc fumes.",
+   "Flux-cored wire welding is used to weld mild steel and stainless steel without shielding gas.",
+   "MIG welding uses solid wire and shielding gas, and is used to weld mild steel and stainless steel.",
+   "MIG welding can also be used to weld thinner workpieces than flux-cored welding can.",
+   "Aluminum welding can be performed with an optional Spool Gun (sold separately) using aluminum wire and shielding gas.",
+   "Good welding takes a degree of skill and experience. Practice a few sample welds on scrap before welding your first project. Additional practice periods are recommended whenever you weld:",
+   "\u2022 a different thickness of material",
+   "\u2022 a different type of material",
+   "\u2022 a different type of connection",
+   "\u2022 using a different process",
+   "Make practice welds on pieces of scrap to practice technique before welding anything of value.",
+   "WARNING: TO PREVENT SERIOUS INJURY, FIRE AND BURNS",
+   "Keep welding tip clear of grounded objects whenever unit is plugged in and turned on."
+  ],
+  "shows": [
+   "flux-cored wire welding process",
+   "MIG welding process",
+   "aluminum welding with optional spool gun",
+   "protective equipment requirements",
+   "shade number 10 face shield",
+   "NIOSH-approved respirator",
+   "arc hazards and fume hazards",
+   "practice welding on scrap material",
+   "welding tip safety",
+   "fire and burn prevention"
+  ],
+  "answers": [
+   "What protective gear must be worn when wire welding?",
+   "What shade number should a welding face shield be?",
+   "What are the three types of wire welding covered?",
+   "What is the difference between flux-cored and MIG welding?",
+   "Why should you practice on scrap material first?",
+   "What circumstances require additional practice welding?",
+   "What safety precautions prevent fire and burns with this welder?",
+   "How is aluminum welded with the Vulcan OmniPro 220?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p17-f1": {
+  "title": "MIG gun wire drive-tension check, contact tip/nozzle assembly, and optional spool gun hookup",
+  "kind": "diagram",
+  "summary": "Composite line-art figure showing three setup steps: (1) holding the MIG gun 2\u20133 inches from a block of wood and incrementally turning the feed tensioner knob clockwise until the fed wire bends rather than stops; (2) an exploded view of the MIG gun labeling the Nozzle and Contact Tip that thread onto the gun; and (3) the optional spool gun connection at the welder front, where the Ground Clamp Cable plugs into the Negative (\u2013) socket, the Wire Feed Power Cable plugs into the Positive (+) socket, the Spool Gun Cable Connector passes through the front hole into the wire feed, the Wire Feed Control Cable connects inside the machine, and the Gas Hose attaches to the Spool Gun Gas Outlet.",
+  "visible_text": [
+   "Incrementally increase tension until wire bends.",
+   "2\u20133\"",
+   "Nozzle",
+   "Contact Tip",
+   "MIG Gun",
+   "Spool Gun",
+   "Spool Gun Cable Connector",
+   "Spool Gun Gas Outlet",
+   "Wire Feed Control Cable",
+   "Gas Hose",
+   "Ground Clamp Cable in Negative Socket",
+   "Wire Feed Power Cable in Positive Socket",
+   "VULCAN",
+   "SAFETY",
+   "CONTROLS",
+   "WIRE",
+   "TIG / STICK",
+   "WELDING TIPS",
+   "MAINTENANCE"
+  ],
+  "shows": [
+   "MIG gun",
+   "feed tensioner knob",
+   "drive roll tension adjustment",
+   "wire stickout",
+   "wire bend test against wood",
+   "2-3 inch distance",
+   "contact tip",
+   "nozzle",
+   "spool gun",
+   "spool gun cable connector",
+   "spool gun gas outlet",
+   "wire feed control cable",
+   "gas hose",
+   "ground clamp cable",
+   "negative socket",
+   "positive socket",
+   "DCEP polarity",
+   "welder front panel",
+   "wire feed power cable"
+  ],
+  "answers": [
+   "How do I check that the wire drive tension is set correctly?",
+   "How far from the workpiece should I hold the gun when testing wire feed tension?",
+   "Which way do I turn the feed tensioner to increase tension?",
+   "Where do the nozzle and contact tip go on the MIG gun?",
+   "Which socket does the ground clamp cable plug into when using the spool gun? (Negative)",
+   "Which socket does the wire feed power cable plug into for spool gun use? (Positive)",
+   "Where does the spool gun cable connector and gas hose attach on the welder?",
+   "Where is the spool gun gas outlet located?",
+   "Where does the wire feed control cable connect?"
+  ],
+  "model": "claude-opus-5"
+ },
+ "manual-p19-f3": {
+  "title": "Workpiece Setup and Clamping",
+  "kind": "diagram",
+  "summary": "Shows the proper setup for clamping workpieces during welding, with emphasis on cleaning surfaces to bare metal and chamfering thick workpieces to ensure proper weld penetration. The diagram illustrates how clamps hold two workpieces in position with controlled spacing between them.",
+  "visible_text": [
+   "clamps",
+   "workpieces",
+   "Chamfer thick workpieces.",
+   "Clean surfaces to bare metal."
+  ],
+  "shows": [
+   "clamp placement",
+   "workpiece positioning",
+   "surface preparation",
+   "chamfering requirement",
+   "workpiece gap spacing"
+  ],
+  "answers": [
+   "How should workpieces be positioned for welding?",
+   "Why clean surfaces to bare metal before welding?",
+   "When should thick workpieces be chamfered?",
+   "What is the purpose of clamping workpieces?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p16-f1": {
+  "title": "Welder setup steps 24\u201326: power input socket, plug-in and power switch, cold wire feed of 2 in. of wire",
+  "kind": "diagram",
+  "summary": "Composite line-art page combining a DANGER banner about welding voltage at the wire feed with three setup illustrations: (1) the rear of the welder showing the round twist-lock Power Input socket (plus gas inlet, reset button and rating plate) where either the 120 VAC or 240 VAC power cord plugs in one way only; (2) a three-prong cord being inserted into a grounded GFCI receptacle next to a close-up of the rocker Power Switch on the welder's front panel, to be turned ON only with the gun trigger untouched; (3) the interior/side view locating the small Cold Wire Feed Switch above the drive-roll tensioner, with a companion view of the MIG gun showing welding wire fed out about 2 inches past the contact tip.",
+  "visible_text": [
+   "DANGER",
+   "PARTS MAY BE AT WELDING VOLTAGE",
+   "TO PREVENT ELECTRIC SHOCK AND DEATH:",
+   "1. Keep hands away from Wire Feed mechanism.",
+   "2. Close door before plugging in, unless using Cold Wire Feed to feed wire through to gun.",
+   "3. Do not touch Trigger while feeding wire through to gun.",
+   "24. Plug either 120 VAC or 240 VAC Power Cord into Power Input Socket.",
+   "Note: Plug will only fit one way.",
+   "25. Do not touch the Gun's Trigger. Plug the Power Cord into a properly grounded, GFCI protected 120 VAC (20 amp rated) or 240 VAC receptacle that matches the plug and turn the Power Switch ON. The circuit must be equipped with delayed action-type circuit breaker or fuses.",
+   "26. Point the Gun away from all objects. Press and hold the Cold Wire Feed Switch until the wire feeds through two inches.",
+   "The wire liner may come out with the welding wire. This is normal, just push the wire liner back into the Gun.",
+   "If the wire does not feed properly and the Spool is stationary, turn OFF and unplug the Welder and slightly tighten the Feed Tensioner clockwise before retrying.",
+   "Power Input",
+   "Power Switch",
+   "Cold Wire Feed Switch",
+   "Welding Wire",
+   "MIG Gun",
+   "2\"",
+   "VULCAN",
+   "Gas Inlet",
+   "Reset",
+   "SAFETY",
+   "CONTROLS",
+   "WIRE",
+   "TIG / STICK",
+   "WELDING TIPS",
+   "MAINTENANCE"
+  ],
+  "shows": [
+   "power input socket",
+   "rear panel",
+   "twist-lock receptacle",
+   "gas inlet",
+   "reset button",
+   "rating plate / nameplate",
+   "120 VAC power cord",
+   "240 VAC power cord",
+   "GFCI receptacle",
+   "grounded outlet",
+   "20 amp circuit",
+   "delayed action circuit breaker",
+   "power switch ON",
+   "rocker switch",
+   "cold wire feed switch",
+   "feed tensioner knob",
+   "drive rolls",
+   "wire liner",
+   "MIG gun",
+   "contact tip",
+   "welding wire stickout 2 inches",
+   "electric shock danger",
+   "trigger safety"
+  ],
+  "answers": [
+   "where is the power input socket on the welder",
+   "does the power cord plug in only one way",
+   "what kind of outlet do I plug the welder into (GFCI, 120 VAC 20 A or 240 VAC)",
+   "where is the power switch located",
+   "where is the cold wire feed switch on the welder",
+   "how much wire should stick out of the MIG gun when feeding (two inches)",
+   "what do I do if the wire liner comes out with the wire",
+   "what if the wire won't feed and the spool doesn't turn",
+   "which way do I turn the feed tensioner to tighten it",
+   "why shouldn't I touch the gun trigger while feeding wire"
+  ],
+  "model": "claude-opus-5"
+ },
+ "manual-p20-f1": {
+  "title": "Power Switch and Cord Connection",
+  "kind": "diagram",
+  "summary": "Shows the location of the Power Switch on the Vulcan OmniPro 220 welder and illustrates proper power cord connection to a grounded receptacle. Depicts steps 4\u20136 of the initial setup procedure: turning the switch OFF before plugging in, connecting to a 120 VAC (20 amp) or 240 VAC GFCI-protected outlet with delayed-action breaker or fuses, and turning the switch ON after setup.",
+  "visible_text": [
+   "Power Switch",
+   "OFF position",
+   "120 VAC (20 amp)",
+   "that matches",
+   "equipped with",
+   "breaker or fuses",
+   "nonconductive, nonflammable",
+   "objects"
+  ],
+  "shows": [
+   "Power Switch location",
+   "ON/OFF toggle",
+   "Power cord connector",
+   "120 VAC / 240 VAC outlet",
+   "GFCI protection requirement",
+   "Circuit breaker requirement",
+   "Welder front panel"
+  ],
+  "answers": [
+   "Where is the power switch on the OmniPro 220?",
+   "How do I connect the power cord?",
+   "What voltage receptacle should I use?",
+   "Does the outlet need GFCI protection?",
+   "What circuit protection is required?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p19-f2": {
+  "title": "Rated Duty Cycle specifications",
+  "kind": "chart",
+  "summary": "Two pie charts showing the duty cycle requirements for the Vulcan OmniPro 220 welder at both 120VAC and 240VAC input voltages. At 120VAC, the welder can operate at 40% duty cycle (100A for 4 minutes welding, 6 minutes resting per 10-minute period) or 100% continuous at 75A. At 240VAC, the welder can operate at 25% duty cycle (200A for 2.5 minutes welding, 7.5 minutes resting per 10-minute period) or 100% continuous at 115A.",
+  "visible_text": [
+   "Rated Duty Cycle",
+   "120VAC",
+   "40% Use at 100A",
+   "For 10 Continuous Minutes",
+   "4 Minutes Welding",
+   "6 Minutes Resting",
+   "100% Continuous Use at 75A",
+   "Rated Duty Cycle",
+   "240VAC",
+   "25% Use at 200A",
+   "For 10 Continuous Minutes",
+   "2-1/2 Minutes Welding",
+   "7-1/2 Minutes Resting",
+   "100% Continuous Use at 115A"
+  ],
+  "shows": [
+   "duty cycle timing",
+   "welding current ratings",
+   "input voltage specifications",
+   "rest periods",
+   "thermal management",
+   "continuous use amperage",
+   "120VAC operation",
+   "240VAC operation"
+  ],
+  "answers": [
+   "What is the duty cycle for the welder at 100A on 120VAC?",
+   "How long can the welder run continuously at 75A?",
+   "What are the duty cycle requirements at 240VAC and 200A?",
+   "How many minutes of rest are required after 4 minutes of welding at 100A?",
+   "What is the maximum continuous amperage at each voltage?",
+   "How is the 10-minute duty cycle divided at 25% usage on 240VAC?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p20-f2": {
+  "title": "MIG Stainless Steel process selection screen",
+  "kind": "screen",
+  "summary": "LCD display screen showing the MIG Stainless Steel process selected on the OmniPro 220 welder. This screen depicts the initial process selection interface a user navigates to after pressing the Home Button and turning the Main Control Knob to the desired process.",
+  "visible_text": [
+   "MIG Stainless Steel",
+   "VULCAN",
+   "OMNIPRO 220",
+   "HOME",
+   "BACK"
+  ],
+  "shows": [
+   "LCD display interface",
+   "process selection screen",
+   "MIG stainless steel process",
+   "control panel layout",
+   "home and back buttons",
+   "main control knob navigation",
+   "welding process menu"
+  ],
+  "answers": [
+   "What does the display screen look like when selecting MIG stainless steel process?",
+   "How do you navigate to the MIG stainless steel process on the OmniPro 220?",
+   "What screen appears after pressing Home and turning the Main Control Knob to MIG stainless steel?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p20-f3": {
+  "title": "MIG Stainless Steel Wire Diameter and Thickness Settings",
+  "kind": "screen",
+  "summary": "This LCD display screen shows the wire diameter and material thickness settings for MIG welding stainless steel: .025\" diameter wire and 24 gauge material thickness. It represents the configuration screen where users select these parameters using the Left and Right control knobs as described in the setup procedure.",
+  "visible_text": [
+   "MIG Stainless Steel",
+   "Diameter",
+   ".025\"",
+   "Thickness",
+   "24Ga",
+   "CONFIRM"
+  ],
+  "shows": [
+   "wire diameter setting",
+   "material thickness setting",
+   "MIG process selection",
+   "stainless steel material type",
+   "LCD display interface",
+   "gauge measurement",
+   "control knob adjustment interface",
+   "confirm button"
+  ],
+  "answers": [
+   "What wire diameter and material thickness settings are shown for MIG stainless steel welding?",
+   "What is the .025\" diameter wire used for?",
+   "What does 24 gauge thickness correspond to in the welder settings?",
+   "How do you set wire diameter and material thickness on the Vulcan OmniPro 220?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p21-f2": {
+  "title": "Asphyxiation hazard warning symbol",
+  "kind": "decorative",
+  "summary": "A standard hazard pictogram showing a person overcome by gas, used as a visual alert accompanying the DANGER notice about shielding gas asphyxiation risk on this page. It carries no technical information beyond reinforcing the written warning.",
+  "visible_text": [],
+  "shows": [
+   "hazard symbol",
+   "asphyxiation",
+   "warning pictogram",
+   "safety alert"
+  ],
+  "answers": [],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p20-f5": {
+  "title": "Stainless Tri-Mix polarity and gas connection diagram",
+  "kind": "diagram",
+  "summary": "Illustrates the cable and gas connection configuration for Stainless Tri-Mix process welding. Shows polarity assignment (negative/ground on left electrode, positive on right electrode) and the location of the gas inlet connector, answering how to connect cables and gas supply for this specific process.",
+  "visible_text": [
+   "Stainless Tri-Mix",
+   "CONFIRM",
+   "\u2212",
+   "+"
+  ],
+  "shows": [
+   "polarity configuration",
+   "electrode cable connections",
+   "gas inlet port",
+   "wire feeder connection",
+   "negative terminal",
+   "positive terminal",
+   "Stainless Tri-Mix process",
+   "cable routing diagram"
+  ],
+  "answers": [
+   "How do I connect the cables for Stainless Tri-Mix welding?",
+   "Which terminal is positive and which is negative for Stainless Tri-Mix?",
+   "Where does the gas line connect for Stainless Tri-Mix?",
+   "What is the correct polarity setup for this process?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p21-f1": {
+  "title": "Optional Settings Menu Screens",
+  "kind": "screen",
+  "summary": "Five sequential menu screens showing the optional settings available on the Vulcan OmniPro 220 welder: Run-In WFS (wire speed before workpiece contact), Inductance (arc length adjustment), Spot Timer (for spot welding), Recall Setting (retrieve saved configurations), and Save Setting (store up to 5 configurations). Each screen displays the setting name, an icon representing its function, and navigation buttons.",
+  "visible_text": [
+   "Run-In WFS",
+   "Inductance",
+   "Spot Timer",
+   "Recall Setting",
+   "Save Setting"
+  ],
+  "shows": [
+   "optional settings menu",
+   "wire feed speed adjustment",
+   "arc length control",
+   "spot welding timer",
+   "memory recall function",
+   "memory save function",
+   "inductor coil symbol",
+   "timer symbol",
+   "upload/download symbols",
+   "navigation controls"
+  ],
+  "answers": [
+   "What optional settings are available on the OmniPro 220?",
+   "How do you adjust run-in wire feed speed?",
+   "Where is the inductance setting accessed?",
+   "How do you set up spot welding on this welder?",
+   "How many different welder configurations can be saved?",
+   "How do you recall previously saved settings?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p21-f3": {
+  "title": "Shielding Gas Cylinder Setup",
+  "kind": "diagram",
+  "summary": "Depicts a shielding gas cylinder with regulator assembly, flow gauge, and control valve for gas-shielded welding. This diagram illustrates the proper equipment configuration referenced in the manual's gas cylinder setup procedure and safety requirements.",
+  "visible_text": [
+   "1-800-444-3353"
+  ],
+  "shows": [
+   "gas cylinder",
+   "regulator",
+   "flow gauge",
+   "cylinder valve",
+   "pressure adjustment knob",
+   "gas delivery line",
+   "shielding gas equipment",
+   "safety strap"
+  ],
+  "answers": [
+   "What does a shielding gas cylinder setup look like for the OmniPro 220?",
+   "How is the gas regulator and flow gauge assembly configured?",
+   "What are the main components of the gas delivery system?",
+   "Which valve do I open all the way when setting up shielding gas?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p20-f4": {
+  "title": "MIG Steel Auto Weld Settings Screen",
+  "kind": "screen",
+  "summary": "This LCD display screen shows the auto weld settings for MIG Steel (C25) welding with .030\" wire diameter on 24 gauge material. It displays wire feed speed of 121 in/min (0 A shown in upper left), voltage of 13.8 V, run-in WFS of 25, inductance of 5, and spot timer at 0.0 seconds, along with labeled control knob functions for adjusting these parameters.",
+  "visible_text": [
+   "121 in/min",
+   "0 A",
+   "13.8 V",
+   "0.0 V",
+   "MIG Steel C25",
+   ".030\"",
+   "24Ga",
+   "SETTINGS",
+   "256",
+   "5",
+   "Run-In WFS",
+   "Inductance",
+   "Spot Timer",
+   "0.0 s",
+   "Voltage Dia",
+   "Material Thic"
+  ],
+  "shows": [
+   "auto weld settings display",
+   "wire feed speed",
+   "voltage setting",
+   "wire diameter (.030 inch)",
+   "material thickness (24 gauge)",
+   "MIG steel process",
+   "run-in wire feed speed control",
+   "inductance adjustment",
+   "spot timer control",
+   "control knob functions"
+  ],
+  "answers": [
+   "What does the settings screen look like for MIG Steel welding?",
+   "How are wire feed speed and voltage displayed on the Vulcan OmniPro 220?",
+   "What are the default recommended settings for .030 inch wire on 24 gauge material?",
+   "Which knobs control wire feed speed versus voltage?",
+   "What additional parameters (run-in WFS, inductance, spot timer) can be adjusted?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p22-f1": {
+  "title": "Stringer bead vs. weave bead comparison",
+  "kind": "diagram",
+  "summary": "Contrasts two fundamental MIG welding bead patterns: the stringer bead (a straight-line wire path for narrow welds) and the weave bead (a back-and-forth wire path for wider welds). This figure illustrates the two basic techniques for controlling weld width and appearance.",
+  "visible_text": [
+   "stringer bead",
+   "weave bead"
+  ],
+  "shows": [
+   "stringer bead technique",
+   "weave bead technique",
+   "wire path patterns",
+   "narrow vs. wide weld deposits",
+   "MIG welding methods"
+  ],
+  "answers": [
+   "What is a stringer bead?",
+   "What is a weave bead?",
+   "What is the difference between a stringer bead and a weave bead?",
+   "When do I use a stringer bead versus a weave bead?",
+   "How do I create narrow versus wide welds?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p22-f2": {
+  "title": "Butt weld joint gun angle",
+  "kind": "diagram",
+  "summary": "Illustrates the correct welding gun orientation for a butt weld joint, showing a 90\u00b0 angle (perpendicular/straight up and down) between the MIG gun electrode and the work surface. This diagram answers the fundamental question of how to position the welding gun when joining two pieces end-to-end.",
+  "visible_text": [
+   "90\u00b0",
+   "butt weld joint"
+  ],
+  "shows": [
+   "butt weld joint",
+   "MIG gun angle",
+   "90-degree angle",
+   "electrode wire orientation",
+   "work surface",
+   "perpendicular positioning"
+  ],
+  "answers": [
+   "What angle should the welding gun be at for a butt weld?",
+   "How should I position the electrode wire for butt welds?",
+   "What is the correct gun orientation for end-to-end welds?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p22-f3": {
+  "title": "Fillet weld joint gun angle",
+  "kind": "diagram",
+  "summary": "Illustrates the correct welding gun angle for a fillet (T-shaped) weld joint, showing a 45\u00b0 angle between the MIG gun and the work surface. This diagram demonstrates the proper technique for directing the welding wire into a fillet joint.",
+  "visible_text": [
+   "45\u00b0",
+   "fillet weld joint"
+  ],
+  "shows": [
+   "fillet weld",
+   "MIG gun angle",
+   "45 degree angle",
+   "welding gun positioning",
+   "work surface",
+   "electrode wire contact"
+  ],
+  "answers": [
+   "What angle should the MIG gun be held at for fillet welds?",
+   "How do you position the welding gun for a T-shaped joint?",
+   "What is the correct gun angle for fillet weld joints?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p22-f5": {
+  "title": "Contact Tip to Work Distance (CTWD) measurement",
+  "kind": "diagram",
+  "summary": "Illustrates the proper Contact Tip to Work Distance (CTWD) during MIG welding, showing that the contact tip should remain within 1/2 inch of the work surface. This diagram clarifies the critical measurement for correct welding gun positioning.",
+  "visible_text": [
+   "CTWD",
+   "(up to 1/2\")"
+  ],
+  "shows": [
+   "MIG welding gun",
+   "contact tip",
+   "work surface",
+   "CTWD measurement",
+   "distance tolerance",
+   "welding positioning"
+  ],
+  "answers": [
+   "What is CTWD and why does it matter?",
+   "How close should the contact tip be to the work surface?",
+   "What is the maximum Contact Tip to Work Distance for MIG welding?",
+   "How do I position the MIG gun relative to the workpiece?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p22-f4": {
+  "title": "MIG Gun angles for solid wire versus flux-cored wire",
+  "kind": "diagram",
+  "summary": "This diagram illustrates the correct gun angle technique for two MIG welding methods: push angle (0\u201315\u00b0 away from weld direction) for solid wire with shielding gas, and drag angle (0\u201315\u00b0 toward weld direction) for flux-cored wire without gas. It settles questions about proper gun positioning and the directional difference between the two processes.",
+  "visible_text": [
+   "Push Angle",
+   "Drag Angle",
+   "0\u201315\u00b0",
+   "Weld Direction",
+   "Solid Wire with Shielding Gas",
+   "Flux-Cored Wire without Gas"
+  ],
+  "shows": [
+   "MIG gun positioning",
+   "push angle technique",
+   "drag angle technique",
+   "solid wire welding",
+   "flux-cored wire welding",
+   "shielding gas application",
+   "gun tilt direction",
+   "angle range 0\u201315 degrees"
+  ],
+  "answers": [
+   "What angle should I hold the MIG gun for solid wire with shielding gas?",
+   "What angle should I hold the MIG gun for flux-cored wire without gas?",
+   "What is the difference between push angle and drag angle?",
+   "Which direction should I tilt the gun for solid wire versus flux-cored wire?",
+   "What is the correct gun angle range for MIG welding?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p23-f2": {
+  "title": "Practice welding examination instruction",
+  "kind": "diagram",
+  "summary": "Instructional diagram showing the MIG gun positioned on a concrete slab after initial practice welding, illustrating proper setup for stopping to examine welds. It directs users to halt welding after a few seconds and compare their weld appearance against guidelines in the Welding Tips section.",
+  "visible_text": [
+   "After practice welding for a few seconds, STOP and examine your weld using the guidelines starting on the next page.",
+   "FOLLOW DUTY CYCLE!",
+   "MIG Gun",
+   "concrete slab (or other heat-proof, non-conductive surface)",
+   "Power Switch",
+   "LCD Display",
+   "Warning Screen"
+  ],
+  "shows": [
+   "MIG gun resting position",
+   "heat-proof non-conductive surface",
+   "concrete slab",
+   "welder control panel elements",
+   "initial practice welding checkpoint",
+   "equipment cooling setup"
+  ],
+  "answers": [
+   "Where should I place the MIG gun when stopping to examine my weld?",
+   "What surface should the MIG gun rest on during examination?",
+   "When should I stop and check my weld during practice?",
+   "What should I do after practice welding for a few seconds?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p19-f1": {
+  "title": "Rated Duty Cycle clock charts (120 VAC and 240 VAC) with ground clamp connection diagram",
+  "kind": "diagram",
+  "summary": "Two boxed clock-face charts give the welder's rated duty cycle: on 120 VAC it is 40% use at 100 A (4 minutes welding, 6 minutes resting per 10 continuous minutes) with 100% continuous use at 75 A; on 240 VAC it is 25% use at 200 A (2-1/2 minutes welding, 7-1/2 minutes resting per 10 continuous minutes) with 100% continuous use at 115 A. Below, a line drawing of the Vulcan OmniPro front panel shows the ground cable running to a ground clamp gripping the workpiece on a surface cleaned to bare metal, noting the ground connection depends on desired welding polarity.",
+  "visible_text": [
+   "Rated Duty Cycle",
+   "120 VAC",
+   "40% Use at 100 A",
+   "For 10 Continuous Minutes",
+   "4 Minutes Welding",
+   "6 Minutes Resting",
+   "100% Continuous Use at 75 A",
+   "Rated Duty Cycle",
+   "240 VAC",
+   "25% Use at 200 A",
+   "For 10 Continuous Minutes",
+   "2-1/2 Minutes Welding",
+   "7-1/2 Minutes Resting",
+   "100% Continuous Use at 115 A",
+   "Workpiece",
+   "Ground Clamp",
+   "Clean surface to bare metal.",
+   "Ground connection depends on desired welding polarity",
+   "VULCAN",
+   "220",
+   "SAFETY",
+   "CONTROLS",
+   "WIRE",
+   "TIG / STICK",
+   "WELDING TIPS",
+   "MAINTENANCE",
+   "2. Use clamps (not included) to hold the workpieces in position so that you can concentrate on proper welding technique. The distance (if any) between the two workpieces must be controlled properly to allow the weld to hold both sides securely while allowing the weld to penetrate fully into the joint. The edges of thicker workpieces may need to be chamfered (or beveled) to allow proper weld penetration.",
+   "Notice: When welding equipment on a vehicle, disconnect the vehicle battery power from both the positive connection and the ground before welding. This prevents damage to some vehicle electrical systems and electronics due to the high voltage and high frequency bursts common in welding."
+  ],
+  "shows": [
+   "duty cycle",
+   "120 VAC duty cycle 40% at 100 A",
+   "240 VAC duty cycle 25% at 200 A",
+   "100% continuous 75 A",
+   "100% continuous 115 A",
+   "10 minute cycle clock chart",
+   "welding time vs rest time",
+   "ground clamp",
+   "ground cable",
+   "workpiece grounding",
+   "bare metal surface preparation",
+   "welding polarity",
+   "Vulcan OmniPro 220 front panel",
+   "thermal overload / overheating"
+  ],
+  "answers": [
+   "what is the duty cycle of the OmniPro 220 on 120 V and on 240 V",
+   "how many minutes can I weld at 200 amps before resting",
+   "what amperage can I weld at continuously (100% duty cycle)",
+   "how long must the welder rest after 4 minutes of welding at 100 A on 120 V",
+   "where do I attach the ground clamp on the workpiece",
+   "does the workpiece surface need to be cleaned before clamping the ground",
+   "does the ground cable connection depend on welding polarity"
+  ],
+  "model": "claude-opus-5"
+ },
+ "manual-p24-f1": {
+  "title": "TIG Torch and Cable Connection Diagram",
+  "kind": "diagram",
+  "summary": "This diagram illustrates the correct cable connections for TIG welding setup on the Vulcan OmniPro 220, showing where the ground clamp cable, TIG torch cable, foot pedal cable, and shielding gas hose connect to the welder. The ground clamp plugs into the Positive Socket, and the TIG torch cable plugs into the Negative Socket, both twisted clockwise to lock.",
+  "visible_text": [
+   "TIG / Stick Welding",
+   "Read the ENTIRE IMPORTANT SAFETY INFORMATION",
+   "WARNING",
+   "Note: Remove the protective foam and cardboard from the Welder before setup. Place the Welder on a level surface that can bear its weight",
+   "TIG Setup",
+   "Connect Cables",
+   "Ground Clamp Cable in Positive Socket",
+   "Ground Clamp",
+   "TIG Torch Cable in Negative Socket",
+   "TIG Torch (sold separately)",
+   "Foot Pedal Socket (inside Welder)",
+   "Foot Pedal (sold separately)",
+   "Foot Pedal Cable",
+   "Shielding Gas Hose",
+   "1. Plug Ground Clamp Cable Twist clockwise all the way",
+   "2. Plug TIG Torch Cable (TIG Torch separately) into Negative Socket clockwise all the way to lock"
+  ],
+  "shows": [
+   "Ground clamp cable connection",
+   "TIG torch cable connection",
+   "Positive socket location",
+   "Negative socket location",
+   "Foot pedal cable",
+   "Shielding gas hose",
+   "Clockwise twisting lock mechanism",
+   "Cable routing"
+  ],
+  "answers": [
+   "Where does the ground clamp cable connect on the TIG welder?",
+   "Which socket does the TIG torch cable plug into?",
+   "How do you lock the cables in place on the Vulcan OmniPro 220?",
+   "What are all the connections needed for TIG welding setup?",
+   "Where does the shielding gas hose connect?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p24-f2": {
+  "title": "TIG Setup Cable Connections",
+  "kind": "diagram",
+  "summary": "This exploded isometric diagram shows the complete TIG welding setup for the Vulcan OmniPro 220, depicting where to connect the Ground Clamp Cable (Positive Socket), TIG Torch Cable (Negative Socket), Foot Pedal Cable (inside Welder socket), and Shielding Gas Hose. It answers user questions about proper cable routing and socket locations for TIG mode operation.",
+  "visible_text": [
+   "Foot Pedal Socket (inside Welder)",
+   "Foot Pedal (sold separately)",
+   "Foot Pedal Cable",
+   "Shielding Gas Hose",
+   "TIG Torch Cable in Negative Socket",
+   "TIG Torch (sold separately)",
+   "Ground Clamp Cable in Positive Socket",
+   "Ground Clamp"
+  ],
+  "shows": [
+   "TIG torch cable connection",
+   "ground clamp cable connection",
+   "foot pedal cable routing",
+   "positive socket location",
+   "negative socket location",
+   "shielding gas hose attachment",
+   "cable management",
+   "welder rear panel connections"
+  ],
+  "answers": [
+   "Where does the ground clamp cable plug in?",
+   "Where does the TIG torch cable connect?",
+   "How do I connect the foot pedal cable?",
+   "Which socket is positive and which is negative for TIG setup?",
+   "How do I route the shielding gas hose?",
+   "What cables do I need for TIG welding setup?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p25-f1": {
+  "title": "Shielding Gas Cylinder and Regulator Setup",
+  "kind": "diagram",
+  "summary": "This diagram illustrates the four-step procedure for connecting a 100% Argon shielding gas cylinder to the Vulcan OmniPro 220 welder: (1) securing the cylinder to a cart with straps, (2) briefly opening the cylinder valve to purge dust, (3) threading the regulator onto the cylinder, and (4) connecting the shielding gas hose from the torch to the regulator outlet.",
+  "visible_text": [
+   "100% Argon cylinder",
+   "or cart near the",
+   "in place with",
+   "prevent tipping.",
+   "Stand to the",
+   "open the",
+   "dirt from the",
+   "valve.",
+   "and close its",
+   "Regulator",
+   "connection.",
+   "on TIG",
+   "Regulator's",
+   "connection.",
+   "Briefly open",
+   "to",
+   "then",
+   "1",
+   "2",
+   "3",
+   "4"
+  ],
+  "shows": [
+   "argon gas cylinder",
+   "regulator",
+   "cylinder valve",
+   "shielding gas hose",
+   "TIG torch connector",
+   "secure straps",
+   "gas connection procedure",
+   "wrench-tightening"
+  ],
+  "answers": [
+   "How do I connect the shielding gas cylinder to the welder?",
+   "What type of gas does the OmniPro 220 use?",
+   "How do I purge the cylinder valve before connecting the regulator?",
+   "Where does the shielding gas hose connect to the regulator?",
+   "How do I secure the gas cylinder to prevent tipping?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p26-f1": {
+  "title": "Tungsten Electrode Sharpening and TIG Torch Assembly",
+  "kind": "diagram",
+  "summary": "This diagram illustrates the proper technique for sharpening a tungsten electrode on a grinding wheel, and shows the ideal conical tip geometry and orientation. It demonstrates that the grinding direction must be parallel to the electrode length, and that the conical portion should be 2-1/2 times as long as the electrode diameter. The figure also depicts proper electrode insertion into the torch with the tip protruding 1/8\"-1/4\" beyond the ceramic nozzle.",
+  "visible_text": [
+   "Electrode",
+   "Grinding Wheel",
+   "Insert tungsten Electrode here.",
+   "with tip the Ceramic Back Cap."
+  ],
+  "shows": [
+   "tungsten electrode",
+   "grinding wheel",
+   "electrode sharpening technique",
+   "conical tip geometry",
+   "grinding angle and direction",
+   "electrode contamination removal",
+   "ceramic nozzle",
+   "back cap",
+   "electrode protrusion depth"
+  ],
+  "answers": [
+   "How do you sharpen a tungsten electrode?",
+   "What angle should the electrode be held at when grinding?",
+   "What is the ideal tungsten electrode tip geometry?",
+   "How far should the electrode protrude beyond the ceramic nozzle?",
+   "What is the proper grinding direction for electrode sharpening?",
+   "What ratio should the conical tip length be relative to electrode diameter?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p26-f2": {
+  "title": "TIG Torch Assembly Diagram",
+  "kind": "diagram",
+  "summary": "An exploded-view diagram of the TIG torch components and their assembly sequence. It identifies the Back Cap, Collet, Collet Body, Ceramic Nozzle, and the insertion point for the tungsten electrode, directly supporting the assembly instructions on page 26.",
+  "visible_text": [
+   "Back Cap",
+   "Collet",
+   "Collet Body",
+   "Ceramic Nozzle",
+   "Insert tungsten Electrode here."
+  ],
+  "shows": [
+   "TIG torch components",
+   "Back Cap removal/installation",
+   "Collet assembly",
+   "Ceramic Nozzle placement",
+   "Tungsten electrode insertion point",
+   "torch disassembly order"
+  ],
+  "answers": [
+   "What are the parts of a TIG torch?",
+   "How do I assemble a TIG torch?",
+   "Where do I insert the tungsten electrode?",
+   "What is the Collet Body?",
+   "What is the Back Cap used for?",
+   "In what order are TIG torch components arranged?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p25-f2": {
+  "title": "Vulcan OmniPro 220 Welder Control Panel and Internal Components",
+  "kind": "diagram",
+  "summary": "Top-down technical diagram of the Vulcan OmniPro 220 welder showing the control panel layout with power input socket, gas inlet, and reset button, plus internal fan and electrical specifications. This diagram answers questions about where to connect the power cord and gas supply, and provides the welder's operational specifications across different voltage and amperage ratings.",
+  "visible_text": [
+   "Power Input",
+   "Gas Inlet",
+   "Reset",
+   "IP21S",
+   "Vulcan OMNIPRO 220",
+   "30A/15.5V to 220A/25V",
+   "10A/20.4V to 175A/27V",
+   "10A/10.4V to 175A/17V",
+   "30A/15.5V to 140A/21V",
+   "1~50/60Hz U1 = 240V",
+   "1~50/60Hz U1 = 120V",
+   "10A/20.4V to 80A/23.2V",
+   "10A/10.4V to 125A/15V",
+   "Conforms to ANSI/IEC Std. 60974-1",
+   "UPC 193175422590"
+  ],
+  "shows": [
+   "power input socket",
+   "gas inlet connection",
+   "reset button",
+   "control panel layout",
+   "internal cooling fan",
+   "electrical specifications table",
+   "amperage ratings",
+   "voltage ratings",
+   "duty cycle ratings (25%, 60%, 100%)",
+   "single-phase AC operation (50/60Hz)",
+   "240V and 120V configurations"
+  ],
+  "answers": [
+   "Where is the power input socket located on the welder?",
+   "Where do I connect the shielding gas supply?",
+   "What are the amperage and voltage specifications for the Vulcan OmniPro 220?",
+   "What power supply options does this welder support (120V or 240V)?",
+   "Where is the reset button on the control panel?",
+   "What is the duty cycle rating at different amperage settings?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p27-f1": {
+  "title": "Stick Setup Cable Connections for Vulcan OmniPro 220",
+  "kind": "diagram",
+  "summary": "Isometric technical diagram showing the correct cable connections for stick welding setup on the Vulcan OmniPro 220 welder. It depicts where to plug the ground clamp cable (negative socket) and electrode holder cable (positive socket), establishing the polarity configuration for stick welding.",
+  "visible_text": [
+   "Ground Clamp Cable in Negative Socket",
+   "Ground Clamp",
+   "Electrode Holder Cable in Positive Socket",
+   "Electrode Holder"
+  ],
+  "shows": [
+   "cable routing",
+   "socket identification",
+   "electrode holder",
+   "ground clamp",
+   "positive socket",
+   "negative socket",
+   "polarity configuration",
+   "stick welding setup"
+  ],
+  "answers": [
+   "Where does the ground clamp cable plug in?",
+   "Where does the electrode holder cable plug in?",
+   "What is the correct polarity for stick welding on the OmniPro 220?",
+   "How should cables be connected for stick setup?",
+   "Which socket is positive and which is negative?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p28-f3": {
+  "title": "TIG welding torch",
+  "kind": "diagram",
+  "summary": "Labeled illustration of a TIG welding torch showing the handheld gun with gas cup and electrode tip at one end, and the flexible handle/cable at the other end. This figure illustrates the equipment used for TIG welding processes described on this page.",
+  "visible_text": [],
+  "shows": [
+   "TIG torch",
+   "welding gun",
+   "gas cup",
+   "electrode tip",
+   "welding cable",
+   "handheld torch configuration"
+  ],
+  "answers": [
+   "What does a TIG welding torch look like?",
+   "What equipment is used for TIG welding?",
+   "What is the proper orientation of a TIG torch?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p28-f4": {
+  "title": "Practice welding on scrap before working on projects",
+  "kind": "decorative",
+  "summary": "A bordered callout box emphasizing the safety and skill-building recommendation to practice welding technique on scrap material before attempting to weld any item of value. This is supportive text that reinforces guidance already presented in the surrounding page content.",
+  "visible_text": [
+   "Practice your welding technique on scrap pieces before welding anything of value."
+  ],
+  "shows": [
+   "best practice",
+   "skill development",
+   "safety recommendation",
+   "practice procedure"
+  ],
+  "answers": [
+   "Should I practice before welding a real project?",
+   "What should I weld before starting my first project?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p27-f2": {
+  "title": "Vulcan OmniPro 220 Welder Control Panel and Specifications",
+  "kind": "diagram",
+  "summary": "Top-down diagram of the Vulcan OmniPro 220 welder showing the control panel layout with power input socket, reset button, and gas inlet, along with detailed electrical specifications and duty cycle ratings for operation at 120V and 240V single-phase power.",
+  "visible_text": [
+   "Reset",
+   "Power Input",
+   "Gas Inlet",
+   "IP21S",
+   "Vulcan OMNIPRO 220",
+   "Conforms to ANSI/IEC Std. 60974-1",
+   "30A/15.5V to 220A/25V",
+   "10A/20.4V to 175A/27V",
+   "10A/10.4V to 175A/17V",
+   "30A/15.5V to 140A/21V",
+   "10A/20.4V to 80A/23.2V",
+   "10A/10.4V to 125A/15V",
+   "1~50/60Hz U1 = 240V",
+   "1~50/60Hz U1 = 120V",
+   "U0 = 86V",
+   "I1max = 25.5A, 23.7A, 15.6A",
+   "I1eff = 12.8A, 11.9A, 8.5A",
+   "I1max = 20.8A, 19.5A, 20.6A",
+   "I1eff = 13.1A, 12.3A, 13A"
+  ],
+  "shows": [
+   "welder control panel",
+   "power input socket location",
+   "reset button",
+   "gas inlet",
+   "electrical specifications",
+   "duty cycle ratings",
+   "120V and 240V operation",
+   "output amperage and voltage ranges",
+   "input current ratings"
+  ],
+  "answers": [
+   "Where is the power input socket on the Vulcan OmniPro 220?",
+   "What are the electrical specifications for the Vulcan OmniPro 220?",
+   "What are the output voltage and amperage ratings at different duty cycles?",
+   "What input power requirements does the welder support?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p28-f2": {
+  "title": "Power-On Equation and Safety Warnings",
+  "kind": "diagram",
+  "summary": "This figure illustrates the equation that turning the Vulcan OmniPro 220 welder on (represented by the power switch symbol) equals practicing welding technique on scrap pieces before welding anything of value. It combines the welder's power-on control with four safety-related pictograms: caustic/corrosive hazard (top left), protective gloves requirement (top right), respiratory protection requirement (bottom left), and molten material/hot work hazard (bottom right).",
+  "visible_text": [
+   "Power On",
+   "="
+  ],
+  "shows": [
+   "Vulcan OmniPro 220 welder",
+   "power switch",
+   "caustic/corrosive hazard warning",
+   "chemical splash hazard",
+   "protective gloves required",
+   "respirator/respiratory protection required",
+   "molten material hazard",
+   "hot work hazard",
+   "welding safety warnings",
+   "required personal protective equipment"
+  ],
+  "answers": [
+   "What safety warnings are associated with operating the Vulcan OmniPro 220 welder?",
+   "What personal protective equipment must be worn when using this welder?",
+   "What does the manual say about practice welding before starting a project?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p28-f1": {
+  "title": "Basic TIG/Stick Welding Safety and Practice Guidelines",
+  "kind": "screen",
+  "summary": "Page 28 of the manual presents safety warnings, protective equipment requirements, and fundamental practice guidance for TIG and stick welding. It specifies that DC TIG is for mild steel and stainless steel, AC TIG is for aluminum, stick welding is for mild and stainless steel without shielding gas, and recommends practice welds on scrap before working on projects, especially when changing material thickness, type, connection type, or process.",
+  "visible_text": [
+   "Read the ENTIRE IMPORTANT SAFETY INFORMATION section at the beginning of this manual including all text under subheadings therein before set up or use of this product",
+   "TO PREVENT SERIOUS INJURY:",
+   "Protective gear must be worn when using the Welder; minimum shade number 10 full face shield (or welding mask), ear protection, welding gloves, sleeves and apron, NIOSH-approved respirator, and fire resistant work clothes without pockets should be worn when welding",
+   "Light from the arc can cause permanent damage to the eyes and skin",
+   "Do not breathe arc fumes",
+   "DC TIG Welding is used to weld mild steel and stainless steel using a TIG Rod and shielding gas",
+   "AC TIG Welding is used to weld aluminum using a TIG Rod and shielding gas",
+   "Stick Welding is used to weld mild steel and stainless steel using a Stick Electrode without shielding gas",
+   "Good welding takes a degree of skill and experience. Practice a few sample welds on scrap before welding your first project",
+   "Additional practice periods are recommended whenever you weld: a different thickness of material, a different type of material, a different type of connection, using a different process",
+   "Make practice welds on pieces of scrap to practice technique before welding anything of value",
+   "TO PREVENT SERIOUS INJURY, FIRE AND BURNS:",
+   "Keep welding tip clear of grounded objects whenever unit is plugged in and turned on"
+  ],
+  "shows": [
+   "safety warnings",
+   "protective equipment requirements",
+   "DC TIG welding applications",
+   "AC TIG welding applications",
+   "stick welding applications",
+   "shielding gas use",
+   "practice recommendations",
+   "material thickness variations",
+   "material type variations",
+   "connection type variations",
+   "process variations",
+   "fire prevention",
+   "arc hazards"
+  ],
+  "answers": [
+   "What protective gear is required for TIG and stick welding?",
+   "What is DC TIG welding used for?",
+   "What is AC TIG welding used for?",
+   "What is stick welding used for?",
+   "When should practice welds be performed?",
+   "What conditions require additional practice before welding a project?",
+   "How can fire and burns be prevented during welding?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p23-f1": {
+  "title": "Welder shutdown/cool-down sequence with warning screen and duty cycle chart",
+  "kind": "diagram",
+  "summary": "Composite illustration for the end-of-welding procedure: the welder front panel is labeled to locate the LCD Display and the Power Switch, a reproduction of the LCD 'Warning Screen' fault table lists Duty Cycle Exceeded / Low Voltage Input / High Voltage Input with their remedies, and a FOLLOW DUTY CYCLE! chart gives 120 VAC = 40% at 100 A (4 min welding / 6 min resting per 10 minutes, 100% continuous at 75 A) and 240 VAC = 25% at 200 A (2-1/2 min welding / 7-1/2 min resting, 100% continuous at 115 A). Arrow sequence at bottom shows the shutdown order: rest the MIG Gun on a concrete slab or other heat-proof, non-conductive surface, turn the Power Switch off, unplug the power cord from the outlet, then close the shielding gas cylinder valve.",
+  "visible_text": [
+   "LCD Display",
+   "Power Switch",
+   "Warning Screen",
+   "VULCAN",
+   "The machine has gone into fault due to one of the following conditions:",
+   "Problem",
+   "Remedy",
+   "Duty Cycle Exceeded",
+   "The machine has thermally tripped. Allow the machine to cool.",
+   "Low Voltage Input",
+   "The voltage input is below the specified limit. Inspect input voltage and ensure it is within machine limits.",
+   "High Voltage Input",
+   "The voltage input is higher than the specified limit. Inspect input voltage and ensure it is within machine limits.",
+   "Please consult operator manual for machine specifications.",
+   "The machine will resume normal operation once issue has been remedied. There is no circuit breaker to reset.",
+   "After practice welding for a few seconds, STOP and examine your weld using the guidelines starting on the next page.",
+   "FOLLOW DUTY CYCLE!",
+   "120 VAC",
+   "40% Use at 100 A",
+   "For 10 Continuous Minutes",
+   "4 Minutes Welding",
+   "6 Minutes Resting",
+   "100% Continuous Use at 75 A",
+   "240 VAC",
+   "25% Use at 200 A",
+   "For 10 Continuous Minutes",
+   "2-1/2 Minutes Welding",
+   "7-1/2 Minutes Resting",
+   "100% Continuous Use at 115 A",
+   "MIG Gun",
+   "concrete slab (or other heat-proof, non-conductive surface)",
+   "SAFETY",
+   "CONTROLS",
+   "WIRE",
+   "TIG / STICK",
+   "WELDING TIPS",
+   "MAINTENANCE",
+   "For technical questions, please call 1-800-444-3353.",
+   "Page 23"
+  ],
+  "shows": [
+   "duty cycle chart",
+   "120 VAC 40% at 100 A",
+   "240 VAC 25% at 200 A",
+   "100% duty cycle 75 A",
+   "100% duty cycle 115 A",
+   "LCD display warning screen",
+   "fault codes",
+   "thermal trip",
+   "low voltage input",
+   "high voltage input",
+   "power switch location",
+   "MIG gun rest surface",
+   "concrete slab",
+   "unplug power cord",
+   "shielding gas cylinder valve close",
+   "regulator",
+   "shutdown procedure",
+   "cool down",
+   "front panel"
+  ],
+  "answers": [
+   "what is the duty cycle of the welder at 120V and 240V",
+   "how many minutes can I weld before resting at 100 A or 200 A",
+   "at what amperage can I weld continuously (100% duty cycle)",
+   "what does the warning screen on the LCD mean",
+   "why did my welder shut down and how do I reset it",
+   "where is the power switch on the welder",
+   "where do I set the MIG gun down after welding",
+   "what order do I shut the machine down in (gun, switch, cord, gas valve)"
+  ],
+  "model": "claude-opus-5"
+ },
+ "manual-p29-f3": {
+  "title": "Setting up the weld: clamping and surface preparation",
+  "kind": "diagram",
+  "summary": "This diagram illustrates the proper setup for welding two workpieces together, showing the placement of clamps to hold workpieces in position, the requirement to clean surfaces to bare metal, and the need to chamfer the edges of thick workpieces to ensure proper weld penetration.",
+  "visible_text": [
+   "clamps",
+   "workpieces",
+   "Clean surfaces to bare metal.",
+   "Chamfer thick workpieces."
+  ],
+  "shows": [
+   "clamp placement",
+   "workpiece positioning",
+   "surface preparation",
+   "edge chamfering",
+   "bare metal requirement",
+   "weld joint setup"
+  ],
+  "answers": [
+   "How should workpieces be held in position for welding?",
+   "What surface condition is required before welding?",
+   "Why and how should thick workpieces be prepared?",
+   "What is the proper setup for welding two pieces together?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p29-f2": {
+  "title": "TIG Rated Duty Cycles",
+  "kind": "chart",
+  "summary": "Displays duty cycle ratings for TIG welding at 240VAC and 120VAC supply voltages. For 240VAC at 30% duty (175A), the welder permits 3 minutes of welding followed by 7 minutes of rest per 10-minute cycle; at 100% continuous use, maximum current is 105A. For 120VAC at 40% duty (125A), the welder permits 4 minutes of welding followed by 6 minutes of rest per 10-minute cycle; at 100% continuous use, maximum current is 90A.",
+  "visible_text": [
+   "TIG Rated Duty Cycles",
+   "240VAC",
+   "30% Use at 175A",
+   "For 10 Continuous Minutes",
+   "3 Minutes Welding",
+   "7 Minutes Resting",
+   "100% Continuous Use at 105A",
+   "120VAC",
+   "40% Use at 125A",
+   "For 10 Continuous Minutes",
+   "4 Minutes Welding",
+   "6 Minutes Resting",
+   "100% Continuous Use at 90A"
+  ],
+  "shows": [
+   "TIG welding duty cycles",
+   "240VAC supply",
+   "120VAC supply",
+   "welding current ratings",
+   "rest periods",
+   "continuous use current limits",
+   "10-minute cycle time",
+   "thermal protection thresholds"
+  ],
+  "answers": [
+   "What are the TIG duty cycles for 240VAC operation?",
+   "What are the TIG duty cycles for 120VAC operation?",
+   "How long can I weld continuously at 175A on 240VAC before resting?",
+   "How long can I weld continuously at 125A on 120VAC before resting?",
+   "What is the maximum continuous current for TIG welding?",
+   "How long must the welder rest after each welding period?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p30-f2": {
+  "title": "TIG Gas Type Selection Screen",
+  "kind": "screen",
+  "summary": "A control panel screen for selecting shielding gas type in TIG welding mode. This screen shows the option to set gas to 100% Argon, with left and right toggle buttons and a confirm button below. It directly answers which gas types are available and how to select them during TIG process setup.",
+  "visible_text": [
+   "100% Argon",
+   "CONFIRM"
+  ],
+  "shows": [
+   "gas selection menu",
+   "argon gas option",
+   "toggle controls",
+   "confirm button",
+   "TIG welding interface",
+   "shielding gas settings"
+  ],
+  "answers": [
+   "What gas type options are available for TIG welding on this welder?",
+   "How do you select 100% Argon as the shielding gas?",
+   "What does the gas selection screen look like during TIG setup?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p30-f3": {
+  "title": "TIG process material thickness setting screen",
+  "kind": "screen",
+  "summary": "Display screen showing the TIG welding process configuration for rod diameter (1/16\") and material thickness (24 Ga). This figure illustrates the settings menu that appears after selecting TIG process, demonstrating how to configure material parameters before welding.",
+  "visible_text": [
+   "TIG",
+   "Diameter",
+   "1/16\"",
+   "Thickness",
+   "24 Ga",
+   "CONFIRM"
+  ],
+  "shows": [
+   "TIG process selection screen",
+   "rod diameter setting",
+   "material thickness setting",
+   "gauge display",
+   "confirm button",
+   "left and right knob indicators"
+  ],
+  "answers": [
+   "What does the TIG settings screen look like?",
+   "How do you set material thickness in TIG mode?",
+   "What material thickness options are available?",
+   "What rod diameter options are shown?",
+   "How are rod diameter and material thickness displayed together?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p30-f4": {
+  "title": "TIG Process Selection Screen",
+  "kind": "screen",
+  "summary": "This is the LCD display screen of the Vulcan OmniPro 220 welder showing the TIG process selection menu. It depicts the initial screen a user reaches after pressing the Home Button and turning the Main Control Knob to display the TIG welding process option, which must then be selected by pressing the Main Control Knob to proceed to TIG settings configuration.",
+  "visible_text": [
+   "TIG",
+   "HOME",
+   "BACK",
+   "OMNI PRO 220",
+   "VULCAN"
+  ],
+  "shows": [
+   "TIG process menu",
+   "LCD control panel display",
+   "Main Control Knob (center)",
+   "Left Knob",
+   "Right Knob",
+   "Home Button",
+   "Back Button",
+   "Navigation icons in menu bar",
+   "TIG torch icon"
+  ],
+  "answers": [
+   "What does the screen look like when selecting TIG mode?",
+   "How do I navigate to the TIG process on the Vulcan OmniPro 220?",
+   "What is the first screen shown after pressing Home and turning the Main Control Knob to TIG?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p31-f1": {
+  "title": "Recall Setting and Save Setting menu screens",
+  "kind": "screen",
+  "summary": "Two interface screens showing the Optional Settings menu options for the Vulcan OmniPro 220 welder. The top screen depicts the Recall Setting function (with an upload icon) used to retrieve previously saved welding configurations, while the bottom screen shows the Save Setting function (with a download icon) used to program up to 5 different welding configurations. Each screen includes navigation buttons at the bottom.",
+  "visible_text": [
+   "Recall Setting",
+   "Save Setting"
+  ],
+  "shows": [
+   "optional settings menu",
+   "recall setting function",
+   "save setting function",
+   "upload icon",
+   "download icon",
+   "navigation buttons",
+   "configuration management",
+   "saved settings retrieval",
+   "settings storage"
+  ],
+  "answers": [
+   "How do I recall a previously saved welding setting?",
+   "How do I save a welding configuration?",
+   "What optional settings are available on the Vulcan OmniPro 220?",
+   "How many different configurations can I save?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p30-f1": {
+  "title": "TIG Welding Setup and Initial Operating Procedure",
+  "kind": "screen",
+  "summary": "Screenshot of page 30 from the Vulcan OmniPro 220 manual showing safety warnings, setup instructions, and initial steps 1\u20138 for beginning TIG welding operations, including gas cylinder setup, power connection, and navigating to the TIG process on the control panel display.",
+  "visible_text": [
+   "TIG Welding",
+   "WARNING: TO PREVENT SERIOUS INJURY AND DEATH: Do not weld without Grounding Clamp. When the operator is not holding the Torch, it must be sitting on a nonconductive, nonflammable surface. Only hold TIG Rod with an electrically insulated welding glove.",
+   "DANGER: TO PREVENT DEATH FROM ASPHYXIATION: Do not open gas without proper ventilation. Fix gas leaks immediately. Shielding gas can displace air and cause rapid loss of consciousness and death. Shielding gas without carbon dioxide can be even more hazardous because asphyxiation can start without feeling shortness of breath.",
+   "NOTICE: TIG welding is a complicated process, requiring experience and skill to achieve successful results. Training beyond the scope of this manual is required to TIG weld properly.",
+   "1. Open gas cylinder's valve all the way.",
+   "2. Set Flow Gauge to SCFH value indicated on the Settings Chart on the inside of the Welder door.",
+   "3. Turn the Power Switch to the OFF position, then plug the Welder into a properly grounded, GFCI protected, 120 VAC (20 amp rated) outlet or 240 V outlet. The circuit must be equipped with delayed action-type circuit breaker or fuses.",
+   "4. Set TIG Torch down on nonconductive, nonflammable surface away from any grounded objects.",
+   "5. Turn the Power Switch ON.",
+   "6. Press Home Button on Control Panel.",
+   "7. Turn Main Control Knob until TIG process appears on LCD display screen.",
+   "8. Press Main Control Knob to select TIG process.",
+   "Note: Press Main Control Knob to go to next screen. Press Back Button to return to the previous screen.",
+   "Left Knob",
+   "Main Control Knob",
+   "Right Knob",
+   "TIG"
+  ],
+  "shows": [
+   "TIG welding safety warnings",
+   "gas cylinder valve operation",
+   "flow gauge adjustment",
+   "power switch operation",
+   "electrical outlet requirements (120 VAC or 240 V, GFCI protected)",
+   "circuit breaker specifications",
+   "torch placement on nonflammable surface",
+   "control panel home button",
+   "main control knob navigation",
+   "TIG process selection on LCD display",
+   "left knob and right knob functions",
+   "grounding clamp requirement",
+   "shielding gas safety precautions"
+  ],
+  "answers": [
+   "What are the first 8 steps to set up TIG welding on a Vulcan OmniPro 220?",
+   "What voltage and amperage outlet is required for the Vulcan OmniPro 220?",
+   "What safety precautions must be taken before TIG welding?",
+   "How do you navigate to the TIG process on the control panel?",
+   "Where should the TIG torch be placed when not in use?",
+   "What type of circuit protection is required for the welder?",
+   "How do you adjust the flow gauge for TIG welding?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p30-f5": {
+  "title": "TIG Welder Control Panel Display with Settings",
+  "kind": "photo",
+  "summary": "A photograph of the OmniPro 220 welder's LCD display and control interface during TIG welding setup, showing current output (30 A / 0 A), voltage (0.0 V), process mode (TIG with Pedal, 100% Ar), and indicating rod diameter (1/16\") and material thickness (24Ga) settings. This image illustrates the actual appearance and layout of the control panel that a user will interact with when configuring TIG welding parameters.",
+  "visible_text": [
+   "30 A",
+   "0 A",
+   "ON",
+   "OFF",
+   "0.0 V",
+   "TIG with Pedal",
+   "100% Ar",
+   "1/16\"",
+   "24Ga",
+   "SETTINGS",
+   "cess Type",
+   "F Dia",
+   "Ma Thic"
+  ],
+  "shows": [
+   "LCD display panel",
+   "current meter (amperage)",
+   "voltage display",
+   "power switch (ON/OFF)",
+   "TIG process selection",
+   "argon gas setting",
+   "rod diameter selector",
+   "material thickness selector",
+   "control knobs",
+   "pedal control option"
+  ],
+  "answers": [
+   "What does the OmniPro 220 control panel look like during TIG setup?",
+   "Where are the rod diameter and material thickness settings shown?",
+   "How is the TIG process mode displayed on the welder?",
+   "What gas type is indicated for this TIG configuration?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p31-f2": {
+  "title": "Practice welding procedure and duty cycle reminder",
+  "kind": "decorative",
+  "summary": "A boxed instructional note reminding users to stop and inspect welds after practice on scrap material, perform a Strike Test (page 34), make adjustments, and then continue welding while observing duty cycle guidelines (page 29). This is page furniture highlighting a procedural checkpoint rather than a standalone instructional figure.",
+  "visible_text": [
+   "After practice welding on scrap, stop, and check your progress. Perform Strike Test according to Strike Test on page 34. After making any necessary adjustments, continue to weld while carefully following the DUTY CYCLE guidelines as explained on page 29."
+  ],
+  "shows": [
+   "welding procedure",
+   "quality control checkpoint",
+   "Strike Test reference",
+   "duty cycle guidelines reference",
+   "scrap practice workflow"
+  ],
+  "answers": [
+   "When should I check my welding progress during practice?",
+   "What should I do after practice welding on scrap?",
+   "Where is the Strike Test procedure explained?",
+   "Where are duty cycle guidelines explained?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p32-f3": {
+  "title": "Stick Process Electrode and Material Settings Screen",
+  "kind": "screen",
+  "summary": "A welder control panel display showing the Stick welding process with two key parameter selections: electrode diameter set to 3/32\" and material thickness set to 16 gauge. This screen appears during step 7c of the Stick setup procedure for configuring electrode and workpiece specifications.",
+  "visible_text": [
+   "Stick",
+   "\u00d8 Diameter",
+   "3/32\"",
+   "Thickness",
+   "16 Ga",
+   "CONFIRM"
+  ],
+  "shows": [
+   "electrode diameter selector",
+   "material thickness selector",
+   "stick welding process menu",
+   "confirm button",
+   "parameter settings interface"
+  ],
+  "answers": [
+   "What electrode diameter options are available for Stick welding on this welder?",
+   "How do you set the electrode diameter and material thickness in the Stick process?",
+   "What is the default or example electrode diameter and thickness shown for Stick welding?",
+   "What gauge thickness options are available for Stick welding?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p32-f2": {
+  "title": "Stick process electrode type selection screen",
+  "kind": "screen",
+  "summary": "LCD display screen showing the Stick welding process menu with Electrode type selection highlighted. This figure illustrates step 7b of the Stick welding setup procedure, where the user turns the Main Control Knob to set the electrode type, with '60xx' displayed as an example electrode designation.",
+  "visible_text": [
+   "Turn Main Control Knob to set electrode ty",
+   "Stick",
+   "Electrode",
+   "60xx",
+   "CONFIRM"
+  ],
+  "shows": [
+   "LCD display menu",
+   "Stick process selection",
+   "Electrode type setting",
+   "Electrode designation format (60xx)",
+   "Main Control Knob interface",
+   "CONFIRM button"
+  ],
+  "answers": [
+   "How do you select electrode type on the Vulcan OmniPro 220?",
+   "What does the electrode selection screen look like?",
+   "What electrode types are available (example: 60xx)?",
+   "How do you navigate to set electrode type in Stick welding mode?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p32-f1": {
+  "title": "Stick Welding Setup and Control Panel",
+  "kind": "screen",
+  "summary": "This figure shows the Vulcan OmniPro 220 control panel and the initial setup steps (1\u20136) for stick welding, including power connection, electrode holder placement, and navigation to the STICK process. It depicts the locations of the Left Knob, Main Control Knob, and Right Knob used to adjust welding parameters.",
+  "visible_text": [
+   "Stick Welding",
+   "WARNING TO PREVENT SERIOUS INJURY AND DEATH: Do not weld without Grounding Clamp. When the operator is not holding the Electrode Holder, it must be sitting on a nonconductive, nonflammable surface.",
+   "Turn the Power Switch to the OFF position, then plug the Welder into a properly grounded, GFCI protected, 120 VAC (20 amp rated) outlet or 240 V outlet. The circuit must be equipped with delayed action-type circuit breaker or fuses.",
+   "Set Electrode Holder down on nonconductive, nonflammable surface away from any grounded objects.",
+   "Turn the Power Switch ON.",
+   "Press Home Button on Control Panel.",
+   "Turn Main Control Knob until Stick process appears on LCD display screen.",
+   "Press Main Control Knob to select STICK process.",
+   "Note: Press Main Control Knob to go to next screen. Press Back Button to return to the previous screen.",
+   "Left Knob",
+   "Main Control Knob",
+   "Right Knob",
+   "Adjust settings for the STICK process.",
+   "Polarity Setting: Plug cables in according to screen."
+  ],
+  "shows": [
+   "control panel layout",
+   "power switch location",
+   "home button",
+   "main control knob",
+   "left knob",
+   "right knob",
+   "LCD display screen",
+   "electrode holder",
+   "grounding clamp requirement",
+   "GFCI protection requirement",
+   "stick welding process selection",
+   "polarity setting"
+  ],
+  "answers": [
+   "What are the initial steps to set up stick welding on the Vulcan OmniPro 220?",
+   "Where is the Home Button located on the control panel?",
+   "How do I select the STICK process?",
+   "What power requirements are needed for the welder?",
+   "What safety precautions must be taken before stick welding?",
+   "Which knobs control electrode diameter and material thickness?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p32-f4": {
+  "title": "Stick process selection screen on OmniPro 220 control panel",
+  "kind": "screen",
+  "summary": "Displays the LCD screen of the Vulcan OmniPro 220 welder after the HOME button is pressed and the Main Control Knob is turned to select STICK welding process. This screen appears during step 6 of the Stick welding setup procedure and shows the process name with an icon representing the stick electrode holder.",
+  "visible_text": [
+   "Stick",
+   "HOME",
+   "BACK"
+  ],
+  "shows": [
+   "LCD display screen",
+   "STICK process selection",
+   "electrode holder icon",
+   "HOME button",
+   "BACK button",
+   "Main Control Knob",
+   "control panel interface",
+   "process menu"
+  ],
+  "answers": [
+   "What does the LCD screen display after selecting STICK process on the OmniPro 220?",
+   "How do you navigate to the STICK welding process on this welder?",
+   "What is the appearance of the control panel screen when setting up stick welding?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p33-f1": {
+  "title": "Post-Practice Welding Inspection and Duty Cycle Instructions",
+  "kind": "decorative",
+  "summary": "A text box instructing users to stop after practice welding on scrap, perform a Strike Test per page 34, make adjustments as needed, and then continue welding while following Duty Cycle guidelines from page 29. This is a procedural note embedded within the operating instructions, not a standalone figure conveying independent information.",
+  "visible_text": [
+   "After practice welding on scrap, stop, and check your progress. Perform Strike Test according to Strike Test on page 34. After making any necessary adjustments, continue to weld while carefully following the DUTY CYCLE guidelines as explained on page 29."
+  ],
+  "shows": [
+   "post-practice inspection procedure",
+   "Strike Test reference",
+   "Duty Cycle compliance requirement",
+   "adjustment workflow"
+  ],
+  "answers": [
+   "What should I do after practice welding on scrap?",
+   "When should I perform a Strike Test?",
+   "What guidelines must I follow after adjustments?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p32-f5": {
+  "title": "Stick Process Control Panel Setup Screen",
+  "kind": "screen",
+  "summary": "This welder control panel screenshot displays the Stick process configuration screen with settings for electrode type (70XX stick), electrode diameter (3/32\"), material thickness (16Ga), and amperage (60A output, 0A input). It confirms that Open Circuit Voltage is present when the welder is energized and ready to weld, illustrating the final setup state before striking an arc.",
+  "visible_text": [
+   "Open Circuit Voltage is present.",
+   "60 A",
+   "0 A",
+   "ON",
+   "OFF",
+   "0.0 V",
+   "Process",
+   "Electrode Type",
+   "Stick",
+   "70XX",
+   "Electrode Diameter",
+   "3/32\"",
+   "Material Thickness",
+   "16Ga",
+   "Hot Start",
+   "Arc Force",
+   "SETTINGS"
+  ],
+  "shows": [
+   "Stick welding process",
+   "Electrode type selection (70XX)",
+   "Electrode diameter setting (3/32 inch)",
+   "Material thickness setting (16 gauge)",
+   "Output amperage (60A)",
+   "Input amperage (0A)",
+   "Open circuit voltage condition",
+   "ON/OFF power switch state",
+   "Control panel layout",
+   "Hot Start and Arc Force adjustment knobs"
+  ],
+  "answers": [
+   "What does the control panel display when Stick process is selected?",
+   "What settings are visible for a 3/32\" 70XX electrode on 16Ga material?",
+   "When is Open Circuit Voltage present on the Vulcan OmniPro 220?",
+   "What amperage output is shown for this Stick welding setup?",
+   "How is the welder configured for stick electrode welding?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p32-f6": {
+  "title": "No Gas Required polarity configuration screen",
+  "kind": "screen",
+  "summary": "A control panel screen displaying the polarity cable configuration for a gasless (flux-cored) welding process. The negative terminal connects to the electrode holder (left); the positive terminal connects to the workpiece clamp (right). This screen appears during setup to guide correct cable connection before energizing the welder.",
+  "visible_text": [
+   "\u2212",
+   "+",
+   "No Gas Required",
+   "CONFIRM"
+  ],
+  "shows": [
+   "polarity configuration",
+   "electrode holder connection",
+   "workpiece clamp connection",
+   "flux-cored welding setup",
+   "cable routing diagram",
+   "confirm button"
+  ],
+  "answers": [
+   "What polarity do I use for gasless (flux-cored) welding?",
+   "Which terminal does the electrode holder plug into?",
+   "Which terminal does the work clamp plug into?",
+   "How do I set up cables for the No Gas Required process?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p33-f2": {
+  "title": "Optional Settings menu screens",
+  "kind": "screen",
+  "summary": "Four sequential menu screens showing the Optional Settings available on the Vulcan OmniPro 220 welder: Hot Start (adjust amperage at start of weld), Arc Force (adjust weld penetration and smoothness), Recall Setting (retrieve saved settings), and Save Setting (program up to 5 different configurations). Each screen displays the setting name, a representative icon, and navigation buttons at the bottom.",
+  "visible_text": [
+   "Hot Start",
+   "Arc Force",
+   "Recall Setting",
+   "Save Setting"
+  ],
+  "shows": [
+   "optional settings menu",
+   "hot start adjustment",
+   "arc force adjustment",
+   "recall setting function",
+   "save setting function",
+   "menu navigation buttons",
+   "weld parameter configuration"
+  ],
+  "answers": [
+   "What optional settings are available on the Vulcan OmniPro 220?",
+   "How do I adjust hot start amperage?",
+   "What does Arc Force control?",
+   "How do I save or recall weld settings?",
+   "What are the four main optional settings on this welder?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p34-f1": {
+  "title": "Strike Test for Weld Quality Assessment",
+  "kind": "diagram",
+  "summary": "Illustrates the destructive strike test procedure for evaluating weld quality on scrap metal. Shows the three-step process: clamping cooled welded scraps in a vise, striking with a dead-blow hammer, and interpreting results. A good weld bends without breaking; a poor weld snaps or cracks at the weld line.",
+  "visible_text": [
+   "Strike Test",
+   "A test weld on a PIECE OF SCRAP can be tested by using the following procedure.",
+   "WEAR ANSI-APPROVED SAFETY GOGGLES DURING THIS PROCEDURE.",
+   "CAUTION! This test WILL damage the weld it is performed on. This test is ONLY an indicator of weld technique and is not intended to test working welds.",
+   "After two scraps have been welded together and the weld has cooled, clamp one scrap in a sturdy vise.",
+   "Stay clear from underneath while you strike the opposite scrap with a heavy hammer, preferably a dead-blow hammer.",
+   "A GOOD WELD will deform but not break, as shown on top.",
+   "A POOR WELD will be brittle and snap at the weld, as shown on bottom.",
+   "clamp",
+   "SCRAP workpiece",
+   "GOOD WELD bends and is not brittle",
+   "dead-blow hammer",
+   "POOR WELD snaps or cracks"
+  ],
+  "shows": [
+   "strike test procedure",
+   "vise clamping",
+   "dead-blow hammer",
+   "good weld behavior",
+   "poor weld behavior",
+   "weld deformation vs. brittleness",
+   "scrap metal test setup"
+  ],
+  "answers": [
+   "How do you perform a strike test on a weld?",
+   "What is the difference between a good weld and a poor weld in a strike test?",
+   "What equipment is needed for a strike test?",
+   "How should the weld sample be positioned during a strike test?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p34-f2": {
+  "title": "Instruction box for weld examination procedure",
+  "kind": "decorative",
+  "summary": "A bordered text box that introduces the weld examination guidelines section. It directs users to stop after practice welding and examine their welds using the criteria that follow on the page.",
+  "visible_text": [
+   "After practice welding a couple of welding beads, STOP and examine your weld using the following guidelines."
+  ],
+  "shows": [
+   "procedural instruction",
+   "section header",
+   "weld quality assessment workflow"
+  ],
+  "answers": [],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p34-f4": {
+  "title": "Strike test for poor weld",
+  "kind": "diagram",
+  "summary": "Demonstrates how a poor weld fails under the strike test procedure: when struck with a dead-blow hammer, a poor weld becomes brittle and snaps or cracks at the weld joint, rather than deforming as a good weld would.",
+  "visible_text": [
+   "dead-blow hammer",
+   "clamp",
+   "SCRAP workpiece",
+   "POOR WELD snaps or cracks"
+  ],
+  "shows": [
+   "strike test procedure",
+   "dead-blow hammer",
+   "vise clamp",
+   "scrap workpiece",
+   "weld failure mode",
+   "brittle fracture",
+   "poor weld quality indicator"
+  ],
+  "answers": [
+   "What does a poor weld look like when struck with a hammer during the strike test?",
+   "How do you perform the strike test on a weld?",
+   "What is an indicator of poor welding technique?",
+   "What happens when you hit a poorly welded joint with a dead-blow hammer?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p34-f3": {
+  "title": "Strike Test for Good Weld",
+  "kind": "diagram",
+  "summary": "Demonstrates the strike test procedure for evaluating weld quality on scrap pieces. A dead-blow hammer strikes a clamped workpiece to test whether the weld bends without breaking (indicating good technique) or snaps and cracks (indicating poor technique).",
+  "visible_text": [
+   "dead-blow hammer",
+   "SCRAP workpiece",
+   "clamp",
+   "GOOD WELD bends and is not brittle"
+  ],
+  "shows": [
+   "strike test procedure",
+   "dead-blow hammer",
+   "vise clamp",
+   "scrap metal workpiece",
+   "weld quality assessment",
+   "good weld behavior",
+   "destructive testing",
+   "safety testing method"
+  ],
+  "answers": [
+   "How do you perform a strike test on a weld?",
+   "What tool is used to test weld quality with a strike test?",
+   "What does a good weld do when struck with a hammer in the strike test?",
+   "How should scrap pieces be positioned for strike testing?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p34-f5": {
+  "title": "Chipping Hammer and Wire Brush for Weld Cleaning",
+  "kind": "diagram",
+  "summary": "Illustrates the two primary tools used to clean welds after cooling: a chipping hammer for removing slag from flux-cored and stick welding, and a wire brush for further cleaning or surface preparation. This figure supports the weld cleaning procedure described on page 34.",
+  "visible_text": [
+   "Chipping Hammer",
+   "Wire Brush"
+  ],
+  "shows": [
+   "chipping hammer",
+   "wire brush",
+   "weld cleaning tools",
+   "slag removal",
+   "hand tools"
+  ],
+  "answers": [
+   "What tools are used to clean a weld?",
+   "How do you remove slag from a weld?",
+   "What is a chipping hammer used for in welding?",
+   "What tools come after a weld has cooled?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p35-f3": {
+  "title": "Proper Penetration cross-section",
+  "kind": "diagram",
+  "summary": "Illustrates the ideal weld bead profile and penetration depth into the workpiece during wire welding. The dark bead shows complete fusion through the material with appropriate heat input, neither excessive nor insufficient.",
+  "visible_text": [
+   "PROPER PENETRATION"
+  ],
+  "shows": [
+   "weld bead profile",
+   "penetration depth",
+   "fusion zone",
+   "workpiece cross-section",
+   "ideal heat condition"
+  ],
+  "answers": [
+   "What does proper penetration look like in a wire weld?",
+   "How deep should a weld bead penetrate into the workpiece?",
+   "What is the correct weld profile for ideal penetration?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p35-f2": {
+  "title": "Inadequate Penetration \u2014 Weld Bead Cross-Section",
+  "kind": "diagram",
+  "summary": "Cross-sectional diagram showing inadequate weld penetration, where the weld pool fails to fuse sufficiently into the base material. Illustrates the problem state in the wire weld diagnosis sequence and indicates that workpiece heat is 'not hot enough,' settling user questions about what insufficient penetration looks like and its cause.",
+  "visible_text": [
+   "INADEQUATE PENETRATION",
+   "Not hot enough",
+   "How to increase workp"
+  ],
+  "shows": [
+   "weld bead cross-section",
+   "lack of fusion",
+   "shallow penetration",
+   "base material",
+   "inadequate heat input",
+   "weld pool profile"
+  ],
+  "answers": [
+   "What does inadequate penetration look like in a wire weld?",
+   "What does insufficient workpiece heat produce?",
+   "How can I identify a weld with not enough penetration?",
+   "Why is my weld not penetrating deep enough?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p29-f1": {
+  "title": "Stick rated duty cycle clock chart and ground clamp-to-workpiece connection diagram",
+  "kind": "diagram",
+  "summary": "Right-hand portion of the duty cycle / weld setup page: a boxed 'Stick Rated Duty Cycles' table with pie-clock icons showing 240 VAC = 25% use at 175 A (2-1/2 minutes welding, 7-1/2 minutes resting, 100% continuous use at 100 A) and 120 VAC = 40% use at 80 A (4 minutes welding, 6 minutes resting, 100% continuous use at 60 A), plus a sliver of the TIG table (125 A, 6 minutes resting, 100% use at 90 A). Below it, a line drawing of the Vulcan OmniPro 220 with the ground cable plugged into a front panel socket and the ground clamp gripping a workpiece, labelled 'Clean surface to bare metal' and 'Ground connection depends on desired welding polarity'.",
+  "visible_text": [
+   "SAFETY",
+   "CONTROLS",
+   "WIRE",
+   "TIG / STICK",
+   "WELDING TIPS",
+   "MAINTENANCE",
+   "This Welder has an internal thermal protection system to help prevent this sort of over-stress. When the Welder overheats, it automatically shuts down and a warning screen appears in the LCD Display window. The Welder automatically returns to service after cooling off. Should this occur, rest the Tig Torch or Electrode Holder on an electrically non-conductive, heat-proof surface, such as a concrete slab, well clear of the ground clamp.",
+   "Allow the Welder to cool with the Power Switch on, so that the internal Fan will help cool the Welder.",
+   "When normal operation resumes, use shorter welding periods and longer rest periods to prevent needless wear.",
+   "Stick Rated Duty Cycles",
+   "240 VAC",
+   "25% Use at 175 A",
+   "For 10 Continuous Minutes",
+   "2-1/2 Minutes Welding",
+   "7-1/2 Minutes Resting",
+   "100% Continuous Use at 100 A",
+   "120 VAC",
+   "40% Use at 80 A",
+   "For 10 Continuous Minutes",
+   "4 Minutes Welding",
+   "6 Minutes Resting",
+   "100% Continuous Use at 60 A",
+   "125 A",
+   "6 Minutes Resting",
+   "100% Use at 90 A",
+   "2. Use clamps (not included) to hold the workpieces in position so that you can concentrate on proper welding technique. The distance (if any) between the two workpieces must be controlled properly to allow the weld to hold both sides securely while allowing the weld to penetrate fully into the joint. The edges of thicker workpieces may need to be chamfered (or beveled) to allow proper weld penetration.",
+   "NOTICE: When welding equipment on a vehicle, disconnect the vehicle battery power from both the positive connection and the ground before welding. This prevents damage to some vehicle electrical systems and electronics due to the high voltage and high frequency bursts common in welding.",
+   "VULCAN",
+   "220",
+   "Workpiece",
+   "Clean surface to bare metal.",
+   "Ground Clamp",
+   "Ground connection depends on desired welding polarity"
+  ],
+  "shows": [
+   "duty cycle",
+   "stick welding duty cycle",
+   "240 VAC 25% at 175 A",
+   "120 VAC 40% at 80 A",
+   "100% continuous use 100 A",
+   "100% continuous use 60 A",
+   "10 minute clock diagram",
+   "thermal overload protection",
+   "ground clamp",
+   "ground cable",
+   "workpiece",
+   "bare metal surface prep",
+   "welding polarity",
+   "OmniPro 220 front panel sockets",
+   "vehicle battery disconnect notice"
+  ],
+  "answers": [
+   "how many minutes can I stick weld at 175 A on 240 V before resting",
+   "what is the stick duty cycle on 120 V and at what amperage",
+   "what amperage can I stick weld continuously (100% duty cycle)",
+   "where do I attach the ground clamp on the workpiece",
+   "does the workpiece need to be cleaned to bare metal before clamping the ground",
+   "which front socket does the ground cable plug into",
+   "what happens when the welder overheats and how do I cool it down"
+  ],
+  "model": "claude-opus-5"
+ },
+ "manual-p35-f4": {
+  "title": "Too Hot Workpiece Heat Control Indicator",
+  "kind": "diagram",
+  "summary": "This diagram illustrates the visual appearance of a weld bead when workpiece heat is too high, shown as excess penetration or burn-through with a characteristic deep, wide profile. It indicates that to correct this condition, the operator should reduce workpiece heat by decreasing weld current, increasing travel speed, using slower wire feed, or using longer CTWD.",
+  "visible_text": [
+   "Too hot",
+   "reduce workpiece heat"
+  ],
+  "shows": [
+   "burn-through",
+   "excess penetration",
+   "weld bead cross-section",
+   "workpiece heat control",
+   "heat management"
+  ],
+  "answers": [
+   "What does a weld look like when it's too hot?",
+   "How do I identify burn-through or excess penetration in wire welding?",
+   "What should I do if my workpiece heat is too high?",
+   "How do I reduce workpiece heat when welding thin materials?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p36-f1": {
+  "title": "Excess Penetration or Burn-Through Profile Views",
+  "kind": "diagram",
+  "summary": "Three cross-sectional profile views showing how excess weld penetration appears: weld material drooping underneath the workpiece, penetrating completely through, or creating a hole. This figure helps users identify burn-through defects and understand their visual characteristics from different angles.",
+  "visible_text": [
+   "underneath, or falls through entirely, making a hole.",
+   "PROFILE VIEWS",
+   "POSSIBLE CAUSES AND SOLUTIONS",
+   "POSSIBLE CAUSES AND SOLUTIONS"
+  ],
+  "shows": [
+   "weld bead cross-section",
+   "excess penetration",
+   "burn-through defect",
+   "workpiece penetration",
+   "hole formation",
+   "profile view perspective",
+   "top view perspective"
+  ],
+  "answers": [
+   "What does excess weld penetration look like in cross-section?",
+   "How can I identify burn-through defects in my welds?",
+   "What visual indicators show that a weld has burned through the workpiece?",
+   "How does weld material appear when it falls through entirely?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p36-f2": {
+  "title": "Proper Penetration weld profile",
+  "kind": "diagram",
+  "summary": "A cross-sectional profile view of a properly penetrated weld bead, showing the weld visible underneath the workpiece and bulging slightly on top. This diagram illustrates the correct appearance of a MIG weld with adequate heat and travel speed, distinguishing it from excess penetration (burn-through) and inadequate penetration (surface-only).",
+  "visible_text": [],
+  "shows": [
+   "weld bead cross-section",
+   "proper penetration",
+   "weld profile",
+   "top surface bulge",
+   "bottom surface visibility",
+   "two-piece workpiece joint"
+  ],
+  "answers": [
+   "What does a properly penetrated weld look like in cross-section?",
+   "How should a weld bead appear on top and underneath for proper penetration?",
+   "What is the correct weld profile for a MIG weld?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p37-f1": {
+  "title": "Wire Weld Porosity in Bead",
+  "kind": "diagram",
+  "summary": "Illustrates the appearance of porosity defect in a welded bead, showing small cavities or holes distributed across the weld surface. This figure identifies the visual symptom of porosity and directs users to six possible causes (incorrect polarity, insufficient or incorrect shielding gas, dirty workpiece/wire, inconsistent travel speed, or excessive CTWD) and their corresponding solutions.",
+  "visible_text": [
+   "Small cavities or holes in the bead.",
+   "POSSIBLE CAUSES AND SOLUTION"
+  ],
+  "shows": [
+   "porosity defect",
+   "cavities in weld bead",
+   "holes in weld",
+   "wire welding quality issue",
+   "bead surface defect",
+   "weld cross-section view"
+  ],
+  "answers": [
+   "What does porosity look like in a welded bead?",
+   "What causes small holes or cavities in a weld?",
+   "How do I identify porosity in wire welding?",
+   "What are the solutions for porosity in MIG or flux-cored welding?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p36-f3": {
+  "title": "Coat of Slag Over Weld \u2014 causes and solutions",
+  "kind": "diagram",
+  "summary": "Shows a top-view diagram of slag coating on a MIG weld, partially chipped away to expose the underlying weld bead. Explains that slag is a necessary byproduct of flux-cored wire welding that shields the weld from impurities, and must be cleaned off with a chipping hammer and wire brush after welding. Gas-shielded MIG welds do not produce slag.",
+  "visible_text": [
+   "Coat of Slag Over Weld",
+   "TOP VIEW",
+   "PARTIALLY CHIPPED AWAY TO SHOW WELD",
+   "Slag is a necessary part of a flux-cored wire weld. It shields the weld from impurities. Clean off the slag with a Chipping Hammer and Wire Brush after welding.",
+   "Gas-shielded MIG welds are protected by the shielding gas and do not need slag to protect them."
+  ],
+  "shows": [
+   "slag coating",
+   "flux-cored wire weld",
+   "weld bead",
+   "slag removal",
+   "chipping hammer",
+   "wire brush",
+   "shielding gas",
+   "gas-shielded MIG"
+  ],
+  "answers": [
+   "What is slag and why is it present on flux-cored welds?",
+   "How do you remove slag from a weld?",
+   "Why do gas-shielded MIG welds not have slag?",
+   "What tools are used to clean slag off a weld?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p37-f2": {
+  "title": "Wire Weld \u2013 Excessive Spatter",
+  "kind": "diagram",
+  "summary": "A cross-sectional diagram of a welding bead showing excessive spatter (grainy and large particles scattered around the weld). This figure illustrates the appearance of a problematic weld condition and helps users identify when spatter quality has degraded beyond the normal fine spatter that is acceptable.",
+  "visible_text": [
+   "that is grainy and large is a p",
+   "POSSIBLE CAUSES AND SOLUTIO"
+  ],
+  "shows": [
+   "welding bead",
+   "excessive spatter",
+   "grainy spatter particles",
+   "weld cross-section",
+   "base material",
+   "top view orientation"
+  ],
+  "answers": [
+   "What does excessive spatter look like on a weld?",
+   "How can I identify grainy and large spatter as a weld defect?",
+   "What is the difference between normal and problematic spatter in wire welding?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p37-f3": {
+  "title": "Wire weld bead with coiled/spiral appearance",
+  "kind": "diagram",
+  "summary": "This diagram illustrates a wire weld bead exhibiting a coiled or spiral wire pattern, likely depicting improper wire feeding or bead formation. It serves as a visual reference for identifying defects in MIG/wire welding output.",
+  "visible_text": [
+   "POSSIBLE CAUSES AND SOLUTI"
+  ],
+  "shows": [
+   "wire weld defect",
+   "coiled wire pattern",
+   "bead malformation",
+   "wire feed problem",
+   "cross-section view"
+  ],
+  "answers": [
+   "What does a coiled or spiral wire weld bead look like?",
+   "How can I identify wire feed defects in MIG welding?",
+   "What visual defects indicate improper welding technique?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p37-f4": {
+  "title": "Wire Weld Burn-Through",
+  "kind": "diagram",
+  "summary": "Top-view diagram showing a weld bead with a hole burned through the base material. This figure illustrates the defect of burn-through, where excessive heat or slow travel speed causes the workpiece to melt away completely, leaving a hole in the finished weld.",
+  "visible_text": [
+   "leaving a hole in the weld.",
+   "TOP VIEW",
+   "POSSIBLE CAUSES AND SOLUTIONS"
+  ],
+  "shows": [
+   "burn-through defect",
+   "hole in weld bead",
+   "weld cross-section",
+   "base material melting",
+   "top view orientation"
+  ],
+  "answers": [
+   "What does wire weld burn-through look like?",
+   "How can I identify a hole in my weld?",
+   "What is burn-through in welding?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p38-f2": {
+  "title": "Proper Penetration Cross-Section",
+  "kind": "diagram",
+  "summary": "Shows the ideal weld bead profile penetrating through a workpiece at proper depth. The diagram depicts a shield-shaped bead that fully fuses through the base metal without excess burn-through or inadequate shallow penetration, illustrating the target result when workpiece heat is controlled correctly.",
+  "visible_text": [
+   "PROPER PENETRATION"
+  ],
+  "shows": [
+   "weld bead cross-section",
+   "penetration depth",
+   "ideal fusion profile",
+   "workpiece thickness",
+   "heat control result"
+  ],
+  "answers": [
+   "What does proper penetration look like in a stick weld cross-section?",
+   "How deep should a weld bead penetrate through the workpiece?",
+   "What is the target penetration profile for stick welding?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p38-f3": {
+  "title": "Too Hot Weld Penetration Cross-Section",
+  "kind": "diagram",
+  "summary": "Shows the cross-section of a stick weld with excess penetration or burn-through caused by too much heat. This diagram illustrates what happens when workpiece temperature is excessive, resulting in the weld metal penetrating too deeply and potentially burning through thin material.",
+  "visible_text": [
+   "Too hot"
+  ],
+  "shows": [
+   "weld penetration",
+   "excess penetration",
+   "burn-through",
+   "high workpiece heat",
+   "cross-section view",
+   "weld defect"
+  ],
+  "answers": [
+   "What does excess penetration or burn-through look like in a stick weld?",
+   "What happens when a stick weld is too hot?",
+   "How can I identify if my weld penetration is excessive?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p38-f4": {
+  "title": "Arc Length Adjustment Technique",
+  "kind": "diagram",
+  "summary": "Illustrates the proper stick welding electrode positioning and movement to correct arc length problems. Shows how to increase distance (raise the electrode) to correct arc length that is too short, and how to decrease distance (lower the electrode) to correct arc length that is too long.",
+  "visible_text": [
+   "distance",
+   "distance"
+  ],
+  "shows": [
+   "stick electrode",
+   "arc length",
+   "electrode distance from workpiece",
+   "electrode positioning",
+   "corrective welding technique",
+   "vertical electrode movement"
+  ],
+  "answers": [
+   "How do I correct an arc length that is too short?",
+   "How do I correct an arc length that is too long?",
+   "What is the proper electrode distance from the workpiece?",
+   "How do I adjust electrode position during stick welding?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p39-f1": {
+  "title": "Stick Weld Welding Technique - Proper Electrode and Torch Angle",
+  "kind": "diagram",
+  "summary": "Illustrates the correct welding technique for stick welding, showing proper electrode angle, torch positioning, and arc placement relative to the workpiece and weld puddle. This diagram supports the page's guidance on achieving proper penetration and weld adhesion by demonstrating correct hand and electrode positioning.",
+  "visible_text": [
+   "welding technique:"
+  ],
+  "shows": [
+   "electrode angle",
+   "torch angle",
+   "arc positioning",
+   "weld puddle",
+   "workpiece",
+   "proper hand position",
+   "leading edge of weld puddle",
+   "stick welding setup"
+  ],
+  "answers": [
+   "What is the correct electrode angle for stick welding?",
+   "How should the torch be held when stick welding?",
+   "Where should the arc be positioned relative to the weld puddle?",
+   "What is proper welding technique for a stick welder?",
+   "How do you position the electrode when performing a stick weld?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p39-f2": {
+  "title": "Proper Penetration Profile View",
+  "kind": "diagram",
+  "summary": "Cross-sectional profile showing proper weld penetration, where the weld is visible underneath the workpiece and bulges slightly on top. This diagram illustrates the correct bead geometry that indicates adequate fusion and heat control during stick welding.",
+  "visible_text": [],
+  "shows": [
+   "weld bead profile",
+   "workpiece cross-section",
+   "penetration geometry",
+   "proper bead shape",
+   "weld bulge",
+   "underneath visibility"
+  ],
+  "answers": [
+   "What does proper weld penetration look like in cross-section?",
+   "How should a properly penetrated weld appear on top and underneath?",
+   "What is the correct bead profile for stick welding?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p40-f1": {
+  "title": "Stick Weld \u2013 Coat of Slag Over Weld",
+  "kind": "diagram",
+  "summary": "Illustrates a completed stick weld bead covered with slag, shown from top view with a portion chipped away to reveal the underlying weld. Explains that slag is a necessary protective layer that must be cleaned off with a chipping hammer and wire brush after welding.",
+  "visible_text": [
+   "TOP VIEW",
+   "PARTIALLY CHIPPED AWAY TO SHOW WELD",
+   "Slag is a necessary part of the weld from impurities. Chipping Hammer and W"
+  ],
+  "shows": [
+   "stick weld bead",
+   "slag coating",
+   "weld cross-section",
+   "chipping process",
+   "top view perspective"
+  ],
+  "answers": [
+   "What does slag look like on a stick weld?",
+   "Why is slag present on a stick weld?",
+   "How do you remove slag from a weld?",
+   "What tools are used to clean slag off a weld?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p40-f3": {
+  "title": "Stick Weld with Slag Coat",
+  "kind": "diagram",
+  "summary": "Cross-sectional and top-view diagram of a completed stick weld bead showing the slag coating that forms on the surface. It illustrates that slag is a normal and necessary byproduct of stick welding that shields the weld from impurities and must be removed after welding using a chipping hammer and wire brush.",
+  "visible_text": [],
+  "shows": [
+   "stick weld bead",
+   "slag coating",
+   "weld cross-section",
+   "weld top view",
+   "partially chipped slag",
+   "arc process"
+  ],
+  "answers": [
+   "What does slag look like on a stick weld?",
+   "Is slag normal in stick welding?",
+   "How do you remove slag from a weld?",
+   "Why does slag form on stick welds?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p40-f4": {
+  "title": "Stick Weld with Slag Coat",
+  "kind": "diagram",
+  "summary": "Cross-sectional side view of a completed stick weld bead showing a layer of slag coating the weld. Illustrates that slag is a normal and necessary byproduct of stick welding that shields the weld from impurities and must be removed with a chipping hammer and wire brush after welding.",
+  "visible_text": [],
+  "shows": [
+   "stick weld bead",
+   "slag coating",
+   "weld cross-section",
+   "side view"
+  ],
+  "answers": [
+   "What does a stick weld look like after welding?",
+   "Why is slag present on a stick weld?",
+   "How do you clean off slag from a weld?",
+   "Is slag normal in stick welding?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p40-f5": {
+  "title": "Stick weld porosity defect cross-section",
+  "kind": "diagram",
+  "summary": "Cross-sectional view of a stick weld bead showing porosity defects (small cavities or holes) distributed throughout the weld. This diagram illustrates the appearance of this common welding defect to help users identify it in their own work.",
+  "visible_text": [
+   "POSSIBLE CAUSES AND SOLUTIONS"
+  ],
+  "shows": [
+   "weld bead cross-section",
+   "porosity",
+   "cavities",
+   "holes in weld",
+   "defect identification",
+   "stick welding defect"
+  ],
+  "answers": [
+   "What does porosity look like in a stick weld?",
+   "How do you identify small cavities or holes in a weld bead?",
+   "What is a stick weld porosity defect?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p35-f1": {
+  "title": "Wire Weld Diagnosis \u2013 Weld Penetration Cross-Sections and Example Bead Appearance Chart",
+  "kind": "diagram",
+  "summary": "Troubleshooting diagram for MIG/flux-cored welds: three weld cross-sections (inadequate penetration, proper penetration, excess penetration/burn-through) on a 'Not hot enough \u2192 Ideal heat \u2192 Too hot' scale, with corrective actions \u2014 increase heat/penetration for thicker metal by increasing weld current, decreasing travel speed, faster wire feed, shorter CTWD; reduce heat for thinner metal by decreasing weld current, increasing travel speed, slower wire feed, longer CTWD. Below, six example bead profiles and top views (Good Weld; Voltage Too Low or Wire Feed Too Slow \u2192 increase output voltage or wire feed speed; Voltage Too High or Wire Feed Too Fast \u2192 decrease output voltage or wire feed speed; Travel Speed Too Fast \u2192 travel slower; Travel Speed Too Slow \u2192 travel faster; CTWD Too Long or Wrong Polarity \u2192 check polarity and keep CTWD under 1/2 in.).",
+  "visible_text": [
+   "Wire Weld Diagnosis \u2013 Workpiece Heat Control / Weld Penetration",
+   "INADEQUATE PENETRATION",
+   "PROPER PENETRATION",
+   "EXCESS PENETRATION OR BURN-THROUGH",
+   "Not hot enough",
+   "Ideal heat",
+   "Too hot",
+   "How to increase workpiece heat and increase penetration: (to weld THICKER workpieces properly)",
+   "a. Increase weld current",
+   "b. Decrease travel speed",
+   "c. Use faster wire feed",
+   "d. Use shorter CTWD",
+   "How to reduce workpiece heat and limit penetration: (to weld THINNER workpieces properly)",
+   "e. Decrease weld current",
+   "f. Increase travel speed",
+   "g. Use slower wire feed",
+   "h. Use longer CTWD",
+   "Example Wire Weld Diagrams",
+   "Good Weld",
+   "Voltage Too Low or Wire Feed Too Slow",
+   "TO CORRECT: Increase Output Voltage or Increase Wire Feed Speed",
+   "Voltage Too High or Wire Feed Too Fast",
+   "TO CORRECT: Decrease Output Voltage or Decrease Wire Feed Speed",
+   "Travel Speed Too Fast",
+   "TO CORRECT: travel slower",
+   "Travel Speed Too Slow",
+   "TO CORRECT: travel faster",
+   "CTWD Too Long or Wrong Polarity",
+   "TO CORRECT: Check Polarity and maintain less than 1/2\" CTWD",
+   "SAFETY",
+   "CONTROLS",
+   "WIRE",
+   "TIG / STICK",
+   "WELDING TIPS",
+   "MAINTENANCE"
+  ],
+  "shows": [
+   "weld penetration cross-section",
+   "inadequate penetration",
+   "proper penetration",
+   "burn-through",
+   "excess penetration",
+   "workpiece heat control",
+   "bead appearance chart",
+   "weld bead profile",
+   "MIG troubleshooting",
+   "flux-cored troubleshooting",
+   "voltage too low",
+   "voltage too high",
+   "wire feed speed too slow",
+   "wire feed speed too fast",
+   "travel speed too fast",
+   "travel speed too slow",
+   "CTWD contact tip to work distance",
+   "1/2 inch CTWD",
+   "wrong polarity",
+   "porosity",
+   "spatter",
+   "thin metal welding",
+   "thick metal welding",
+   "MIG gun angle",
+   "weld current"
+  ],
+  "answers": [
+   "why is my weld bead tall, narrow and ropey with poor fusion",
+   "why is my weld flat, wide and spattering with porosity",
+   "how do I stop burning through thin sheet metal",
+   "how do I get deeper penetration on thicker steel",
+   "what does a good MIG weld bead look like compared to a bad one",
+   "should I raise or lower voltage if the bead is too high and rounded",
+   "what happens if I travel too fast or too slow with the gun",
+   "how long should the contact tip to work distance (CTWD) be",
+   "what causes porosity and erratic bead \u2013 could it be polarity",
+   "which settings do I change to increase or reduce heat input"
+  ],
+  "model": "claude-opus-5"
+ },
+ "manual-p41-f2": {
+  "title": "Fire and burn hazard warning",
+  "kind": "decorative",
+  "summary": "A standard ISO triangular hazard pictogram with flame symbol and accompanying warning header. This is safety page furniture that frames the maintenance procedures below it.",
+  "visible_text": [
+   "WARNING",
+   "TO PREVENT",
+   "Unplug the W",
+   "all parts of th"
+  ],
+  "shows": [
+   "hazard symbol",
+   "fire warning",
+   "burn warning",
+   "safety pictogram"
+  ],
+  "answers": [],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p41-f3": {
+  "title": "MIG Gun Nozzle and Contact Tip Removal and Inspection",
+  "kind": "diagram",
+  "summary": "This exploded-view diagram illustrates the disassembly procedure for inspecting and cleaning the MIG Gun Nozzle and Contact Tip on the Vulcan OmniPro 220. It shows the Nozzle being pulled off and the Contact Tip being unscrewed with a flathead screwdriver, identifying the two critical components that require periodic cleaning for optimal weld quality.",
+  "visible_text": [
+   "D",
+   "Nozzle",
+   "Contact Tip"
+  ],
+  "shows": [
+   "MIG Gun assembly",
+   "Nozzle removal",
+   "Contact Tip location",
+   "Flathead screwdriver tool",
+   "Component disassembly sequence",
+   "Maintenance procedure"
+  ],
+  "answers": [
+   "How do I remove the MIG Gun Nozzle?",
+   "How do I access the Contact Tip for cleaning?",
+   "Where is the Contact Tip located on the MIG Gun?",
+   "What tools are needed to service the MIG Gun Nozzle and Contact Tip?",
+   "What components require inspection before each welding use?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p41-f4": {
+  "title": "MIG Gun Nozzle and Contact Tip Inspection and Cleaning",
+  "kind": "diagram",
+  "summary": "This diagram illustrates the two key components of a MIG gun that require regular inspection and cleaning: the nozzle (outer component) and the contact tip (inner component at the wire feed point). It visually identifies where these parts are located on the gun assembly to guide users through the maintenance procedure detailed on page 41.",
+  "visible_text": [
+   "n",
+   "r",
+   "Nozzle",
+   "Contact Tip"
+  ],
+  "shows": [
+   "MIG gun assembly",
+   "nozzle location",
+   "contact tip location",
+   "wire feed point",
+   "gun components",
+   "maintenance targets"
+  ],
+  "answers": [
+   "Where is the nozzle located on a MIG gun?",
+   "Where is the contact tip located on a MIG gun?",
+   "What are the two main parts to inspect and clean on a MIG gun?",
+   "How do I identify the nozzle and contact tip on my welder's MIG gun?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p38-f1": {
+  "title": "Stick Weld Diagnosis \u2013 Workpiece Heat Control / Weld Penetration and Example Stick Weld Bead Diagrams",
+  "kind": "diagram",
+  "summary": "Full-page stick (SMAW) troubleshooting figure: the top row shows cross-sections of inadequate penetration, proper penetration, and excess penetration/burn-through along a 'Not hot enough \u2192 Ideal heat \u2192 Too hot' scale, with corrections listed as increase current / weld more slowly to raise heat for thicker metal, and decrease current / weld more quickly to lower heat for thinner metal. The bottom half is a seven-column gallery pairing bead cross-section drawings with photos of actual bead appearance for Good Weld, Current Too Low (increase current), Current Too High (decrease current), Weld Speed Too Fast (weld slower), Weld Speed Too Slow (weld faster), Arc Length Too Short (increase distance), and Arc Length Too Long (decrease distance), plus electrode-angle/travel sketches. It also notes stick welds are covered by slag and must be cleaned before inspection.",
+  "visible_text": [
+   "Stick Weld Diagnosis\u2013Workpiece Heat Control / Weld Penetration",
+   "INADEQUATE PENETRATION",
+   "PROPER PENETRATION",
+   "EXCESS PENETRATION OR BURN-THROUGH",
+   "Not hot enough",
+   "Ideal heat",
+   "Too hot",
+   "How to increase workpiece heat and increase penetration:",
+   "(to weld THICKER workpieces properly)",
+   "a. Increase current.",
+   "b. Weld more slowly.",
+   "How to reduce workpiece heat and limit penetration:",
+   "(to weld THINNER workpieces properly)",
+   "c. Decrease current.",
+   "d. Weld more quickly.",
+   "Example Stick Weld Diagrams",
+   "CLEAN WELDS FIRST!",
+   "Stick welds will have a coat of slag over them until cleaned.",
+   "Good Weld",
+   "Current Too Low",
+   "TO CORRECT: Increase the current",
+   "Current Too High",
+   "TO CORRECT: Decrease the current",
+   "Weld Speed Too Fast",
+   "TO CORRECT: Weld slower",
+   "Weld Speed Too Slow",
+   "TO CORRECT: Weld faster",
+   "Arc Length Too Short",
+   "TO CORRECT: Increase distance",
+   "Arc Length Too Long",
+   "TO CORRECT: Decrease distance",
+   "SAFETY",
+   "CONTROLS",
+   "WIRE",
+   "TIG / STICK",
+   "WELDING TIPS",
+   "MAINTENANCE"
+  ],
+  "shows": [
+   "stick welding",
+   "SMAW",
+   "weld penetration",
+   "inadequate penetration",
+   "proper penetration",
+   "excess penetration",
+   "burn-through",
+   "workpiece heat control",
+   "amperage / current too low",
+   "current too high",
+   "travel speed too fast",
+   "travel speed too slow",
+   "arc length too short",
+   "arc length too long",
+   "bead appearance photos",
+   "weld bead cross-section",
+   "slag coating",
+   "electrode angle",
+   "thick vs thin material",
+   "weld defect troubleshooting"
+  ],
+  "answers": [
+   "why is my stick weld not penetrating the metal",
+   "how do I stop burning through thin sheet metal with a stick electrode",
+   "should I increase or decrease amps for thicker steel",
+   "what does a weld bead look like when the current is too high",
+   "what does a weld look like when I travel too fast with a stick rod",
+   "how do I fix a narrow, ropey stick bead",
+   "how far should I hold the stick electrode from the work and what happens if the arc is too long",
+   "why does my stick weld have a crust over it",
+   "what does a good stick weld bead look like compared to bad ones"
+  ],
+  "model": "claude-opus-5"
+ },
+ "manual-p40-f2": {
+  "title": "Stick weld defect illustrations (top views): slag coat, porosity, crooked/wavy bead, excessive spatter, burn-through",
+  "kind": "diagram",
+  "summary": "Five stacked top-view drawings of stick (SMAW) weld beads illustrating what each condition looks like: a dark slag coating partially chipped away to reveal the bead beneath, a bead speckled with small light cavities (porosity), a wandering irregular bead (crooked/wavy), a bead surrounded by scattered grainy droplets (excessive spatter), and a bead with a large open hole through the base metal (burn-through). Alongside runs the manual's section tab strip with WELDING TIPS highlighted. The visuals let a user match their own bead appearance to the named defect whose causes/solutions are listed in the page text (e.g. clean workpiece for porosity and spatter, steady speed and two-handed support for wavy bead, reduce current/increase travel speed for burn-through).",
+  "visible_text": [
+   "SAFETY",
+   "CONTROLS",
+   "WIRE",
+   "TIG / STICK",
+   "WELDING TIPS",
+   "MAINTENANCE",
+   "Stick Weld\u2013Coat of Slag Over Weld",
+   "TOP VIEW",
+   "PARTIALLY CHIPPED AWAY TO SHOW WELD",
+   "Stick Weld\u2013Porosity \u2014 Small cavities",
+   "POSSIBLE CAUSES AND SOLUTIONS",
+   "Stick Weld\u2013Crooked/Wavy Bead",
+   "Stick Weld\u2013Excessive Spatter",
+   "Stick Weld\u2013Burn-Through \u2014 Base"
+  ],
+  "shows": [
+   "stick welding",
+   "SMAW",
+   "weld bead appearance",
+   "slag coating",
+   "chipping hammer",
+   "wire brush",
+   "porosity",
+   "cavities in bead",
+   "crooked bead",
+   "wavy bead",
+   "excessive spatter",
+   "grainy spatter",
+   "burn-through",
+   "hole in base metal",
+   "weld defect troubleshooting",
+   "top view weld illustration",
+   "welding tips section"
+  ],
+  "answers": [
+   "what does porosity look like in a stick weld bead",
+   "what does slag on top of a stick weld look like and should I remove it",
+   "why is my stick weld bead crooked or wavy",
+   "what does excessive spatter look like versus normal fine spatter",
+   "what does burn-through look like in a stick weld",
+   "how do I identify which stick weld defect I have from the bead appearance"
+  ],
+  "model": "claude-opus-5"
+ },
+ "manual-p45-f1": {
+  "title": "Vulcan OmniPro 220 Wiring Schematic",
+  "kind": "schematic",
+  "summary": "Complete electrical schematic for the Vulcan OmniPro 220 welder showing the rectifier circuit, IGBT power module, PFC (Power Factor Correction), control boards, connectors, transformers, and peripheral components. This schematic details how AC input (120-240V/50-60Hz) is processed through rectification and converted to DC welding output, along with all control and accessory circuits.",
+  "visible_text": [
+   "AC1",
+   "AC2",
+   "G",
+   "24V",
+   "IGBT",
+   "PFC",
+   "OUT+",
+   "OUT-",
+   "K1 AC 120-240V/50/60HZ",
+   "RECITIFIER",
+   "T1 T60*30*28",
+   "Hall",
+   "FAN",
+   "FAN2",
+   "CN1",
+   "CN2",
+   "CN3",
+   "CN4",
+   "CN5",
+   "CN6",
+   "CN7",
+   "CN8",
+   "AVIATION PLUG",
+   "WIRE FEEDER",
+   "SOLENOID VALVE",
+   "MCU BOARD",
+   "LCD SCREEN",
+   "FAST WIRE FEED SWITCH",
+   "REMOTE BOARD"
+  ],
+  "shows": [
+   "AC input connections",
+   "rectifier circuit",
+   "IGBT power module",
+   "PFC stage",
+   "transformer T1",
+   "DC output terminals",
+   "control connectors",
+   "microcontroller board",
+   "LCD interface",
+   "wire feeder motor",
+   "solenoid valve",
+   "cooling fan circuits",
+   "Hall effect sensor",
+   "remote control interface",
+   "aviation plug connections"
+  ],
+  "answers": [
+   "What is the complete electrical circuit design of the Vulcan OmniPro 220?",
+   "How does the welder convert AC input to DC welding output?",
+   "What are all the connector designations (CN1-CN8) and their functions?",
+   "Where are the IGBT and PFC components located in the circuit?",
+   "What is the input voltage and frequency specification?",
+   "How are the control boards and peripherals connected?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p45-f2": {
+  "title": "MCU Board and LCD Screen Wiring Schematic",
+  "kind": "schematic",
+  "summary": "This schematic diagram shows the electrical connections between the MCU (microcontroller) board and the LCD screen on the Vulcan OmniPro 220 welder. It depicts the pin assignments for connector CN5 (34-pin) on the MCU board and the corresponding 4-pin connector (CN4) on the LCD screen, along with related control circuitry including three identical logic circuits with IGBT/switching components.",
+  "visible_text": [
+   "MCU BOARD",
+   "LCD SCREEN",
+   "CN5",
+   "CN7",
+   "CN4",
+   "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 29 30 31 32 33 34 28",
+   "3 2 1 5 4",
+   "1 2 3 4"
+  ],
+  "shows": [
+   "MCU board connector CN5 (34-pin)",
+   "LCD screen connector CN4 (4-pin)",
+   "connector CN7 (5-pin)",
+   "pin numbering and assignments",
+   "IGBT switching circuits",
+   "logic gate circuits",
+   "signal routing between MCU and display"
+  ],
+  "answers": [
+   "How is the LCD screen connected to the MCU board?",
+   "What are the pin assignments for the MCU board connectors?",
+   "What connectors are used to interface the LCD screen?",
+   "How many pins does the MCU board connector have?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p45-f5": {
+  "title": "AC Input Connector Diagram",
+  "kind": "diagram",
+  "summary": "Shows the three-terminal AC input connector for the Vulcan OmniPro 220 welder, identifying terminals AC1, AC2, and G (ground) for a 120-240V/50-60Hz single-phase power supply.",
+  "visible_text": [
+   "AC 120-240V/50/60HZ",
+   "AC1",
+   "AC2",
+   "G"
+  ],
+  "shows": [
+   "AC input terminals",
+   "ground terminal",
+   "voltage and frequency rating",
+   "connector pin layout"
+  ],
+  "answers": [
+   "Which terminals connect to the AC power input on the Vulcan OmniPro 220?",
+   "Where does the ground wire connect on the AC input?",
+   "What voltage and frequency does this welder accept?",
+   "What is the pin configuration of the AC input connector?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p45-f3": {
+  "title": "Vulcan OmniPro 220 Wiring Schematic",
+  "kind": "schematic",
+  "summary": "Complete electrical wiring schematic for the Vulcan OmniPro 220 welder, showing all internal connections between the power input (AC 120-240V/50/60Hz), control boards (MCU Board, Remote Board, LCD Screen), solenoids, wire feeder motor, cooling fans, and connector pinouts (CN1\u2013CN8). This diagram answers questions about internal circuit topology, connector assignments, and component interconnections.",
+  "visible_text": [
+   "AC1",
+   "AC2",
+   "G",
+   "24V",
+   "IGBT",
+   "PFC",
+   "K1 AC 120-240V/50/60HZ",
+   "RECITIFIER",
+   "T1 T60*30*28",
+   "Hall",
+   "OUT+",
+   "OUT-",
+   "FAN",
+   "FAN2",
+   "CN1",
+   "CN2",
+   "CN3",
+   "CN4",
+   "CN5",
+   "CN6",
+   "CN7",
+   "CN8",
+   "MCU BOARD",
+   "LCD SCREEN",
+   "REMOTE BOARD",
+   "FAST WIRE FEED SWITCH",
+   "WIRE FEEDER M",
+   "SOLENOID VALVE",
+   "AVIATION PLUG"
+  ],
+  "shows": [
+   "AC power input terminals and rectifier circuit",
+   "Power factor correction (PFC) stage",
+   "IGBT switching stage",
+   "24V regulated supply",
+   "MCU and remote control boards",
+   "LCD display connection",
+   "Wire feeder motor control (CN4, CN7)",
+   "Solenoid valve control (CN3, CN4)",
+   "Cooling fan circuits (FAN, FAN2)",
+   "Connector pinouts CN1\u2013CN8",
+   "Hall sensor feedback",
+   "Aviation-style plugs",
+   "Internal wiring topology"
+  ],
+  "answers": [
+   "What are the internal wiring connections in the Vulcan OmniPro 220?",
+   "What does each connector (CN1\u2013CN8) control or connect to?",
+   "How is the AC input power conditioned and distributed?",
+   "What is the pinout for the wire feeder motor connector?",
+   "How are the solenoid valves wired to the control board?",
+   "What cooling fans are present and how are they controlled?",
+   "Where does the remote board connect?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p48-f1": {
+  "title": "Vulcan company header and contact information",
+  "kind": "decorative",
+  "summary": "The Vulcan logo and registered trademark symbol with the company's address and customer support phone number. This is page furniture that appears at the top of the warranty section.",
+  "visible_text": [
+   "VULCAN",
+   "\u00ae",
+   "26677 Agoura Road \u2022 Calabasas, CA 91302 \u2022 1-800-444-3353"
+  ],
+  "shows": [
+   "company logo",
+   "trademark symbol",
+   "business address",
+   "customer support phone number"
+  ],
+  "answers": [
+   "What is the manufacturer's address?",
+   "How do I contact Vulcan customer support?",
+   "What is Vulcan's phone number?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p45-f4": {
+  "title": "AC Input and Fan Control Schematic",
+  "kind": "schematic",
+  "summary": "This schematic depicts the AC input power stage and fan control circuit for the Vulcan OmniPro 220 welder. It shows AC1/AC2 input terminals, a rectifier stage, IGBT and PFC components, 24V power supply with junction J2, and dual fan outputs (FAN and FAN2) controlled via diode-gated logic. It answers questions about input power configuration, internal power conversion, and fan circuit control architecture.",
+  "visible_text": [
+   "AC1",
+   "AC2",
+   "G",
+   "3",
+   "4",
+   "-T",
+   "\uff5e",
+   "1",
+   "\uff5e",
+   "3",
+   "-",
+   "4",
+   "+",
+   "2",
+   "24V",
+   "J",
+   "2",
+   "1",
+   "IGBT",
+   "PFC",
+   "5",
+   "6",
+   "4",
+   "1",
+   "OUT+",
+   "OUT-",
+   "K1 AC 120-240V/50/60HZ",
+   "RECITIFIER",
+   "1/4",
+   "1/4",
+   "1/4",
+   "1/4",
+   "FAN",
+   "FAN2",
+   "v"
+  ],
+  "shows": [
+   "AC input terminals AC1 and AC2",
+   "rectifier stage",
+   "IGBT power switch",
+   "PFC (power factor correction)",
+   "24V power supply generation",
+   "dual fan circuits with diode logic gates",
+   "output terminals OUT+ and OUT-",
+   "120-240V AC 50/60Hz input range",
+   "power conversion topology"
+  ],
+  "answers": [
+   "What is the AC input voltage range for this welder?",
+   "How is the 24V supply generated?",
+   "What components make up the input power stage?",
+   "How are the two fans controlled in the circuit?",
+   "What is the relationship between the rectifier, IGBT, and PFC stages?"
+  ],
+  "model": "claude-haiku-4-5"
+ },
+ "manual-p41-f1": {
+  "title": "MIG gun nozzle/contact tip callouts and LCD screen cover installation diagrams (Maintenance page)",
+  "kind": "diagram",
+  "summary": "Page-region image from the Maintenance section containing two line drawings: (1) a Vulcan MIG gun shown from the side with leader arrows labeling the 'Nozzle' (outer cup at the very front) and the 'Contact Tip' (threaded tip inside the nozzle, removed counterclockwise), and (2) an exploded view of a rectangular Screen Cover (17) being inserted into the Screen Frame (18) with a magnified detail showing the notch/gap on the cover that must face downward. It settles which front-end part of the MIG gun is the nozzle versus the contact tip, and how the replacement LCD screen cover is oriented in its frame before the frame is re-inserted top-end-first into the display slot.",
+  "visible_text": [
+   "SAFETY",
+   "CONTROLS",
+   "WIRE",
+   "TIG / STICK",
+   "WELDING TIPS",
+   "MAINTENANCE",
+   "Nozzle",
+   "Contact Tip",
+   "Screen Cover",
+   "Screen Frame",
+   "VULCAN",
+   "electrically non-conductive surface, and allow ... service.",
+   "PERIODICALLY, have a qualified technician remove the Rear Panel and use compressed air to blow out all dust from the interior.",
+   "AFTER EVERY USE, store in a clean and dry location.",
+   "For optimal MIG/Flux-Cored wire weld quality, clean and inspect the MIG Gun Contact Tip and Nozzle before each use, as explained below.",
+   "Examine the shape of the hole at the end of the Contact Tip. It should be an even circle; it should not be oblong or have any bulges in it.",
+   "If any problems are noted, replace the Contact Tip. Select a new Tip of the correct size for the welding wire used.",
+   "Reinstall the Tip and securely reinstall the Nozzle as well.",
+   "Insert a new Screen Cover (17) into Screen Frame (18) with the gap facing downward.",
+   "Insert frame back into slot on Display with the top end being placed in first."
+  ],
+  "shows": [
+   "MIG gun",
+   "MIG gun nozzle",
+   "contact tip",
+   "gooseneck",
+   "gun trigger",
+   "strain relief spring",
+   "welding wire",
+   "consumables identification",
+   "Screen Cover part 17",
+   "Screen Frame part 18",
+   "LCD display cover replacement",
+   "gap facing downward orientation",
+   "maintenance",
+   "cleaning and inspection",
+   "Vulcan OmniPro 220"
+  ],
+  "answers": [
+   "which part of the MIG gun is the nozzle and which is the contact tip",
+   "where is the contact tip located on the MIG gun",
+   "how do I install a new LCD screen cover into the screen frame",
+   "which way does the gap/notch on the screen cover face",
+   "what does the screen frame and screen cover look like",
+   "what parts do I remove to clean the MIG gun before welding"
+  ],
+  "model": "claude-opus-5"
+ },
+ "manual-p47-f1": {
+  "title": "Exploded assembly diagram of the Vulcan OmniPro 220 welder with numbered part callouts 1-61",
+  "kind": "diagram",
+  "summary": "A full exploded-view line drawing of the OmniPro 220 welder showing every subassembly separated on the page: outer case/cover with carry handle (1-4), side panel and latches (5-7), internal chassis with fan, transformer/inductor and wire-drive motor assembly (8-15), MIG gun and lead with cable liner and knob assembly (16-21), front control panel with display window, knobs and switches (22-30), electrode holder/spool components (31-32), rear plastic frame with fan grille, gas fitting, Dinse connectors and power cord (52-61), and the PCB/heat-sink stack of rectifier and IGBT boards (44-51). Each part is tied to a numbered balloon (1-61) that keys into the accompanying parts list, so it settles which callout number corresponds to a given physical part for ordering replacements.",
+  "visible_text": [
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "6",
+   "7",
+   "8",
+   "9",
+   "10",
+   "11",
+   "12",
+   "13",
+   "14",
+   "15",
+   "16",
+   "17",
+   "18",
+   "19",
+   "20",
+   "21",
+   "22",
+   "23",
+   "24",
+   "25",
+   "26",
+   "27",
+   "28",
+   "29",
+   "30",
+   "31",
+   "32",
+   "33",
+   "34",
+   "35",
+   "36",
+   "37",
+   "38",
+   "39",
+   "40",
+   "41",
+   "42",
+   "43",
+   "44",
+   "45",
+   "46",
+   "47",
+   "48",
+   "49",
+   "50",
+   "51",
+   "52",
+   "53",
+   "54",
+   "55",
+   "56",
+   "57",
+   "58",
+   "59",
+   "60",
+   "61",
+   "VULCAN"
+  ],
+  "shows": [
+   "exploded view",
+   "assembly diagram",
+   "parts breakdown",
+   "numbered callouts",
+   "welder housing cover",
+   "carry handle",
+   "side access panel",
+   "panel latches",
+   "cooling fan",
+   "fan grille",
+   "wire feed drive assembly",
+   "drive motor",
+   "wire spool hub",
+   "transformer",
+   "inductor",
+   "PCB circuit boards",
+   "heat sink",
+   "IGBT module",
+   "rectifier",
+   "MIG gun",
+   "welding torch",
+   "gun cable / lead",
+   "gas solenoid valve",
+   "gas fitting",
+   "Dinse connector",
+   "twist-lock power cord",
+   "power plug",
+   "front control panel",
+   "display window / LCD lens",
+   "control knobs",
+   "toggle switch",
+   "electrode holder",
+   "chassis base plate",
+   "sheet metal bracket",
+   "spool gun connector",
+   "OmniPro 220"
+  ],
+  "answers": [
+   "which part number on the exploded diagram is the cooling fan",
+   "what callout number is the wire feed drive assembly",
+   "where does the MIG gun connect on the assembly",
+   "which number is the front control panel or display lens",
+   "what part number do I order for the power cord and plug",
+   "how does the OmniPro 220 come apart / order of assembly",
+   "which callout is the carry handle or side cover panel",
+   "where are the PCB boards and heat sinks located inside the welder",
+   "which number is the gas solenoid valve",
+   "which numbered part is the knob on the front panel"
+  ],
+  "model": "claude-opus-5"
+ },
+ "quickstart-p02-f1": {
+  "title": "Vulcan OmniPro 220 quick start guide \u2014 Stick, MIG, Flux and TIG cable setup diagrams",
+  "kind": "diagram",
+  "summary": "Full quick-start page (item 57812) with four labeled cable-hookup diagrams showing the welder's front terminals and numbered callouts. Stick: ground clamp to negative, electrode holder to positive, wire feed power disconnected. MIG: ground clamp to negative, wire feed power to positive, MIG gun to wire feed, wire feed control plugged in inside the welder; Flux-cored is the same but reversed \u2014 ground clamp to positive and wire feed power to negative. TIG: ground clamp to positive, TIG torch to negative, gas line to gas regulator, foot pedal connected inside welder, wire feed power left disconnected.",
+  "visible_text": [
+   "VULCAN",
+   "OMNIPRO 220",
+   "QUICK START GUIDE",
+   "57812",
+   "STICK CABLE SETUP",
+   "1. Connect ground clamp to negative terminal.",
+   "2. Connect electrode holder to positive terminal.",
+   "3. Leave wire feed power disconnected.",
+   "MIG CABLE SETUP",
+   "1. Connect ground clamp to negative terminal.",
+   "2. Connect wire feed power to positive terminal.",
+   "3. Connect MIG gun to wire feed.",
+   "4. Connect wire feed control inside welder.",
+   "FLUX CABLE SETUP",
+   "Follow MIG cable setup but connect ground clamp to positive terminal and wire feed power to negative terminal.",
+   "TIG CABLE SETUP",
+   "1. Connect ground clamp to positive terminal.",
+   "2. Connect TIG torch to negative terminal.",
+   "3. Connect gas line to gas regulator.",
+   "4. Connect foot pedal inside welder.",
+   "5. Leave wire feed power disconnected.",
+   "BASIC WELDING INSTRUCTIONS AND WELDING TIPS ARE IN MANUAL.",
+   "1",
+   "2",
+   "3",
+   "4",
+   "5",
+   "\u00ae"
+  ],
+  "shows": [
+   "Vulcan OmniPro 220",
+   "57812",
+   "quick start guide",
+   "stick welding SMAW setup",
+   "MIG welding GMAW setup",
+   "flux-cored FCAW setup",
+   "TIG welding GTAW setup",
+   "ground clamp",
+   "work clamp",
+   "electrode holder",
+   "MIG gun",
+   "TIG torch",
+   "foot pedal",
+   "gas line",
+   "gas regulator",
+   "wire feed power lead",
+   "wire feed control connector",
+   "positive terminal",
+   "negative terminal",
+   "polarity",
+   "DCEP DCEN",
+   "dinse connector",
+   "cable hookup diagram"
+  ],
+  "answers": [
+   "which terminal does the ground clamp go in for stick welding",
+   "which socket does the ground clamp go in for flux-cored welding",
+   "how do I set polarity for MIG versus flux-core on the OmniPro 220",
+   "where does the electrode holder plug in for stick welding",
+   "how do I connect the TIG torch, gas line and foot pedal",
+   "do I need the wire feed power connected for stick or TIG",
+   "where does the MIG gun connect",
+   "how do I hook up the wire feed control cable"
+  ],
+  "model": "claude-opus-5"
+ },
+ "quickstart-p01-f1": {
+  "title": "Vulcan OmniPro 220 Quick Start Guide (item 57812), six-step setup diagram",
+  "kind": "diagram",
+  "summary": "Full quick-start setup page showing six numbered steps for flux-cored wire welding setup: connect cables per back of guide, mount a 2 lb wire spool on the spindle (wingnut/spacer/brake pad stack; a separate adapter and knob are required for 10-12 lb spools) and thread wire through both feed guides into the feed mechanism, remove nozzle and contact tip and jog cold wire feed until wire exits, tighten the wire-feed tension knob clockwise incrementally until the wire will bend from feed tension at 2\"-3\" against a wood block, unplug and reinstall nozzle and tip, then hold the gun clear, plug in, power on and set weld thickness and other panel settings. It also gives the ~2\" wire stickout reference at the contact tip and two warnings (read manual before use; keep torch and wire clear of grounded objects while plugged in).",
+  "visible_text": [
+   "VULCAN",
+   "OMNIPRO 220",
+   "QUICK START GUIDE",
+   "57812",
+   "1 Connect cables as needed for flux wire welding - see back of guide.",
+   "2 Install wire spool. Insert wire through both feed guides and clamp it into feed mechanism. See manual if changing wire size or using solid wire.",
+   "3 Take off nozzle and tip, plug selected cord into welder and into wall, turn welder on, and press cold wire feed switch until wire comes out.",
+   "4 Incrementally tighten wire feed tension knob clockwise until wire will bend from feed tension at 2\"-3\".",
+   "5 Unplug welder and replace nozzle and tip.",
+   "6 Hold gun clear of workpiece, then plug in welder, turn it on, and set weld thickness and other settings.",
+   "Wingnut",
+   "Spacer",
+   "Spindle",
+   "2 lb Wire Spool",
+   "Brake Pad",
+   "Welder",
+   "2 lb Spool Loading",
+   "Adapter and knob required for 10-12 lb spool",
+   "Feed Mechanism",
+   "feed guides",
+   "welding wire",
+   "Wire Spool",
+   "2\"",
+   "Contact Tip",
+   "Nozzle",
+   "clockwise",
+   "2\"-3\"",
+   "wood block",
+   "HOLD GUN CLEAR",
+   "WARNING To prevent serious injury, read manual warnings and instructions before use.",
+   "WARNING To prevent fire and serious injury, keep torch and wire clear of grounded objects while welder plugged in.",
+   "BASIC WELDING INSTRUCTIONS AND WELDING TIPS ARE IN MANUAL."
+  ],
+  "shows": [
+   "quick start guide",
+   "flux-cored wire welding setup",
+   "wire spool installation",
+   "2 lb spool",
+   "10-12 lb spool adapter and knob",
+   "spindle",
+   "wingnut",
+   "spacer",
+   "brake pad",
+   "feed mechanism",
+   "feed guides",
+   "drive roll tension knob",
+   "wire feed tension adjustment",
+   "cold wire feed switch",
+   "contact tip",
+   "nozzle",
+   "MIG gun",
+   "stickout 2 inch",
+   "wire bend test 2-3 inch",
+   "wood block",
+   "power cord plug 240V receptacle",
+   "power switch",
+   "control panel weld thickness setting",
+   "safety warnings"
+  ],
+  "answers": [
+   "how do I set up the OmniPro 220 for flux-cored welding step by step",
+   "how do I load a wire spool and thread the wire into the feed mechanism",
+   "do I need anything extra to run a 10 or 12 lb spool",
+   "how tight should the wire feed tension knob be",
+   "how far should the wire bend during the tension test",
+   "why do I remove the nozzle and contact tip before feeding wire",
+   "which direction do I turn the tension knob to tighten it",
+   "how much wire should stick out past the contact tip",
+   "what do I do after feeding the wire through the gun",
+   "what safety precautions apply before welding with this machine"
+  ],
+  "model": "claude-opus-5"
+ },
+ "chart-p01-f1": {
+  "title": "\"How to Choose a Welder\" process-selection comparison chart (FCAW / MIG / Stick / TIG)",
+  "kind": "chart",
+  "summary": "A four-column decision matrix comparing Flux-Cored (FCAW), MIG (GMAW), Stick (SMAW) and TIG (GTAW) across six questions: skill level (FCAW low, MIG low, Stick moderate, TIG high), shielding gas need (MIG and TIG require gas and indoor use; FCAW and Stick are no-gas), weldable materials (TIG needs DC TIG for steel/stainless/chrome moly and AC TIG for aluminum/magnesium; MIG aluminum requires a spool gun), thickness range (FCAW 18 ga\u20135/16\", MIG 22 ga\u20133/8\", Stick 10 ga\u20131/2\", TIG 24 ga\u20133/16\"), typical applications, and weld cleanliness (FCAW/Stick more spatter, MIG minimal spatter, TIG extremely clean). Side panels give a MIG-vs-Flux-Cored checkmark table and define duty cycle with the example 165A @ 30% = 3 minutes welding, 7 minutes resting.",
+  "visible_text": [
+   "HOW TO CHOOSE A WELDER",
+   "IMPORTANT! IDENTIFY YOUR INPUT VOLTAGE: DO YOU HAVE 120 VOLT OR 240 VOLT?",
+   "1 WHAT IS YOUR SKILL LEVEL?",
+   "LOW | MODERATE | HIGH (Flux-Cored: LOW selected)",
+   "LOW | MODERATE | HIGH (MIG: LOW selected)",
+   "LOW | MODERATE | HIGH (Stick: MODERATE selected)",
+   "LOW | MODERATE | HIGH (TIG: HIGH selected)",
+   "2 WILL YOU NEED SHIELDING GAS?",
+   "NO-GAS REQUIRED (Flux-Cored)",
+   "GAS REQUIRED - Indoor welding recommended (MIG)",
+   "NO-GAS REQUIRED (Stick)",
+   "GAS REQUIRED - Indoor welding recommended (TIG)",
+   "3 WHAT TYPE OF MATERIAL WILL YOU BE WELDING?",
+   "STEEL, STAINLESS STEEL (Flux-Cored)",
+   "STEEL, STAINLESS STEEL, ALUMINUM (Spool gun required) (MIG)",
+   "STEEL, STAINLESS STEEL, CASTINGS (Stick)",
+   "STEEL, STAINLESS STEEL, CHROME MOLY \u2192 DC TIG REQUIRED",
+   "ALUMINUM, MAGNESIUM ALLOYS \u2192 AC TIG REQUIRED",
+   "4 WHAT IS YOUR MATERIAL THICKNESS?",
+   "18 Gauge to 5/16\"",
+   "22 Gauge to 3/8\"",
+   "10 Gauge to 1/2\"",
+   "24 Gauge to 3/16\"",
+   "5 TYPICAL APPLICATIONS",
+   "Galvanized steel \u2022 Pipe and tubing \u2022 General fabrication \u2022 Maintenance & repair",
+   "Sheet metal \u2022 Tubing \u2022 Automotive body \u2022 Structural steel",
+   "Pipe and tubing \u2022 Pressure vessels \u2022 Structural steel \u2022 Maintenance & repair",
+   "Stainless steel exhausts \u2022 Thin wall pipe & tubing \u2022 Bicycle frames \u2022 Metal art",
+   "6 HOW CLEAN DO YOU NEED YOUR WELD?",
+   "MORE SPATTER",
+   "CLEAN / MINIMAL SPATTER",
+   "MORE SPATTER",
+   "EXTREMELY CLEAN",
+   "USE THIS WELDING PROCESS",
+   "FLUX-CORED / FCAW: Ideal for outdoor or windy conditions; Forgiving on rusty or dirty steels; Good out of position welding capabilities; High deposition rates achievable",
+   "MIG / GMAW: Fast production (high welding speeds); Easiest to learn; Clean welds with no slag; Better control on thin materials",
+   "STICK / SMAW: Ideal for outdoor or windy conditions; Forgiving on rusty or dirty steels; Deep penetration; Good choice for thicker materials",
+   "TIG / GTAW: Highest quality welds; Extremely aesthetic weld appearance; Can be used on a variety of materials; Precise control",
+   "MIG or FLUX CORED?",
+   "Columns: MIG | FLUX CORED",
+   "Uses cored wire \u2014 FLUX CORED \u2713",
+   "Uses solid wire \u2014 MIG \u2713",
+   "Uses shielding gas \u2014 MIG \u2713",
+   "Clean welds minimal spatter \u2014 MIG \u2713",
+   "Welds over mill scale and rust \u2014 FLUX CORED \u2713",
+   "Requires minimal surface prep \u2014 FLUX CORED \u2713",
+   "Can be used outdoor in windy conditions \u2014 FLUX CORED \u2713",
+   "Deep weld penetration handles material gaps well \u2014 FLUX CORED \u2713",
+   "Thin materials like sheet metal \u2014 MIG \u2713",
+   "The Duty Cycle is the number of minutes, within a 10 minute period, a welding process can produce the specified welding current without overheating.",
+   "DUTY CYCLE EXAMPLE",
+   "165A @ 30% Duty Cycle",
+   "3 Minutes Welding",
+   "7 Minutes Resting"
+  ],
+  "shows": [
+   "welding process selection chart",
+   "FCAW flux-cored",
+   "MIG GMAW",
+   "Stick SMAW",
+   "TIG GTAW",
+   "shielding gas required",
+   "spool gun aluminum",
+   "AC TIG vs DC TIG",
+   "material thickness gauge range",
+   "duty cycle 30% 165A",
+   "input voltage 120V 240V",
+   "spatter comparison",
+   "solid wire vs cored wire",
+   "skill level low moderate high",
+   "weld bead appearance photos"
+  ],
+  "answers": [
+   "which welding process should I use for my material and skill level",
+   "does MIG or TIG require shielding gas",
+   "can I weld aluminum with MIG on this machine (spool gun required)",
+   "do I need AC TIG or DC TIG for aluminum versus steel",
+   "what metal thickness can flux-cored, MIG, stick and TIG handle",
+   "what is the difference between MIG and flux-cored wire",
+   "which process works outdoors in wind or on rusty/dirty metal",
+   "which process gives the cleanest weld with least spatter",
+   "what does duty cycle mean and what does 165A @ 30% duty cycle mean",
+   "which process is easiest to learn for a beginner"
+  ],
+  "model": "claude-opus-5"
+ }
+}
