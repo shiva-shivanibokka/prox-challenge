@@ -455,14 +455,20 @@ Beyond that:
   untouched.
 - **An index browser** (`Index` in the top bar) shows all 122 kept figures with their
   captions. Knowledge-extraction quality is a claim; this makes it inspectable.
-- **Voice in and out.** Ask out loud with the mic; switch on **Hands-free** and answers
-  are read back with citations and markdown stripped, because "open square bracket p
-  dot thirty five" helps nobody with a helmet down.
+- **Voice in and out.** Ask out loud with the mic — the composer lights up and shows a
+  live meter while it listens. **Hands-free** sits next to the composer, not buried in a
+  toolbar, and reads answers back: best installed voice rather than the platform
+  default, spoken sentence by sentence so the pauses land, and rewritten for the ear
+  first ("[p.35]" becomes "page 35", "DCEN" becomes "D C E N").
 - **Guided setup**, one step at a time, from the verified setup table — the manual's
   order and wording, each step carrying its page.
 - **Drag, paste or browse a photo** straight into the composer.
 - **Live tool status**: which tool is running, on what, right now.
 - **Print styles.** Answers are meant to be carried to the machine.
+- **No history, no storage.** The conversation lives in React state; a refresh clears
+  it, the wordmark starts a fresh one. Nothing is written to disk or to the browser.
+  The only cache in play is Anthropic's prompt cache, which is a cost optimisation on
+  the request, not a store of anything.
 - Keyboard: `Enter` sends, `⌘K` focuses, `Esc` closes. Citations are buttons that open
   the page image.
 

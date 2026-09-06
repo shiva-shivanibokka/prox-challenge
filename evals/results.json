@@ -1,71 +1,12 @@
 {
  "model": "claude-sonnet-5",
- "total": 0.501951,
+ "total": 0.2025194,
  "results": [
-  {
-   "id": "duty-cycle",
-   "tests": "the headline number, computed not guessed",
-   "ask": "What's the duty cycle for MIG welding at 200A on 240V?",
-   "text": "25% duty cycle: 2.5 minutes welding, then 7.5 minutes resting, per 10-minute period [p.7, p.19].At 240V, 100% continuous duty on MIG is 115A — so 200A is well above the \"run all day\" current, hence the 25% figure [p.7].",
-   "tools": [
-    "compute_duty_cycle",
-    "show_component"
-   ],
-   "visuals": [
-    "component:duty_cycle_calculator"
-   ],
-   "verdict": {
-    "citedPages": [
-     "p.7",
-     "p.19"
-    ],
-    "checked": 5,
-    "miscited": [],
-    "fabricated": []
-   },
-   "cost": 0.19020180000000003,
-   "fail": [],
-   "warn": []
-  },
-  {
-   "id": "porosity",
-   "tests": "diagnosis from the troubleshooting matrix, with the weld photo",
-   "ask": "My flux-cored welds have porosity. What should I check?",
-   "text": "Porosity in flux-cored (gasless, DCEN) welds comes down to four things the manual lists — check them in this order:\n\n**1. Polarity** — Flux-cored self-shielded wire must run **DCEN**: ground clamp to the **positive (+)** socket, wire feed power cable to the **negative (–)** socket [p.13]. Wrong polarity is a listed cause of porosity [p.43].\n\n**2. CTWD (contact tip to work distance)** — keep it at **1/2\" or less**. Running the gun too far from the work lets atmosphere contaminate the puddle [p.43].\n\n**3. Clean metal** — Porosity is dirt, not just gas. Clean the workpiece down to bare metal, and make sure the wire itself is clean and free of rust/residue [p.43].\n\n**4. Steady travel speed** — Inconsistent travel speed is also listed as a porosity cause for wire welds [p.37].\n\nNote: shielding-gas causes on the same troubleshooting entry (empty bottle, flow rate) don't apply to you — flux-cored self-shielded wire runs gasless [p.7].That reference image is what to compare your bead against — small pinholes scattered along the bead top and at the crater. If yours matches, work through the flowchart above starting with polarity and CTWD, since those are the two most common flux-cored-specific culprits.",
-   "tools": [
-    "get_table",
-    "get_table",
-    "get_figure",
-    "show_component"
-   ],
-   "visuals": [
-    "figure:manual-p37-f1",
-    "component:troubleshooting_flowchart"
-   ],
-   "verdict": {
-    "citedPages": [
-     "p.13",
-     "p.43",
-     "p.37",
-     "p.7"
-    ],
-    "checked": 1,
-    "miscited": [
-     "1/2\""
-    ],
-    "fabricated": []
-   },
-   "cost": 0.0758238,
-   "fail": [],
-   "warn": [
-    "miscited: 1/2\""
-   ]
-  },
   {
    "id": "polarity-flux",
    "tests": "a picture, not a paragraph",
    "ask": "How do I set polarity for flux-cored? Which socket does the ground clamp go in?",
-   "text": "Flux-cored uses **DCEN** (direct current, electrode negative) — this is the reverse of MIG/gas polarity:\n\n- **Ground Clamp Cable → Positive (+) socket**\n- **Wire Feed Power Cable → Negative (–) socket**\n- Twist both cables clockwise all the way to lock [p.13]\n\nNo shielding gas is needed for flux-cored (gasless) welding [p.13].One thing worth flagging: if you're switching over from a gas-shielded MIG setup, you have to physically swap which cable goes in which socket — it's opposite of solid-wire DCEP [p.14].",
+   "text": "Flux-cored uses **DCEN** (direct current, electrode negative) — no shielding gas needed:\n\n- **Ground Clamp Cable → Positive (+) socket**\n- **Wire Feed Power Cable → Negative (–) socket**\n\nTwist both cables clockwise all the way to lock them in [p.13].\n\nThis is the opposite of solid-wire MIG polarity, so if you switch between flux-cored and gas-shielded MIG wire, swap these two cables.One gotcha specific to flux-cored: this is the setup most people get backwards because it's the reverse of solid-wire MIG. Double-check both sockets before striking an arc — wrong polarity here shows up later as porosity or a wandering, unstable arc [p.43].",
    "tools": [
     "get_table",
     "get_figure",
@@ -78,139 +19,13 @@
    "verdict": {
     "citedPages": [
      "p.13",
-     "p.14"
+     "p.43"
     ],
     "checked": 0,
     "miscited": [],
     "fabricated": []
    },
-   "cost": 0.0569574,
-   "fail": [],
-   "warn": []
-  },
-  {
-   "id": "refusal-generator",
-   "tests": "refusing cleanly on something the manuals never cover",
-   "ask": "Can I run this welder off a portable generator? What size generator do I need?",
-   "text": "The manual doesn't cover generator power at all — no minimum generator wattage/kVA rating, no mention of \"clean power\" or inverter-generator requirements is printed anywhere in it. I can't state a generator size because the manual simply doesn't specify one, and I won't invent a figure.\n\nWhat I can give you, from the actual input specs, so you or an electrician can size a generator appropriately:\n\n**120 VAC input:**\n- MIG: 20.8 A draw at 100 A output [p.7]\n- TIG: 20.6 A draw at 125 A output [p.7]\n- Stick: 19.5 A draw at 80 A output [p.7]\n\n**240 VAC input:**\n- MIG: 25.5 A draw at 200 A output [p.7]\n- TIG: 15.6 A draw at 175 A output [p.7]\n- Stick: 23.7 A draw at 175 A output [p.7]\n\nThe rear panel also requires a properly grounded, GFCI-protected receptacle on a circuit with delayed-action circuit breakers or fuses [p.16, p.20, p.25, p.27, p.30, p.32] — that's a spec many portable generators and their GFCI outlets can struggle to satisfy, especially the delayed-action breaker requirement.\n\nMy honest take: this is a question for the generator's spec sheet plus an electrician, not this manual. If you tell me which process and amperage you plan to run most, I can at least confirm the actual current draw so you can match it against a generator's rated continuous output and surge capacity — but the \"will a generator work\" judgment call itself isn't something the manual answers.",
-   "tools": [],
-   "visuals": [],
-   "verdict": {
-    "citedPages": [
-     "p.7",
-     "p.16",
-     "p.20",
-     "p.25",
-     "p.27",
-     "p.30",
-     "p.32"
-    ],
-    "checked": 13,
-    "miscited": [],
-    "fabricated": []
-   },
-   "cost": 0.019536699999999997,
-   "fail": [],
-   "warn": []
-  },
-  {
-   "id": "cross-reference",
-   "tests": "two sections combined: the 120V duty cycle and the flux-cored polarity",
-   "ask": "I'm running flux-cored on 120V at 100A. How long can I weld before resting, and which socket does my ground clamp go in?",
-   "text": "**Duty cycle:** 4 minutes welding, then 6 minutes resting, per 10-minute period [p.7, p.19].\n\n**Ground clamp socket:** Positive (+). Flux-cored runs DCEN (direct current, electrode negative), so it's reversed from solid-wire MIG — the Wire Feed Power Cable goes in Negative (–), and the Ground Clamp Cable goes in Positive (+) [p.13].100A is actually the max continuous 40% duty cycle rating for 120V MIG/flux-cored — running hotter than that isn't rated on 120V input at all [p.7].",
-   "tools": [
-    "compute_duty_cycle",
-    "get_table",
-    "show_component",
-    "show_component"
-   ],
-   "visuals": [
-    "component:duty_cycle_calculator",
-    "component:polarity_diagram"
-   ],
-   "verdict": {
-    "citedPages": [
-     "p.7",
-     "p.19",
-     "p.13"
-    ],
-    "checked": 3,
-    "miscited": [],
-    "fabricated": []
-   },
-   "cost": 0.053905800000000004,
-   "fail": [],
-   "warn": []
-  },
-  {
-   "id": "settings-configurator",
-   "tests": "a setup answer that refuses to invent the two numbers the manual omits",
-   "ask": "I want to weld 18 gauge steel with flux-cored wire on 120V. How do I set the machine up?",
-   "text": "A few things the configurator doesn't cover:\n\n- **Polarity reminder:** flux-cored is DCEN (electrode negative) — ground clamp to **positive**, wire feed cable to **negative** [p.13]. No shielding gas needed for this process.\n- **Feed tensioner:** set to 2–3 for flux-cored wire; overtightening will crush it [p.15].\n- **Gun angle:** drag angle, 0–15° in the direction you're welding (opposite of MIG's push angle) [p.22].\n- Once wire's loaded and running, weld a scrap piece of the same 18 gauge material first and check the bead against the diagnosis chart before committing to your actual project [p.35].\n\nIf you want the step-by-step physical setup (spool loading, feed roller, threading wire) rather than just the settings, say so and I'll pull up the walkthrough.",
-   "tools": [
-    "show_component"
-   ],
-   "visuals": [
-    "component:settings_configurator"
-   ],
-   "verdict": {
-    "citedPages": [
-     "p.13",
-     "p.15",
-     "p.22",
-     "p.35"
-    ],
-    "checked": 0,
-    "miscited": [],
-    "fabricated": []
-   },
-   "cost": 0.0319525,
-   "fail": [],
-   "warn": []
-  },
-  {
-   "id": "wiring-schematic",
-   "tests": "surfacing an image-only page on request",
-   "ask": "Show me the wiring schematic for this welder.",
-   "text": "That's the full wiring schematic [p.45]. It covers the whole machine in one diagram, broken into a few functional zones:\n\n- **AC input (bottom left):** AC1/AC2/G terminals, the K1 switch, thermal cutout (-T), and EMI filter/varistor network feeding the transformer.\n- **Power stage (top/center-left):** PFC circuit, IGBT inverter bank, main transformer (T1, T60x30x28 core), and the output rectifier diodes leading to the OUT+ / OUT- studs — this is what actually generates welding current.\n- **Hall sensor (CN1):** monitors output current feedback near OUT+.\n- **MCU board (center):** the control brain — connects to the LCD screen, the remote board, the wire feeder motor, the fast wire feed switch, and the solenoid (gas) valves via connectors CN1–CN8.\n- **Remote board → aviation plugs:** these are the round multi-pin sockets on the front panel (torch cable, wire feed control, foot pedal, etc.).\n- **Cooling:** FAN and FAN2, both run off 24V from the control board.\n\nThis is intended for a qualified technician diagnosing or repairing the machine — it's not something you'd reference for normal setup or operation. If you're chasing a specific fault (no power, no wire feed, no gas solenoid), I can help figure out which part of this schematic is involved, or pull the troubleshooting table instead.",
-   "tools": [
-    "get_page"
-   ],
-   "visuals": [
-    "figure:manual-p45"
-   ],
-   "verdict": {
-    "citedPages": [
-     "p.45"
-    ],
-    "checked": 1,
-    "miscited": [],
-    "fabricated": []
-   },
-   "cost": 0.039354,
-   "fail": [],
-   "warn": []
-  },
-  {
-   "id": "ambiguity",
-   "tests": "asking for the one missing fact instead of guessing it",
-   "ask": "What's my duty cycle at 150 amps?",
-   "text": "150A is only possible on 240V input — all three processes cap out below that on 120V (MIG 140A, TIG 125A, Stick 80A) [p.7].\n\nI still need to know which **process** you're running (MIG, TIG, or Stick) to give you the right duty cycle — each has its own rated curve. Which one are you using?\n\nOnce you tell me, I'll pull the exact number rather than guess. In the meantime, here's the interactive calculator so you can check any combination yourself:Just tell me MIG, TIG, or Stick and I'll confirm the exact figure — the calculator above is set to 240V/150A so you can toggle through all three yourself right now.",
-   "tools": [
-    "show_component"
-   ],
-   "visuals": [
-    "component:duty_cycle_calculator"
-   ],
-   "verdict": {
-    "citedPages": [
-     "p.7"
-    ],
-    "checked": 5,
-    "miscited": [],
-    "fabricated": []
-   },
-   "cost": 0.034219,
+   "cost": 0.2025194,
    "fail": [],
    "warn": []
   }

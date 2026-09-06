@@ -173,6 +173,8 @@ export default function Chat() {
   const [voiceIn, setVoiceIn] = useState(false)
   const [voiceOut, setVoiceOut] = useState(false)
   const [handsFree, setHandsFree] = useState(false)
+  const [speaking, setSpeaking] = useState(false)
+  const [thinking, setThinking] = useState(false)
   const [needsKey, setNeedsKey] = useState(false)
   const [keyOpen, setKeyOpen] = useState(false)
   const [apiKey, setApiKey] = useState('')
@@ -207,7 +209,12 @@ export default function Chat() {
       r.onerror = () => setListening(false)
       recog.current = r
     }
-    setVoiceOut('speechSynthesis' in window)
+    if ('speechSynthesis' in window) {
+      setVoiceOut(true)
+      // Chrome fills the voice list asynchronously; touching it early primes it.
+      window.speechSynthesis.getVoices()
+      window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices()
+    }
   }, [])
 
   useEffect(() => {
@@ -220,21 +227,50 @@ export default function Chat() {
   }, [])
 
   /**
-   * Read an answer aloud. Citations, markdown marks and tool names are stripped first
-   * — "open square bracket p dot thirty five" helps nobody with a helmet down.
+   * Read an answer aloud, as a person would say it.
+   *
+   * Three things make Web Speech sound less like a station announcement. Pick the best
+   * voice actually installed rather than the platform default, which is usually the
+   * oldest one. Speak sentence by sentence so the engine puts real pauses at full
+   * stops instead of racing through a wall of text. And rewrite for the ear first:
+   * "[p.35]" becomes "page 35", "DCEN" becomes "D C E N", bullet marks disappear.
    */
   const speak = useCallback((raw: string) => {
     if (!('speechSynthesis' in window)) return
-    const clean = raw
-      .replace(/\[[^\]]*p\.?\s*\d+[^\]]*\]/gi, '')
-      .replace(/[*_`#|]/g, '')
+    const spoken = raw
+      .replace(/\[([^\]]*?)p\.?\s*(\d+)([^\]]*?)\]/gi, (_m, _a, n) => `, page ${n},`)
+      .replace(/\bDCE([PN])\b/g, (_m, c) => `D C E ${c}`)
+      .replace(/\bCTWD\b/g, 'contact tip to work distance')
+      .replace(/\bQSG\b/g, 'quick start guide')
+      .replace(/(\d)\s*A\b/g, '$1 amps')
+      .replace(/(\d)\s*V\b/g, '$1 volts')
+      .replace(/^\s*[-*]\s+/gm, '')
+      .replace(/[*_`#|>]/g, '')
+      .replace(/\s*\n\s*/g, '. ')
+      .replace(/\.{2,}/g, '.')
       .replace(/\s+/g, ' ')
       .trim()
-    if (!clean) return
+    if (!spoken) return
+
+    const voices = window.speechSynthesis.getVoices()
+    const best =
+      voices.find((v) => /en/i.test(v.lang) && /natural|neural|premium|enhanced/i.test(v.name)) ??
+      voices.find((v) => /^en-(GB|US)/i.test(v.lang) && /google/i.test(v.name)) ??
+      voices.find((v) => /^en-(GB|US)/i.test(v.lang) && !/compact/i.test(v.name)) ??
+      voices.find((v) => /^en/i.test(v.lang))
+
     window.speechSynthesis.cancel()
-    const u = new SpeechSynthesisUtterance(clean.slice(0, 4000))
-    u.rate = 1.02
-    window.speechSynthesis.speak(u)
+    const parts = spoken.match(/[^.!?]+[.!?]*/g)?.slice(0, 60) ?? [spoken]
+    setSpeaking(true)
+    parts.forEach((part, i) => {
+      const u = new SpeechSynthesisUtterance(part.trim())
+      if (best) u.voice = best
+      u.rate = 0.97      // a touch under default reads as explaining, not announcing
+      u.pitch = 1.06     // lifts it out of the flat monotone
+      u.volume = 1
+      if (i === parts.length - 1) u.onend = () => setSpeaking(false)
+      window.speechSynthesis.speak(u)
+    })
   }, [])
 
   const openPage = (doc: string, page: number) =>
@@ -308,6 +344,7 @@ export default function Chat() {
     let breakText = false
     const seen = new Set<string>()
     let spoken = ''
+    setThinking(true)
 
     try {
       const res = await fetch('/api/chat', {
@@ -342,6 +379,7 @@ export default function Chat() {
           const e = JSON.parse(part.slice(6))
 
           if (e.type === 'text') {
+            setThinking(false)
             spoken += e.delta
             const fresh = breakText
             breakText = false
@@ -393,8 +431,14 @@ export default function Chat() {
       patch((t) => ({ ...t, error: (err as Error).message, streaming: false }))
     } finally {
       patch((t) => ({ ...t, streaming: false }))
+      setThinking(false)
       setBusy(false)
     }
+  }
+
+  const newChat = () => {
+    window.speechSynthesis?.cancel()
+    setTurns([]); setDraft(''); setShots([]); setSpeaking(false); setThinking(false)
   }
 
   const keySet = Boolean(apiKey) && !keyError
@@ -403,17 +447,13 @@ export default function Chat() {
   return (
     <>
       <div className="rail">
-        <span className="wordmark"><span className="glyph" aria-hidden>⚡</span>OmniPro&nbsp;220</span>
+        <button className="wordmark" onClick={newChat} title="Start a new question">
+          <span className="glyph" aria-hidden>⚡</span>OmniPro&nbsp;220
+        </button>
         <span className="tag">Know your machine</span>
         <span className="spacer" />
         <span className="meter">session <b>${spend.toFixed(3)}</b></span>
-        {voiceOut && (
-          <button className="railbtn" aria-pressed={handsFree}
-            title="Read answers aloud — for when your helmet is down"
-            onClick={() => { const n = !handsFree; setHandsFree(n); if (!n) window.speechSynthesis.cancel() }}>
-            Hands-free
-          </button>
-        )}
+        {turns.length > 0 && <button className="railbtn" onClick={newChat}>New question</button>}
         <button className="railbtn" aria-pressed={browsing} onClick={() => setBrowsing((v) => !v)}>Index</button>
       </div>
 
@@ -431,16 +471,49 @@ export default function Chat() {
                   <span className="badge">photograph your weld</span>
                 </div>
               </div>
-              <img src="/product.webp" alt="Vulcan OmniPro 220 multiprocess welder" />
+              <img src="/product-cut.webp" alt="Vulcan OmniPro 220 multiprocess welder" />
             </div>
 
+            {needsKey && keySet && !keyOpen && (
+              <div className="keygate mini">
+                <span className="dotok" aria-hidden />
+                <span>Key active for this tab</span>
+                <span style={{ flex: 1 }} />
+                <button className="ghost" onClick={() => setKeyOpen(true)}>Change</button>
+              </div>
+            )}
+
             <p className="demo-note">
-              A live instrument running on the extracted data — no key needed. Change the
-              process and watch the ground clamp move.
+              <b>Try it before you type anything.</b> The panel below is a live instrument
+              running on the extracted manual data — no key needed. Change the process and
+              watch the ground clamp move to the other socket.
             </p>
-            <Artifact name="Cable polarity" source="p.13 · p.14 · p.27 · QSG p.2">
+            <Artifact name="Cable polarity — example instrument" source="p.13 · p.14 · p.27 · QSG p.2">
               <div className="art-bd"><Interactive component="polarity_diagram" props={{ process: 'Flux-Cored' }} /></div>
             </Artifact>
+
+            {showGate && (
+              <form className="keygate" onSubmit={(e) => {
+                e.preventDefault()
+                const k = apiKey.trim()
+                if (!/^sk-ant-/.test(k)) { setKeyError('Anthropic keys start with sk-ant-.'); return }
+                setKeyError(''); setKeyOpen(false)
+              }}>
+                <p>
+                  <b>This runs on your own Anthropic key.</b> Held in memory for this tab only —
+                  never written to storage of any kind, gone the moment you refresh.
+                  <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noreferrer">Get a key</a>
+                </p>
+                <input type="password" autoComplete="off" spellCheck={false} placeholder="sk-ant-..."
+                  value={apiKey} onChange={(e) => { setApiKey(e.target.value); setKeyError('') }} />
+                <button type="submit" className="use">Use this key</button>
+                {keyError && <p className="keyerr keynote">{keyError}</p>}
+                <p className="keynote">
+                  Rather not paste a key? Clone the repo and run it locally with the key in
+                  <code>.env</code>. The instrument above works either way.
+                </p>
+              </form>
+            )}
 
             <div className="seeds">
               {SEEDS.map((s) => (
@@ -505,7 +578,14 @@ export default function Chat() {
                 return <GeneratedDiagram key={j} title={b.title} svg={b.svg} />
               })}
 
-              {t.streaming && t.blocks.length === 0 && <span className="caret" />}
+              {t.streaming && t.blocks.length === 0 && (
+                <div className="thinking">
+                  <span className="dots" aria-hidden><i /><i /><i /></span>
+                  {t.work.length
+                    ? `Reading ${t.work[t.work.length - 1].detail || 'the manual'}…`
+                    : 'Thinking…'}
+                </div>
+              )}
               {t.error && <div className="err">{t.error}</div>}
 
               {t.sources.length > 0 && (
@@ -526,34 +606,31 @@ export default function Chat() {
       </main>
 
       <div className="dock">
-        {showGate && (
-          <form className="keygate" onSubmit={(e) => {
-            e.preventDefault()
-            const k = apiKey.trim()
-            if (!/^sk-ant-/.test(k)) { setKeyError('Anthropic keys start with sk-ant-.'); return }
-            setKeyError(''); setKeyOpen(false)
-          }}>
-            <p>
-              <b>This runs on your own Anthropic key.</b> Held in memory for this tab only —
-              never written to storage of any kind, gone the moment you refresh.
-              <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noreferrer">Get a key</a>
-            </p>
-            <input type="password" autoComplete="off" spellCheck={false} placeholder="sk-ant-..."
-              value={apiKey} onChange={(e) => { setApiKey(e.target.value); setKeyError('') }} />
-            <button type="submit" className="use">Use this key</button>
-            {keyError && <p className="keyerr keynote">{keyError}</p>}
-            <p className="keynote">
-              Rather not paste a key? Clone the repo and run it locally with the key in
-              <code>.env</code>. The instrument above works either way.
-            </p>
-          </form>
-        )}
-        {needsKey && keySet && !keyOpen && (
-          <div className="keygate mini">
-            <span className="dotok" aria-hidden />
-            <span>Key active for this tab</span>
-            <span style={{ flex: 1 }} />
-            <button className="ghost" onClick={() => setKeyOpen(true)}>Change</button>
+        <div className="dockbar">
+          {voiceOut && (
+            <button className="toggle" aria-pressed={handsFree}
+              title="Read every answer aloud — for when your helmet is down and your gloves are on"
+              onClick={() => {
+                const n = !handsFree
+                setHandsFree(n)
+                if (!n) { window.speechSynthesis.cancel(); setSpeaking(false) }
+              }}>
+              <span className="sw" aria-hidden />
+              Hands-free {handsFree ? 'on' : 'off'}
+            </button>
+          )}
+          {speaking && (
+            <button className="toggle" onClick={() => { window.speechSynthesis.cancel(); setSpeaking(false) }}>
+              <span className="wave" aria-hidden><i /><i /><i /><i /><i /></span>
+              Stop reading
+            </button>
+          )}
+        </div>
+
+        {listening && (
+          <div className="hearing-bar">
+            <span className="wave" aria-hidden><i /><i /><i /><i /><i /></span>
+            Listening — say your question, then pause
           </div>
         )}
 
@@ -568,7 +645,7 @@ export default function Chat() {
           </div>
         )}
 
-        <form className="compose" onSubmit={(e) => { e.preventDefault(); ask(draft) }}>
+        <form className={`compose${listening ? ' hearing' : ''}`} onSubmit={(e) => { e.preventDefault(); ask(draft) }}>
           <input ref={fileRef} type="file" accept={ACCEPT} multiple hidden
             onChange={(e) => { if (e.target.files) addFiles(e.target.files); e.target.value = '' }} />
           <button type="button" className="iconbtn" onClick={() => fileRef.current?.click()}

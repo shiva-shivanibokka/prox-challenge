@@ -33,7 +33,6 @@
   --ok: #34d399;
 
   --gutter: 2in;
-  --measure: 88ch;
 }
 
 * { box-sizing: border-box; }
@@ -74,10 +73,12 @@ button { cursor: pointer; }
 }
 .wordmark {
   display: flex; align-items: center; gap: 10px;
+  background: none; border: 0; padding: 0;
   font-family: var(--font-display), system-ui, sans-serif;
   font-weight: 700; font-size: 19px; letter-spacing: -0.035em; color: var(--white);
   white-space: nowrap;
 }
+.wordmark:hover .glyph { filter: brightness(1.15); }
 .wordmark .glyph {
   width: 24px; height: 24px; flex: none; display: grid; place-items: center;
   background: linear-gradient(140deg, var(--hot), var(--hot-2));
@@ -103,7 +104,7 @@ button { cursor: pointer; }
 
 .hero { margin-bottom: 30px; }
 .herotop { display: flex; gap: 40px; align-items: flex-start; }
-.herotop img { width: 230px; flex: none; }
+.herotop img { width: 250px; flex: none; filter: drop-shadow(0 22px 40px rgba(0, 0, 0, 0.55)); }
 .bigtitle {
   font-family: var(--font-display), system-ui, sans-serif;
   font-size: clamp(36px, 5.2vw, 60px); font-weight: 700;
@@ -122,9 +123,10 @@ button { cursor: pointer; }
 .badge b { color: var(--cyan); font-weight: 500; }
 
 .demo-note {
-  font-size: 13px; color: var(--text-3);
-  border-left: 3px solid var(--hot); padding: 2px 0 2px 12px; margin: 0 0 12px;
+  font-size: 16px; line-height: 1.55; color: var(--text-2);
+  border-left: 3px solid var(--hot); padding: 4px 0 4px 15px; margin: 0 0 16px;
 }
+.demo-note b { color: var(--white); font-weight: 600; }
 
 .seeds { display: grid; gap: 8px; margin-bottom: 8px; }
 .seed {
@@ -166,6 +168,30 @@ button { cursor: pointer; }
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* Before the first token lands, say what is happening rather than showing nothing. */
+.thinking { display: flex; align-items: center; gap: 11px; color: var(--text-3); font-size: 14px; }
+.thinking .dots { display: inline-flex; gap: 4px; }
+.thinking .dots i { width: 6px; height: 6px; background: var(--hot); display: block; animation: bob 1.1s ease-in-out infinite; }
+.thinking .dots i:nth-child(2) { animation-delay: 0.14s; }
+.thinking .dots i:nth-child(3) { animation-delay: 0.28s; }
+@keyframes bob { 0%, 60%, 100% { opacity: 0.25; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-4px); } }
+
+/* Listening: the composer itself changes state, so it is impossible to miss. */
+.compose.hearing { border-color: var(--hot); box-shadow: 0 0 0 1px var(--hot), 0 0 34px rgba(255, 106, 26, 0.22); }
+.hearing-bar {
+  display: flex; align-items: center; gap: 12px; padding: 9px 14px;
+  border: 1px solid var(--hot); border-bottom: 0; background: rgba(255, 106, 26, 0.12);
+  font-size: 13px; color: #ffc4a1;
+}
+.wave { display: inline-flex; align-items: flex-end; gap: 3px; height: 16px; }
+.wave i { width: 3px; background: var(--hot); display: block; animation: vu 0.9s ease-in-out infinite; }
+.wave i:nth-child(1) { height: 6px; animation-delay: 0s; }
+.wave i:nth-child(2) { height: 14px; animation-delay: 0.12s; }
+.wave i:nth-child(3) { height: 9px; animation-delay: 0.24s; }
+.wave i:nth-child(4) { height: 16px; animation-delay: 0.36s; }
+.wave i:nth-child(5) { height: 7px; animation-delay: 0.48s; }
+@keyframes vu { 0%, 100% { transform: scaleY(0.35); } 50% { transform: scaleY(1); } }
+
 /* the answer box */
 .answer {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
@@ -173,7 +199,9 @@ button { cursor: pointer; }
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.5);
   padding: 28px 32px;
 }
-.say > p, .say > ul, .say > ol, .say > h3 { max-width: var(--measure); }
+/* Prose runs the full width of its box, matching the figures. The box padding is the
+   gutter; size and leading carry the readability instead of a narrow measure. */
+.say { font-size: 17.5px; line-height: 1.68; }
 .say p { margin: 0 0 0.85em; }
 .say ul, .say ol { margin: 0 0 0.95em; padding-left: 1.25em; }
 .say li { margin: 0 0 0.3em; }
@@ -352,6 +380,8 @@ button { cursor: pointer; }
 .srcstrip button:hover { border-color: var(--cyan); color: var(--white); }
 .srcstrip img { width: 22px; height: 22px; object-fit: cover; object-position: top left; background: #fff; }
 
+.speaking { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--hot-2); margin-left: 10px; }
+
 /* --------------------------------------------------------------------- dock */
 
 .dock {
@@ -380,6 +410,20 @@ button { cursor: pointer; }
 .send:disabled { background: rgba(103, 232, 249, 0.12); color: var(--text-3); }
 .hint { font-size: 11.5px; color: var(--text-3); margin: 7px 0 0; font-family: var(--font-mono), monospace; }
 
+/* Hands-free sits with the composer, where someone about to ask a question will see
+   it. In the top bar nobody found it. */
+.dockbar { display: flex; align-items: center; gap: 9px; margin-bottom: 9px; flex-wrap: wrap; }
+.toggle {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: rgba(103, 232, 249, 0.06); border: 1px solid var(--line);
+  color: var(--text-2); padding: 6px 12px; font-size: 12.5px;
+}
+.toggle:hover { border-color: var(--cyan); color: var(--white); }
+.toggle[aria-pressed='true'] { border-color: var(--hot); background: rgba(255, 106, 26, 0.14); color: var(--white); }
+.toggle .sw { width: 26px; height: 14px; border: 1px solid currentColor; position: relative; flex: none; }
+.toggle .sw::after { content: ''; position: absolute; top: 2px; left: 2px; width: 8px; height: 8px; background: currentColor; transition: left 0.16s; }
+.toggle[aria-pressed='true'] .sw::after { left: 14px; background: var(--hot); }
+
 .pending { display: flex; gap: 8px; padding: 9px 10px; border: 1px solid var(--line); border-bottom: 0; background: rgba(4, 9, 16, 0.86); }
 .pending figure { position: relative; margin: 0; }
 .pending img { height: 54px; display: block; border: 1px solid var(--line); background: #fff; }
@@ -390,7 +434,7 @@ button { cursor: pointer; }
 }
 .pending button:hover { border-color: var(--hot); color: var(--hot); }
 
-.err { border-left: 3px solid var(--hot); background: rgba(255, 106, 26, 0.1); padding: 11px 14px; font-size: 14px; max-width: var(--measure); }
+.err { border-left: 3px solid var(--hot); background: rgba(255, 106, 26, 0.1); padding: 11px 14px; font-size: 14px; }
 
 /* ------------------------------------------------------------------ keygate */
 
