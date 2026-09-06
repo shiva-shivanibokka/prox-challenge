@@ -34,7 +34,7 @@ import anthropic
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
-KB = ROOT / "knowledge"
+KB = ROOT / "public" / "kb"
 MODEL = "claude-opus-5"
 
 SPECS_SCHEMA = """{"processes":[{"process":"MIG|TIG|Stick","input_volts":120|240,

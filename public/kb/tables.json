@@ -1,9 +1,5 @@
 {
  "specs": {
-  "source_pages": [
-   7
-  ],
-  "source_doc": "manual",
   "data": {
    "processes": [
     {
@@ -179,7 +175,10 @@
     "spool_capacity_lb": 12
    }
   },
-  "unverified_numbers": []
+  "unverified_numbers": [],
+  "sources": [
+   "manual:7"
+  ]
  },
  "polarity": {
   "sources": [
@@ -248,12 +247,6 @@
   "unverified_numbers": []
  },
  "troubleshooting": {
-  "source_pages": [
-   42,
-   43,
-   44
-  ],
-  "source_doc": "manual",
   "data": {
    "problems": [
     {
@@ -564,13 +557,14 @@
     }
    ]
   },
-  "unverified_numbers": []
+  "unverified_numbers": [],
+  "sources": [
+   "manual:42",
+   "manual:43",
+   "manual:44"
+  ]
  },
  "process_selection": {
-  "source_pages": [
-   1
-  ],
-  "source_doc": "chart",
   "data": {
    "processes": [
     {
@@ -669,6 +663,9 @@
     }
    ]
   },
-  "unverified_numbers": []
+  "unverified_numbers": [],
+  "sources": [
+   "chart:1"
+  ]
  }
 }

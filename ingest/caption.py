@@ -27,7 +27,7 @@ import anthropic
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
-KB = ROOT / "knowledge"
+KB = ROOT / "public" / "kb"
 CAPTIONS = KB / "captions.json"
 
 # Whole-page figures and the standalone documents carry the densest, most

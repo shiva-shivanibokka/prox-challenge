@@ -22,7 +22,7 @@ from PIL import Image, ImageChops
 
 ROOT = Path(__file__).resolve().parent.parent
 FILES = ROOT / "files"
-OUT = ROOT / "knowledge"
+OUT = ROOT / "public" / "kb"
 
 DOCS = [
     ("owner-manual.pdf", "manual"),
