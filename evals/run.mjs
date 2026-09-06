@@ -99,8 +99,11 @@ const CASES = [
     ask: "What's my duty cycle at 150 amps?",
     expect: {
       // 150A is valid on 240V for MIG and Stick but impossible on 120V, so the
-      // answer turns on a detail the user did not give.
-      text: [/120|240/, /\?/],
+      // answer turns on a detail the user did not give. What matters is that it asks
+      // for that detail -- whether it ends in a question mark is punctuation, not
+      // behaviour. "I still need to know which process" is a request.
+      text: [/120|240/,
+        /\?|need to know|tell me which|let me know|which process|confirm which/i],
       mustNotContain: [/^\s*(?:25|30|40)\s*%/],
     },
   },

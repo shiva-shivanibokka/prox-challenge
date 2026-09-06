@@ -344,8 +344,10 @@ Fourteen cases in three groups, because ground truth matters more than volume:
   Ground truth is exact. **6/7** including both phrasings of the good weld — the one
   miss is `volts-low`, a smooth even bead whose only fault is being *too narrow*, and
   cropping removed the neighbouring panels that gave scale. In real use the plate is in
-  frame, which restores it. I did not tune the prompt further to force 7/7; that would
-  be overfitting to six line drawings.
+  frame, which restores it. The miss also moves between runs — `volts-low` and
+  `travel-fast` sit closest to the boundary and it drops one or the other. I did not
+  tune further to force 7/7; that would be overfitting to six line drawings, and the
+  real photographs score 5/5.
 - **five real photographs** of welds from Wikimedia Commons, credited in
   `evals/welds/real/CREDITS.json`. No defect ground truth exists for these, so they are
   judged on what must hold regardless: it engaged with the image, reached a verdict,
@@ -461,7 +463,9 @@ Beyond that:
   default, spoken sentence by sentence so the pauses land, and rewritten for the ear
   first ("[p.35]" becomes "page 35", "DCEN" becomes "D C E N").
 - **Guided setup**, one step at a time, from the verified setup table — the manual's
-  order and wording, each step carrying its page.
+  order and wording, each step carrying its page. With hands-free on it **reads the
+  step you are standing on** and re-reads when you advance, which is the whole point:
+  gloves on, both hands on the machine, nobody is looking at the screen.
 - **Drag, paste or browse a photo** straight into the composer.
 - **Live tool status**: which tool is running, on what, right now.
 - **Print styles.** Answers are meant to be carried to the machine.

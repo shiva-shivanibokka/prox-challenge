@@ -4,7 +4,7 @@
   "id": "good",
   "truth": "Good Weld",
   "ask": "Here is my weld. How does it look?",
-  "text": "That's the \"Good Weld\" reference bead — practically identical to yours.\n\nRuling out the other five:\n- Not narrow/tall or poorly wetted → not too cold\n- Not wide/flat/washed out, no spatter dots → not too hot\n- No sharp V-shaped ripples → not travel-too-fast\n- Ripples aren't crowded or piled up dark → not travel-too-slow\n- No pits/holes visible, rounded even crown at the end → no sign of CTWD/polarity issue\n\nYour bead shows evenly stacked, half-moon ripples at consistent spacing and width all the way down, with a smooth rounded end cap and clean edges — that matches the \"Good Weld\" profile exactly [p.35].\n\nOne caveat: this looks like a clean top-down shot of a bead-on-plate (not a cross-section), so I can't confirm actual penetration depth from this photo alone — that requires cutting/etching a cross-section or the strike test described in the manual [p.34]. But going by bead appearance, this is a good weld.",
+  "text": "Your bead matches the \"Good Weld\" reference exactly: evenly stacked, tightly and consistently spaced half-moon ripples running the full length at a constant width, with a nicely rounded end crater and no pits, holes, or spatter visible [p.35].\n\nRunning through the other five signs to rule them out:\n- Not narrow/tall/ropey → rules out too cold (low voltage/slow wire feed)\n- Not wide/flat/washed out with spatter → rules out too hot (high voltage/fast wire feed)\n- Ripples aren't pointed/V-shaped → rules out travel too fast\n- Ripples aren't crowded/piled up → rules out travel too slow\n- No pits or craters in the bead → rules out CTWD too long or wrong polarity\n\nOne caveat: this looks like a clean, well-lit, straight-on shot of a bare bead, which is exactly what's needed to judge it — but it does look like a rendered/illustrated image rather than a photo of an actual weld. If this is a photo of a real bead and it looks this consistent in person too, you're doing it right. If you want to sanity-check further, the strike test on page 34 [p.34] will confirm it mechanically — a good weld bends without cracking.",
   "tools": [
    "view_photo",
    "get_figure"
@@ -18,7 +18,7 @@
    "miscited": [],
    "fabricated": []
   },
-  "cost": 0.18470370000000003,
+  "cost": 0.19034530000000002,
   "fail": []
  },
  {
@@ -26,7 +26,7 @@
   "id": "volts-low",
   "truth": "Voltage Too Low or Wire Feed Too Slow",
   "ask": "Here is my weld. How does it look?",
-  "text": "Comparing your bead against the reference chart [p.35]:\n\n- **Consistent width top to bottom** — no narrowing, no ballooning.\n- **Evenly stacked, rounded ripples** spaced closely and uniformly the whole length — that shingled half-moon pattern matches \"Good Weld\" almost exactly.\n- **No pointed/V-shaped ripples** (which would mean travel speed too fast), no crowded piled-up ripples (too slow), no scattered spatter or pits (gas/polarity/porosity issues).\n- Edges look like they're wetting into the plate rather than sitting proud on top.\n\nThis clears every fault sign on the chart — it lines up with the **Good Weld** reference [p.35].\n\nOne caveat: this looks like a clean line-art render of a bead rather than a straight-on photo of actual metal, so I can't check for finer stuff like spatter texture or actual undercut at the toes. If this is a photo of a real weld and it just rendered flat/high-contrast, a straight-on shot in better light would let me confirm color and toe wetting more precisely. But based on ripple shape and spacing, you're doing it right.",
+  "text": "Comparing your bead against the manual's reference chart [p.35]:\n\n- **Width vs. height**: Your bead is narrow and sits noticeably proud/domed above the plate surface — not flat or wide.\n- **Ripples**: Evenly spaced, rounded half-moon shapes, but they're stacked close together rather than laid flat.\n- **Edges**: Hard to see clear wetting into the base metal at the toes — the bead looks like it's sitting on top rather than blending into the plate.\n\nThat combination — narrow, tall/proud bead with ripples that don't wet out — matches the **\"Voltage Too Low or Wire Feed Too Slow\"** reference (too cold), not the Good Weld reference. The Good Weld example is flatter, wider, with ripples that fuse smoothly into the base metal.\n\n**To correct** [p.35]:\n- Increase output voltage, **or**\n- Increase wire feed speed\n\n**Confidence check**: This photo is a clean, straight-on line drawing/rendering rather than an actual photo of bare metal — there's no visible plate texture, discoloration, or spatter to confirm heat input independently. If this is a stylized rendering and not your actual weld, or if the real bead has been wire-brushed or is shot at an angle, take a straight-on photo of the bare, unbrushed weld in good light so I can confirm this call.",
   "tools": [
    "view_photo",
    "get_figure"
@@ -39,21 +39,18 @@
    "miscited": [],
    "fabricated": []
   },
-  "cost": 0.0438071,
-  "fail": [
-   "missed \"Voltage Too Low or Wire Feed Too Slow\""
-  ]
+  "cost": 0.0446586,
+  "fail": []
  },
  {
   "group": "reference",
   "id": "volts-high",
   "truth": "Voltage Too High or Wire Feed Too Fast",
   "ask": "Here is my weld. How does it look?",
-  "text": "This looks like a stylized weld-bead diagram (matches the chart style on p.35 rather than a photo of a real bead) — I compared it directly against the manual's six reference examples.\n\n**What rules out the others:**\n- Not narrow/tall with sparse ripples → not \"Voltage Too Low / Wire Feed Too Slow\" [p.35]\n- Ripples aren't sparse and rounded, sitting proud → not \"Travel Speed Too Slow\" [p.35]\n- Width is fairly consistent, not thin/stringy with sharp isolated V's → doesn't cleanly match \"Travel Speed Too Fast\" [p.35]\n- It does **not** clear every sign for \"Good Weld\" — there are scattered dark dots around the bead that a clean weld shouldn't have [p.35]\n\n**Two references fit equally well here**, and the manual's own chart shows them as visually similar:\n1. **Voltage Too High or Wire Feed Too Fast** — wide bead, tightly packed chevron ripples, scattered spatter dots around the bead [p.35]\n2. **CTWD Too Long or Wrong Polarity** — same crowded chevron ripple pattern with dots, rounded blob at the end [p.35]\n\n**Cheapest way to tell them apart:** check your actual settings before changing anything.\n- Confirm polarity is correct for your process (DCEP for solid wire/gas, DCEN for flux-cored) and confirm contact-tip-to-work distance is under 1/2\" [p.35]. If both check out, the cause is voltage/wire-feed-speed — turn down output voltage or wire feed speed [p.35].\n- If polarity or CTWD is wrong, fixing that alone often clears both the spatter and any pitting.\n\nIf the dots are actual pinholes *in* the bead surface (not just spatter sitting around it), that's porosity, and the troubleshooting matrix adds gas flow, dirty wire, and dirty workpiece as causes to check too [p.43].If a straight-on, well-lit photo of the actual bare bead (not this rendered diagram) is available, send that — it'll let me confirm which of the two it actually is instead of naming both.",
+  "text": "Comparing your bead against the manual's diagnosis chart [p.35]:\n\n**What rules out the others:**\n- Not narrow/tall with poor wetting → not \"voltage too low\" [p.35]\n- Not wide/washed-out → not \"voltage too high\" [p.35]\n- Ripple width is consistent end to end, not tapering to a point → not \"travel too fast\" [p.35]\n- Not piled up/heavy → not \"travel too slow\" [p.35]\n\n**What stands out:** there are small dark pits/holes sitting right on the bead itself (not just scattered spatter beside it), with a rounded crown at the bead. That combination is the manual's specific signature for **CTWD Too Long or Wrong Polarity** [p.35].\n\n**Fix per the manual:** check your polarity setting and keep Contact-Tip-to-Work Distance under 1/2\" [p.35].\n\nSince this looks like porosity (holes in the bead), the troubleshooting table also lists the fuller list of causes to check in order: empty/low gas bottle, gas flow too high or low, dirty workpiece, CTWD too far, wrong polarity, or dirty/contaminated wire [p.43].\n\n**Confidence check:** this is a fairly small/cropped image with no size reference, so I'm reading it as a diagram-style rendering rather than an actual photo of bare metal — if this is a real weld, a straight-on shot in good light of the bare (unpainted, unbrushed) bead would let me confirm this more solidly, especially to rule out ordinary spatter versus true porosity.\n\nQuick way to tell CTWD/polarity issue from ordinary spatter: wire-brush the bead and look closely — actual porosity holes go *into* the bead surface, while spatter sits as separate balls *on top of* the plate around the bead.",
   "tools": [
    "view_photo",
-   "get_figure",
-   "show_component"
+   "get_figure"
   ],
   "verdict": {
    "citedPages": [
@@ -64,7 +61,7 @@
    "miscited": [],
    "fabricated": []
   },
-  "cost": 0.10279819999999998,
+  "cost": 0.0598011,
   "fail": []
  },
  {
@@ -72,28 +69,31 @@
   "id": "travel-fast",
   "truth": "Travel Speed Too Fast",
   "ask": "Here is my weld. How does it look?",
-  "text": "That bead reads as a **good weld** — narrow and consistent in width top to bottom, with evenly stacked, gently rounded ripples and no pits, spatter, or pointed chevron shapes. It matches the \"Good Weld\" reference bead on the manual's diagnosis chart above [p.35].\n\nRuling out the other five:\n- Not narrow/tall with sparse ripples → rules out **too cold** (voltage too low/wire feed too slow)\n- Not wide/washed out with spatter dots → rules out **too hot** (voltage too high/wire feed too fast)\n- Ripples are rounded, not sharp V-points → rules out **travel too fast**\n- Ripples aren't crowded/piled up → rules out **travel too slow**\n- No visible pits or craters along the bead → rules out **CTWD too long / wrong polarity**\n\nOne caveat: this image reads more like a clean rendered graphic than a photo of an actual bare-metal weld in natural light, so I can't confirm fine details like faint spatter specks or small porosity pinholes that only show up in a sharp, well-lit, straight-on shot. If this is your real weld, a quick photo taken straight-on in good light after wire-brushing would let me double check for porosity — but going by what's here, it looks like a solid, well-set bead.",
+  "text": "Comparing your bead against the six references [p.35]:\n\n- **Not this one:** No wide/washed-out flatness or spatter dots (rules out too-hot/voltage-too-high), no crowded piled-up ripples (rules out travel-too-slow), no pits or holes visible (rules out CTWD/polarity), and no undercut with sharp thin stringy pointed ripples (rules out travel-too-fast).\n- **What's actually there:** Evenly spaced half-moon ripples, running the full length at a fairly consistent width, rounded/convex crown, edges tucking into the plate rather than sitting on top — that matches the **Good Weld** reference bead [p.35].\n\nVerdict: this looks like a good weld — narrow enough to show good fusion, ripples evenly stacked, no spatter or porosity visible.\n\n**Confidence caveat:** the shot is a fairly tight, well-lit, straight-on crop, so the ripple pattern reads clearly. I can't confirm penetration (that's only visible from a cross-section cut, or the underside on a plate weld) or check for fine porosity/spatter outside this frame — if you want that confirmed, a look at the back side of the joint or a strike test [p.34] would tell you more.",
   "tools": [
    "view_photo",
    "get_figure"
   ],
   "verdict": {
    "citedPages": [
-    "p.35"
+    "p.35",
+    "p.34"
    ],
    "checked": 0,
    "miscited": [],
    "fabricated": []
   },
-  "cost": 0.05639210000000001,
-  "fail": []
+  "cost": 0.0442136,
+  "fail": [
+   "missed \"Travel Speed Too Fast\""
+  ]
  },
  {
   "group": "reference",
   "id": "travel-slow",
   "truth": "Travel Speed Too Slow",
   "ask": "Here is my weld. How does it look?",
-  "text": "This photo looks like a simplified illustration/rendering rather than an actual photo of a real bead — it's hard to make a confident call from it. That said, comparing what's visible against the manual's reference chart [p.35]:\n\n**What I can see:** evenly spaced, stacked half-moon ripples, consistent width top to bottom, with a rounded terminus (crater) at the end. No visible pits, no scattered spatter dots, no sharp V-shaped pointed ripples.\n\n**Ruling out the other five:**\n- Not narrow/tall/ropey → not \"Voltage Too Low / Wire Feed Too Slow\"\n- Not wide/washed-out with spatter → not \"Voltage Too High / Wire Feed Too Fast\"\n- Ripples are rounded, not pointed V-shapes → not \"Travel Speed Too Fast\"\n- Not overly crowded/piled up/dark → not \"Travel Speed Too Slow\"\n- No pits or holes visible → not \"CTWD Too Long or Wrong Polarity\"\n\nBy elimination, this reads as a **Good Weld** per the reference bead: evenly stacked ripples, constant width, no pits or spatter [p.35].\n\n**My confidence is limited**, though — this image has flat, uniform gray shading and no visible metal texture, grain, or lighting typical of an actual weld photo, so I can't fully verify surface details like fine spatter, slight porosity, or toe wetting. If this is a real bead and not a diagram, take a straight-on photo in good light, close enough to show the actual ripple texture and edges where the bead meets the plate — that will let me confirm porosity/spatter that a low-detail image can hide.",
+  "text": "Ruling this out against the manual's six reference beads [p.35]:\n\n- **Not narrow/tall/peaked** — ripples aren't stacked close together or crowned high, so it's not \"Voltage Too Low / Wire Feed Too Slow.\"\n- **Not wide/flat/washed out** — no scattered spatter dots around the bead, so not \"Voltage Too High / Wire Feed Too Fast.\"\n- **No sharp V-shaped pointed ripples** — the ripples are rounded, even arcs, not the pointed stringy look of \"Travel Speed Too Fast.\"\n- **Not piled up/crowded/dark** — ripple spacing looks even and consistent, not the crowded overlap of \"Travel Speed Too Slow.\"\n- **No pitting or holes** — the bead surface is clean, ruling out \"CTWD Too Long or Wrong Polarity\" porosity.\n\nWhat's left: **evenly stacked half-moon ripples, constant width end to end, clean edges, no spatter or pits** — that's the \"Good Weld\" profile [p.35].\n\nOne caveat: this image reads as a fairly simplified/rendered graphic rather than a sharp close-up photo of bare metal — I can see overall shape and ripple pattern clearly enough to call it good, but I can't confirm finer details like actual edge wetting into the plate or fine spatter. If you want it double-checked, a straight-on photo in good light of the bare (unpainted, unbrushed) bead would nail it down completely.",
   "tools": [
    "view_photo",
    "get_figure"
@@ -106,7 +106,7 @@
    "miscited": [],
    "fabricated": []
   },
-  "cost": 0.045532100000000006,
+  "cost": 0.0513736,
   "fail": []
  },
  {
@@ -114,22 +114,23 @@
   "id": "ctwd-polarity",
   "truth": "CTWD Too Long or Wrong Polarity",
   "ask": "Here is my weld. How does it look?",
-  "text": "Comparing your bead against the reference chart: it's a stack of round, overlapping stitches with numerous pits/holes scattered along and around the bead, and a distinctly rounded, blobby crown rather than a smooth stacked-dime ripple pattern.\n\nThat matches the **\"CTWD Too Long or Wrong Polarity\"** reference bead most closely — same rounded, piled-up circular deposits with pitting scattered through the bead [p.35].\n\n**To correct:**\n- Check that polarity is set correctly for the process you're running (DCEP for gas-shielded solid wire, DCEN for gasless flux-core) [p.35]\n- Keep Contact-Tip-to-Work Distance under 1/2\" [p.35]\n\nSince this shows visible porosity (the pits), also work through the porosity causes: check shielding gas isn't empty or flow isn't too low/high, clean the workpiece and wire to bare metal, and confirm CTWD — same items [p.43].\n\n**One caveat:** the \"dots\" in your photo look very uniform in size and spacing, almost stenciled rather than organic pit shapes you'd expect in real porosity — if this is a rendered/schematic image rather than a straight-on photo of an actual weld, I can't fully confirm porosity vs. wrong polarity from it. If you have a real photo of the bead in daylight, straight-on and unpainted, send that and I'll confirm.Quickest test to narrow it down: check your polarity screen against the actual socket connections first (cheapest check, takes 10 seconds) — if that's correct, then it's a gas/cleanliness porosity issue and the flowchart above walks through those causes one at a time.",
+  "text": "This bead matches the manual's reference for **\"CTWD Too Long or Wrong Polarity\"** — that last reference bead shows the exact same combination you have: evenly stacked, consistent ripples running the full length, but with scattered pits/holes across the bead and a rounded, ball-like crown at the end. That's not a heat problem (the width and ripple spacing are consistent, not narrow/tall or wide/flat) and not a travel-speed problem (no pointed or crowded ripples) — the giveaway is those little round holes punched through the bead surface, same as the reference [p.35].\n\n**To correct** [p.35]:\n- Check your polarity — for solid wire with gas it must be DCEP (ground clamp in Negative socket, gun cable in Positive) [p.14]. If you're running flux-cored (gasless), it should be DCEN (ground in Positive, gun in Negative) [p.13].\n- Keep contact-tip-to-work distance (CTWD) under 1/2\" [p.35].\n\nSince pitting/porosity is also its own listed fault, worth checking the other usual causes too: shielding gas flow, clean nozzle, and a clean workpiece/wire [p.43]. I'd start with confirming polarity — it's the cheapest check and the one the manual calls out first for this exact bead pattern.\n\nOne caveat: I'm reading this off a rendered/illustrated image rather than a real photo — if this is actually a photo of a bead, a straight-on shot in good light of the bare (unpainted, unbrushed) metal would let me confirm the pit sizing more precisely.",
   "tools": [
    "view_photo",
-   "get_figure",
-   "show_component"
+   "get_figure"
   ],
   "verdict": {
    "citedPages": [
     "p.35",
+    "p.14",
+    "p.13",
     "p.43"
    ],
    "checked": 1,
    "miscited": [],
    "fabricated": []
   },
-  "cost": 0.061869200000000006,
+  "cost": 0.0453411,
   "fail": []
  },
  {
@@ -137,7 +138,29 @@
   "id": "good-asked-directly",
   "truth": "Good Weld, asked as a yes/no",
   "ask": "Is this weld any good, or do I need to redo it?",
-  "text": "This one lines up with the \"Good Weld\" reference bead, not any of the fault examples [p.35].\n\nHere's why it clears each fault:\n- **Not too cold** (Voltage Too Low/Wire Feed Too Slow): that fault looks narrow and tall with widely spaced ripples and poor wetting at the edges. Yours sits low and flat with edges that wet smoothly into the plate.\n- **Not too hot** (Voltage Too High/Wire Feed Too Fast): that fault is wide, washed-out, with spatter dots scattered around it. No spatter visible here, and the bead isn't blown out wide.\n- **Not too fast a travel**: that fault shows sharp, pointed V-shaped ripples. Yours are rounded, even half-moons.\n- **Not too slow a travel**: that fault is heavy, dark, and piled up with crowded ripples. Yours are evenly spaced, not crowded.\n- **Not CTWD/polarity issue**: that fault shows pits/holes in the bead with a rounded crown. Yours has no visible pits.\n\nWhat it does show: evenly stacked half-moon ripples, constant width end to end, smooth wetting at the toes, no spatter or pits — the printed \"Good Weld\" signature [p.35].\n\nOne caveat: this looks like a rendered/reference-style image rather than a photo of an actual bare-metal bead in real light. If this is your actual weld, a straight-on shot in good light (unpainted, un-wire-brushed) would let me confirm the ripple detail with full confidence. But going by what's here, it's a good weld — no need to redo it.",
+  "text": "This looks like a good weld, not a real photo of a bead — but reading it against the manual's reference:\n\nYour bead is narrow-ish and consistent width top to bottom, with **evenly stacked, tight, uniform ripples** and a rounded, well-wetted end. No pinholes, no scattered spatter, no crusty piled-up look, no sharp V-shaped ripples. Comparing it directly to the manual's \"Good Weld\" reference (leftmost example) — same tight, even, half-moon ripple pattern, constant width — it matches that one closest [p.35].\n\nRuling out the others quickly:\n- Not narrow/tall/poorly-wetted → not \"voltage too low/wire too slow\" [p.35]\n- Not wide/washed-out with spatter dots → not \"voltage too high/wire too fast\" [p.35]\n- Ripples are rounded, not sharp V-shapes → not \"travel too fast\" [p.35]\n- Not crowded/piled/dark → not \"travel too slow\" [p.35]\n- No pits or holes visible → not \"CTWD too long/wrong polarity\" [p.35]\n\n**One caveat on confidence:** this image reads as a very clean, evenly-lit, almost illustration-like bead with no visible plate texture, discoloration, or background — if this is an actual weld photo, the lighting/angle is unusually clean, which makes it easy to call good but harder to check for finer issues like fine spatter or slight porosity. If you want a fully confident verdict, send a straight-on shot in normal shop light showing the plate around the bead too.\n\nIf it's genuinely your weld and matches what you're seeing in person, don't redo it — it passes the visual check. You can also do the strike test on scrap of the same joint to confirm mechanically [p.34].",
+  "tools": [
+   "view_photo",
+   "get_figure"
+  ],
+  "verdict": {
+   "citedPages": [
+    "p.35",
+    "p.34"
+   ],
+   "checked": 0,
+   "miscited": [],
+   "fabricated": []
+  },
+  "cost": 0.046664300000000006,
+  "fail": []
+ },
+ {
+  "group": "real",
+  "id": "arc-seam",
+  "truth": "a real arc-welded seam (CC BY-SA 2.1 jp)",
+  "ask": "Is this weld any good?",
+  "text": "I have to be straight with you here: I honestly can't read this one confidently.\n\nWhat I can see: it's a MIG gun sitting at the start of what looks like a joint between two channel/rail pieces, with a short weld segment near the gun tip and then what appears to be a separate pass further down. The lighting is dim, the shot is at a steep angle rather than straight-on, and the surface everywhere (weld and base metal) has heavy surface rust/mill scale, which makes it hard to tell bead texture from rust texture. There also seem to be two different-looking sections in frame — a short stubby blob near the gun and a longer discolored stretch further away — which might not even be the same pass.\n\nWhat I can't do from this angle:\n- Judge width vs. height (the key test for too-hot/too-cold) — the angle foreshortens the bead.\n- See ripple shape clearly (pointed V vs. crowded rounded) — needed to separate travel-too-fast from travel-too-slow.\n- Rule out that what I'm seeing near the gun tip is actually spatter/melted wire ball rather than the bead itself, since the gun appears to still be sitting right on/near that spot.\n\nRather than guess and risk sending you the wrong correction, can you get:\n1. A straight-on, top-down shot of the bead (camera square to the plate, not at an angle),\n2. In better light,\n3. With the gun pulled out of frame.\n\nIf it's freshly welded, letting it cool and giving it a quick wire-brush (not grinding) so slag/rust doesn't get confused with the bead would help a lot too.\n\nOnce I can actually see the ripple pattern and width-to-height ratio, I'll compare it against the six reference patterns [p.35] and give you a real verdict.",
   "tools": [
    "view_photo",
    "get_figure"
@@ -150,7 +173,135 @@
    "miscited": [],
    "fabricated": []
   },
-  "cost": 0.046065299999999997,
+  "cost": 0.04843600000000001,
+  "fail": []
+ },
+ {
+  "group": "real",
+  "id": "tig-bead",
+  "truth": "a real TIG bead, close up (Public domain)",
+  "ask": "Is this weld any good?",
+  "text": "I can't actually diagnose this one — this is a macro/microscope close-up shot of the weld bead surface texture (with an \"etched zone\" and \"prior metal finish\" labeled, ~5mm scale bar), not a straight-on shot of the whole bead showing its overall width, ripple spacing, and profile against the base metal.\n\nThe manual's diagnosis chart [p.35] judges bead faults by things like overall bead width vs. height, ripple spacing, and how the edges wet into the plate — none of which I can assess from this extreme close-up. What I can see (tight, rounded, closely-spaced ripples) could look consistent with either a good weld or \"Travel Speed Too Slow,\" but I'm not confident calling it either way from this framing.\n\nCan you get a photo pulled back to show the full length of the bead from directly above, in even light, with the bare (unpainted, unbrushed) metal visible? That will let me actually compare it against the reference bead shapes.",
+  "tools": [
+   "view_photo",
+   "get_figure"
+  ],
+  "verdict": {
+   "citedPages": [
+    "p.35"
+   ],
+   "checked": 0,
+   "miscited": [],
+   "fabricated": []
+  },
+  "cost": 0.043305500000000004,
+  "fail": []
+ },
+ {
+  "group": "real",
+  "id": "welded-joint",
+  "truth": "a real welded joint (CC BY-SA 3.0)",
+  "ask": "Is this weld any good?",
+  "text": "That photo isn't a weld bead — it's a labeled cross-section diagram (in French) illustrating basic weld anatomy: \"Métal fondu\" (fused metal), \"Métal de base\" (base metal), \"Zone affectée par la chaleur\" (heat-affected zone), \"Ligne de fusion\" (fusion line), \"Finition\" (finish/reinforcement), and \"Aspect envers\" (root/back-side appearance). It's an educational graphic, not an actual weld you made.\n\nIf you want me to judge an actual weld, send a straight-on photo of your real bead (bare metal, no paint/wire-brush marks) and I'll compare it against the manual's diagnosis chart above [p.35] — that grid shows what \"too cold,\" \"too hot,\" \"too fast,\" \"too slow,\" and \"good\" beads actually look like on this welder.",
+  "tools": [
+   "view_photo",
+   "get_figure"
+  ],
+  "verdict": {
+   "citedPages": [
+    "p.35"
+   ],
+   "checked": 0,
+   "miscited": [],
+   "fabricated": []
+  },
+  "cost": 0.042908,
+  "fail": []
+ },
+ {
+  "group": "real",
+  "id": "rail-weld",
+  "truth": "a real rail weld (CC BY-SA 4.0)",
+  "ask": "Is this weld any good?",
+  "text": "That's not a weld I can grade — it's a **section of railroad rail**, not a weld bead on a plate you're building. The vertical strip running down the web looks like an old, heavily rusted repair weld (or a wear/build-up pass) on the rail, with rust generally obscuring most of the surface detail.\n\nI can't compare this against the manual's diagnosis grid [p.35] with any confidence, for two reasons:\n1. **Wrong context** — the reference chart is for wire welds on flat sheet/plate workpieces made with this welder. A rail web is a different geometry and mass entirely, so \"wide vs. narrow\" and \"ripple spacing\" comparisons don't transfer cleanly.\n2. **Surface condition** — the bead and surrounding metal are both coated in heavy surface rust, which hides the actual ripple shape, toe wetting, and any spatter or porosity. Rust can make a bead look rougher or more pitted than it actually is underneath.\n\nIf you want an actual diagnosis, take a straight-on photo of a bare (wire-brushed, unpainted, un-rusted) weld on the piece you're actually building — ideally one made with this welder — and I'll run it against the good/bad bead references.",
+  "tools": [
+   "view_photo",
+   "get_figure"
+  ],
+  "verdict": {
+   "citedPages": [
+    "p.35"
+   ],
+   "checked": 0,
+   "miscited": [],
+   "fabricated": []
+  },
+  "cost": 0.0458355,
+  "fail": []
+ },
+ {
+  "group": "real",
+  "id": "bead-on-plate",
+  "truth": "a real bead-on-plate test (CC BY-SA 3.0)",
+  "ask": "Is this weld any good?",
+  "text": "This isn't actually a weld photo — it's a **fracture/macro-etch test coupon**, not a bead you made on the OmniPro 220. The caption in the image itself reads \"Coupon prélevé dans la nuance d'acier à tester\" (French for \"coupon taken from the steel grade being tested\"). That's a cross-section image used to compare penetration profiles across passes on a lab test sample — the orange blobs are weld metal profiles cut through and etched, shown side by side for comparison purposes, not a photo of your actual weld job.\n\nSo I can't grade \"your weld\" from this — there's no bead surface, no ripple pattern, and no travel-direction view here to compare against the manual's diagnosis chart [p.35]. It looks like it may have come from a textbook, welding course slide, or search result rather than your machine.\n\nIf you want me to actually check your work, take a straight-on photo of the top of your bead (in focus, un-brushed, bare metal) showing a few inches of ripple pattern — that's what compares directly against the manual's six reference beads [p.35]. Send that and I'll walk it through Good/Too Cold/Too Hot/Travel Speed/CTWD one at a time.",
+  "tools": [
+   "view_photo",
+   "get_figure"
+  ],
+  "verdict": {
+   "citedPages": [
+    "p.35"
+   ],
+   "checked": 0,
+   "miscited": [],
+   "fabricated": []
+  },
+  "cost": 0.0433055,
+  "fail": []
+ },
+ {
+  "group": "negative",
+  "id": "negative-machine",
+  "truth": "the welder itself, not a weld",
+  "ask": "Here is my weld. How does it look?",
+  "text": "That's not a weld — it's a photo of the welder itself (the OmniPro 220 machine), showing the front panel with the display reading \"MIG Steel C25\" and the three output sockets below [p.8].\n\nThere's no weld bead in this picture for me to diagnose. If you meant to show me a weld you made, send a straight-on, well-lit photo of the bare bead (no paint, no wire brushing) and I'll compare it against the manual's diagnosis chart.\n\nIf instead you have a question about the panel itself — what those knobs/buttons do, which socket is which — I can help with that. For reference, here's the front panel layout:Let me know what you'd like to do with it — set up MIG, check duty cycle, connect polarity for a different process, etc. — and I'll walk you through it.",
+  "tools": [
+   "view_photo",
+   "get_figure",
+   "get_figure"
+  ],
+  "verdict": {
+   "citedPages": [
+    "p.8"
+   ],
+   "checked": 0,
+   "miscited": [],
+   "fabricated": []
+  },
+  "cost": 0.07146910000000001,
+  "fail": []
+ },
+ {
+  "group": "negative",
+  "id": "negative-panel",
+  "truth": "the control panel, not a weld",
+  "ask": "Is this weld any good?",
+  "text": "That's not a weld — it's a photo of the OmniPro 220's LCD control panel, showing the **MIG Stainless Steel** process selected with wire diameter set to **.025\"** and material thickness set to **24Ga** [p.20].\n\nThere's no bead here for me to judge, so I can't tell you if a weld \"is good\" from this image. If you're checking whether these settings are right before you start welding, or want to see what your actual bead should look like once you run it, let me know — otherwise send a straight-on, well-lit photo of the bare weld bead itself and I'll walk it through the diagnosis chart [p.35].",
+  "tools": [
+   "view_photo",
+   "get_figure"
+  ],
+  "verdict": {
+   "citedPages": [
+    "p.20",
+    "p.35"
+   ],
+   "checked": 2,
+   "miscited": [],
+   "fabricated": []
+  },
+  "cost": 0.0416505,
   "fail": []
  }
 ]

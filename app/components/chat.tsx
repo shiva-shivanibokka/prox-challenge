@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import { COMPONENT_META, Interactive } from './interactive'
+import { COMPONENT_META, Interactive, Speech } from './interactive'
 import indexJson from '../../public/kb/index.json'
 
 type Block =
@@ -445,7 +445,7 @@ export default function Chat() {
   const showGate = needsKey && (!keySet || keyOpen)
 
   return (
-    <>
+    <Speech.Provider value={{ handsFree, say: speak }}>
       <div className="rail">
         <button className="wordmark" onClick={newChat} title="Start a new question">
           <span className="glyph" aria-hidden>⚡</span>OmniPro&nbsp;220
@@ -603,6 +603,14 @@ export default function Chat() {
           </article>
         ))}
         <div ref={endRef} />
+
+        <footer className="colophon">
+          <span>Built by <b>Shivani Bokka</b></span>
+          <span className="sep">·</span>
+          <a href="https://github.com/shiva-shivanibokka/prox-challenge" target="_blank" rel="noreferrer">Source</a>
+          <span className="sep">·</span>
+          <span>Answers come from the Vulcan OmniPro 220 manuals. Verify at the machine.</span>
+        </footer>
       </main>
 
       <div className="dock">
@@ -706,7 +714,7 @@ export default function Chat() {
           <img src={zoom.url} alt={zoom.alt} />
         </div>
       )}
-    </>
+    </Speech.Provider>
   )
 }
 

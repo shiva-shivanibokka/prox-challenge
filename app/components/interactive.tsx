@@ -12,9 +12,20 @@
  * They run entirely on committed JSON, so the landing page can demonstrate a working
  * instrument before anyone has entered an API key.
  */
-import { useState } from 'react'
+import { createContext, useContext, useEffect, useRef, useState } from 'react'
 import tablesJson from '../../public/kb/tables.json'
 import { SPECS, dutyCycle } from '../../lib/duty'
+
+/**
+ * Hands-free needs to reach inside a component, not just read the prose around it.
+ * A setup walkthrough is the one place where someone genuinely cannot look at the
+ * screen -- gloves on, helmet down, both hands on the machine -- and reading them
+ * everything except the step they are standing on is the wrong way round.
+ */
+export const Speech = createContext<{ handsFree: boolean; say: (t: string) => void }>({
+  handsFree: false,
+  say: () => {},
+})
 
 type Props = Record<string, unknown>
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -449,12 +460,23 @@ function SetupWalkthrough(p: Props) {
     procs.find((x) => x.process.toLowerCase() === wanted)?.process ?? procs[0]?.process ?? '',
   )
   const [at, setAt] = useState(Math.max(0, num(p, 'step', 1) - 1))
+  const { handsFree, say } = useContext(Speech)
   const cur = procs.find((x) => x.process === proc)
-  if (!cur) return null
-
-  const steps = cur.steps
-  const i = Math.min(at, steps.length - 1)
+  const steps = cur?.steps ?? []
+  const i = Math.min(at, Math.max(0, steps.length - 1))
   const step = steps[i]
+  const spokenFor = useRef('')
+
+  // Read the step you are standing on, and re-read when you advance.
+  useEffect(() => {
+    if (!handsFree || !step) return
+    const id = `${proc}-${i}`
+    if (spokenFor.current === id) return
+    spokenFor.current = id
+    say(`Step ${i + 1} of ${steps.length}. ${step.title}. ${step.detail}${step.warning ? '. Warning. ' + step.warning : ''}`)
+  }, [handsFree, proc, i, step, steps.length, say])
+
+  if (!cur || !step) return null
   const done = i >= steps.length - 1
 
   return (
@@ -488,6 +510,9 @@ function SetupWalkthrough(p: Props) {
       </div>
 
       <div className="wt-nav">
+        {handsFree && (
+          <button onClick={() => say(`Step ${i + 1}. ${step.title}. ${step.detail}`)}>Read again</button>
+        )}
         <button disabled={i === 0} onClick={() => setAt(i - 1)}>Back</button>
         <button className="primary" disabled={done} onClick={() => setAt(i + 1)}>
           {done ? 'Ready to weld' : 'Done — next step'}
