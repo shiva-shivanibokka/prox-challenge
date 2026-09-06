@@ -75,6 +75,10 @@ export async function POST(req: Request) {
             settingSources: [],
             includePartialMessages: true,
             maxTurns: 14,
+            // The hosted demo is a public URL spending a real key. A single question
+            // costs $0.02-0.06; this caps a runaway loop without ever binding a
+            // legitimate answer.
+            maxBudgetUsd: Number(process.env.MAX_BUDGET_USD ?? 0.5),
             // ENABLE_TOOL_SEARCH=0: with six tools and no built-ins, tool search only
             // defers them behind an extra discovery round-trip.
             // HOME=/tmp on Vercel: the filesystem is read-only everywhere else and the
