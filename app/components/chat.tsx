@@ -183,11 +183,11 @@ export default function Chat() {
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' }) }, [turns])
 
   useEffect(() => {
-    let saved = ''
-    try { saved = sessionStorage.getItem('anthropic-key') ?? '' } catch {}
-    if (saved) setApiKey(saved)
+    // The key lives in React state and nowhere else -- not sessionStorage, not
+    // localStorage, not a cookie. A refresh loses it, which is the correct trade for
+    // someone else's credential on a page they did not write.
     fetch('/api/health').then((r) => r.json())
-      .then((h) => setNeedsKey(!h.serverKey && !saved)).catch(() => {})
+      .then((h) => setNeedsKey(!h.serverKey)).catch(() => {})
 
     // Voice input. Someone setting up a welder has gloves on and a helmet up; typing
     // is the awkward part, not the asking. Chrome-family only, so it is additive:
@@ -353,7 +353,6 @@ export default function Chat() {
         {apiKey && !needsKey && (
           <button className="railbtn" title="Forget the key held in this tab"
             onClick={() => {
-              try { sessionStorage.removeItem('anthropic-key') } catch {}
               setApiKey(''); setNeedsKey(true)
             }}>
             your key · clear
@@ -489,13 +488,12 @@ export default function Chat() {
               e.preventDefault()
               const k = apiKey.trim()
               if (!/^sk-ant-/.test(k)) { setKeyError('Anthropic keys start with sk-ant-.'); return }
-              try { sessionStorage.setItem('anthropic-key', k) } catch {}
               setKeyError(''); setNeedsKey(false)
             }}>
               <p>
-                <b>This demo runs on your own Anthropic key.</b> It is kept in this browser tab
-                only, sent to this app&rsquo;s own API route to call Anthropic, and discarded
-                when you close the tab. Nothing is stored on the server.
+                <b>This demo runs on your own Anthropic key.</b> It is held in memory for this
+                tab only — never written to storage of any kind — sent to this app&rsquo;s own
+                API route to call Anthropic, and gone the moment you refresh or close the tab.
                 <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noreferrer">Get a key</a>
               </p>
               <div className="keyrow">

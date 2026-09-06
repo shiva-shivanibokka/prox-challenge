@@ -25,8 +25,9 @@ The knowledge index is committed to the repo.
 The deployment carries **no API key of its own**. A public URL wired to a personal key
 is a public URL spending someone's money, so the browser supplies a key instead:
 
-- Paste a key once per tab. It is held in `sessionStorage` — not `localStorage` — so it
-  disappears when you close the tab.
+- Paste a key once per tab. It is held **in memory only** — no `localStorage`, no
+  `sessionStorage`, no cookie — so a refresh loses it. That is the right trade for
+  someone else's credential on a page they did not write.
 - It is sent only to this app's own `/api/chat` route, over HTTPS, as a header. It is
   used for that one call and discarded: never logged, never written to disk, never
   echoed back in a response. `/api/health` returns a boolean and nothing else.
