@@ -299,12 +299,13 @@ export default function Chat() {
                   <figure key={j}>
                     <button
                       onClick={() => setZoom({ url: b.url, alt: b.title })}
-                      style={{ display: 'block', width: '100%', border: 0, padding: 0, background: 'none' }}
+                      title="Open full size"
                     >
                       <img src={b.url} alt={b.title} />
                     </button>
                     <figcaption>
                       <span>{b.title}</span>
+                      <span className="zoom">click to enlarge</span>
                       <span className="pg">{b.page}</span>
                     </figcaption>
                   </figure>

@@ -211,7 +211,11 @@ figure {
   background: var(--paper);
   border: 1px solid var(--rule);
 }
-figure img { display: block; width: 100%; height: auto; }
+/* A whole-page figure would otherwise fill the viewport and bury the answer.
+   Cap it and let the reader click through to the full-size page. */
+figure img { display: block; width: 100%; height: auto; max-height: 460px; object-fit: contain; object-position: left top; background: #fff; }
+figure button { display: block; width: 100%; border: 0; padding: 0; background: none; }
+figcaption .zoom { color: var(--ink-3); }
 figcaption {
   display: flex;
   gap: 10px;
