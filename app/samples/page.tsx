@@ -16,6 +16,15 @@ import './samples.css'
 
 const THEMES = [
   {
+    id: 'forge',
+    name: 'Forge  ★ synthesis',
+    blurb:
+      "Blueprint's engineering discipline with Furnace's depth. Navy-to-ink on a faint " +
+      'drafting grid, cyan for interface, and ember kept strictly for the electrically ' +
+      'live socket. Space Grotesk wordmark and headline, IBM Plex Sans for the answer, ' +
+      'IBM Plex Mono for anything the machine measures.',
+  },
+  {
     id: 'arc',
     name: 'Arc',
     blurb:
@@ -75,13 +84,25 @@ function Sample({ theme }: { theme: string }) {
   return (
     <div className={`thm thm-${theme}`}>
       <div className="bar">
-        <b>OmniPro 220</b>
+        {theme === 'forge'
+          ? <span className="wordmark"><span className="glyph" aria-hidden>&#9889;</span>OmniPro&nbsp;220</span>
+          : <b>OmniPro 220</b>}
         <span className="sub">Vulcan · item 57812</span>
         <span className="spacer" />
         <span className="meter">session $0.038</span>
       </div>
 
       <div className="wrap">
+        {theme === 'forge' && (
+          <>
+            <h1 className="bigtitle">Ask the machine anything.</h1>
+            <p className="subtitle">
+              Every answer cites the page it came from, shows the figure, and has its
+              numbers checked against the manual before you see it.
+            </p>
+          </>
+        )}
+
         <KeyBar theme={theme} />
 
         <p className="q">How do I set polarity for flux-cored? Which socket does the ground clamp go in?</p>

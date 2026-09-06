@@ -10,9 +10,10 @@
  *   - no separate sources rail; sources are a strip under the answer
  */
 
-.samples { font-family: var(--font-ui), system-ui, sans-serif; }
+.samples { font-family: var(--font-body), system-ui, sans-serif; }
 
 .chooser {
+  font-family: var(--font-body), system-ui, sans-serif;
   position: sticky; top: 0; z-index: 50;
   display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
   background: #0b0d10; color: #fff; padding: 12px 20px; font-size: 13px;
@@ -26,7 +27,7 @@
   padding: 26px 2in 0;
   font-size: 13px; letter-spacing: 0.02em;
 }
-.samplehead h2 { font-size: 26px; margin: 0 0 4px; letter-spacing: -0.02em; }
+.samplehead h2 { font-family: var(--font-display), system-ui, sans-serif; font-size: 26px; margin: 0 0 4px; letter-spacing: -0.02em; }
 .samplehead p { margin: 0 0 18px; max-width: 70ch; opacity: 0.75; }
 
 /* ============================================================ shared layout */
@@ -239,3 +240,104 @@
   .socks { flex-direction: column; }
   .answer { padding: 18px; }
 }
+
+/* ================================================== E · FORGE (the synthesis) */
+/*
+ * Blueprint's engineering discipline with Furnace's depth. Navy-to-ink base carrying
+ * a faint drafting grid, cyan for interface chrome, and ember reserved -- as in
+ * Blueprint -- for the one thing that is electrically live. The gradient supplies the
+ * richness Furnace had without borrowing the consumer-app violet.
+ *
+ * Type: Space Grotesk for the wordmark and headline, IBM Plex Sans for the answer,
+ * IBM Plex Mono for anything the machine measures.
+ */
+
+.thm-forge {
+  background:
+    linear-gradient(rgba(103, 232, 249, 0.035) 1px, transparent 1px) 0 0 / 100% 28px,
+    linear-gradient(90deg, rgba(103, 232, 249, 0.035) 1px, transparent 1px) 0 0 / 28px 100%,
+    radial-gradient(1100px 560px at 85% -14%, rgba(255, 106, 26, 0.20), transparent 62%),
+    radial-gradient(900px 520px at 2% 4%, rgba(34, 211, 238, 0.16), transparent 58%),
+    linear-gradient(178deg, #0b1622 0%, #080e18 52%, #060911 100%);
+  color: #cfdae7;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+/* wordmark */
+.thm-forge .bar { background: rgba(4, 9, 16, 0.72); border-bottom: 1px solid rgba(103, 232, 249, 0.18); backdrop-filter: blur(10px); }
+.thm-forge .wordmark {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-weight: 700; font-size: 19px; letter-spacing: -0.035em; color: #fff;
+  display: flex; align-items: center; gap: 9px;
+}
+.thm-forge .wordmark .glyph {
+  width: 22px; height: 22px; display: grid; place-items: center;
+  background: linear-gradient(140deg, #ff6a1a, #ffb020);
+  color: #06121a; font-size: 13px; font-weight: 700; flex: none;
+}
+.thm-forge .bar .sub { color: #6f8399; font-family: var(--font-mono), monospace; font-size: 11.5px; }
+.thm-forge .bar .meter { color: #6f8399; font-family: var(--font-mono), monospace; font-size: 12px; }
+
+/* the hero headline: this is the thing that should pop */
+.thm-forge .bigtitle {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(38px, 5.4vw, 62px); font-weight: 700;
+  letter-spacing: -0.045em; line-height: 0.98; margin: 0 0 14px;
+  background: linear-gradient(96deg, #ffffff 22%, #67e8f9 58%, #ffb020 96%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.thm-forge .subtitle { font-size: 17px; color: #8fa4bb; margin: 0 0 26px; max-width: 62ch; line-height: 1.6; }
+
+.thm-forge .keybar { background: rgba(4, 9, 16, 0.7); border: 1px solid rgba(103, 232, 249, 0.24); border-left: 3px solid #ff6a1a; }
+.thm-forge .keybar input { background: #04080e; color: #fff; border: 1px solid rgba(103, 232, 249, 0.26); font-family: var(--font-mono), monospace; }
+.thm-forge .keybar button { background: linear-gradient(135deg, #ff6a1a, #ffb020); color: #06121a; }
+.thm-forge .keybar .dotok { background: #34d399; box-shadow: 0 0 10px #34d399; }
+
+.thm-forge .q {
+  font-family: var(--font-display), system-ui, sans-serif;
+  color: #fff; font-size: 25px; letter-spacing: -0.028em;
+}
+.thm-forge .chip2 {
+  background: rgba(103, 232, 249, 0.08); border: 1px solid rgba(103, 232, 249, 0.22);
+  color: #9dbdd6; font-family: var(--font-mono), monospace; font-size: 11px;
+}
+.thm-forge .chip2 b { color: #67e8f9; }
+
+.thm-forge .answer {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
+  border: 1px solid rgba(103, 232, 249, 0.2);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(10px);
+  /* Full-width box, but the prose inside stops before the line gets unreadable. */
+  font-size: 17.5px; line-height: 1.68;
+}
+.thm-forge .answer p { max-width: 88ch; }
+.thm-forge .answer .lead { font-size: 21px; line-height: 1.52; color: #eaf2fa; max-width: 82ch; }
+.thm-forge .answer b { color: #fff; font-weight: 600; }
+.thm-forge .cite2 {
+  background: rgba(255, 106, 26, 0.14); color: #ffb87a;
+  border: 1px solid rgba(255, 106, 26, 0.34);
+  font-family: var(--font-mono), monospace; font-weight: 500;
+}
+
+.thm-forge .panelbox { background: rgba(3, 7, 13, 0.86); border: 1px solid rgba(103, 232, 249, 0.2); }
+.thm-forge .panelhd { background: rgba(103, 232, 249, 0.06); border-bottom: 1px solid rgba(103, 232, 249, 0.18); color: #6f8399; }
+.thm-forge .panelhd .nm { color: #fff; font-family: var(--font-display), system-ui, sans-serif; letter-spacing: -0.015em; }
+.thm-forge .panelhd .sr { font-family: var(--font-mono), monospace; font-size: 11.5px; }
+.thm-forge .socks .s { background: rgba(103, 232, 249, 0.045); border: 1px solid rgba(103, 232, 249, 0.18); }
+.thm-forge .socks .s.live { border-color: #ff6a1a; box-shadow: inset 0 0 46px rgba(255, 106, 26, 0.18); }
+.thm-forge .socks .sign2 { font-family: var(--font-mono), monospace; color: #7f93a8; }
+.thm-forge .socks .s.live .sign2 { color: #ff6a1a; }
+.thm-forge .socks .lb { color: #fff; }
+
+.thm-forge .srcstrip .lbl { font-family: var(--font-mono), monospace; }
+.thm-forge .srcstrip a {
+  background: rgba(103, 232, 249, 0.08); color: #9dbdd6;
+  border: 1px solid rgba(103, 232, 249, 0.22); font-family: var(--font-mono), monospace; font-size: 11.5px;
+}
+.thm-forge .verd { background: rgba(52, 211, 153, 0.08); border: 1px solid rgba(52, 211, 153, 0.28); color: #a7ead2; }
+.thm-forge .verd .tick { color: #34d399; font-family: var(--font-mono), monospace; }
+
+.thm-forge .composer { background: rgba(4, 9, 16, 0.7); border: 1px solid rgba(103, 232, 249, 0.26); }
+.thm-forge .composer input { background: transparent; color: #fff; }
+.thm-forge .composer button { background: linear-gradient(135deg, #ff6a1a, #ffb020); color: #06121a; font-family: var(--font-display), system-ui, sans-serif; }

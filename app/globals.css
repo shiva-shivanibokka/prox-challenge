@@ -33,7 +33,7 @@ body {
   margin: 0;
   background: var(--steel);
   color: var(--ink);
-  font-family: var(--font-body), Georgia, serif;
+  font-family: var(--font-body), system-ui, sans-serif;
   font-size: 17px;
   line-height: 1.62;
 }
@@ -50,7 +50,7 @@ button { cursor: pointer; }
   display: flex; align-items: center; gap: 12px;
   padding: 0 18px; height: 48px;
   background: var(--panel); color: #fff;
-  font-family: var(--font-ui), system-ui, sans-serif; font-size: 13px;
+  font-family: var(--font-body), system-ui, sans-serif; font-size: 13px;
 }
 .mark { width: 10px; height: 18px; background: var(--hot); flex: none; }
 .rail b { font-weight: 600; letter-spacing: -0.01em; }
@@ -80,7 +80,7 @@ button { cursor: pointer; }
 
 .hero { margin-bottom: 28px; }
 .hero h1 {
-  font-family: var(--font-ui), system-ui, sans-serif;
+  font-family: var(--font-display), system-ui, sans-serif;
   font-size: clamp(30px, 4.6vw, 46px); font-weight: 700;
   letter-spacing: -0.03em; line-height: 1.04;
   margin: 0 0 12px; max-width: 16ch;
@@ -91,14 +91,14 @@ button { cursor: pointer; }
 
 .badges { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 22px; }
 .badge {
-  font-family: var(--font-ui), system-ui, sans-serif; font-size: 12px;
+  font-family: var(--font-body), system-ui, sans-serif; font-size: 12px;
   background: var(--paper); border: 1px solid var(--rule);
   padding: 3px 9px; color: var(--ink-2);
 }
 .badge b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
 
 .demo-note {
-  font-family: var(--font-ui), system-ui, sans-serif; font-size: 12.5px;
+  font-family: var(--font-body), system-ui, sans-serif; font-size: 12.5px;
   color: var(--ink-2); border-left: 3px solid var(--hot);
   padding: 2px 0 2px 11px; margin: 0 0 12px; max-width: var(--measure);
 }
@@ -108,7 +108,7 @@ button { cursor: pointer; }
   display: flex; gap: 11px; align-items: baseline; text-align: left;
   background: var(--paper); border: 1px solid var(--rule);
   border-left: 3px solid var(--hot); padding: 11px 14px;
-  font-family: var(--font-ui), system-ui, sans-serif; font-size: 14.5px; line-height: 1.35;
+  font-family: var(--font-body), system-ui, sans-serif; font-size: 14.5px; line-height: 1.35;
 }
 .seed:hover { background: #fff; border-left-color: var(--ink); }
 .seed .tag {
@@ -120,7 +120,7 @@ button { cursor: pointer; }
 
 .turn { margin: 0 0 40px; }
 .ask {
-  font-family: var(--font-ui), system-ui, sans-serif;
+  font-family: var(--font-display), system-ui, sans-serif;
   font-size: 18px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.3;
   max-width: var(--measure); padding-left: 14px;
   border-left: 3px solid var(--ink); margin: 0 0 18px;
@@ -132,16 +132,16 @@ button { cursor: pointer; }
 .say li { margin: 0 0 0.28em; }
 .say strong { font-weight: 600; }
 .say h3 {
-  font-family: var(--font-ui), system-ui, sans-serif;
+  font-family: var(--font-display), system-ui, sans-serif;
   font-size: 15px; font-weight: 700; letter-spacing: -0.01em; margin: 1.5em 0 0.5em;
 }
 .say code {
-  font-family: var(--font-ui), system-ui, sans-serif; font-size: 0.92em;
+  font-family: var(--font-body), system-ui, sans-serif; font-size: 0.92em;
   background: var(--steel-2); padding: 1px 5px;
 }
 
 .cite {
-  font-family: var(--font-ui), system-ui, sans-serif; font-size: 12.5px; font-weight: 600;
+  font-family: var(--font-mono), monospace; font-size: 12.5px; font-weight: 600;
   background: var(--steel-2); border: 0; border-bottom: 2px solid var(--ink-3);
   padding: 1px 5px; white-space: nowrap;
 }
@@ -154,7 +154,7 @@ button { cursor: pointer; }
 @keyframes blink { 50% { opacity: 0; } }
 
 .tablewrap { overflow-x: auto; margin: 16px 0; border: 1px solid var(--rule); background: var(--paper); }
-.tablewrap table { border-collapse: collapse; width: 100%; font-family: var(--font-ui), system-ui, sans-serif; font-size: 13.5px; }
+.tablewrap table { border-collapse: collapse; width: 100%; font-family: var(--font-body), system-ui, sans-serif; font-size: 13.5px; }
 .tablewrap th, .tablewrap td { text-align: left; padding: 7px 12px; border-bottom: 1px solid var(--rule); white-space: nowrap; }
 .tablewrap th { background: var(--steel-2); font-weight: 600; }
 .tablewrap tr:last-child td { border-bottom: 0; }
@@ -164,7 +164,7 @@ button { cursor: pointer; }
 
 .working {
   display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px;
-  font-family: var(--font-ui), system-ui, sans-serif; font-size: 12px;
+  font-family: var(--font-body), system-ui, sans-serif; font-size: 12px;
 }
 .step-chip {
   display: inline-flex; align-items: center; gap: 6px;
@@ -187,7 +187,7 @@ button { cursor: pointer; }
 .art-hd {
   display: flex; align-items: center; gap: 10px; padding: 8px 12px;
   border-bottom: 1px solid var(--rule);
-  font-family: var(--font-ui), system-ui, sans-serif; font-size: 12.5px; color: var(--ink-2);
+  font-family: var(--font-body), system-ui, sans-serif; font-size: 12.5px; color: var(--ink-2);
 }
 .artifact.dark .art-hd { border-color: var(--panel-2); color: #9aa2ab; background: #0e1013; }
 .art-hd .dot { width: 8px; height: 8px; background: var(--hot); flex: none; }
@@ -208,15 +208,15 @@ button { cursor: pointer; }
 .readout { display: flex; flex-wrap: wrap; gap: 10px; align-items: stretch; }
 .cell {
   flex: 1 1 120px; background: #000; border: 1px solid var(--panel-2); padding: 12px 14px;
-  font-family: var(--font-ui), system-ui, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
 }
 .cell .k { font-size: 11.5px; color: #9aa2ab; margin-bottom: 5px; }
-.cell .v { font-size: 32px; font-weight: 700; letter-spacing: -0.035em; line-height: 1; font-variant-numeric: tabular-nums; color: #fff; }
+.cell .v { font-family: var(--font-mono), monospace; font-size: 32px; font-weight: 700; letter-spacing: -0.035em; line-height: 1; font-variant-numeric: tabular-nums; color: #fff; }
 .cell .u { font-size: 15px; font-weight: 500; color: #9aa2ab; margin-left: 3px; }
 .cell.hot .v { color: var(--hot); }
 .clockwrap { flex: none; display: grid; place-items: center; padding: 2px 8px; }
 
-.ctl { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; font-family: var(--font-ui), system-ui, sans-serif; }
+.ctl { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; font-family: var(--font-body), system-ui, sans-serif; }
 .ctl label { font-size: 12px; color: #9aa2ab; display: block; margin-bottom: 5px; }
 .ctl select, .ctl input[type='number'], .ctl input[type='text'] {
   background: #000; border: 1px solid var(--panel-2); color: #fff;
@@ -226,12 +226,12 @@ button { cursor: pointer; }
 
 .note {
   margin-top: 14px; border-left: 3px solid var(--caution); padding: 9px 12px; background: #1d1a12;
-  font-family: var(--font-ui), system-ui, sans-serif; font-size: 13px; line-height: 1.5; color: #e6dfc8;
+  font-family: var(--font-body), system-ui, sans-serif; font-size: 13px; line-height: 1.5; color: #e6dfc8;
 }
 .note.plain { border-left-color: var(--panel-3); background: #0e1013; color: #9aa2ab; }
 
 .sockets { display: flex; gap: 12px; }
-.sock { flex: 1; background: #000; border: 1px solid var(--panel-2); padding: 4px 12px 14px; text-align: center; font-family: var(--font-ui), system-ui, sans-serif; }
+.sock { flex: 1; background: #000; border: 1px solid var(--panel-2); padding: 4px 12px 14px; text-align: center; font-family: var(--font-body), system-ui, sans-serif; }
 .sock .lead { font-size: 13.5px; font-weight: 600; color: #fff; }
 .sock .role { font-size: 11.5px; color: #9aa2ab; margin-top: 3px; }
 
@@ -240,7 +240,7 @@ button { cursor: pointer; }
   display: grid; grid-template-columns: 22px 1fr; gap: 11px;
   background: #000; border: 1px solid var(--panel-2); border-left: 3px solid var(--hot);
   padding: 11px 13px; text-align: left; width: 100%;
-  font-family: var(--font-ui), system-ui, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
 }
 .step .box { width: 15px; height: 15px; border: 1px solid var(--panel-3); margin-top: 3px; color: var(--hot); font-size: 12px; line-height: 13px; text-align: center; }
 .step .cause { font-size: 14px; font-weight: 600; color: #fff; }
@@ -252,13 +252,13 @@ button { cursor: pointer; }
 .opt {
   display: flex; gap: 10px; align-items: baseline; background: #000;
   border: 1px solid var(--panel-2); padding: 9px 13px; text-align: left; width: 100%;
-  font-family: var(--font-ui), system-ui, sans-serif;
+  font-family: var(--font-body), system-ui, sans-serif;
 }
 .opt[aria-pressed='true'] { border-color: var(--hot); background: #1c1207; }
 .opt .name { font-size: 14px; font-weight: 600; color: #fff; }
 .opt .why { font-size: 12.5px; color: #9aa2ab; margin-left: auto; text-align: right; }
 
-.match { margin-top: 14px; border: 1px solid var(--hot); padding: 14px; background: #1c1207; font-family: var(--font-ui), system-ui, sans-serif; }
+.match { margin-top: 14px; border: 1px solid var(--hot); padding: 14px; background: #1c1207; font-family: var(--font-body), system-ui, sans-serif; }
 .match .name { font-size: 21px; font-weight: 700; letter-spacing: -0.02em; color: #fff; }
 .match ul { margin: 8px 0 0; padding-left: 1.1em; font-size: 13.5px; color: #cfd5db; }
 
@@ -267,7 +267,7 @@ button { cursor: pointer; }
 .verdict {
   display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
   margin-top: 16px; padding-top: 8px; border-top: 1px solid var(--rule);
-  font-family: var(--font-ui), system-ui, sans-serif; font-size: 12.5px; color: var(--ink-2);
+  font-family: var(--font-body), system-ui, sans-serif; font-size: 12.5px; color: var(--ink-2);
   max-width: var(--measure);
 }
 .verdict .sig { font-weight: 700; color: var(--checked); }
@@ -278,7 +278,7 @@ button { cursor: pointer; }
 
 /* ------------------------------------------------------------ sources rail */
 
-.aside { position: sticky; top: 72px; font-family: var(--font-ui), system-ui, sans-serif; }
+.aside { position: sticky; top: 72px; font-family: var(--font-body), system-ui, sans-serif; }
 .aside h2 { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: var(--ink-3); margin: 0 0 10px; text-transform: uppercase; }
 .srcs { display: grid; gap: 7px; margin-bottom: 22px; }
 .src { display: flex; gap: 10px; align-items: center; width: 100%; text-align: left; background: var(--paper); border: 1px solid var(--rule); padding: 7px; font-size: 12.5px; }
@@ -307,24 +307,24 @@ button { cursor: pointer; }
 .compose { display: flex; border: 1px solid var(--ink); background: var(--paper); }
 .dock textarea {
   flex: 1; border: 0; background: transparent; padding: 13px 14px; resize: none;
-  font-family: var(--font-ui), system-ui, sans-serif; font-size: 15px; line-height: 1.4; max-height: 150px;
+  font-family: var(--font-body), system-ui, sans-serif; font-size: 15px; line-height: 1.4; max-height: 150px;
 }
 .dock textarea:focus { outline: none; }
-.send { border: 0; background: var(--ink); color: #fff; padding: 0 20px; font-family: var(--font-ui), system-ui, sans-serif; font-size: 14px; font-weight: 600; }
+.send { border: 0; background: var(--ink); color: #fff; padding: 0 20px; font-family: var(--font-body), system-ui, sans-serif; font-size: 14px; font-weight: 600; }
 .send:hover:not(:disabled) { background: var(--hot); }
 .send:disabled { background: var(--ink-3); }
 .mic { border: 0; border-right: 1px solid var(--rule); background: transparent; width: 46px; display: grid; place-items: center; color: var(--ink-2); }
 .mic:hover { color: var(--ink); }
 .mic[aria-pressed='true'] { background: var(--hot); color: #fff; }
-.hint { font-family: var(--font-ui), system-ui, sans-serif; font-size: 11.5px; color: var(--ink-3); margin: 6px 0 0; }
+.hint { font-family: var(--font-body), system-ui, sans-serif; font-size: 11.5px; color: var(--ink-3); margin: 6px 0 0; }
 
-.err { max-width: var(--measure); border-left: 3px solid var(--hot); background: #fdeee8; padding: 10px 13px; font-family: var(--font-ui), system-ui, sans-serif; font-size: 14px; }
+.err { max-width: var(--measure); border-left: 3px solid var(--hot); background: #fdeee8; padding: 10px 13px; font-family: var(--font-body), system-ui, sans-serif; font-size: 14px; }
 
 /* ------------------------------------------------------------------ keygate */
 
 .keygate {
   max-width: 1240px; margin: 0 auto 10px; background: var(--panel); color: #cfd5db;
-  padding: 14px 16px; font-family: var(--font-ui), system-ui, sans-serif; font-size: 13.5px; line-height: 1.5;
+  padding: 14px 16px; font-family: var(--font-body), system-ui, sans-serif; font-size: 13.5px; line-height: 1.5;
 }
 .keygate p { margin: 0 0 10px; max-width: 80ch; }
 .keygate b { color: #fff; font-weight: 600; }
@@ -342,7 +342,7 @@ button { cursor: pointer; }
 .ov-hd {
   display: flex; align-items: center; gap: 14px; padding: 12px 18px;
   border-bottom: 1px solid var(--panel-2); color: #fff;
-  font-family: var(--font-ui), system-ui, sans-serif; font-size: 13px; flex: none;
+  font-family: var(--font-body), system-ui, sans-serif; font-size: 13px; flex: none;
 }
 .ov-hd input { flex: 1; max-width: 380px; background: #000; border: 1px solid var(--panel-2); color: #fff; padding: 7px 11px; font-size: 13.5px; }
 .ov-hd .close { margin-left: auto; background: none; border: 1px solid var(--panel-3); color: #9aa2ab; padding: 5px 12px; font-size: 12.5px; }
@@ -351,12 +351,12 @@ button { cursor: pointer; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; max-width: 1400px; margin: 0 auto; }
 .card { background: #0e1013; border: 1px solid var(--panel-2); }
 .card img { display: block; width: 100%; height: 150px; object-fit: contain; background: #fff; }
-.card .meta { padding: 9px 11px; font-family: var(--font-ui), system-ui, sans-serif; font-size: 12px; color: #9aa2ab; }
+.card .meta { padding: 9px 11px; font-family: var(--font-body), system-ui, sans-serif; font-size: 12px; color: #9aa2ab; }
 .card .meta b { display: block; color: #fff; font-weight: 600; margin-bottom: 3px; line-height: 1.3; }
 
 .light { position: fixed; inset: 0; z-index: 70; background: rgba(20, 22, 26, 0.94); display: flex; align-items: center; justify-content: center; padding: 26px; }
 .light img { max-width: 100%; max-height: 88vh; background: #fff; }
-.light .close { position: absolute; top: 14px; right: 18px; background: none; border: 0; color: #fff; font-family: var(--font-ui), system-ui, sans-serif; font-size: 14px; }
+.light .close { position: absolute; top: 14px; right: 18px; background: none; border: 0; color: #fff; font-family: var(--font-body), system-ui, sans-serif; font-size: 14px; }
 
 /* --------------------------------------------------------------- responsive */
 

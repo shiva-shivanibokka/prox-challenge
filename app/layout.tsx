@@ -1,14 +1,22 @@
 import type { Metadata } from 'next'
-import { Archivo, Literata } from 'next/font/google'
+import { IBM_Plex_Mono, IBM_Plex_Sans, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 
-// Archivo carries structure and every machine readout: an industrial grotesque with
-// enough weight range to do headings and LCD digits without a second face. Literata
-// sets the answers, because a long technical explanation reads better as a document
-// than as UI text -- and the split is the design: paper for what you read, panel for
-// what the machine says.
-const ui = Archivo({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-ui' })
-const body = Literata({ subsets: ['latin'], weight: ['400', '600'], variable: '--font-body' })
+// Three faces, each doing one job.
+//
+// Space Grotesk sets the product name and headlines: a grotesque with genuinely odd
+// letterforms -- the flat-sided G, the squared-off S -- that reads as engineered
+// rather than corporate, and holds up at display size where a neutral sans goes limp.
+//
+// IBM Plex Sans sets the answers. It was drawn for technical documentation and
+// engineering interfaces, which is exactly what this is, and it stays legible at the
+// long line lengths a full-width layout produces.
+//
+// IBM Plex Mono carries anything the machine measures -- amperages, page numbers,
+// duty cycle percentages -- so numbers align in a column and read as instrument data.
+const display = Space_Grotesk({ subsets: ['latin'], weight: ['500', '700'], variable: '--font-display' })
+const body = IBM_Plex_Sans({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-body' })
+const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500', '600'], variable: '--font-mono' })
 
 export const metadata: Metadata = {
   title: 'OmniPro 220 — technical expert',
@@ -19,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${ui.variable} ${body.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>{children}</body>
     </html>
   )
