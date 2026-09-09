@@ -183,7 +183,7 @@ conversation**. So I removed the search step completely:
 - **A list of every figure sits there too** — its ID, page, title, and the questions it
   answers. The model doesn't *search* for a figure; it reads a complete list and asks for
   one by name. **It can't miss one, because nothing was filtered out.**
-- **Only the images themselves are fetched by tool**, because 134 pictures can't live in
+- **Only the images themselves are fetched by tool**, because 122 pictures can't live in
   a prompt.
 
 Two supporting reasons:

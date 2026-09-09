@@ -491,7 +491,7 @@ export default function Chat() {
                 <p className="subtitle">Everything in the manual. None of the reading.</p>
                 <div className="badges">
                   <span className="badge"><b>52</b> pages read</span>
-                  <span className="badge"><b>122</b> figures extracted</span>
+                  <span className="badge"><b>122</b> figures indexed</span>
                   <span className="badge"><b>5</b> tables verified</span>
                   <span className="badge">photograph your weld</span>
                 </div>

@@ -64,8 +64,7 @@ const PIPELINE = [
     p: <>The drawings are not stored as pictures — they are thousands of vector lines. Asking a
        PDF library for the images on page 47 returns <b>zero</b>; asking for the drawings
        returns <b>26,144</b>. So every line is painted onto a coarse grid, touching blobs are
-       joined up, and those page regions are re-rendered. That is where the 122 figures come
-       from.</>,
+       joined up, and those page regions are re-rendered. 134 figures found that way, 122 kept.</>,
   },
   {
     h: 'Transcribe what text cannot reach',

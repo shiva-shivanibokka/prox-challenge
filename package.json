@@ -1,7 +1,7 @@
 {
   "name": "prox-challenge",
   "version": "1.0.0",
-  "description": "<img src=\"product.webp\" alt=\"Vulcan OmniPro 220\" width=\"400\" /> <img src=\"product-inside.webp\" alt=\"Vulcan OmniPro 220 — inside panel\" width=\"400\" />",
+  "description": "A multimodal technical expert for the Vulcan OmniPro 220 welder, built on the Claude Agent SDK.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -15,7 +15,7 @@
     "url": "git+https://github.com/shiva-shivanibokka/prox-challenge.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Shivani Bokka",
   "license": "ISC",
   "type": "module",
   "bugs": {
