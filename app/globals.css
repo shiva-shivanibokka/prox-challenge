@@ -541,3 +541,42 @@ button { cursor: pointer; }
   .bigtitle { -webkit-text-fill-color: #000 !important; }
   .artifact, .cell, .sock, .step, .opt, .wt-step { break-inside: avoid; }
 }
+
+/* ------------------------------------------------------------------- guide */
+/* Two columns that never mix: the owner's column and the engineer's column.
+   Both are genuine sequences, so both are numbered. */
+
+.guide { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 64px; max-width: 1360px; margin: 8px auto 60px; }
+.guide section { min-width: 0; }
+.guide h2 {
+  font-family: var(--font-display), sans-serif; font-size: 21px; font-weight: 600; color: var(--white);
+  margin: 0 0 22px; padding-bottom: 11px; border-bottom: 1px solid var(--line-2); letter-spacing: -0.01em;
+}
+.guide h2.gsecond { margin-top: 44px; }
+.guide h3 { font-size: 14.5px; font-weight: 600; color: var(--white); margin: 0 0 6px; letter-spacing: -0.005em; }
+.guide p { margin: 0; color: var(--text-2); font-size: 14.5px; line-height: 1.72; max-width: 60ch; }
+.guide b { color: var(--text); font-weight: 600; }
+.guide em { color: var(--text); font-style: italic; }
+.guide code {
+  font-family: var(--font-mono), monospace; font-size: 12.5px; color: var(--cyan);
+  background: rgba(103, 232, 249, 0.08); padding: 1px 5px;
+}
+
+.gsteps { list-style: none; counter-reset: g; margin: 0; padding: 0; }
+.gsteps li { counter-increment: g; position: relative; padding: 0 0 24px 40px; }
+.gsteps li::before {
+  content: counter(g); position: absolute; left: 0; top: 1px;
+  font-family: var(--font-mono), monospace; font-size: 12px; color: var(--cyan);
+  border: 1px solid var(--line-2); width: 25px; height: 25px;
+  display: grid; place-items: center;
+}
+.gpipe li::before { color: var(--hot-2); border-color: rgba(255, 176, 32, 0.35); }
+
+.gwont { list-style: none; margin: 0; padding: 0; }
+.gwont li {
+  color: var(--text-2); font-size: 14.5px; line-height: 1.72; max-width: 60ch;
+  padding: 0 0 16px 16px; border-left: 1px solid var(--line); margin-bottom: 4px;
+}
+.gnote { margin-top: 30px !important; color: var(--text-3) !important; font-size: 13.5px !important; }
+
+@media (max-width: 1000px) { .guide { grid-template-columns: 1fr; gap: 0; } .guide section + section h2 { margin-top: 48px; } }

@@ -40,6 +40,30 @@ Everything below follows from that.
 
 ---
 
+## How I worked
+
+Six rules, in the order they mattered.
+
+1. **Profile the inputs before designing anything.** An hour spent reading the actual PDFs
+   changed the whole architecture. The obvious design was already wrong before I wrote a
+   line of code.
+2. **Do the expensive work once, offline, and commit the result.** Nobody should pay to
+   rebuild an index that never changes.
+3. **Anything that must be right is deterministic.** Arithmetic, table lookups and the
+   final check are all plain code. A model that is right 97% of the time is still wrong
+   about a 240-volt machine on a regular basis.
+4. **The model does only what a model can do** — choose, read pictures, and explain in
+   plain words. It never supplies a fact that a table already holds.
+5. **Check claims against the source, not against my own confidence.** Every number in an
+   extracted table must appear in that page's text. Every number in an answer is matched
+   back afterwards.
+6. **Measure cost at each step and keep the cheapest thing that passes.** Every figure in
+   this README is measured, not estimated.
+
+The section below is the honest version of how that went.
+
+---
+
 ## What I found before writing any code
 
 I profiled the files first. This changed the whole design.
@@ -357,6 +381,93 @@ system on its own source material is circular.
 
 ---
 
+## What broke, and what I did about it
+
+Every failure worth recording here was **silent**. Nothing threw, nothing went red, and the
+output looked reasonable. That is the theme of the whole project: in a document pipeline
+the dangerous bugs do not announce themselves, so the defences have to be structural rather
+than careful.
+
+### Extraction
+
+**The figures came back empty.** `get_images()` on page 47 returned zero — not an error, an
+empty list. `get_drawings()` returned 26,144. The figures are vector art, so the standard
+approach quietly produces a system with no pictures in it at all. Figure detection was
+rewritten as geometry: paint every primitive onto a coarse grid, take connected components,
+re-render those regions of the page.
+
+**The most important chart vanished and the run still reported success.** Page furniture is
+found by spotting columns of ink that repeat across pages. On the one-page selection chart
+every column trivially repeats, so the entire page was classified as chrome and dropped.
+The output went from 52 pages to 51 with no warning. Fixed with a guard that skips
+furniture detection below five pages — and I now check page and figure counts after a run
+instead of trusting the exit code.
+
+**The cheap model inverted polarity.** Captioning the Stick polarity screen, it read the
+ground-clamp icon as the electrode holder: the exact opposite of the pixels. On a 240V
+machine that is the worst error this system could make. Two fixes, and the second one
+matters far more than the first. Any caption mentioning polarity, sockets or terminals is
+redone on the stronger model. And architecturally — **captions choose which picture to
+show; tables state the facts.** The agent is not allowed to source a polarity claim to a
+caption at all.
+
+**The door-chart caption misread a digit**, reporting 65A where both the pixels and page 7
+say 80A. Same lesson, applied earlier in the pipeline: numbers in photo-derived captions are
+now cross-checked against the PDFs at ingest, flagged when no document confirms them, and
+stripped out of the verifier's evidence.
+
+### Wiring the agent
+
+**All six tools stopped working while the server reported "connected".** The MCP server
+registered, the tool list logged correctly, and the model simply answered from the system
+prompt without calling anything — which looks exactly like a prompting problem. I spent real
+time rewriting instructions before suspecting the schema. Bisecting by tool count found the
+boundary: four tools worked, five broke every tool at once. The cause was a single tool
+taking a free-form `z.record(z.string(), z.unknown())` argument. **An open-ended object
+schema invalidates the entire server, not just its own tool, and it fails by omission.**
+Replaced with flat named parameters. When tools "aren't being used", check the schema before
+you touch the prompt.
+
+**`tools: []` does not mean no tools.** I set it empty expecting a clean slate. It removed my
+own MCP tools as well, while leaving the SDK's fixed prompt overhead in place — so the model
+answered from the prefix and appeared to be working fine. The correct shape is to name the
+built-ins in `disallowedTools` and list your own in `allowedTools`. This is also why the
+20–27k tokens of SDK overhead in the cost section cannot be deleted.
+
+**Permission failures leak into the answer text.** While diagnosing the above I removed
+`allowedTools` for a moment, and the agent began apologising to the user about permissions
+in the middle of its answers. Tool plumbing is not invisible to the person reading the
+reply; a broken config becomes a confusing product.
+
+**Images sent in the prompt never arrived.** The agent kept replying that no photo was
+attached, while images returned from a *tool result* worked reliably — `get_figure` proves
+that several times a session. So an upload binds to a `view_photo` tool created for that
+request. The workaround turned out to be the better design: opening the photo became a
+visible step in the transcript instead of an invisible one.
+
+### Behaviour and tests
+
+**The verifier flagged the user's own number.** Asked "what's my duty cycle at 150 amps",
+the answer repeated 150 A — and 150 is published nowhere, so the check called it fabricated.
+Right rule, wrong scope. Numbers that appear in the question are now exempt.
+
+**Fixing the weld prompt broke it in the other direction.** Told not to manufacture a fault,
+it started calling every bead good. Neither behaviour is acceptable and neither is a matter
+of wording — the criteria were missing. The prompt now rules the six faults out one at a
+time, and *good* is what is left over.
+
+**My tests were wrong more often than the code was.** Several eval assertions demanded a
+literal "40%", or a particular tool call, or a question mark at the end of the reply. Each
+time the answer was correct and the assertion was fighting my own design. Assertions now
+check behaviour — did it refuse to interpolate, did it cite a page, did it name a process —
+and never wording. Over-specified assertions on a generative system measure your prompt
+rather than your product.
+
+Not one of these was caught by an exception. All of them were caught by putting the output
+next to the source document and reading both.
+
+---
+
 ## What it costs
 
 Measured, not guessed.
@@ -440,6 +551,8 @@ green means checked.
   toggle to see the actual code it produced.
 - **The landing page runs a live instrument** before you enter any key, because the
   components run on committed data.
+- **A "How it works" tab** in the top bar: how to use the thing on the left, what the
+  pipeline actually does on the right, and where it is weak underneath both.
 - **An index browser** shows all 122 kept figures with their captions. Extraction quality
   is a claim; this makes it something you can check.
 - **Voice both ways.** The composer lights up with a live meter while listening.
@@ -472,7 +585,7 @@ lib/
 app/
   api/chat/route.ts   the agent, streaming
   api/health/route.ts whether this deployment has its own key
-  components/         the chat UI and the six interactive panels
+  components/         the chat UI, the six interactive panels, the how-it-works guide
 evals/
   run.mjs          8 text cases
   welds.mjs        14 photo cases

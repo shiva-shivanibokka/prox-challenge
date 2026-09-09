@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { COMPONENT_META, Interactive, Speech } from './interactive'
+import { Guide } from './guide'
 import indexJson from '../../public/kb/index.json'
 
 type Block =
@@ -190,6 +191,7 @@ export default function Chat() {
   const [spend, setSpend] = useState(0)
   const [zoom, setZoom] = useState<{ url: string; alt: string } | null>(null)
   const [browsing, setBrowsing] = useState(false)
+  const [guiding, setGuiding] = useState(false)
   const [filter, setFilter] = useState('')
   const [listening, setListening] = useState(false)
   const [voiceIn, setVoiceIn] = useState(false)
@@ -241,7 +243,7 @@ export default function Chat() {
 
   useEffect(() => {
     const key = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') { setZoom(null); setBrowsing(false); window.speechSynthesis?.cancel() }
+      if (e.key === 'Escape') { setZoom(null); setBrowsing(false); setGuiding(false); window.speechSynthesis?.cancel() }
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); boxRef.current?.focus() }
     }
     window.addEventListener('keydown', key)
@@ -476,6 +478,7 @@ export default function Chat() {
         <span className="spacer" />
         <span className="meter">session <b>${spend.toFixed(3)}</b></span>
         {turns.length > 0 && <button className="railbtn" onClick={newChat}>New question</button>}
+        <button className="railbtn" aria-pressed={guiding} onClick={() => setGuiding((v) => !v)}>How it works</button>
         <button className="railbtn" aria-pressed={browsing} onClick={() => setBrowsing((v) => !v)}>Index</button>
       </div>
 
@@ -717,6 +720,8 @@ export default function Chat() {
           {voiceIn ? ' · mic for hands-free' : ''}
         </p>
       </div>
+
+      {guiding && <Guide onClose={() => setGuiding(false)} />}
 
       {browsing && (
         <div className="overlay" role="dialog" aria-label="Knowledge index">
