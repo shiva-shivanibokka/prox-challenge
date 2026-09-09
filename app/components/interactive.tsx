@@ -1,7 +1,7 @@
 'use client'
 
 /**
- * The five interactive components the agent can put on screen.
+ * The six interactive components the agent can put on screen.
  *
  * Every one reads the verified tables rather than anything the model produced, so
  * what a user pokes at cannot drift from the manual. The agent chooses which to show
@@ -530,6 +530,7 @@ export const COMPONENT_META: Record<string, { name: string; source: string }> = 
   troubleshooting_flowchart: { name: 'Fault checklist', source: 'Troubleshooting, p.42–44' },
   process_selector: { name: 'Which process', source: 'Selection chart' },
   settings_configurator: { name: 'Machine setup', source: 'p.7, p.13–14, p.20, selection chart' },
+  setup_walkthrough: { name: 'Guided setup', source: 'Setup procedures, p.13–32' },
 }
 
 export function Interactive({ component, props }: { component: string; props: Props }) {
