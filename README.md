@@ -7,6 +7,16 @@ figure, and refuse when the manual doesn't cover it. Built on the Claude Agent S
 against the manual's own diagnosis chart, tells you what to change — or tells you the
 weld is fine.
 
+### ▶ Live demo — https://omnipro-220-expert.vercel.app
+
+The landing page runs a **live instrument with no key at all**, and the index browser
+shows every extracted figure. To ask the agent a question it asks for your own Anthropic
+key, because a public URL wired to my key would spend my money. The key is held in memory
+for that browser tab only: no cookie, no localStorage, no server storage. A refresh loses
+it. Or skip the key entirely and run it locally:
+
+### Run it locally
+
 ```bash
 git clone https://github.com/shiva-shivanibokka/prox-challenge
 cd prox-challenge
@@ -16,11 +26,6 @@ npm run dev                   # http://localhost:3000
 ```
 
 Nothing is extracted at startup. No index to build, no second API key, no database.
-
-**Live demo:** https://omnipro-220-expert.vercel.app — it asks for your own Anthropic
-key, because a public URL wired to my key would spend my money. The key is held in
-memory for that browser tab only: no cookie, no localStorage, no server storage. A
-refresh loses it. The interactive panel on the landing page works without any key.
 
 ---
 
